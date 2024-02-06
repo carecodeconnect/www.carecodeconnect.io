@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0c9a9efbd94e4c07c53f1a71be88642f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_0c9a9efbd94e4c07c53f1a71be88642f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_0c9a9efbd94e4c07c53f1a71be88642f = L.map(
+                "map_0c9a9efbd94e4c07c53f1a71be88642f",
+                {
+                    center: [54.0, -2.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_badf87952ab2257bc1adc37f7f52a2bf = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_badf87952ab2257bc1adc37f7f52a2bf.addTo(map_0c9a9efbd94e4c07c53f1a71be88642f);
+        
+    
+            var feature_group_bfb541cabb049eae61f010913796df70 = L.featureGroup(
+                {}
+            );
+        
+    
+            var circle_marker_7e66cca7572253b30c8d58263da42f50 = L.circleMarker(
+                [50.51828, -3.664492],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bfb541cabb049eae61f010913796df70);
+        
+    
+        var popup_a44b22c5b0fcb4479418536756e83a2f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e8cc8a61ba1689736358d1a48bb9d752 = $(`<div id="html_e8cc8a61ba1689736358d1a48bb9d752" style="width: 100.0%; height: 100.0%;">Gaia House: 193</div>`)[0];
+                popup_a44b22c5b0fcb4479418536756e83a2f.setContent(html_e8cc8a61ba1689736358d1a48bb9d752);
+            
+        
+
+        circle_marker_7e66cca7572253b30c8d58263da42f50.bindPopup(popup_a44b22c5b0fcb4479418536756e83a2f)
+        ;
+
+        
+    
+    
+            var circle_marker_69f1276916fb2651f728e77d560d3b35 = L.circleMarker(
+                [53.056552, -4.222431],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.290155440414507, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bfb541cabb049eae61f010913796df70);
+        
+    
+        var popup_2ac0532c1fb48a136a77641fcacb9966 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1c6c912cf11add998c7b3be05fb95212 = $(`<div id="html_1c6c912cf11add998c7b3be05fb95212" style="width: 100.0%; height: 100.0%;">Trigonos: 160</div>`)[0];
+                popup_2ac0532c1fb48a136a77641fcacb9966.setContent(html_1c6c912cf11add998c7b3be05fb95212);
+            
+        
+
+        circle_marker_69f1276916fb2651f728e77d560d3b35.bindPopup(popup_2ac0532c1fb48a136a77641fcacb9966)
+        ;
+
+        
+    
+    
+            var circle_marker_a94513c9373127d21200dec902dcd565 = L.circleMarker(
+                [52.988445, -3.44418],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.891191709844559, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bfb541cabb049eae61f010913796df70);
+        
+    
+        var popup_1ff5f87c6b87c004ccffb06ebc0b53a2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f20d436dc2a9b03f71d3af94eae54978 = $(`<div id="html_f20d436dc2a9b03f71d3af94eae54978" style="width: 100.0%; height: 100.0%;">Triratna Buddhist Community: 133</div>`)[0];
+                popup_1ff5f87c6b87c004ccffb06ebc0b53a2.setContent(html_f20d436dc2a9b03f71d3af94eae54978);
+            
+        
+
+        circle_marker_a94513c9373127d21200dec902dcd565.bindPopup(popup_1ff5f87c6b87c004ccffb06ebc0b53a2)
+        ;
+
+        
+    
+    
+            var circle_marker_5403e38542fdc395f0763bdf1a822d65 = L.circleMarker(
+                [51.933516, -2.717368],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.352331606217616, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bfb541cabb049eae61f010913796df70);
+        
+    
+        var popup_0b0566dbcd8a64fe891f23e413fd346f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8b655d8de9de696bd598e414de0cd82d = $(`<div id="html_8b655d8de9de696bd598e414de0cd82d" style="width: 100.0%; height: 100.0%;">Vipassana Trust, Dhamma Dīpa: 84</div>`)[0];
+                popup_0b0566dbcd8a64fe891f23e413fd346f.setContent(html_8b655d8de9de696bd598e414de0cd82d);
+            
+        
+
+        circle_marker_5403e38542fdc395f0763bdf1a822d65.bindPopup(popup_0b0566dbcd8a64fe891f23e413fd346f)
+        ;
+
+        
+    
+    
+            var circle_marker_8b259b9d52c8b62608b91254f57afc5b = L.circleMarker(
+                [51.79146, -0.519677],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.383419689119171, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bfb541cabb049eae61f010913796df70);
+        
+    
+        var popup_b3bc5e856017b954443029eb54c7a921 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ffcfa07a390df93dc9d1ffc2639601c9 = $(`<div id="html_ffcfa07a390df93dc9d1ffc2639601c9" style="width: 100.0%; height: 100.0%;">Amaravati Retreat Centre: 46</div>`)[0];
+                popup_b3bc5e856017b954443029eb54c7a921.setContent(html_ffcfa07a390df93dc9d1ffc2639601c9);
+            
+        
+
+        circle_marker_8b259b9d52c8b62608b91254f57afc5b.bindPopup(popup_b3bc5e856017b954443029eb54c7a921)
+        ;
+
+        
+    
+    
+            var circle_marker_59022656f7807d862996517ea0376931 = L.circleMarker(
+                [53.483549, -2.237378],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.9844559585492227, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bfb541cabb049eae61f010913796df70);
+        
+    
+        var popup_6ef65f02fcf85e6f10d40b7036837fef = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cfccce2bc2e00f5542e0d33b915bd6c0 = $(`<div id="html_cfccce2bc2e00f5542e0d33b915bd6c0" style="width: 100.0%; height: 100.0%;">Breathworks: 19</div>`)[0];
+                popup_6ef65f02fcf85e6f10d40b7036837fef.setContent(html_cfccce2bc2e00f5542e0d33b915bd6c0);
+            
+        
+
+        circle_marker_59022656f7807d862996517ea0376931.bindPopup(popup_6ef65f02fcf85e6f10d40b7036837fef)
+        ;
+
+        
+    
+    
+            var circle_marker_e22174ac07b746330a33a328059dbdb2 = L.circleMarker(
+                [54.173493, -3.067669],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.8290155440414507, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bfb541cabb049eae61f010913796df70);
+        
+    
+        var popup_4395395bffe251ba0a575fcdea166cd2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fe662f8d86ee75dbcd6ab7b8b57e41eb = $(`<div id="html_fe662f8d86ee75dbcd6ab7b8b57e41eb" style="width: 100.0%; height: 100.0%;">Manjushri Kadampa Meditation Centre: 16</div>`)[0];
+                popup_4395395bffe251ba0a575fcdea166cd2.setContent(html_fe662f8d86ee75dbcd6ab7b8b57e41eb);
+            
+        
+
+        circle_marker_e22174ac07b746330a33a328059dbdb2.bindPopup(popup_4395395bffe251ba0a575fcdea166cd2)
+        ;
+
+        
+    
+    
+            var circle_marker_55e6366c2a7b60a9b4d9351810d0655f = L.circleMarker(
+                [51.750702, -1.238745],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.10362694300518134, "stroke": true, "weight": 3}
+            ).addTo(feature_group_bfb541cabb049eae61f010913796df70);
+        
+    
+        var popup_bdc3a40bd18dc7c6ec428132da7f273a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7d14748dfcd98440ff34895c64f25555 = $(`<div id="html_7d14748dfcd98440ff34895c64f25555" style="width: 100.0%; height: 100.0%;">Oxford Mindfulness Centre: 2</div>`)[0];
+                popup_bdc3a40bd18dc7c6ec428132da7f273a.setContent(html_7d14748dfcd98440ff34895c64f25555);
+            
+        
+
+        circle_marker_55e6366c2a7b60a9b4d9351810d0655f.bindPopup(popup_bdc3a40bd18dc7c6ec428132da7f273a)
+        ;
+
+        
+    
+    
+            feature_group_bfb541cabb049eae61f010913796df70.addTo(map_0c9a9efbd94e4c07c53f1a71be88642f);
+        
+    
+            var layer_control_1a3c1a09d61f8c3f2adfd8546f9a1eff_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_badf87952ab2257bc1adc37f7f52a2bf,
+                },
+                overlays :  {
+                    "Mindfulness Centers" : feature_group_bfb541cabb049eae61f010913796df70,
+                },
+            };
+            let layer_control_1a3c1a09d61f8c3f2adfd8546f9a1eff = L.control.layers(
+                layer_control_1a3c1a09d61f8c3f2adfd8546f9a1eff_layers.base_layers,
+                layer_control_1a3c1a09d61f8c3f2adfd8546f9a1eff_layers.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_0c9a9efbd94e4c07c53f1a71be88642f);
+
+        
+</script>
+</html>

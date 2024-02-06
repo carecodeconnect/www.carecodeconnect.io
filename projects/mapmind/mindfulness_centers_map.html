@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_33a3effe68ba59311194110688c3a722 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_33a3effe68ba59311194110688c3a722" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_33a3effe68ba59311194110688c3a722 = L.map(
+                "map_33a3effe68ba59311194110688c3a722",
+                {
+                    center: [54.0, -2.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_83a252ae05c39171bfd42af539c46d9b = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_83a252ae05c39171bfd42af539c46d9b.addTo(map_33a3effe68ba59311194110688c3a722);
+        
+    
+            var circle_marker_ca51a1e6b13c53ef4852bea920268498 = L.circleMarker(
+                [55.533467, -5.0874746],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0207253886010363, "stroke": true, "weight": 3}
+            ).addTo(map_33a3effe68ba59311194110688c3a722);
+        
+    
+        var popup_bb4a7eed6128d03c07ece67509f513e9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3ba1280e1b076f594b3db812724c99d6 = $(`<div id="html_3ba1280e1b076f594b3db812724c99d6" style="width: 100.0%; height: 100.0%;">Holy Isle: 39</div>`)[0];
+                popup_bb4a7eed6128d03c07ece67509f513e9.setContent(html_3ba1280e1b076f594b3db812724c99d6);
+            
+        
+
+        circle_marker_ca51a1e6b13c53ef4852bea920268498.bindPopup(popup_bb4a7eed6128d03c07ece67509f513e9)
+        ;
+
+        
+    
+    
+            var circle_marker_eb9d3b9b65c8cefd0f6730cb4ed547e4 = L.circleMarker(
+                [44.750513, 0.3415091],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1.2435233160621761, "stroke": true, "weight": 3}
+            ).addTo(map_33a3effe68ba59311194110688c3a722);
+        
+    
+        var popup_143bea8c0eb54f753f8907bf1cfbe439 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eab641fbeac5d6b312b2b7ef43a82afa = $(`<div id="html_eab641fbeac5d6b312b2b7ef43a82afa" style="width: 100.0%; height: 100.0%;">Plum Village: 24</div>`)[0];
+                popup_143bea8c0eb54f753f8907bf1cfbe439.setContent(html_eab641fbeac5d6b312b2b7ef43a82afa);
+            
+        
+
+        circle_marker_eb9d3b9b65c8cefd0f6730cb4ed547e4.bindPopup(popup_143bea8c0eb54f753f8907bf1cfbe439)
+        ;
+
+        
+    
+    
+            var circle_marker_3662b84fbd16d77adbd0d26410685e91 = L.circleMarker(
+                [55.287437, -3.1876922],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.9533678756476682, "stroke": true, "weight": 3}
+            ).addTo(map_33a3effe68ba59311194110688c3a722);
+        
+    
+        var popup_202977a8a9b409580f9944bf3fd5d09a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_22374f1c759c912770f99428bb112cf5 = $(`<div id="html_22374f1c759c912770f99428bb112cf5" style="width: 100.0%; height: 100.0%;">Samye Ling: 57</div>`)[0];
+                popup_202977a8a9b409580f9944bf3fd5d09a.setContent(html_22374f1c759c912770f99428bb112cf5);
+            
+        
+
+        circle_marker_3662b84fbd16d77adbd0d26410685e91.bindPopup(popup_202977a8a9b409580f9944bf3fd5d09a)
+        ;
+
+        
+    
+    
+            var circle_marker_536033d9410c9379930150339a0ffb4d = L.circleMarker(
+                [-25.743249, 26.349999],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.15544041450777202, "stroke": true, "weight": 3}
+            ).addTo(map_33a3effe68ba59311194110688c3a722);
+        
+    
+        var popup_d7c8ba1a1b8bca89a1ebd0479b54827e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a5fdd7246400f98f2e025ccc8863e78e = $(`<div id="html_a5fdd7246400f98f2e025ccc8863e78e" style="width: 100.0%; height: 100.0%;">Tara Rokpa Centre: 3</div>`)[0];
+                popup_d7c8ba1a1b8bca89a1ebd0479b54827e.setContent(html_a5fdd7246400f98f2e025ccc8863e78e);
+            
+        
+
+        circle_marker_536033d9410c9379930150339a0ffb4d.bindPopup(popup_d7c8ba1a1b8bca89a1ebd0479b54827e)
+        ;
+
+        
+    
+    
+            var circle_marker_e4191ec1ad2c05110ea749a7e5e95c86 = L.circleMarker(
+                [51.65083, -3.23167],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.41450777202072536, "stroke": true, "weight": 3}
+            ).addTo(map_33a3effe68ba59311194110688c3a722);
+        
+    
+        var popup_17c1d708ab97831ed567ca63d7be038c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cfa0a78e847b0b31e489ecb454960888 = $(`<div id="html_cfa0a78e847b0b31e489ecb454960888" style="width: 100.0%; height: 100.0%;">Western Chan Fellowship: 8</div>`)[0];
+                popup_17c1d708ab97831ed567ca63d7be038c.setContent(html_cfa0a78e847b0b31e489ecb454960888);
+            
+        
+
+        circle_marker_e4191ec1ad2c05110ea749a7e5e95c86.bindPopup(popup_17c1d708ab97831ed567ca63d7be038c)
+        ;
+
+        
+    
+</script>
+</html>

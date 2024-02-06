@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 7787aba8-ca7d-4334-b0ae-b1399bad558a
+      url: 'https://carecodeconnect.quarto.pub/portfolio'

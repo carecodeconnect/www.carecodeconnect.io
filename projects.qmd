@@ -1,0 +1,113 @@
+---
+title: "Projects"
+page-layout: full
+title-block-banner: true
+toc: true
+---
+
+# A Mindset for the Anthropocene
+
+![A Mindset for the Anthropocene](projects/mindset_for_anthropocene/mindset_for_anthropocene.png)
+
+This project involved network visualisation of resources for sustainable futures: [A Mindset for the Anthropocene](https://www.ama-project.org/explore/)
+
+# Automatic Customer Review Analyser
+
+This project uses Machine Learning to turn customer reviews into actionable insights. It uses classification, implementing Linear Classifiers (Perceptron, Average Perceptron, and Pegasos Algorithm), to classify the reviews as ‘positive’ or ‘negative’. Focusing on Amazon’s food product reviews, this system employs sentiment analysis to categorize feedback, providing an automated, efficient, and scalable approach to handling customer reviews.
+
+[Click for GitHub repository](https://github.com/carecodeconnect/automatic-review-analyzer)
+
+# [Building a Data Science Server on Raspberry Pi](projects/server/server.qmd)
+
+```{mermaid}
+graph TD;
+    A[Raspberry Pi 5] -->|Hosts| B[Ubuntu Server];
+    B --> C[SSH for Remote Access];
+    B -->|Web Server| D[NGINX];
+    D --> E[UFW Firewall];
+    D -->|SSL Encryption| F[SSL Certificates];
+    B -->|Publishing & Presentation| G[Quarto];
+    G -->|Content Editing| H[Visual Studio Code];
+    G -->|Version Control| I[Git with GitHub];
+    H -->|Remote Development| J[VS Code Remote Development Extension];
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#fcf,stroke:#333,stroke-width:2px
+    style C fill:#cff,stroke:#333,stroke-width:2px
+    style D fill:#fcf,stroke:#333,stroke-width:2px
+    style E fill:#cff,stroke:#333,stroke-width:2px
+    style F fill:#fcf,stroke:#333,stroke-width:2px
+    style G fill:#cff,stroke:#333,stroke-width:2px
+    style H fill:#fcf,stroke:#333,stroke-width:2px
+    style I fill:#cff,stroke:#333,stroke-width:2px
+    style J fill:#fcf,stroke:#333,stroke-width:2px
+
+```
+
+A tutorial to build a self-hosted data science server on a Raspberry Pi 5.
+
+# Data Visualisation with D3
+
+A work-in-progress sandbox of a D3 app deployed with GitHub Projects.
+
+[Click for GitHub repository](https://github.com/carecodeconnect/data-visualisation-d3)
+
+# Digit Recogniser
+
+A deep learning neural network which recognises handwritten digits. It develops a Multi-Level Perceptron (MLP) model for handwritten digit recognition using the MNIST dataset, implemented entirely by hand using Python's NumPy library. The project emphasizes Object-Oriented Programming (OOP) for a modular and clear code structure.
+
+[Click for GitHub repository](https://github.com/carecodeconnect/digit-recogniser)
+
+# Jhana: Meditation Teacher (Coming Soon)
+
+This project is an interactive meditation teacher providing personalised voice guidance in deep states of tranquility. It combines cutting-edge open source HuggingFace Transformer architectures for Natural Language Processing (NLP) with insights from Conversation Analysis.
+
+# Job Seeker (Coming Soon)
+
+A tool to automate the process of finding a job.
+
+# Lease Linker (Coming Soon)
+
+A tool to automate the process of finding accommodation.
+
+# [MapMind (Part I): Mapping the Mindfulness Movement](projects/mapmind/mapmind_mapping.qmd)
+
+![Heatmap of mindfulness teachers and mindfulness teaching in the U.K.](projects/mapmind/images/mapmind_heatmap_new.png)
+
+The MapMind project studied the people at the forefront of the mindfulness movement. The analysis in this report utilized the Machine Learning algorithm **K-Means clustering** to explore the urban concentrations of mindfulness teaching, demonstrating its effectiveness in handling nationwide geospatial datasets.
+
+# [MapMind (Part II): Who Are Mindfulness Teachers?](projects/mapmind/mapmind_demographics.qmd)
+
+![The project studied the people at the forefront of the mindfulness movement](projects/mapmind/images/mindfulness-in-uk.jpg)
+
+In Part II of the MapMind project, we explore the demographics of mindfulness teachers. We use **Exploratory Data Analysis** (EDA) and **data visualisation** to reveal the hidden patterns in the survey data using descriptive statistics.
+
+# [MapMind (Part III): Digital Divides: Mindfulness Teaching & Technology](projects/mapmind/mapmind_technology.qmd)
+
+![The project studied digital divides in mindfulness teaching](projects/mapmind/images/mapmind-digital-divides.png)
+
+The final part of the MapMind project looks at how mindfulness teachers relate to technology, and uses predictive modeling using **Chi-Squared tests** and **logistic regression** to identify the factors that predict whether mindfulness teachers engage in online teaching based on several features, including gender, years of teaching experience, whether they hold a management position, and their nationality.
+
+# Movie Recommender with Ridge Regression
+
+This project provides accurate movie recommendations based on user preferences and historical ratings data. The recommender uses **Ridge regression** to learn to predict ratings based on a substantial amount of data. The results indicate a relatively low average deviation of the predicted ratings from the actual ratings, demonstrating the model's effectiveness in making accurate predictions.
+
+[Click for GitHub repository](https://github.com/carecodeconnect/movie_recommender)
+
+# Richter's Predictor: Modeling Earthquake Damage
+
+Based on aspects of building location and construction, this project predicts the level of damage to buildings caused by the 2015 Gorkha earthquake in Nepal. Our team of data scientists from [Data Science Retreat](https://datascienceretreat.com/) developed a model to predict the level of damage to the buildings. We used a variety of machine learning models, including **Logistic Regression**, **Gradient Boosting**, **XGBoost**, and **Neural Networks**. This project uses data provided by [DrivenData](https://www.drivendata.org/). The data was collected through surveys by Kathmandu Living Labs and the Central Bureau of Statistics, which works under the National Planning Commission Secretariat of Nepal. This survey is one of the largest post-disaster datasets ever collected, containing valuable information on earthquake impacts, household conditions, and socio-economic-demographic statistics.
+
+[Click for GitHub repository](https://github.com/carecodeconnect/richters-predictor)
+
+# Weather Analysis Toolkit
+
+![Predicting the weather](projects/weather/weather.png)
+
+This project is a toolkit for fetching, analyzing, and generating reports on weather data. It assesses forecast accuracy over time and understanding weekly weather statistics. This version of the toolkit reports today's weather and the forecast weather for tomorrow at noon in Berlin.
+
+[Click for GitHub repository](https://github.com/carecodeconnect/weather)
+
+# Wine Review Analyser (Coming Soon)
+
+This project employs pandas, scikit-learn, and sentiment analysis to model wine sales and reviews.

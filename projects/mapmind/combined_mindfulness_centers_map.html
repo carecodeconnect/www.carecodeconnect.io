@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f45e735ce2f1ccad5f6ad89aa6f4e9ab {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_f45e735ce2f1ccad5f6ad89aa6f4e9ab" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f45e735ce2f1ccad5f6ad89aa6f4e9ab = L.map(
+                "map_f45e735ce2f1ccad5f6ad89aa6f4e9ab",
+                {
+                    center: [54.0, -2.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ddbdeec6fafac25e96b3cbc593582340 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_ddbdeec6fafac25e96b3cbc593582340.addTo(map_f45e735ce2f1ccad5f6ad89aa6f4e9ab);
+        
+    
+            var feature_group_75b21d7fe3d34b44f9deb31a1e38c784 = L.featureGroup(
+                {}
+            );
+        
+    
+            var circle_marker_169069fe0b052fe6f95425e6f149e5f0 = L.circleMarker(
+                [51.79146, -0.519677],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.383419689119171, "stroke": true, "weight": 3}
+            ).addTo(feature_group_75b21d7fe3d34b44f9deb31a1e38c784);
+        
+    
+        var popup_d9c93591c02fb447683d7d18d1c7f387 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_82689d613907822d05cb1f1b36a9104b = $(`<div id="html_82689d613907822d05cb1f1b36a9104b" style="width: 100.0%; height: 100.0%;">Amaravati Retreat Centre: 46</div>`)[0];
+                popup_d9c93591c02fb447683d7d18d1c7f387.setContent(html_82689d613907822d05cb1f1b36a9104b);
+            
+        
+
+        circle_marker_169069fe0b052fe6f95425e6f149e5f0.bindPopup(popup_d9c93591c02fb447683d7d18d1c7f387)
+        ;
+
+        
+    
+    
+            var circle_marker_790516a2a6f3969dca22fdda9f459c3f = L.circleMarker(
+                [53.483549, -2.237378],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.9844559585492227, "stroke": true, "weight": 3}
+            ).addTo(feature_group_75b21d7fe3d34b44f9deb31a1e38c784);
+        
+    
+        var popup_add067c5b345866ad13c07511b307c4a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d0440c4b8ded57755b82890d5bdb78ef = $(`<div id="html_d0440c4b8ded57755b82890d5bdb78ef" style="width: 100.0%; height: 100.0%;">Breathworks: 19</div>`)[0];
+                popup_add067c5b345866ad13c07511b307c4a.setContent(html_d0440c4b8ded57755b82890d5bdb78ef);
+            
+        
+
+        circle_marker_790516a2a6f3969dca22fdda9f459c3f.bindPopup(popup_add067c5b345866ad13c07511b307c4a)
+        ;
+
+        
+    
+    
+            var circle_marker_8d64f9315386d94eb7be2646507792ee = L.circleMarker(
+                [50.51828, -3.664492],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.0, "stroke": true, "weight": 3}
+            ).addTo(feature_group_75b21d7fe3d34b44f9deb31a1e38c784);
+        
+    
+        var popup_86d10f75ffcc34f527651ea7185c20f2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e5a381cf0e63a843bde2196741f772e6 = $(`<div id="html_e5a381cf0e63a843bde2196741f772e6" style="width: 100.0%; height: 100.0%;">Gaia House: 193</div>`)[0];
+                popup_86d10f75ffcc34f527651ea7185c20f2.setContent(html_e5a381cf0e63a843bde2196741f772e6);
+            
+        
+
+        circle_marker_8d64f9315386d94eb7be2646507792ee.bindPopup(popup_86d10f75ffcc34f527651ea7185c20f2)
+        ;
+
+        
+    
+    
+            var circle_marker_c14527454140f77fda52d5cf89d4e664 = L.circleMarker(
+                [54.173493, -3.067669],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.8290155440414507, "stroke": true, "weight": 3}
+            ).addTo(feature_group_75b21d7fe3d34b44f9deb31a1e38c784);
+        
+    
+        var popup_8d492dad623983d6bf47eaa594b29499 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_eb39ad9b3a936fcc3de0518342a4d6e3 = $(`<div id="html_eb39ad9b3a936fcc3de0518342a4d6e3" style="width: 100.0%; height: 100.0%;">Manjushri Kadampa Meditation Centre: 16</div>`)[0];
+                popup_8d492dad623983d6bf47eaa594b29499.setContent(html_eb39ad9b3a936fcc3de0518342a4d6e3);
+            
+        
+
+        circle_marker_c14527454140f77fda52d5cf89d4e664.bindPopup(popup_8d492dad623983d6bf47eaa594b29499)
+        ;
+
+        
+    
+    
+            var circle_marker_443dfdac5a36b3115230844ebf135f6d = L.circleMarker(
+                [51.750702, -1.238745],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.10362694300518134, "stroke": true, "weight": 3}
+            ).addTo(feature_group_75b21d7fe3d34b44f9deb31a1e38c784);
+        
+    
+        var popup_d0b330ec12e439f2b79c5d5284b25992 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ed31a2bdd25ddc6dae176b806c9e2991 = $(`<div id="html_ed31a2bdd25ddc6dae176b806c9e2991" style="width: 100.0%; height: 100.0%;">Oxford Mindfulness Centre: 2</div>`)[0];
+                popup_d0b330ec12e439f2b79c5d5284b25992.setContent(html_ed31a2bdd25ddc6dae176b806c9e2991);
+            
+        
+
+        circle_marker_443dfdac5a36b3115230844ebf135f6d.bindPopup(popup_d0b330ec12e439f2b79c5d5284b25992)
+        ;
+
+        
+    
+    
+            var circle_marker_d88c86ea49a4fb8e96e20baebe2d8a84 = L.circleMarker(
+                [53.056552, -4.222431],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.290155440414507, "stroke": true, "weight": 3}
+            ).addTo(feature_group_75b21d7fe3d34b44f9deb31a1e38c784);
+        
+    
+        var popup_bedf7415722c48e5a122598f526dcc13 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_29c1c8d962981c00a30d41d81678cdc5 = $(`<div id="html_29c1c8d962981c00a30d41d81678cdc5" style="width: 100.0%; height: 100.0%;">Trigonos: 160</div>`)[0];
+                popup_bedf7415722c48e5a122598f526dcc13.setContent(html_29c1c8d962981c00a30d41d81678cdc5);
+            
+        
+
+        circle_marker_d88c86ea49a4fb8e96e20baebe2d8a84.bindPopup(popup_bedf7415722c48e5a122598f526dcc13)
+        ;
+
+        
+    
+    
+            var circle_marker_e4e4bf5102bbdbc7e926b487e896e51f = L.circleMarker(
+                [52.988445, -3.44418],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.891191709844559, "stroke": true, "weight": 3}
+            ).addTo(feature_group_75b21d7fe3d34b44f9deb31a1e38c784);
+        
+    
+        var popup_168c688bf4e11e3465cebf4c2a60bdb3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a29d2b9e5c0b63130f01b951d0fb7d7b = $(`<div id="html_a29d2b9e5c0b63130f01b951d0fb7d7b" style="width: 100.0%; height: 100.0%;">Triratna Buddhist Community: 133</div>`)[0];
+                popup_168c688bf4e11e3465cebf4c2a60bdb3.setContent(html_a29d2b9e5c0b63130f01b951d0fb7d7b);
+            
+        
+
+        circle_marker_e4e4bf5102bbdbc7e926b487e896e51f.bindPopup(popup_168c688bf4e11e3465cebf4c2a60bdb3)
+        ;
+
+        
+    
+    
+            var circle_marker_776b471a4980e48169f85f1d937772df = L.circleMarker(
+                [51.933516, -2.717368],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.352331606217616, "stroke": true, "weight": 3}
+            ).addTo(feature_group_75b21d7fe3d34b44f9deb31a1e38c784);
+        
+    
+        var popup_6b5cc970f4ca6f34ff1983f26e901a7b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c724a63ef68057f58c55fedd11aea4dc = $(`<div id="html_c724a63ef68057f58c55fedd11aea4dc" style="width: 100.0%; height: 100.0%;">Vipassana Trust, Dhamma Dīpa: 84</div>`)[0];
+                popup_6b5cc970f4ca6f34ff1983f26e901a7b.setContent(html_c724a63ef68057f58c55fedd11aea4dc);
+            
+        
+
+        circle_marker_776b471a4980e48169f85f1d937772df.bindPopup(popup_6b5cc970f4ca6f34ff1983f26e901a7b)
+        ;
+
+        
+    
+    
+            var circle_marker_94eb2fc484c25bc11b5d94f5313dda03 = L.circleMarker(
+                [55.533467, -5.0874746],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0207253886010363, "stroke": true, "weight": 3}
+            ).addTo(feature_group_75b21d7fe3d34b44f9deb31a1e38c784);
+        
+    
+        var popup_f3bb0042e476578ab2147f9d322d4932 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_de09ca0e5ab81c8dac7218bc885e4c3b = $(`<div id="html_de09ca0e5ab81c8dac7218bc885e4c3b" style="width: 100.0%; height: 100.0%;">Holy Isle: 39</div>`)[0];
+                popup_f3bb0042e476578ab2147f9d322d4932.setContent(html_de09ca0e5ab81c8dac7218bc885e4c3b);
+            
+        
+
+        circle_marker_94eb2fc484c25bc11b5d94f5313dda03.bindPopup(popup_f3bb0042e476578ab2147f9d322d4932)
+        ;
+
+        
+    
+    
+            var circle_marker_9d3a9d08e76837f59625b38fa53919ec = L.circleMarker(
+                [44.750513, 0.3415091],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1.2435233160621761, "stroke": true, "weight": 3}
+            ).addTo(feature_group_75b21d7fe3d34b44f9deb31a1e38c784);
+        
+    
+        var popup_744741612503979c8b89e8a4ca9fe0d2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f376e76696e4cedd118482efe6761824 = $(`<div id="html_f376e76696e4cedd118482efe6761824" style="width: 100.0%; height: 100.0%;">Plum Village: 24</div>`)[0];
+                popup_744741612503979c8b89e8a4ca9fe0d2.setContent(html_f376e76696e4cedd118482efe6761824);
+            
+        
+
+        circle_marker_9d3a9d08e76837f59625b38fa53919ec.bindPopup(popup_744741612503979c8b89e8a4ca9fe0d2)
+        ;
+
+        
+    
+    
+            var circle_marker_40f5a46f526a8c9251d59b3dbacf3efb = L.circleMarker(
+                [55.287437, -3.1876922],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.9533678756476682, "stroke": true, "weight": 3}
+            ).addTo(feature_group_75b21d7fe3d34b44f9deb31a1e38c784);
+        
+    
+        var popup_e6dafbf55ee10e17e8c829a2c8d2c2b7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ef2d5719be74fca33ced0dd08d090b22 = $(`<div id="html_ef2d5719be74fca33ced0dd08d090b22" style="width: 100.0%; height: 100.0%;">Samye Ling: 57</div>`)[0];
+                popup_e6dafbf55ee10e17e8c829a2c8d2c2b7.setContent(html_ef2d5719be74fca33ced0dd08d090b22);
+            
+        
+
+        circle_marker_40f5a46f526a8c9251d59b3dbacf3efb.bindPopup(popup_e6dafbf55ee10e17e8c829a2c8d2c2b7)
+        ;
+
+        
+    
+    
+            var circle_marker_dd7d06f7a6c46592d6887d8ed257dc92 = L.circleMarker(
+                [-25.743249, 26.349999],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.15544041450777202, "stroke": true, "weight": 3}
+            ).addTo(feature_group_75b21d7fe3d34b44f9deb31a1e38c784);
+        
+    
+        var popup_c24ed9cd23d53f7ae631105f7e68ef06 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9d2a96f1adf7c9a99a02fb83e5f37d92 = $(`<div id="html_9d2a96f1adf7c9a99a02fb83e5f37d92" style="width: 100.0%; height: 100.0%;">Tara Rokpa Centre: 3</div>`)[0];
+                popup_c24ed9cd23d53f7ae631105f7e68ef06.setContent(html_9d2a96f1adf7c9a99a02fb83e5f37d92);
+            
+        
+
+        circle_marker_dd7d06f7a6c46592d6887d8ed257dc92.bindPopup(popup_c24ed9cd23d53f7ae631105f7e68ef06)
+        ;
+
+        
+    
+    
+            var circle_marker_cbaf95a9c6bfa19c5e2fd50fa3d76bdb = L.circleMarker(
+                [51.65083, -3.23167],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.41450777202072536, "stroke": true, "weight": 3}
+            ).addTo(feature_group_75b21d7fe3d34b44f9deb31a1e38c784);
+        
+    
+        var popup_7005ca91a631e05b6b79b86fa2d1e418 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_02e557c79b67dac2c4c77b418ac35135 = $(`<div id="html_02e557c79b67dac2c4c77b418ac35135" style="width: 100.0%; height: 100.0%;">Western Chan Fellowship: 8</div>`)[0];
+                popup_7005ca91a631e05b6b79b86fa2d1e418.setContent(html_02e557c79b67dac2c4c77b418ac35135);
+            
+        
+
+        circle_marker_cbaf95a9c6bfa19c5e2fd50fa3d76bdb.bindPopup(popup_7005ca91a631e05b6b79b86fa2d1e418)
+        ;
+
+        
+    
+    
+            feature_group_75b21d7fe3d34b44f9deb31a1e38c784.addTo(map_f45e735ce2f1ccad5f6ad89aa6f4e9ab);
+        
+    
+            var layer_control_b1e3976be3c79915969b2e5ac0a43c51_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_ddbdeec6fafac25e96b3cbc593582340,
+                },
+                overlays :  {
+                    "Retreat Centres" : feature_group_75b21d7fe3d34b44f9deb31a1e38c784,
+                },
+            };
+            let layer_control_b1e3976be3c79915969b2e5ac0a43c51 = L.control.layers(
+                layer_control_b1e3976be3c79915969b2e5ac0a43c51_layers.base_layers,
+                layer_control_b1e3976be3c79915969b2e5ac0a43c51_layers.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_f45e735ce2f1ccad5f6ad89aa6f4e9ab);
+
+        
+</script>
+</html>

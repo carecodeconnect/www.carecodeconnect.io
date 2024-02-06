@@ -1,0 +1,86 @@
+---
+title: "Skills"
+---
+
+## Data Analysis
+
+- 📊 Excel
+- 🧮 Numpy
+- 📚 Pandas
+- 🔍 NVIVO
+- 📐 SPSS
+- 📖 Text Mining
+- 🧐 Thematic Analysis
+- 📏 Tidyverse (dplyr)
+
+## Data Engineering
+
+- 🖥️ Bash
+- 🐋 Docker
+- 🌐 Git & GitHub
+- 🐧 Linux
+- ⚙️ NGINX
+- 🧪 Pytest
+- 💻 Shell Scripting
+
+## Data Visualisation
+
+- 📉 D3.js
+- 🗺️ Folium
+- 📊 Ggplot2
+- 🌍 Leaflet
+- 📈 Matplotlib
+- 📊 Plotly
+- 📈 Seaborn
+
+## Databases & Programming
+
+- 🐍 Python
+- 💻 R
+- 💾 SQL
+
+## Dashboards & Reporting
+
+- 📄 LaTeX
+- 📊 Markdown
+- 📈 Quarto
+- 📊 Shiny
+- 📄 Sphynx
+- 📈 Streamlit
+
+## Machine Learning
+
+- 🤖 Keras
+- 📜 NLTK
+- 🤖 Pytorch
+- 🧠 Scikit-Learn
+- 🧠 SpaCy
+- 🤖 Tensorflow
+
+## People Skills
+
+- 🗣️ Communication
+- 🤝 Collaboration
+- 🌍 Cultural Awareness
+- 💡 Generating Insightful Impacts
+- 🌐 Global Experience
+- 📈 Leadership
+- 🧠 Lifelong Learning
+- 🤹 Marketing
+- 🧑‍🏫 Mentoring
+- 🧘‍♂️ Patience
+- 🎤 Presentations
+- 🤝 Project Management
+- 🧑‍🔬 Psychology
+- 🧑‍💼 Recruitment
+- 👥 Stakeholder Engagement
+- 🛠️ Teamwork
+
+## Research
+
+- 🔬 Experiments
+- 🗣️ Interviews
+- 🧑‍🤝‍🧑 Focus Groups
+- 📊 Qualtrics
+- 📉 Survey Monkey
+- 🌐 Web Surveys

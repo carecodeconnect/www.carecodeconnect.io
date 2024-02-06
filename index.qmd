@@ -1,0 +1,24 @@
+---
+format: 
+    html:
+        code-fold: true
+fontsize: "20"
+---
+
+Welcome to our portfolio! 🤗
+
+**Social Data Science** combines the tools of social science and data science to build solutions to complex social problems.
+
+1. **We decode the matrix of human relations with technology**: by linking computation with interpretation, we tell the human stories behind the data.
+
+2. **We build machine learning solutions to create caring futures**: a data revolution that is equitable, fair, and sustainable. Our solutions are infused with care, ethics, privacy. We are sensitive to cultural, geographical, historical circumstances, social contexts and differences that make a difference.
+
+3. **We use cutting-edge free and open source technologies to put people at the heart of the data**. We inform evidence-based decision-making and actionable 'outsights' to make the world a better place.
+
+In short, we **care**, **code**, **connect**.
+
+Explore our [projects](projects.qmd) to find out more!
+
+This portfolio was made with ❤️ using [Python](https://www.python.org/), [Quarto](https://quarto.org/) and [Shiny](https://shiny.rstudio.com/).
+
+

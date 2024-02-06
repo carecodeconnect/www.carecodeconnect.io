@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_85227a8890a923d04c1d126681d6765e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_85227a8890a923d04c1d126681d6765e" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_85227a8890a923d04c1d126681d6765e = L.map(
+                "map_85227a8890a923d04c1d126681d6765e",
+                {
+                    center: [54.0, -2.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 6,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c00eeaa8497501fb740ef771fb532499 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_c00eeaa8497501fb740ef771fb532499.addTo(map_85227a8890a923d04c1d126681d6765e);
+        
+    
+            var feature_group_d7906c0c88ab2930dc76ab636704d839 = L.featureGroup(
+                {}
+            );
+        
+    
+            var marker_7e6e861666201e1ac745a9595d46363f = L.marker(
+                [53.483549, -2.237378],
+                {}
+            ).addTo(feature_group_d7906c0c88ab2930dc76ab636704d839);
+        
+    
+            marker_7e6e861666201e1ac745a9595d46363f.bindTooltip(
+                `<div>
+                     Breathworks (Manchester)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c53099a2b35d87e20ea04bb2104adf33 = L.marker(
+                [53.228419, -4.131016],
+                {}
+            ).addTo(feature_group_d7906c0c88ab2930dc76ab636704d839);
+        
+    
+            marker_c53099a2b35d87e20ea04bb2104adf33.bindTooltip(
+                `<div>
+                     Centre for Mindfulness Research and Practice (Bangor University)
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_04f65507eae2d1788c3ea07d79dc733e = L.marker(
+                [50.733159, -3.536442],
+                {}
+            ).addTo(feature_group_d7906c0c88ab2930dc76ab636704d839);
+        
+    
+            marker_04f65507eae2d1788c3ea07d79dc733e.bindTooltip(
+                `<div>
+                     Exeter University
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e9ba262389906e3db46dd3717d5474c4 = L.marker(
+                [50.51828, -3.664492],
+                {}
+            ).addTo(feature_group_d7906c0c88ab2930dc76ab636704d839);
+        
+    
+            marker_e9ba262389906e3db46dd3717d5474c4.bindTooltip(
+                `<div>
+                     Gaia House
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d7dfe4b336632bd635290158f02d2768 = L.marker(
+                [53.555264, -2.30625],
+                {}
+            ).addTo(feature_group_d7906c0c88ab2930dc76ab636704d839);
+        
+    
+            marker_d7dfe4b336632bd635290158f02d2768.bindTooltip(
+                `<div>
+                     Integrated Mindfulness Training
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_117619f6b947adc15f1bd06abc7a4354 = L.marker(
+                [57.234664, -2.45883],
+                {}
+            ).addTo(feature_group_d7906c0c88ab2930dc76ab636704d839);
+        
+    
+            marker_117619f6b947adc15f1bd06abc7a4354.bindTooltip(
+                `<div>
+                     Mindfulness Association
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1fcdf916c9493c349a4ea013ae88fed5 = L.marker(
+                [51.197622, 0.274699],
+                {}
+            ).addTo(feature_group_d7906c0c88ab2930dc76ab636704d839);
+        
+    
+            marker_1fcdf916c9493c349a4ea013ae88fed5.bindTooltip(
+                `<div>
+                     Mindfulness in Schools Project
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_be0a30b07dc3f5bd32aae13b967e76bd = L.marker(
+                [50.908137, -3.12111],
+                {}
+            ).addTo(feature_group_d7906c0c88ab2930dc76ab636704d839);
+        
+    
+            marker_be0a30b07dc3f5bd32aae13b967e76bd.bindTooltip(
+                `<div>
+                     Mindfulness UK
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_21391b000ed9c86d012bb4cb6e3e3ab9 = L.marker(
+                [52.966555, -1.123128],
+                {}
+            ).addTo(feature_group_d7906c0c88ab2930dc76ab636704d839);
+        
+    
+            marker_21391b000ed9c86d012bb4cb6e3e3ab9.bindTooltip(
+                `<div>
+                     Nottingham Centre for Mindfulness
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a24dd9cbd20f8456552e4512f0ca7811 = L.marker(
+                [51.750702, -1.238745],
+                {}
+            ).addTo(feature_group_d7906c0c88ab2930dc76ab636704d839);
+        
+    
+            marker_a24dd9cbd20f8456552e4512f0ca7811.bindTooltip(
+                `<div>
+                     Oxford Mindfulness Centre
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fb948bbed44e36261189af57e99d04ec = L.marker(
+                [50.830147, -0.184248],
+                {}
+            ).addTo(feature_group_d7906c0c88ab2930dc76ab636704d839);
+        
+    
+            marker_fb948bbed44e36261189af57e99d04ec.bindTooltip(
+                `<div>
+                     Sussex Mindfulness Centre
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_a255f5df4d965c27ee731d723f3df9e0 = L.marker(
+                [57.164841, -2.100236],
+                {}
+            ).addTo(feature_group_d7906c0c88ab2930dc76ab636704d839);
+        
+    
+            marker_a255f5df4d965c27ee731d723f3df9e0.bindTooltip(
+                `<div>
+                     University of Aberdeen
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_688031df44eeb69f5e778082c568ebbe = L.marker(
+                [55.856142, -4.247335],
+                {}
+            ).addTo(feature_group_d7906c0c88ab2930dc76ab636704d839);
+        
+    
+            marker_688031df44eeb69f5e778082c568ebbe.bindTooltip(
+                `<div>
+                     Youth Mindfulness
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            feature_group_d7906c0c88ab2930dc76ab636704d839.addTo(map_85227a8890a923d04c1d126681d6765e);
+        
+    
+            var marker_bf0b87ca8dfeae9cfc184ad9b977ad68 = L.marker(
+                [42.272889, -71.76770473919046],
+                {}
+            ).addTo(map_85227a8890a923d04c1d126681d6765e);
+        
+    
+            marker_bf0b87ca8dfeae9cfc184ad9b977ad68.bindTooltip(
+                `<div>
+                     UMass Centre for Mindfulness
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var layer_control_f2de20c93f802e378802981d6dca760f_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_c00eeaa8497501fb740ef771fb532499,
+                },
+                overlays :  {
+                    "Mindfulness Centers" : feature_group_d7906c0c88ab2930dc76ab636704d839,
+                },
+            };
+            let layer_control_f2de20c93f802e378802981d6dca760f = L.control.layers(
+                layer_control_f2de20c93f802e378802981d6dca760f_layers.base_layers,
+                layer_control_f2de20c93f802e378802981d6dca760f_layers.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_85227a8890a923d04c1d126681d6765e);
+
+        
+</script>
+</html>
