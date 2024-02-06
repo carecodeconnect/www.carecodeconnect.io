@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Portfolio - Building a Data Science Server on Raspberry Pi</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Portfolio</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../testimonials.html" rel="" target="">
+ <span class="menu-text">Testimonials</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary">Executive Summary</a></li>
+  <li><a href="#problem-statement" id="toc-problem-statement" class="nav-link" data-scroll-target="#problem-statement">Problem Statement</a>
+  <ul class="collapse">
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective">Objective</a></li>
+  <li><a href="#business-justification" id="toc-business-justification" class="nav-link" data-scroll-target="#business-justification">Business Justification</a></li>
+  <li><a href="#technical-justification" id="toc-technical-justification" class="nav-link" data-scroll-target="#technical-justification">Technical Justification</a></li>
+  </ul></li>
+  <li><a href="#system-information" id="toc-system-information" class="nav-link" data-scroll-target="#system-information">System Information</a>
+  <ul class="collapse">
+  <li><a href="#system-information-with-neofetch" id="toc-system-information-with-neofetch" class="nav-link" data-scroll-target="#system-information-with-neofetch">System Information with Neofetch</a></li>
+  <li><a href="#neofetch-installation" id="toc-neofetch-installation" class="nav-link" data-scroll-target="#neofetch-installation">Neofetch Installation</a></li>
+  </ul></li>
+  <li><a href="#tools-and-software-used" id="toc-tools-and-software-used" class="nav-link" data-scroll-target="#tools-and-software-used">Tools and Software Used</a></li>
+  <li><a href="#step-by-step-technical-walkthrough" id="toc-step-by-step-technical-walkthrough" class="nav-link" data-scroll-target="#step-by-step-technical-walkthrough">Step-by-Step Technical Walkthrough</a>
+  <ul class="collapse">
+  <li><a href="#installing-ubuntu-server-on-raspberry-pi" id="toc-installing-ubuntu-server-on-raspberry-pi" class="nav-link" data-scroll-target="#installing-ubuntu-server-on-raspberry-pi">Installing Ubuntu Server on Raspberry Pi</a></li>
+  <li><a href="#update-and-upgrade-ubuntu-server" id="toc-update-and-upgrade-ubuntu-server" class="nav-link" data-scroll-target="#update-and-upgrade-ubuntu-server">Update and Upgrade Ubuntu Server</a></li>
+  <li><a href="#checking-raspberry-pi-health" id="toc-checking-raspberry-pi-health" class="nav-link" data-scroll-target="#checking-raspberry-pi-health">Checking Raspberry Pi Health</a>
+  <ul class="collapse">
+  <li><a href="#verify-network-configuration" id="toc-verify-network-configuration" class="nav-link" data-scroll-target="#verify-network-configuration">Verify Network Configuration</a></li>
+  <li><a href="#check-network-and-ip-addresses" id="toc-check-network-and-ip-addresses" class="nav-link" data-scroll-target="#check-network-and-ip-addresses">Check Network and IP Addresses</a></li>
+  <li><a href="#buy-domain-and-setup-ssl-certificate" id="toc-buy-domain-and-setup-ssl-certificate" class="nav-link" data-scroll-target="#buy-domain-and-setup-ssl-certificate">Buy Domain and Setup SSL Certificate</a></li>
+  <li><a href="#visit-namecheap" id="toc-visit-namecheap" class="nav-link" data-scroll-target="#visit-namecheap">1. Visit Namecheap</a></li>
+  <li><a href="#purchase-ssl-certificate" id="toc-purchase-ssl-certificate" class="nav-link" data-scroll-target="#purchase-ssl-certificate">2. Purchase SSL Certificate</a></li>
+  <li><a href="#concatenating-the-crt-files" id="toc-concatenating-the-crt-files" class="nav-link" data-scroll-target="#concatenating-the-crt-files">3. Concatenating the CRT Files</a></li>
+  </ul></li>
+  <li><a href="#setting-up-web-server" id="toc-setting-up-web-server" class="nav-link" data-scroll-target="#setting-up-web-server">Setting Up Web Server</a>
+  <ul class="collapse">
+  <li><a href="#setting-up-nginx-and-ufw-firewall" id="toc-setting-up-nginx-and-ufw-firewall" class="nav-link" data-scroll-target="#setting-up-nginx-and-ufw-firewall">1. Setting Up NGINX and UFW Firewall</a></li>
+  <li><a href="#ssl-certificate-configuration" id="toc-ssl-certificate-configuration" class="nav-link" data-scroll-target="#ssl-certificate-configuration">2. SSL Certificate Configuration</a></li>
+  <li><a href="#ssl-certificate-configuration-1" id="toc-ssl-certificate-configuration-1" class="nav-link" data-scroll-target="#ssl-certificate-configuration-1">3. SSL Certificate Configuration</a></li>
+  <li><a href="#nginx-configuration" id="toc-nginx-configuration" class="nav-link" data-scroll-target="#nginx-configuration">4. NGINX Configuration</a></li>
+  <li><a href="#test-nginx" id="toc-test-nginx" class="nav-link" data-scroll-target="#test-nginx">5. Test NGINX</a></li>
+  <li><a href="#dns-configuration" id="toc-dns-configuration" class="nav-link" data-scroll-target="#dns-configuration">6. DNS Configuration</a></li>
+  </ul></li>
+  <li><a href="#setting-up-website-development-and-publishing-tools" id="toc-setting-up-website-development-and-publishing-tools" class="nav-link" data-scroll-target="#setting-up-website-development-and-publishing-tools">Setting Up Website Development and Publishing Tools</a>
+  <ul class="collapse">
+  <li><a href="#setting-up-quarto" id="toc-setting-up-quarto" class="nav-link" data-scroll-target="#setting-up-quarto">Setting up Quarto</a></li>
+  <li><a href="#installing-quarto" id="toc-installing-quarto" class="nav-link" data-scroll-target="#installing-quarto">1. Installing Quarto</a></li>
+  <li><a href="#create-a-new-quarto-project" id="toc-create-a-new-quarto-project" class="nav-link" data-scroll-target="#create-a-new-quarto-project">2. Create a New Quarto Project</a></li>
+  <li><a href="#configuring-nginx-for-quarto-website" id="toc-configuring-nginx-for-quarto-website" class="nav-link" data-scroll-target="#configuring-nginx-for-quarto-website">3. Configuring NGINX for Quarto Website</a></li>
+  <li><a href="#set-up-the-quarto-configuration" id="toc-set-up-the-quarto-configuration" class="nav-link" data-scroll-target="#set-up-the-quarto-configuration">4. Set Up the Quarto Configuration</a></li>
+  <li><a href="#create-content-files" id="toc-create-content-files" class="nav-link" data-scroll-target="#create-content-files">5. Create Content Files</a></li>
+  <li><a href="#add-project-details" id="toc-add-project-details" class="nav-link" data-scroll-target="#add-project-details">6. Add Project Details</a></li>
+  <li><a href="#render-your-website" id="toc-render-your-website" class="nav-link" data-scroll-target="#render-your-website">7. Render Your Website</a></li>
+  </ul></li>
+  <li><a href="#version-control-with-git-and-github" id="toc-version-control-with-git-and-github" class="nav-link" data-scroll-target="#version-control-with-git-and-github">Version Control with <code>Git</code> and <code>GitHub</code></a></li>
+  <li><a href="#automating-website-publishing" id="toc-automating-website-publishing" class="nav-link" data-scroll-target="#automating-website-publishing">Automating Website Publishing</a>
+  <ul class="collapse">
+  <li><a href="#create-a-bash-script" id="toc-create-a-bash-script" class="nav-link" data-scroll-target="#create-a-bash-script">1. Create a Bash Script</a></li>
+  <li><a href="#making-the-script-executable" id="toc-making-the-script-executable" class="nav-link" data-scroll-target="#making-the-script-executable">2. Making the Script Executable</a></li>
+  <li><a href="#run-the-script" id="toc-run-the-script" class="nav-link" data-scroll-target="#run-the-script">3. Run the Script</a></li>
+  </ul></li>
+  <li><a href="#version-control-with-git-using-ssh" id="toc-version-control-with-git-using-ssh" class="nav-link" data-scroll-target="#version-control-with-git-using-ssh">Version Control With <code>git</code> using <code>ssh</code></a>
+  <ul class="collapse">
+  <li><a href="#generate-ssh-key-pair" id="toc-generate-ssh-key-pair" class="nav-link" data-scroll-target="#generate-ssh-key-pair">1. Generate SSH Key Pair</a></li>
+  <li><a href="#add-ssh-key-to-ssh-agent" id="toc-add-ssh-key-to-ssh-agent" class="nav-link" data-scroll-target="#add-ssh-key-to-ssh-agent">2. Add SSH Key to SSH-Agent</a></li>
+  <li><a href="#add-ssh-key-to-github-account" id="toc-add-ssh-key-to-github-account" class="nav-link" data-scroll-target="#add-ssh-key-to-github-account">3. Add SSH Key to GitHub Account</a></li>
+  <li><a href="#change-git-remote-url-to-ssh" id="toc-change-git-remote-url-to-ssh" class="nav-link" data-scroll-target="#change-git-remote-url-to-ssh">4. Change Git Remote URL to SSH</a></li>
+  <li><a href="#push-changes-using-ssh" id="toc-push-changes-using-ssh" class="nav-link" data-scroll-target="#push-changes-using-ssh">5. Push Changes Using SSH</a></li>
+  </ul></li>
+  <li><a href="#develop-your-website-with-an-integrated-development-environment" id="toc-develop-your-website-with-an-integrated-development-environment" class="nav-link" data-scroll-target="#develop-your-website-with-an-integrated-development-environment">Develop Your Website With An Integrated Development Environment</a>
+  <ul class="collapse">
+  <li><a href="#installing-visual-studio-code-on-ubuntu" id="toc-installing-visual-studio-code-on-ubuntu" class="nav-link" data-scroll-target="#installing-visual-studio-code-on-ubuntu">Installing Visual Studio Code on Ubuntu</a></li>
+  <li><a href="#setting-up-remote-development" id="toc-setting-up-remote-development" class="nav-link" data-scroll-target="#setting-up-remote-development">Setting Up Remote Development</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Building a Data Science Server on Raspberry Pi</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">graph TD;
+    A[Raspberry Pi 5] --&gt;|Hosts| B[Ubuntu Server];
+    B --&gt; C[SSH for Remote Access];
+    B --&gt;|Web Server| D[NGINX];
+    D --&gt; E[UFW Firewall];
+    D --&gt;|SSL Encryption| F[SSL Certificates];
+    B --&gt;|Publishing &amp; Presentation| G[Quarto];
+    G --&gt;|Content Editing| H[Visual Studio Code];
+    G --&gt;|Version Control| I[Git with GitHub];
+    H --&gt;|Remote Development| J[VS Code Remote Development Extension];
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#fcf,stroke:#333,stroke-width:2px
+    style C fill:#cff,stroke:#333,stroke-width:2px
+    style D fill:#fcf,stroke:#333,stroke-width:2px
+    style E fill:#cff,stroke:#333,stroke-width:2px
+    style F fill:#fcf,stroke:#333,stroke-width:2px
+    style G fill:#cff,stroke:#333,stroke-width:2px
+    style H fill:#fcf,stroke:#333,stroke-width:2px
+    style I fill:#cff,stroke:#333,stroke-width:2px
+    style J fill:#fcf,stroke:#333,stroke-width:2px
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+<section id="executive-summary" class="level1">
+<h1>Executive Summary</h1>
+<p>This project decribes the process I followed to create a self-hosted web server to host my data science portfolio. This website was made with ❤️ using <a href="https://quarto.org/">Quarto</a> on a <a href="https://www.raspberrypi.com/products/raspberry-pi-5/">Raspberry Pi 5</a> hosted with <a href="https://ubuntu.com/server">Ubuntu Server</a> and <a href="https://nginx.org/en/">NGINX</a></p>
+<p>A web portfolio is essential for presenting data science projects, but web hosting can be expensive, and self-hosting your own web site can be technically challenging. To make the data science project lifecycle more accessible and affordable, I spent a day creating my own web server and website using <strong>freely available</strong> and <strong>open source tools</strong>. This technology stack allows my data science workflow to be automated, efficient, and cost-saving, as well as accessible for non-technical stakeholders.</p>
+<p>This tutorial provides a step-by-step walkthrough of the process I used when setting up my portfolio website on a Raspberry Pi. I used <code>Ubuntu Server</code> to make the server, <code>NGINX</code> to make the web server, <code>UFW</code> for the firewall, <code>SSL</code> for security certificate, and <code>Quarto</code> for publishing, alongside <code>Visual Studio Code</code> for remote development and <code>git</code> with <code>GitHub</code> for version control.</p>
+<p>The tutorial demonstrates my ability to build and describe the beginning-to-end workflow of creating a technology stack suitable for full-stack data science, which is automated and reproducible. The process started with creating a local server, and culminated in the publishing of my website, which describes the whole process.</p>
+<p>The tutorial assumes you have basic computing skills, including using the Linux command line or terminal with the <code>bash</code> shell, and understand the basic steps of setting up a server. You should be able to follow the tutorial with just some basic knowledge and willingness to engage in a process of trial-and-error testing!</p>
+</section>
+<section id="problem-statement" class="level1">
+<h1>Problem Statement</h1>
+<section id="background" class="level3">
+<h3 class="anchored" data-anchor-id="background">Background</h3>
+<p>In today’s digital era, businesses are increasingly dependent on effective online presence and streamlined workflows. A well-structured and accessible data science portfolio is pivotal for showcasing technical prowess and attracting potential clients or collaborators. However, the challenge lies in setting up an efficient, cost-effective, and scalable web solution that aligns with the technical nature of data science.</p>
+</section>
+<section id="objective" class="level3">
+<h3 class="anchored" data-anchor-id="objective">Objective</h3>
+<p>The primary objective of this project is to develop a self-hosted, full-stack data science portfolio website using a Raspberry Pi. This solution aims to provide a low-cost, yet robust platform for displaying my data science capabilities, projects, and achievements. By leveraging open-source tools and a compact hardware setup, the project seeks to optimize resource utilization while ensuring high performance and security.</p>
+</section>
+<section id="business-justification" class="level3">
+<h3 class="anchored" data-anchor-id="business-justification">Business Justification</h3>
+<ol type="1">
+<li><strong>Cost-Effectiveness</strong>: Utilizing a Raspberry Pi for server hosting significantly reduces the overhead costs associated with traditional web hosting services.</li>
+<li><strong>Customization and Control</strong>: Self-hosting allows for greater customization and control over the website’s content, layout, and functionality, tailored to specific business needs.</li>
+<li><strong>Showcasing Technical Expertise</strong>: A self-curated data science portfolio website serves as a testament to my technical skills and innovative approach, enhancing credibility and appeal in a competitive market.</li>
+<li><strong>Enhanced Security</strong>: By managing the server in-house, I can implement robust security measures tailored to my specific requirements, reducing reliance on third-party providers.</li>
+<li><strong>Scalability and Flexibility</strong>: The use of open-source tools offers flexibility in scaling the website and integrating additional features or analytics as per business growth.</li>
+</ol>
+</section>
+<section id="technical-justification" class="level3">
+<h3 class="anchored" data-anchor-id="technical-justification">Technical Justification</h3>
+<ol type="1">
+<li><p><strong>Raspberry Pi 5</strong>: Offers a compact, energy-efficient, and cost-effective solution for hosting a web server. Its performance capabilities are sufficient for running a full-stack data science portfolio website.</p></li>
+<li><p><strong>Ubuntu Server</strong>: A free, open-source operating system that is widely recognized for its stability and security, making it ideal for server environments.</p></li>
+<li><p><strong>NGINX</strong>: Known for its high performance, stability, and low resource consumption, NGINX is well-suited for handling web traffic on a Raspberry Pi.</p></li>
+<li><p><strong>UFW (Uncomplicated Firewall)</strong>: Provides an intuitive way to manage firewall settings, enhancing the security of the server.</p></li>
+<li><p><strong>SSL Certificates</strong>: Essential for encrypting data and ensuring secure communication between the server and its clients, thereby protecting sensitive information.</p></li>
+<li><p><strong>Quarto</strong>: As an open-source publishing system, Quarto allows for the creation of dynamic and interactive data science content, vital for a data science portfolio.</p></li>
+<li><p><strong>Visual Studio Code</strong>: This versatile code editor offers extensive features for software development, including remote development capabilities, making it ideal for managing and updating website content.</p></li>
+<li><p><strong>Git with GitHub</strong>: Enables version control and collaborative development, ensuring efficient management and tracking of changes in the website’s codebase.</p></li>
+<li><p><strong>SSH (Secure Shell)</strong>: Ensures secure remote access to the server, an essential feature for maintaining and updating the website.</p></li>
+</ol>
+<p>In conclusion, this project aims to leverage the synergy of these open-source tools to create a scalable, secure, and efficient data science portfolio website, tailored to meet business needs in showcasing technical expertise and enhancing online presence.</p>
+</section>
+</section>
+<section id="system-information" class="level1">
+<h1>System Information</h1>
+<p>I’m using a <a href="https://www.raspberrypi.com/products/raspberry-pi-5/">Raspberry Pi 5</a> as my ‘headless’ home server - i.e., without a monitor or keyboard or mouse - connected directly to the router via an ethernet cable, and a <a href="https://www.lenovo.com/us/en/p/laptops/thinkpad/thinkpadp/p53/22ws2wpwp53?orgRef=https%253A%252F%252Fwww.ecosia.org%252F">Lenovo ThinkPad P53</a> as my laptop to interface with the server.</p>
+<p><img src="https://assets.raspberrypi.com/static/c671804c05a51efc4e3c2a1bdcbafbcf/e8238/raspberry-pi-5.webp" alt="Raspberry Pi 5" width="300"></p>
+<p><em>Image Source: <a href="https://www.raspberrypi.org/">Raspberry Pi Foundation</a></em></p>
+<section id="system-information-with-neofetch" class="level3">
+<h3 class="anchored" data-anchor-id="system-information-with-neofetch">System Information with Neofetch</h3>
+<p>Let’s start off by displaying the system information for the Raspberry Pi and ThinkPad systems I am using.</p>
+<p><code>Neofetch</code> is a command-line system information tool that displays your system’s information in an aesthetically pleasing way. Here’s how to install and run Neofetch on both Ubuntu and Raspberry Pi.</p>
+</section>
+<section id="neofetch-installation" class="level3">
+<h3 class="anchored" data-anchor-id="neofetch-installation">Neofetch Installation</h3>
+<p>Neofetch can be easily installed from the official repositories.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install neofetch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To run <code>neofetch</code>, simply:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">neofetch</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here’s the output of <code>neofetch</code> on my Raspberry Pi and ThinkPad:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/neofetch_raspberrypi.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Neofetch output on Raspberry Pi</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/neofetch_thinkpad.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Neofetch output on ThinkPad</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="tools-and-software-used" class="level1">
+<h1>Tools and Software Used</h1>
+<ul>
+<li><strong>Raspberry Pi</strong>: A small and affordable computer that you can use to learn programming. <a href="https://www.raspberrypi.org/">Visit Raspberry Pi</a></li>
+<li><strong>Ubuntu Server</strong>: A free and open-source operating system that’s perfect for servers. <a href="https://ubuntu.com/server">Visit Ubuntu Server</a></li>
+<li><strong>SSH (Secure Shell)</strong>: A cryptographic network protocol for secure data communication, remote command-line login, remote command execution, and other secure network services between two networked computers. <a href="https://www.openssh.com/">Learn about SSH</a></li>
+<li><strong>NGINX</strong>: A high-performance web server, known for its stability and simple configuration. <a href="https://nginx.org/en/">Visit NGINX</a></li>
+<li><strong>UFW (Uncomplicated Firewall)</strong>: An easy-to-use interface for managing firewall rules on Ubuntu. <a href="https://help.ubuntu.com/community/UFW">Visit UFW</a></li>
+<li><strong>SSL Certificates</strong>: Essential for website security, providing secure, encrypted communications. <a href="https://en.wikipedia.org/wiki/Public_key_certificate">Learn about public key certificates</a></li>
+<li><strong>Quarto</strong>: An open-source scientific and technical publishing system built on Pandoc. <a href="https://quarto.org/">Visit Quarto</a></li>
+<li><strong>Visual Studio Code</strong>: A lightweight but powerful source code editor which runs on your desktop. <a href="https://code.visualstudio.com/">Visit Visual Studio Code</a></li>
+<li><strong>Remote Development for VS Code</strong>: Allows you to use VS Code on your local machine to develop on remote machines. <a href="https://code.visualstudio.com/docs/remote/remote-overview">Learn about Remote Development</a></li>
+<li><strong>Git</strong>: A distributed version control system to track changes in source code during software development. <a href="https://git-scm.com/">Visit Git</a></li>
+<li><strong>GitHub</strong>: A platform for hosting and collaborating on Git repositories. <a href="https://github.com/">Visit GitHub</a></li>
+</ul>
+</section>
+<section id="step-by-step-technical-walkthrough" class="level1">
+<h1>Step-by-Step Technical Walkthrough</h1>
+<section id="installing-ubuntu-server-on-raspberry-pi" class="level2">
+<h2 class="anchored" data-anchor-id="installing-ubuntu-server-on-raspberry-pi">Installing Ubuntu Server on Raspberry Pi</h2>
+<p>Here’s a short guide with the necessary steps to install Ubuntu Server on a Raspberry Pi in a headless setup using a desktop or laptop computer on the same network as the Raspberry Pi, with SSH:</p>
+<ol type="1">
+<li><strong>Flash Ubuntu Server on Raspberry Pi</strong>:
+<ul>
+<li>Download the <strong>Raspberry Pi Imager</strong> from the <a href="https://www.raspberrypi.org/software/">Raspberry Pi website</a> on your desktop or laptop computer.</li>
+<li>Insert the microSD card into your computer.</li>
+<li>Use Raspberry Pi Imager to flash Ubuntu Server onto the microSD card.</li>
+</ul></li>
+<li><strong>Initial Raspberry Pi Setup</strong>:
+<ul>
+<li>Insert the flashed microSD card into your Raspberry Pi.</li>
+<li>Connect the Raspberry Pi to your network via Ethernet.</li>
+<li>Power up your Raspberry Pi without connecting it to a monitor or keyboard.</li>
+</ul></li>
+<li><strong>SSH into Raspberry Pi</strong>:
+<ul>
+<li>Determine the Raspberry Pi’s IP address from your router’s DHCP lease table.</li>
+<li>SSH into your Raspberry Pi from your ThinkPad using the IP address.</li>
+</ul></li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace 'raspberry_pi_ip' with the actual IP address of your Raspberry Pi</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> ubuntu@raspberry_pi_ip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="update-and-upgrade-ubuntu-server" class="level2">
+<h2 class="anchored" data-anchor-id="update-and-upgrade-ubuntu-server">Update and Upgrade Ubuntu Server</h2>
+<p>Once logged in, update and upgrade the system.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt upgrade</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="checking-raspberry-pi-health" class="level2">
+<h2 class="anchored" data-anchor-id="checking-raspberry-pi-health">Checking Raspberry Pi Health</h2>
+<p>Verify the Raspberry Pi is running and its hardware is functioning correctly:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check CPU load</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">top</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check memory usage</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">free</span> <span class="at">-h</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check disk space usage</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">df</span> <span class="at">-h</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the Raspberry Pi model and Ubuntu version:</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> /proc/device-tree/model</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ex">lsb_release</span> <span class="at">-a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="verify-network-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="verify-network-configuration">Verify Network Configuration</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display network interfaces and IP addresses</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ip</span> addr show</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Test internet connectivity</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ping</span> <span class="at">-c</span> 4 google.com</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="check-network-and-ip-addresses" class="level3">
+<h3 class="anchored" data-anchor-id="check-network-and-ip-addresses">Check Network and IP Addresses</h3>
+<p>Identify the local and public IP addresses of the Raspberry Pi. You will need these later! Make a note of them.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ip</span> addr show</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> ifconfig.me/ip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now we’ve setup a Raspberry Pi running Ubuntu Server, which you can access and control using SSH from your desktop or laptop computer.</p>
+</section>
+<section id="buy-domain-and-setup-ssl-certificate" class="level3">
+<h3 class="anchored" data-anchor-id="buy-domain-and-setup-ssl-certificate">Buy Domain and Setup SSL Certificate</h3>
+<p>I bought the domain name <code>carecodeconnect.io</code> and setup a subdomain <code>portfolio.carecodeconnect.io</code> with <a href="https://www.namecheap.com/">Namecheap</a> and configured an SSL certificate, which ensures the security of the website. This process involves purchasing a domain, obtaining an SSL certificate, and concatenating the CRT files for SSL setup.</p>
+</section>
+<section id="visit-namecheap" class="level3">
+<h3 class="anchored" data-anchor-id="visit-namecheap">1. Visit Namecheap</h3>
+<ul>
+<li>Go to <a href="https://www.namecheap.com/">Namecheap</a> and search for your desired domain name.</li>
+<li>Choose the domain you want and proceed to purchase it.</li>
+<li>Complete the checkout process by creating an account and making the payment.</li>
+</ul>
+</section>
+<section id="purchase-ssl-certificate" class="level3">
+<h3 class="anchored" data-anchor-id="purchase-ssl-certificate">2. Purchase SSL Certificate</h3>
+<ul>
+<li>After purchasing your domain, you can buy an SSL certificate from Namecheap.</li>
+<li>Look for options like PositiveSSL under the SSL certificate section.</li>
+<li>Complete the purchase and go through the process of domain validation.</li>
+</ul>
+</section>
+<section id="concatenating-the-crt-files" class="level3">
+<h3 class="anchored" data-anchor-id="concatenating-the-crt-files">3. Concatenating the CRT Files</h3>
+<p>After receiving your SSL certificate files, concatenate them for proper setup on your server.</p>
+<ul>
+<li>Download the SSL certificate files (usually a <code>.zip</code> file) to your server.</li>
+<li>Extract the files:</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span> your_site.zip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Concatenate the domain certificate file and the CA bundle file into a single file:</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> your_site.crt your_site.ca-bundle <span class="op">&gt;</span> combined_your_site.crt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This creates a single combined CRT file that can be used in your web server configuration later.</p>
+</section>
+</section>
+<section id="setting-up-web-server" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-web-server">Setting Up Web Server</h2>
+<p>When choosing the best web server solution, I chose between Apache and NGINX, which are both popular web servers. Apache, known for its robustness and flexibility, has a wide range of modules that allow for extensive configuration and customization. For a Raspberry Pi 5, which has limited resources compared to full-scale servers, NGINX is often the more suitable choice. Its low memory footprint and ability to handle numerous simultaneous connections without significant resource consumption align well with the hardware constraints of the Raspberry Pi.</p>
+<section id="setting-up-nginx-and-ufw-firewall" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-nginx-and-ufw-firewall">1. Setting Up NGINX and UFW Firewall</h3>
+<p>Install and start NGINX, and then set up UFW to allow necessary traffic:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install nginx</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl start nginx</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl status nginx</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ufw allow ssh</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ufw enable</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ufw allow http</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ufw allow https</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ufw allow <span class="st">'Nginx Full'</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ufw status verbose</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ssl-certificate-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="ssl-certificate-configuration">2. SSL Certificate Configuration</h3>
+<p>Generate an SSL certificate for the website:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">openssl</span> req <span class="at">-new</span> <span class="at">-newkey</span> rsa:2048 <span class="at">-nodes</span> <span class="at">-keyout</span> your_site.key <span class="at">-out</span> your_site.csr</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mv your_site.key /etc/ssl/private/</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod 600 /etc/ssl/private/your_site.key</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mkdir /etc/ssl/csr/</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mv your_site.csr /etc/ssl/csr/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ssl-certificate-configuration-1" class="level3">
+<h3 class="anchored" data-anchor-id="ssl-certificate-configuration-1">3. SSL Certificate Configuration</h3>
+<p>After generating the CSR, you’ll need to submit it to a Certificate Authority to obtain an SSL certificate. Once you have your SSL certificate (<code>your_site.crt</code>), install it along with the key:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> mv your_site.crt /etc/ssl/</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> chmod 600 /etc/ssl/private/your_site.key</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="nginx-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="nginx-configuration">4. NGINX Configuration</h3>
+<p>Configure NGINX to serve your Quarto website and enable SSL:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/nginx/sites-available/portfolio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The NGINX configuration file should look something like this:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">server</span> {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">listen</span> 80<span class="kw">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">listen</span> <span class="pp">[</span><span class="ss">::</span><span class="pp">]</span>:80<span class="kw">;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">listen</span> 443 ssl<span class="kw">;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">listen</span> <span class="pp">[</span><span class="ss">::</span><span class="pp">]</span>:443 ssl<span class="kw">;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ssl_certificate</span> /etc/ssl/your_site.crt<span class="kw">;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">ssl_certificate_key</span> /etc/ssl/private/your_site.key<span class="kw">;</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ... additional SSL configurations ...</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">server_name</span> your_site<span class="kw">;</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">root</span> /var/www/portfolio/_site<span class="kw">;</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">index</span> index.html index.htm<span class="kw">;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">location</span> / {</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>        <span class="ex">try_files</span> <span class="va">$uri</span> <span class="va">$uri</span>/ =404<span class="kw">;</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="er">}</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="test-nginx" class="level3">
+<h3 class="anchored" data-anchor-id="test-nginx">5. Test NGINX</h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test NGINX configuration for syntax errors</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nginx <span class="at">-t</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="dns-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="dns-configuration">6. DNS Configuration</h3>
+<p>Ensure your domain’s DNS settings have A and AAAA records pointing to your Raspberry Pi’s public IP addresses:</p>
+<p><strong>A Record</strong> for <code>local_ip</code></p>
+<p><strong>AAAA Record</strong> for <code>public_ip</code></p>
+</section>
+</section>
+<section id="setting-up-website-development-and-publishing-tools" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-website-development-and-publishing-tools">Setting Up Website Development and Publishing Tools</h2>
+<p><strong>Quarto</strong> is a scientific and technical publishing system that allows you to create dynamic documents, presentations, and websites. It supports multiple programming languages, including Python, R, and Julia, enabling the integration of code and its output (like plots and tables) directly into the content.</p>
+<p>I decided to use Quarto as my web publishing system because it is a highly suitable and powerful tool for data science publishing, especially when compared to traditional static site generators like <strong>Hugo</strong>. One of the key strengths of Quarto lies in its native support for <strong>Jupyter</strong> notebooks and <strong>Python</strong>, which are cornerstone technologies in the data science and machine learning communities. This integration allows data scientists to directly embed code, results, and visualizations from Python or Jupyter notebooks into their web content, ensuring that the published material is not only informative but also interactive and dynamically up-to-date.</p>
+<p>Quarto is particularly useful for creating rich, interactive documents where the narrative is supported by data and visualizations. It also excels in generating static content like reports, articles, presentations, and blogs where reproducibility and presentation of data are key.</p>
+<p>Additionally, Quarto’s <strong>Markdown-based syntax</strong> simplifies the process of content creation, making it more accessible to users who may not have extensive web development experience. This ease of use, combined with its powerful features for data visualization and analysis, positions Quarto as a superior choice for building a data science or machine learning website. It not only facilitates effective communication of complex data-driven insights but also enhances the overall user engagement through interactive content, which is a significant advantage over Hugo for data science applications.</p>
+<section id="setting-up-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-quarto">Setting up Quarto</h3>
+</section>
+<section id="installing-quarto" class="level3">
+<h3 class="anchored" data-anchor-id="installing-quarto">1. Installing Quarto</h3>
+<p>Install Quarto and create a new project for the portfolio website:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.3.450/quarto-1.3.450-linux-arm64.deb</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dpkg <span class="at">-i</span> quarto-1.3.450-linux-arm64.deb</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> <span class="at">--version</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /var/www</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> quarto create project website portfolio</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /var/www/portfolio</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To set up a basic Quarto portfolio website using the <strong>Cerulean</strong> <em>Bootswatch</em> theme, used for this portfolio, follow these steps. At the time of writing, <a href="https://bootswatch.com/">Bootswatch</a> offers 26 different themes. This guide assumes you will use the Cerulean theme and have Quarto installed and a basic understanding of its usage.</p>
+</section>
+<section id="create-a-new-quarto-project" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-new-quarto-project">2. Create a New Quarto Project</h3>
+<p>Create a new Quarto project in your desired directory:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to your desired directory</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> path/to/your/directory</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new Quarto project</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> create project portfolio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="configuring-nginx-for-quarto-website" class="level3">
+<h3 class="anchored" data-anchor-id="configuring-nginx-for-quarto-website">3. Configuring NGINX for Quarto Website</h3>
+<p>Update NGINX configuration to serve the Quarto website:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/nginx/sites-available/portfolio</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the server block configuration here</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ln <span class="at">-s</span> /etc/nginx/sites-available/portfolio /etc/nginx/sites-enabled/</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nginx <span class="at">-t</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl restart nginx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="set-up-the-quarto-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="set-up-the-quarto-configuration">4. Set Up the Quarto Configuration</h3>
+<p>In the <code>_quarto.yml</code> file, set up your website configuration. I’m using the <code>Cerulean</code> bootswatch theme.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Portfolio"</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">right</span><span class="kw">:</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.qmd</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Home</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> about.qmd</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> About</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">href</span><span class="kw">:</span><span class="at"> projects.qmd</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">text</span><span class="kw">:</span><span class="at"> Projects</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cerulean</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> css/styles.css</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="create-content-files" class="level3">
+<h3 class="anchored" data-anchor-id="create-content-files">5. Create Content Files</h3>
+<p>Create your main content files, such as <code>index.qmd</code>, <code>about.qmd</code>, and <code>projects.qmd</code>. Here’s an example for <code>index.qmd</code>:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Portfolio"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">    html:</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">        code-fold: true</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>Your text here.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And for <code>projects.qmd</code>:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Projects"</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="an">page-layout:</span><span class="co"> full</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="an">title-block-banner:</span><span class="co"> true</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="fu"># My Projects</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>Your text here.</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## [Project 1 Title](projects/project1.qmd)</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>Brief description of Project 1. </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="add-project-details" class="level3">
+<h3 class="anchored" data-anchor-id="add-project-details">6. Add Project Details</h3>
+<p>For each project, create a <code>.qmd</code> file in the <code>projects</code> directory. For example, <code>project1.qmd</code>:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Project 1 Title"</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Project 1</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Details about Project 1</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Repeat this for each project.</p>
+</section>
+<section id="render-your-website" class="level3">
+<h3 class="anchored" data-anchor-id="render-your-website">7. Render Your Website</h3>
+<p>Finally, render your website:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will generate your website with the Cerulean Bootswatch theme. You can then view it locally or deploy it to a web server.</p>
+</section>
+</section>
+<section id="version-control-with-git-and-github" class="level2">
+<h2 class="anchored" data-anchor-id="version-control-with-git-and-github">Version Control with <code>Git</code> and <code>GitHub</code></h2>
+<p>Initialize a Git repository and push the website code to GitHub:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initial commit"</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/your_username/portfolio.git</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="automating-website-publishing" class="level2">
+<h2 class="anchored" data-anchor-id="automating-website-publishing">Automating Website Publishing</h2>
+<p>I’ve automated the process of publishing my website. This involves updating with <code>git</code>/<code>GitHub</code>, rendering with <code>Quarto</code>, and restarting the <code>NGINX</code> server. This is how I did it:</p>
+<section id="create-a-bash-script" class="level3">
+<h3 class="anchored" data-anchor-id="create-a-bash-script">1. Create a Bash Script</h3>
+<ul>
+<li>Use a text editor such as <code>nano</code> to create a Bash script (e.g., <code>sudo nano publish_website.sh</code>) using the following guide.</li>
+<li>Modify the paths in the script according to your project and server setup.</li>
+<li>Replace <code>user_name</code> with your user name and <code>repo_name</code> with your GitHub repository name.</li>
+</ul>
+<p>The following script:</p>
+<ul>
+<li>Navigates to your Quarto project directory.</li>
+<li>It adds, commits, and pushes changes to your Git repository.</li>
+<li>Quarto builds the website.</li>
+<li>The built website is synced to the NGINX directory.</li>
+<li>NGINX is reloaded to reflect the changes.</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to the Quarto project directory</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /home/user_name/projects/portfolio</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Add all new and changed files to Git</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Adding changes to Git..."</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Commit the changes with a standard message. You can modify this to be more descriptive</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Committing changes..."</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Update website content"</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Push the changes to GitHub</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Pushing changes to GitHub..."</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push repo_name main</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the Quarto project</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Building the Quarto website..."</span></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Sync the build output to the NGINX directory</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Syncing files to the NGINX directory..."</span></span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> rsync <span class="at">-av</span> <span class="at">--delete</span> /home/user_name/projects/portfolio/_site/ /var/www/portfolio/</span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Restart NGINX server</span></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> systemctl reload nginx</span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Website published successfully."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="making-the-script-executable" class="level3">
+<h3 class="anchored" data-anchor-id="making-the-script-executable">2. Making the Script Executable</h3>
+<ul>
+<li>To make the script executable, run the following command:</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x publish_website.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="run-the-script" class="level3">
+<h3 class="anchored" data-anchor-id="run-the-script">3. Run the Script</h3>
+<ul>
+<li>Execute the script to automate the process of updating and publishing your website.</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./publish_website.sh</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This setup provides a convenient way to regularly update and publish your Quarto website with minimal manual intervention.</p>
+</section>
+</section>
+<section id="version-control-with-git-using-ssh" class="level2">
+<h2 class="anchored" data-anchor-id="version-control-with-git-using-ssh">Version Control With <code>git</code> using <code>ssh</code></h2>
+<p>Once the workflow is working, to streamline the process, I updated my <code>git</code>/<code>GitHub</code> repository using <code>SSH</code> from the command line. This means you do not need to input your <code>git</code> username and password (key) each time you push your changes to <code>GitHub</code>.</p>
+<p>To do this, I needed to set up SSH keys, associate them with my GitHub account, and then use Git commands to push my changes. Here’s a brief summary of the steps:</p>
+<section id="generate-ssh-key-pair" class="level3">
+<h3 class="anchored" data-anchor-id="generate-ssh-key-pair">1. Generate SSH Key Pair</h3>
+<p>Open your terminal and generate a new SSH key pair (if you haven’t already):</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa <span class="at">-b</span> 4096 <span class="at">-C</span> <span class="st">"your_email@example.com"</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Follow the prompts to specify the file in which to save the key.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Replace <code>"your_email@example.com"</code> with your email associated with your GitHub account. Press Enter to accept the default file location and name.</p>
+</section>
+<section id="add-ssh-key-to-ssh-agent" class="level3">
+<h3 class="anchored" data-anchor-id="add-ssh-key-to-ssh-agent">2. Add SSH Key to SSH-Agent</h3>
+<p>Start the SSH agent and add your SSH key:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Start the SSH agent</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span> <span class="st">"</span><span class="va">$(</span><span class="fu">ssh-agent</span> <span class="at">-s</span><span class="va">)</span><span class="st">"</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add SSH key to the SSH agent</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-add</span> ~/.ssh/id_rsa</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you saved your key to a different location, replace <code>~/.ssh/id_rsa</code> with your key’s path.</p>
+</section>
+<section id="add-ssh-key-to-github-account" class="level3">
+<h3 class="anchored" data-anchor-id="add-ssh-key-to-github-account">3. Add SSH Key to GitHub Account</h3>
+<ul>
+<li><p>Copy the SSH key to your clipboard:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/id_rsa.pub <span class="kw">|</span> <span class="ex">clip</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Login to <a href="https://www.github.com">GitHub</a>, and in the upper-right corner, click your profile photo, then click <strong>Settings</strong>.</p></li>
+<li><p>In the user settings sidebar, click <strong>SSH and GPG keys</strong>.</p></li>
+<li><p>Click <strong>New SSH key</strong> or <strong>Add SSH key</strong>.</p></li>
+<li><p>In the “Title” field, add a descriptive label for the new key, paste your key into the “Key” field.</p></li>
+<li><p>Click <strong>Add SSH key</strong>.</p></li>
+</ul>
+</section>
+<section id="change-git-remote-url-to-ssh" class="level3">
+<h3 class="anchored" data-anchor-id="change-git-remote-url-to-ssh">4. Change Git Remote URL to SSH</h3>
+<p>Change your repository’s remote URL from HTTPS to SSH:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change to your repository's directory</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /path/to/your/repository</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the remote URL to SSH</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote set-url origin git@github.com:username/repository.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Replace <code>username/repository.git</code> with your GitHub username and repository name.</p>
+</section>
+<section id="push-changes-using-ssh" class="level3">
+<h3 class="anchored" data-anchor-id="push-changes-using-ssh">5. Push Changes Using SSH</h3>
+<p>After making your changes, add, commit, and push them using Git:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add changes to staging</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Commit changes</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Your commit message"</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Push changes to GitHub</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will use SSH for authentication, ensuring secure communication with GitHub. You can verify that SSH is being used by running <code>git remote -v</code>, which should show the SSH URL for <code>origin</code>.</p>
+</section>
+</section>
+<section id="develop-your-website-with-an-integrated-development-environment" class="level2">
+<h2 class="anchored" data-anchor-id="develop-your-website-with-an-integrated-development-environment">Develop Your Website With An Integrated Development Environment</h2>
+<p>Building a website from the command line using SSH on a local server can be a bit tricky and slow, especially if you are not used to working with the Bash shell in the terminal.</p>
+<p>To more easily develop my portfolio and preview my website as I build it, I configured <strong>Visual Studio Code</strong> - a popular code editor and Integrated Development Environment for data science - on my Thinkpad to interface with the Raspberry Pi server.</p>
+<p>To install Visual Studio Code on Ubuntu and set it up for remote development with a Raspberry Pi via SSH, follow these steps:</p>
+<section id="installing-visual-studio-code-on-ubuntu" class="level3">
+<h3 class="anchored" data-anchor-id="installing-visual-studio-code-on-ubuntu">Installing Visual Studio Code on Ubuntu</h3>
+<ol type="1">
+<li><p><strong>Update Package List</strong>: Open a terminal and update your package list:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Install VS Code</strong>: You can install VS Code from the Ubuntu Software Center or via the command line. To install via command line, use:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install code</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Alternatively, you can download the <code>.deb</code> package from the <a href="https://code.visualstudio.com/download">VS Code website</a> and install it using:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dpkg <span class="at">-i</span> <span class="op">&lt;</span>path-to-downloaded-deb-file<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+</section>
+<section id="setting-up-remote-development" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-remote-development">Setting Up Remote Development</h3>
+<ol start="3" type="1">
+<li><strong>Install Remote Development Extension in VS Code</strong>:
+<ul>
+<li>Launch VS Code.</li>
+<li>Go to the Extensions view by clicking on the square icon on the sidebar, or press <code>Ctrl+Shift+X</code>.</li>
+<li>Search for “Remote Development” and install the extension pack by Microsoft.</li>
+</ul></li>
+<li><strong>Setting Up SSH Keys for Raspberry Pi (if not already done)</strong>:
+<ul>
+<li><p>On your Ubuntu machine, open a terminal and create an SSH key pair (skip if you already have one):</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa <span class="at">-b</span> 4096</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Copy the public key to your Raspberry Pi:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ssh-copy-id</span> pi@raspberry_pi_ip</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Replace <code>pi@raspberry_pi_ip</code> with the username and IP address of your Raspberry Pi.</p></li>
+</ul></li>
+<li><strong>Connecting to Raspberry Pi via SSH in VS Code</strong>:
+<ul>
+<li>In VS Code, open the Command Palette (<code>Ctrl+Shift+P</code>).</li>
+<li>Type “Remote-SSH: Connect to Host…” and select it.</li>
+<li>Enter the SSH connection command: <code>pi@raspberry_pi_ip</code>.</li>
+<li>VS Code will connect to the Raspberry Pi. You might be prompted to select the OS type (Linux).</li>
+<li>Once connected, you can open folders, edit files, and use the terminal on the Raspberry Pi remotely.</li>
+</ul></li>
+<li><strong>Working Remotely</strong>:
+<ul>
+<li>With the remote connection established, you can now work on your Raspberry Pi’s file system directly from VS Code on your Ubuntu machine.</li>
+<li>You can install additional extensions, run scripts, and even debug remotely.</li>
+</ul></li>
+</ol>
+</section>
+<section id="notes" class="level3">
+<h3 class="anchored" data-anchor-id="notes">Notes</h3>
+<ul>
+<li>Ensure that SSH is enabled on your Raspberry Pi and that it is accessible from your Ubuntu machine.</li>
+<li>The username <code>pi</code> is the default for Raspberry Pi OS; replace it with the appropriate username if you are using a different OS or have changed the default username.</li>
+<li>Keep your Raspberry Pi’s IP address handy for remote connections. If it’s on a dynamic IP, consider setting a static IP or using a hostname.</li>
+</ul>
+<p>By following these steps, you’ll be able to efficiently develop and manage projects on your Raspberry Pi directly from your Ubuntu machine using VS Code’s powerful remote development capabilities.</p>
+</section>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>In summary, I’ve taken you through a high-level overview of the steps I followed to create my data science portfolio website on a self-hosted server.</p>
+<p>First, I installed Ubuntu Server on a Raspberry Pi 5 using <code>SSH</code>. Then, I used <code>NGINX</code> to host a web server, and created an <code>SSL</code> certificate. Finally, I setup <code>Quarto</code> to interface with Visual Studio Code and used the Remote Development extension to publish my portfolio website. To make the project more efficient, I automated the process of publishing the site using <code>bash</code> shell scripting.</p>
+<p>This project successfully culminates in a robust and cost-effective solution that underscores my commitment to innovation and technical proficiency. I demonstrated my ability to create a beginning-to-end technology stack suitable for full-stack data science - from building a server to presenting the findings in an accessible portfolio - and my commitment to efficiency in the process.</p>
+<p>I did this by showcasing my technical skills:</p>
+<ul>
+<li><p>By strategically harnessing the Raspberry Pi as a <strong>self-hosting</strong> server platform, the project significantly reduces operational costs associated with traditional web hosting, translating to more efficient allocation of resources.</p></li>
+<li><p>The utilization of <strong>open-source tools</strong> like Ubuntu Server, NGINX, and Quarto not only cuts expenses but also offers unparalleled flexibility and customization, allowing me to tailor the website to its unique needs and growth trajectory.</p></li>
+<li><p>The integration of secure protocols and self-hosting enhances data <strong>security</strong>, fostering <strong>trust</strong> and <strong>reliability</strong> among stakeholders.</p></li>
+</ul>
+<p>Through this project, value is identified and realized by marrying cost-efficiency with high-performance technology. The data science portfolio website, in turn, serves as a dynamic showcase of my capabilities, enhancing my visibility and appeal in a competitive marketplace.</p>
+<p>The code to create this website is available on the <a href="https://github.com/carecodeconnect/portfolio_carecodeconnect_io">GitHub</a> repository.</p>
+<p>I hope this tutorial helps you to setup your own data science portfolio!</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
