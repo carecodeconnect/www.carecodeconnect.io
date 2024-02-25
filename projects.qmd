@@ -11,6 +11,14 @@ toc: true
 
 This project involved network visualisation of resources for sustainable futures: [A Mindset for the Anthropocene](https://www.ama-project.org/explore/)
 
+# App Store Review Analyser
+
+Streamlit app provides insightful analysis of App Store reviews for any given app. By inputting the App Store URL, users can explore trends, sentiments, and summaries of reviews within a specified date range.
+
+The app is available for use with OpenAI GPT-3.5 or GPT-4 API here: [App with OpenAI](https://user-reviews.streamlit.app/) or with DistilBart here: [App with BART](https://user-reviews.streamlit.app/).
+
+Click here for the GitHub repositories for [OpenAI API](https://github.com/josh-nowak/user-reviews) and [DistilBart](https://github.com/carecodeconnect/user-reviews-bart)
+
 # Automatic Customer Review Analyser
 
 This project uses Machine Learning to turn customer reviews into actionable insights. It uses classification, implementing Linear Classifiers (Perceptron, Average Perceptron, and Pegasos Algorithm), to classify the reviews as ‘positive’ or ‘negative’. Focusing on Amazon’s food product reviews, this system employs sentiment analysis to categorize feedback, providing an automated, efficient, and scalable approach to handling customer reviews.
@@ -46,6 +54,18 @@ graph TD;
 
 A tutorial to build a self-hosted data science server on a Raspberry Pi 5.
 
+# Coming Soon
+
+The following projects are work-in-progress and coming soon!
+
+- **Jhāna AI: Meditation Teacher**: a multi-modal voice assistant for personalised meditation in deep states of tranquility. Combines cutting-edge open source HuggingFace Transformer architectures for Natural Language Processing (NLP) with LangChain combined with insights from Conversation Analysis.
+
+- **Job Seeker**: automates the process of finding a job.
+
+- **Lease Linker**: automates the process of finding accommodation.
+
+- **Wine Review Analyser**: employs pandas, scikit-learn, and sentiment analysis to model wine sales and reviews.
+
 # Data Visualisation with D3
 
 A work-in-progress sandbox of a D3 app deployed with GitHub Projects.
@@ -57,18 +77,6 @@ A work-in-progress sandbox of a D3 app deployed with GitHub Projects.
 A deep learning neural network which recognises handwritten digits. It develops a Multi-Level Perceptron (MLP) model for handwritten digit recognition using the MNIST dataset, implemented entirely by hand using Python's NumPy library. The project emphasizes Object-Oriented Programming (OOP) for a modular and clear code structure.
 
 [Click for GitHub repository](https://github.com/carecodeconnect/digit-recogniser)
-
-# Jhana: Meditation Teacher (Coming Soon)
-
-This project is an interactive meditation teacher providing personalised voice guidance in deep states of tranquility. It combines cutting-edge open source HuggingFace Transformer architectures for Natural Language Processing (NLP) with insights from Conversation Analysis.
-
-# Job Seeker (Coming Soon)
-
-A tool to automate the process of finding a job.
-
-# Lease Linker (Coming Soon)
-
-A tool to automate the process of finding accommodation.
 
 # [MapMind (Part I): Mapping the Mindfulness Movement](projects/mapmind/mapmind_mapping.qmd)
 
@@ -87,6 +95,12 @@ In Part II of the MapMind project, we explore the demographics of mindfulness te
 ![The project studied digital divides in mindfulness teaching](projects/mapmind/images/mapmind-digital-divides.png)
 
 The final part of the MapMind project looks at how mindfulness teachers relate to technology, and uses predictive modeling using **Chi-Squared tests** and **logistic regression** to identify the factors that predict whether mindfulness teachers engage in online teaching based on several features, including gender, years of teaching experience, whether they hold a management position, and their nationality.
+
+# [Palmer Penguins](https://cute-palmer-penguins.streamlit.app/)
+
+Streamlit app using the Palmer Penguins dataset. The Palmer Penguins dataset is a popular dataset for data exploration and visualization. We use the dataset to create a simple Streamlit app that includes a bar chart, scatter plot, violin plots, and a YouTube video.
+
+[Click for GitHub repository](https://github.com/carecodeconnect/palmer-penguins)
 
 # Movie Recommender with Ridge Regression
 
@@ -107,7 +121,3 @@ Based on aspects of building location and construction, this project predicts th
 This project is a toolkit for fetching, analyzing, and generating reports on weather data. It assesses forecast accuracy over time and understanding weekly weather statistics. This version of the toolkit reports today's weather and the forecast weather for tomorrow at noon in Berlin.
 
 [Click for GitHub repository](https://github.com/carecodeconnect/weather)
-
-# Wine Review Analyser (Coming Soon)
-
-This project employs pandas, scikit-learn, and sentiment analysis to model wine sales and reviews.
