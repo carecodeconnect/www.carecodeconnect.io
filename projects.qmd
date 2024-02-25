@@ -15,7 +15,7 @@ This project involved network visualisation of resources for sustainable futures
 
 Streamlit app provides insightful analysis of App Store reviews for any given app. By inputting the App Store URL, users can explore trends, sentiments, and summaries of reviews within a specified date range.
 
-The app is available for use with OpenAI GPT-3.5 or GPT-4 API here: [App with OpenAI](https://user-reviews.streamlit.app/) or with DistilBart here: [App with BART](https://user-reviews.streamlit.app/).
+The app is available for use with OpenAI GPT-3.5 or GPT-4 API here: [App with OpenAI](https://user-reviews.streamlit.app/) or with DistilBart here: [App with BART](https://user-reviews-bart.streamlit.app/).
 
 Click here for the GitHub repositories for [OpenAI API](https://github.com/josh-nowak/user-reviews) and [DistilBart](https://github.com/carecodeconnect/user-reviews-bart)
 
