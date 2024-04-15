@@ -58,8 +58,6 @@ A tutorial to build a self-hosted data science server on a Raspberry Pi 5.
 
 The following projects are work-in-progress and coming soon!
 
-- **Jhāna AI: Meditation Teacher**: a multi-modal voice assistant for personalised meditation in deep states of tranquility. Combines cutting-edge open source HuggingFace Transformer architectures for Natural Language Processing (NLP) with LangChain combined with insights from Conversation Analysis.
-
 - **Job Seeker**: automates the process of finding a job.
 
 - **Lease Linker**: automates the process of finding accommodation.
@@ -68,15 +66,23 @@ The following projects are work-in-progress and coming soon!
 
 # Data Visualisation with D3
 
-A work-in-progress sandbox of a D3 app deployed with GitHub Projects.
+Work-in-progress sandbox of a D3 app deployed with GitHub Projects.
 
 [Click for GitHub repository](https://github.com/carecodeconnect/data-visualisation-d3)
 
 # Digit Recogniser
 
-A deep learning neural network which recognises handwritten digits. It develops a Multi-Level Perceptron (MLP) model for handwritten digit recognition using the MNIST dataset, implemented entirely by hand using Python's NumPy library. The project emphasizes Object-Oriented Programming (OOP) for a modular and clear code structure.
+Deep learning neural network which recognises handwritten digits. It develops a Multi-Level Perceptron (MLP) model for handwritten digit recognition using the MNIST dataset, implemented entirely by hand using Python's NumPy library. The project emphasizes Object-Oriented Programming (OOP) for a modular and clear code structure.
 
 [Click for GitHub repository](https://github.com/carecodeconnect/digit-recogniser)
+
+# Jhāna.AI: Personal Meditation Guide
+
+![Jhāna.AI: Real-time brain sensing guiding the user in a loving-kindness meditation](https://github.com/carecodeconnect/jhana-dev/blob/main/img/jhana-loving-kindness-sample.gif)
+
+Interactive voice assistant which uses real-time brain sensing to guide the user in ancient Jhana Meditation, for reaching states of concentration, bliss and calm, and finding relief from pain. `Jhāna.AI` uses cutting-edge technologies of biofeedback, deep learning, and natural language processing for personalised guided meditation sessions.
+
+[Click for GitHub repository](https://github.com/carecodeconnect/jhana-dev)
 
 # [MapMind (Part I): Mapping the Mindfulness Movement](projects/mapmind/mapmind_mapping.qmd)
 
@@ -97,6 +103,8 @@ In Part II of the MapMind project, we explore the demographics of mindfulness te
 The final part of the MapMind project looks at how mindfulness teachers relate to technology, and uses predictive modeling using **Chi-Squared tests** and **logistic regression** to identify the factors that predict whether mindfulness teachers engage in online teaching based on several features, including gender, years of teaching experience, whether they hold a management position, and their nationality.
 
 # [Palmer Penguins](https://cute-palmer-penguins.streamlit.app/)
+
+![A violin plot illustrating the distribution of bill lengths across different penguin species.](projects/penguins/penguins-violin-plot.png)
 
 Streamlit app using the Palmer Penguins dataset. The Palmer Penguins dataset is a popular dataset for data exploration and visualization. We use the dataset to create a simple Streamlit app that includes a bar chart, scatter plot, violin plots, and a YouTube video.
 
