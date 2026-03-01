@@ -301,15 +301,13 @@ gt_tbl.save(out_tbl_path)
 ```
 
 ```{python}
+# Display the interactive table
 gt_tbl
 ```
-
-![](images/ngram_decade_summary.png){width=80%}
 
 You can also display plots. Here, I'm using [plotnine](https://plotnine.org/) which is a Python version of the [ggplot2](https://ggplot2.tidyverse.org/) data visualisation library in R.
 
 ```{python}
-#| echo: false
 #| output: false
 
 # Save as a real PNG (Typst has trouble with the auto-generated SVG here)
@@ -334,6 +332,10 @@ p = (
 p.save(out_path, dpi=300)
 ```
 
+```{python}
+# Display the interactive plot
+p
+```
 ![](images/ngram_literate_programming.png)
 
 # History of Literate Programming
