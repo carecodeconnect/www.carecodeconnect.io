@@ -1,14 +1,20 @@
 ---
 format: html
-fontsize: "20"
+fontsize: "30"
 ---
 
 Welcome to `care-code-connect` 🤗
 
-Please expore our:
+![](images/carecodeconnect.jpeg)
+
+To learn about us, explore our:
+
+- [About](about.qmd): who we are and what we do.
 
 - [Blog](blog.qmd): revisioning data science for the age of AI.
+
 - [Projects](projects.qmd): building solutions to complex social problems.
+
 - [Testimonials](testimonials.qmd): what our collaborators say about us.
 
-This home page was made with ❤️ using [Python](https://www.python.org/) with [Quarto](https://quarto.org/).
+This home page was made with ❤️ using [Python](https://www.python.org/), [Quarto](https://quarto.org/), and deployed with [GitHub Actions](https://docs.github.com/en/actions).

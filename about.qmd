@@ -3,7 +3,7 @@ title: "About"
 ---
 
 Welcome to `care-code-connect`! 🤗
-
+ and [Shiny](https://shiny.rstudio.com/)
 We combine the tools of social science and data science to build solutions to complex social problems.
 
 1. **Decode the matrix of human relations with technology**: by linking computation with interpretation, we tell the human stories behind the data.
@@ -14,9 +14,7 @@ We combine the tools of social science and data science to build solutions to co
 
 In short, we **care**, **code**, **connect**.
 
-Explore our [projects](projects.qmd) to find out more!
-
-This portfolio was made with ❤️ using [Python](https://www.python.org/), [Quarto](https://quarto.org/) and [Shiny](https://shiny.rstudio.com/).
+Explore our [blog](blog.qmd) and [projects](projects.qmd) to find out more!
 
 # Recent projects
 
