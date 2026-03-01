@@ -11,6 +11,8 @@ website:
         text: About
       - href: projects.qmd
         text: Projects
+      - href: blog.qmd
+        text: Blog
       - href: testimonials.qmd
         text: Testimonials
 

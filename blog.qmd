@@ -1,0 +1,16 @@
+---
+title: "Blog"
+page-layout: full
+title-block-banner: true
+toc: true
+listing:
+  contents: blog
+  sort: "date desc"
+  type: default
+  fields: [title, description, date, categories]
+---
+
+Welcome to the blog!
+
+This space collects reflections on projects, data science, and social impact. New posts will appear below as they are added to the `blog/` folder.
+
