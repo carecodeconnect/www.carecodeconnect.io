@@ -54,16 +54,6 @@ graph TD;
 
 A tutorial to build a self-hosted data science server on a Raspberry Pi 5.
 
-# Coming Soon
-
-The following projects are work-in-progress and coming soon!
-
-- **Job Seeker**: automates the process of finding a job.
-
-- **Lease Linker**: automates the process of finding accommodation.
-
-- **Wine Review Analyser**: employs pandas, scikit-learn, and sentiment analysis to model wine sales and reviews.
-
 # Data Visualisation with D3
 
 Work-in-progress sandbox of a D3 app deployed with GitHub Projects.
