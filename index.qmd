@@ -1,6 +1,6 @@
 ---
 format: html
-fontsize: "30"
+fontsize: "40"
 ---
 
 Welcome to `care-code-connect` 🤗

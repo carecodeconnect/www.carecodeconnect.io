@@ -3,7 +3,9 @@ title: "About"
 ---
 
 Welcome to `care-code-connect`! 🤗
- and [Shiny](https://shiny.rstudio.com/)
+
+*"Building persuasive technologies with AI and Machine Learning for health, well-being & sustainability"*
+
 We combine the tools of social science and data science to build solutions to complex social problems.
 
 1. **Decode the matrix of human relations with technology**: by linking computation with interpretation, we tell the human stories behind the data.
