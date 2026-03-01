@@ -223,6 +223,19 @@ div.csl-indent {
 
 </header>
 
+<div class="cell" data-execution_count="1">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python package imports</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> ggplot, aes, geom_line, labs, theme_gray</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I’ll explore tools for “literate programming”, where we create “computational narrative”, as well as tips for writing well. It turns out that writing documentation is becoming more important in the age of AI.</p>
 <p>I enjoy writing technical documentation. I enjoy trying to explain things to people. Helping people make sense of a report or a tool. But I realise my enjoyment is not shared widely in the field. While writing documentation is generally considered a “good thing”, many engineers in industry tend to either not document their work, or document their work poorly. I’ll speculate about why this might be the case. And I’ll argue <em>why good documentation is always a good thing</em>. I’ll give suggestions for how you can write documentation in the best way possible.</p>
 <p>This document is written in <a href="https://quarto.org/">Quarto</a>, a Markdown format, that can be rendered into PDF or HTML format. To illustrate how Quarto works, I’ll “show the code”, reflexively illustrating how I wrote the documentation for this talk on documentation.</p>
@@ -296,12 +309,24 @@ div.csl-indent {
 <section id="types-of-documentation" class="level1">
 <h1>Types of Documentation</h1>
 <p>Nelson summarises different types of documentation that are relevant to data science workflows. Here, I am directly quoting her recommendations, because I agree with them:</p>
+<blockquote class="blockquote">
 <p>“<em>Names</em>: Names of variables, functions, and files should be informative, an appropriate length, and easy to read.</p>
+</blockquote>
+<blockquote class="blockquote">
 <p><em>Comments</em>: Your comments should add extra information not contained in the code, such as a summary or a caveat.</p>
+</blockquote>
+<blockquote class="blockquote">
 <p><em>Docstrings</em>: Your functions should always have a docstring that describes the inputs and outputs of the function, as well as the purpose of that function.</p>
+</blockquote>
+<blockquote class="blockquote">
 <p><em>READMEs</em>: Every repository or project should have an introduction that advertises your code and lets other people know why they should use it.</p>
+</blockquote>
+<blockquote class="blockquote">
 <p><em>Jupyter notebooks</em>: Your notebooks will be much easier to read if you give them good names, give them a structure, and intersperse text and code.</p>
+</blockquote>
+<blockquote class="blockquote">
 <p><em>Experiment tracking</em>: Experiments, especially in machine learning projects, should be tracked in a structured way.”</p>
+</blockquote>
 <p>In addition to these recommendations, we can also think about technical documentation in terms of different genres, which can help clarify the purpose of your documentation. The <a href="https://diataxis.fr/">Diátaxis</a> documentation framework is an interesting example. It divides technical documents into four types:</p>
 <ul>
 <li><p>Tutorials</p></li>
@@ -320,13 +345,13 @@ div.csl-indent {
 <div class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">This is a docstring. </span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">It explains what a module, class, or function does.</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Usually over multiple lines.</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a comment, an explanation, on a single line. I'm illustrating "classic" software documentation.</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"O'Brien: How many fingers am I holding up, Winston? </span><span class="ch">\n</span><span class="ss"> O'Brien holds up </span><span class="sc">{</span><span class="dv">2</span><span class="op">+</span><span class="dv">2</span><span class="sc">}</span><span class="ss"> fingers </span><span class="ch">\n</span><span class="ss"> Winston: </span><span class="ch">\"</span><span class="ss">Four</span><span class="ch">\"</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">This is a docstring. </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">It explains what a module, class, or function does.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">Usually over multiple lines.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a comment, an explanation, on a single line. I'm illustrating "classic" software documentation.</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"O'Brien: How many fingers am I holding up, Winston? </span><span class="ch">\n</span><span class="ss"> O'Brien holds up </span><span class="sc">{</span><span class="dv">2</span><span class="op">+</span><span class="dv">2</span><span class="sc">}</span><span class="ss"> fingers </span><span class="ch">\n</span><span class="ss"> Winston: </span><span class="ch">\"</span><span class="ss">Four</span><span class="ch">\"</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>O'Brien: How many fingers am I holding up, Winston? 
@@ -339,7 +364,275 @@ div.csl-indent {
 <p>I executed this command with <code>curl</code> from inside the <code>pydata/data</code> folder, which downloaded an <code>ngrams.json</code> file containing the data:</p>
 <pre><code>curl -L "https://books.google.com/ngrams/json?content=%22literate%20programming%22&amp;year_start=1800&amp;year_end=2026&amp;corpus=26&amp;smoothing=0" -o ngrams.json</code></pre>
 <p>I converted the JSON file to a CSV and then imported it as a DataFrame using <a href="https://pola.rs/">Polars</a>, a DataFrame library written in Rust, with an intuitive API, similar to <a href="https://dplyr.tidyverse.org/">dplyr</a> in R.</p>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set folder paths</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>DATA_DIR <span class="op">=</span> Path(<span class="st">"../data"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>json_path <span class="op">=</span> DATA_DIR <span class="op">/</span> <span class="st">"ngrams.json"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>csv_path <span class="op">=</span> DATA_DIR <span class="op">/</span> <span class="st">"ngrams.csv"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>YEAR_START <span class="op">=</span> <span class="dv">1800</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> json_path.<span class="bu">open</span>() <span class="im">as</span> f:</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    series_list <span class="op">=</span> json.load(f)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> series_list:</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"No records found in ngrams.json"</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Infer year_end from the returned timeseries length (avoids off-by-N forever)</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>n_years <span class="op">=</span> <span class="bu">len</span>(series_list[<span class="dv">0</span>][<span class="st">"timeseries"</span>])</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>year_end <span class="op">=</span> YEAR_START <span class="op">+</span> n_years <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(YEAR_START, year_end <span class="op">+</span> <span class="dv">1</span>))</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> csv_path.<span class="bu">open</span>(<span class="st">"w"</span>, newline<span class="op">=</span><span class="st">""</span>) <span class="im">as</span> f:</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> csv.writer(f)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    w.writerow([<span class="st">"year"</span>, <span class="st">"ngram"</span>, <span class="st">"value"</span>])</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> s <span class="kw">in</span> series_list:</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        ngram <span class="op">=</span> s[<span class="st">"ngram"</span>]</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        ts <span class="op">=</span> s[<span class="st">"timeseries"</span>]</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(ts) <span class="op">!=</span> <span class="bu">len</span>(years):</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"</span><span class="sc">{</span>ngram<span class="sc">}</span><span class="ss">: timeseries length </span><span class="sc">{</span><span class="bu">len</span>(ts)<span class="sc">}</span><span class="ss"> != </span><span class="sc">{</span><span class="bu">len</span>(years)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> y, v <span class="kw">in</span> <span class="bu">zip</span>(years, ts):</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>            w.writerow([y, ngram, v])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="4">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter to &gt;= 1984</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> (</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    pl.read_csv(<span class="st">"../data/ngrams.csv"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">filter</span>(pl.col(<span class="st">"year"</span>) <span class="op">&gt;=</span> <span class="dv">1984</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    .with_columns((pl.col(<span class="st">"value"</span>) <span class="op">*</span> <span class="fl">1e9</span>).alias(<span class="st">"per_billion"</span>))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    .sort(<span class="st">"year"</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    .with_columns(</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"per_billion"</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        .rolling_mean(window_size<span class="op">=</span><span class="dv">5</span>, min_samples<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        .alias(<span class="st">"per_billion_smooth_5y"</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>In Quarto, you can render formatted tables from code. Here, I use the <a href="https://github.com/posit-dev/great-tables">Great Tables</a> package, based on the original <a href="https://gt.rstudio.com/">GT</a> package in R. Great Tables has a cool “nanoplot” function, which allows you to include a plot in a table.</p>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT, nanoplot_options</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df_raw_tbl <span class="op">=</span> (</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    pl.read_csv(<span class="st">"../data/ngrams.csv"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    .with_columns(pl.col(<span class="st">"year"</span>).cast(pl.Int64))</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    .with_columns((pl.col(<span class="st">"value"</span>) <span class="op">*</span> <span class="fl">1e9</span>).alias(<span class="st">"per_billion"</span>))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    .sort(<span class="st">"year"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># focus on meaningful window; also drop trailing all-zero years</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>last_nz_year <span class="op">=</span> (</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    df_raw_tbl.<span class="bu">filter</span>(pl.col(<span class="st">"per_billion"</span>) <span class="op">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    .select(pl.col(<span class="st">"year"</span>).<span class="bu">max</span>().alias(<span class="st">"last_nz"</span>))</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    .item()</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Don't overwrite the main `df` used for plotting (it contains `per_billion_smooth_5y`).</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>df_tbl <span class="op">=</span> df_raw_tbl.<span class="bu">filter</span>((pl.col(<span class="st">"year"</span>) <span class="op">&gt;=</span> <span class="dv">1984</span>) <span class="op">&amp;</span> (pl.col(<span class="st">"year"</span>) <span class="op">&lt;=</span> last_nz_year))</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>by_decade <span class="op">=</span> (</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    df_tbl.with_columns((pl.col(<span class="st">"year"</span>) <span class="op">//</span> <span class="dv">10</span> <span class="op">*</span> <span class="dv">10</span>).alias(<span class="st">"decade"</span>))</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    .group_by(<span class="st">"decade"</span>)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    .agg(</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        pl.<span class="bu">len</span>().alias(<span class="st">"n_years"</span>),</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"per_billion"</span>).mean().alias(<span class="st">"mean_per_billion"</span>),</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"per_billion"</span>).median().alias(<span class="st">"median_per_billion"</span>),</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"per_billion"</span>).<span class="bu">max</span>().alias(<span class="st">"max_per_billion"</span>),</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"year"</span>)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>        .<span class="bu">filter</span>(pl.col(<span class="st">"per_billion"</span>) <span class="op">==</span> pl.col(<span class="st">"per_billion"</span>).<span class="bu">max</span>())</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>        .first()</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>        .alias(<span class="st">"max_year"</span>),</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"per_billion"</span>).alias(<span class="st">"series_vals"</span>),</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    .with_columns(</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>        pl.col(<span class="st">"series_vals"</span>)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>        .<span class="bu">list</span>.<span class="bu">eval</span>(pl.element().<span class="bu">round</span>(<span class="dv">3</span>).cast(pl.Utf8))</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>        .<span class="bu">list</span>.join(<span class="st">" "</span>)</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>        .alias(<span class="st">"trend"</span>)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    .drop(<span class="st">"series_vals"</span>)</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    .with_columns((pl.col(<span class="st">"decade"</span>).cast(pl.Utf8) <span class="op">+</span> <span class="st">"s"</span>).alias(<span class="st">"decade"</span>))</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    .sort(<span class="st">"decade"</span>)</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>gt_tbl <span class="op">=</span> (</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>    GT(</span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>        by_decade.select(</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>            [</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>                <span class="st">"decade"</span>,</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>                <span class="st">"trend"</span>,</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>                <span class="st">"mean_per_billion"</span>,</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>                <span class="st">"max_per_billion"</span>,</span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>                <span class="st">"max_year"</span>,</span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>                <span class="st">"n_years"</span>,</span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>            ]</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>    .tab_header(</span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>        title<span class="op">=</span><span class="st">'Google Ngram: "literate programming"'</span>,</span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>        subtitle<span class="op">=</span><span class="ss">f"Decade patterns (1984–</span><span class="sc">{</span>last_nz_year<span class="sc">}</span><span class="ss">), per-billion tokens"</span>,</span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>    .cols_label(</span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>        decade<span class="op">=</span><span class="st">"Decade"</span>,</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>        trend<span class="op">=</span><span class="st">"Trend (yearly)"</span>,</span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>        mean_per_billion<span class="op">=</span><span class="st">"Mean"</span>,</span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>        max_per_billion<span class="op">=</span><span class="st">"Max"</span>,</span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>        max_year<span class="op">=</span><span class="st">"Max year"</span>,</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>        n_years<span class="op">=</span><span class="st">"Years"</span>,</span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>    .fmt_number(columns<span class="op">=</span>[<span class="st">"mean_per_billion"</span>, <span class="st">"max_per_billion"</span>], decimals<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>    .fmt_nanoplot(</span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span><span class="st">"trend"</span>,</span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>        autoscale<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>        reference_line<span class="op">=</span><span class="st">"mean"</span>,</span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>        options<span class="op">=</span>nanoplot_options(</span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>            data_line_stroke_width<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>            data_line_stroke_color<span class="op">=</span><span class="st">"#4D4D4D"</span>,</span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>            show_data_points<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>            show_data_area<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>out_tbl_path <span class="op">=</span> (</span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>    Path(<span class="st">"docs/images/ngram_decade_summary.png"</span>)</span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> Path(<span class="st">"docs"</span>).is_dir() <span class="kw">and</span> Path(<span class="st">"docs/talk.qmd"</span>).exists()</span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> Path(<span class="st">"images/ngram_decade_summary.png"</span>)</span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>out_tbl_path.parent.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>gt_tbl.save(out_tbl_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="6">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gt_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="6">
+
+<div id="whyniospnm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#whyniospnm table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#whyniospnm thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#whyniospnm p { margin: 0; padding: 0; }
+ #whyniospnm .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #whyniospnm .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #whyniospnm .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #whyniospnm .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #whyniospnm .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #whyniospnm .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #whyniospnm .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #whyniospnm .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #whyniospnm .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #whyniospnm .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #whyniospnm .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #whyniospnm .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #whyniospnm .gt_spanner_row { border-bottom-style: hidden; }
+ #whyniospnm .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #whyniospnm .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #whyniospnm .gt_from_md> :first-child { margin-top: 0; }
+ #whyniospnm .gt_from_md> :last-child { margin-bottom: 0; }
+ #whyniospnm .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #whyniospnm .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #whyniospnm .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #whyniospnm .gt_row_group_first td { border-top-width: 2px; }
+ #whyniospnm .gt_row_group_first th { border-top-width: 2px; }
+ #whyniospnm .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #whyniospnm .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #whyniospnm .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #whyniospnm .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #whyniospnm .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #whyniospnm .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #whyniospnm .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #whyniospnm .gt_left { text-align: left; }
+ #whyniospnm .gt_center { text-align: center; }
+ #whyniospnm .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #whyniospnm .gt_font_normal { font-weight: normal; }
+ #whyniospnm .gt_font_bold { font-weight: bold; }
+ #whyniospnm .gt_font_italic { font-style: italic; }
+ #whyniospnm .gt_super { font-size: 65%; }
+ #whyniospnm .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #whyniospnm .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+
+  <tr class="gt_heading">
+    <td colspan="6" class="gt_heading gt_title gt_font_normal">Google Ngram: "literate programming"</td>
+  </tr>
+  <tr class="gt_heading">
+    <td colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Decade patterns (1984–2019), per-billion tokens</td>
+  </tr>
+<tr class="gt_col_headings">
+  <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="decade">Decade</th>
+  <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="trend">Trend (yearly)</th>
+  <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="mean_per_billion">Mean</th>
+  <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="max_per_billion">Max</th>
+  <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="max_year">Max year</th>
+  <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n_years">Years</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+  <tr>
+    <td class="gt_row gt_left">1980s</td>
+    <td class="gt_row gt_left"><div><svg role="img" viewbox="0 0 400 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;"><defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style><path d="M 50.0,115.0 C 75.0,115.0 85.0,115.0 110.0,115.0 C 135.0,115.0 145.0,115.0 170.0,115.0 C 195.0,115.0 205.0,115.0 230.0,115.0 C 255.0,115.0 265.0,93.04123711340206 290.0,93.04123711340206 C 315.0,93.04123711340206 325.0,78.19587628865979 350.0,78.19587628865979" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="95.20618556701031" width="320" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="105.20618556701031" x2="350" y2="105.20618556701031" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="360" y="115.20618556701031" fill="transparent" stroke="transparent" font-size="30px">0.095</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="100.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="120.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="160.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="180.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="220.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="240.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="280.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="300.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.21</text></g><g class="vert-line"><rect x="340.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="360.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.36</text></g></svg></div></td>
+    <td class="gt_row gt_right">0.095</td>
+    <td class="gt_row gt_right">0.357</td>
+    <td class="gt_row gt_right">1989</td>
+    <td class="gt_row gt_right">6</td>
+  </tr>
+  <tr>
+    <td class="gt_row gt_left">1990s</td>
+    <td class="gt_row gt_left"><div><svg role="img" viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;"><defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style><path d="M 50.0,94.69072164948453 C 75.0,94.69072164948453 80.55555555555554,104.48453608247424 105.55555555555554,104.48453608247424 C 130.55555555555554,104.48453608247424 136.1111111111111,74.58762886597938 161.1111111111111,74.58762886597938 C 186.1111111111111,74.58762886597938 191.66666666666666,94.79381443298969 216.66666666666666,94.79381443298969 C 241.66666666666666,94.79381443298969 247.22222222222217,90.05154639175258 272.2222222222222,90.05154639175258 C 297.2222222222222,90.05154639175258 302.77777777777777,61.8041237113402 327.77777777777777,61.8041237113402 C 352.77777777777777,61.8041237113402 358.3333333333333,95.41237113402062 383.3333333333333,95.41237113402062 C 408.3333333333333,95.41237113402062 413.8888888888889,90.25773195876289 438.8888888888889,90.25773195876289 C 463.8888888888889,90.25773195876289 469.4444444444444,47.06185567010309 494.4444444444444,47.06185567010309 C 519.4444444444443,47.06185567010309 525.0,67.16494845360825 550.0,67.16494845360825" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="72.03092783505154" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="82.03092783505154" x2="550" y2="82.03092783505154" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="92.03092783505154" fill="transparent" stroke="transparent" font-size="30px">0.32</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.20</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.10</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.39</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.20</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.52</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0.19</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.66</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.46</text></g></svg></div></td>
+    <td class="gt_row gt_right">0.320</td>
+    <td class="gt_row gt_right">0.659</td>
+    <td class="gt_row gt_right">1998</td>
+    <td class="gt_row gt_right">10</td>
+  </tr>
+  <tr>
+    <td class="gt_row gt_left">2000s</td>
+    <td class="gt_row gt_left"><div><svg role="img" viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;"><defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style><path d="M 50.0,53.76288659793815 C 75.0,53.76288659793815 80.55555555555554,79.84536082474226 105.55555555555554,79.84536082474226 C 130.55555555555554,79.84536082474226 136.1111111111111,90.25773195876289 161.1111111111111,90.25773195876289 C 186.1111111111111,90.25773195876289 191.66666666666666,103.14432989690721 216.66666666666666,103.14432989690721 C 241.66666666666666,103.14432989690721 247.22222222222217,61.082474226804116 272.2222222222222,61.082474226804116 C 297.2222222222222,61.082474226804116 302.77777777777777,90.56701030927834 327.77777777777777,90.56701030927834 C 352.77777777777777,90.56701030927834 358.3333333333333,107.16494845360825 383.3333333333333,107.16494845360825 C 408.3333333333333,107.16494845360825 413.8888888888889,92.0103092783505 438.8888888888889,92.0103092783505 C 463.8888888888889,92.0103092783505 469.4444444444444,92.31958762886599 494.4444444444444,92.31958762886599 C 519.4444444444443,92.31958762886599 525.0,103.24742268041237 550.0,103.24742268041237" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="77.34020618556701" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="87.34020618556701" x2="550" y2="87.34020618556701" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="97.34020618556701" fill="transparent" stroke="transparent" font-size="30px">0.27</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.59</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.34</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.52</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0.076</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.11</text></g></svg></div></td>
+    <td class="gt_row gt_right">0.268</td>
+    <td class="gt_row gt_right">0.594</td>
+    <td class="gt_row gt_right">2000</td>
+    <td class="gt_row gt_right">10</td>
+  </tr>
+  <tr>
+    <td class="gt_row gt_left">2010s</td>
+    <td class="gt_row gt_left"><div><svg role="img" viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;"><defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style><path d="M 50.0,115.0 C 75.0,115.0 80.55555555555554,102.9381443298969 105.55555555555554,102.9381443298969 C 130.55555555555554,102.9381443298969 136.1111111111111,92.93814432989691 161.1111111111111,92.93814432989691 C 186.1111111111111,92.93814432989691 191.66666666666666,80.77319587628865 216.66666666666666,80.77319587628865 C 241.66666666666666,80.77319587628865 247.22222222222217,100.87628865979381 272.2222222222222,100.87628865979381 C 297.2222222222222,100.87628865979381 302.77777777777777,102.83505154639175 327.77777777777777,102.83505154639175 C 352.77777777777777,102.83505154639175 358.3333333333333,115.0 383.3333333333333,115.0 C 408.3333333333333,115.0 413.8888888888889,99.22680412371135 438.8888888888889,99.22680412371135 C 463.8888888888889,99.22680412371135 469.4444444444444,102.62886597938144 494.4444444444444,102.62886597938144 C 519.4444444444443,102.62886597938144 525.0,15.0 550.0,15.0" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="82.72164948453609" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="92.72164948453609" x2="550" y2="92.72164948453609" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="102.72164948453609" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.21</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.33</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.14</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.15</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.97</text></g></svg></div></td>
+    <td class="gt_row gt_right">0.216</td>
+    <td class="gt_row gt_right">0.970</td>
+    <td class="gt_row gt_right">2019</td>
+    <td class="gt_row gt_right">10</td>
+  </tr>
+</tbody>
+
+
+</table>
+
+</div>
+        
+</div>
+</div>
 <p><img src="images/ngram_decade_summary.png" class="img-fluid" style="width:80.0%"></p>
 <p>You can also display plots. Here, I’m using <a href="https://plotnine.org/">plotnine</a> which is a Python version of the <a href="https://ggplot2.tidyverse.org/">ggplot2</a> data visualisation library in R.</p>
 <p><img src="images/ngram_literate_programming.png" class="img-fluid"></p>

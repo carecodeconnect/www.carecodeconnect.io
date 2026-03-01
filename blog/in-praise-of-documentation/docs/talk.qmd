@@ -10,9 +10,7 @@ jupyter: pydata
 bibliography: refs.bib
 ---
 ```{python}
-#| echo: false
-
-# Imports
+# Python package imports
 
 import json
 import csv
@@ -20,7 +18,6 @@ from pathlib import Path
 import polars as pl
 from great_tables import GT
 from plotnine import ggplot, aes, geom_line, labs, theme_gray
-
 ```
 
 This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I'll explore tools for "literate programming", where we create "computational narrative", as well as tips for writing well. It turns out that writing documentation is becoming more important in the age of AI.
@@ -101,17 +98,17 @@ I would agree with all these points. I would also add that documentation is esse
 
 Nelson summarises different types of documentation that are relevant to data science workflows. Here, I am directly quoting her recommendations, because I agree with them:
 
-"*Names*: Names of variables, functions, and files should be informative, an appropriate length, and easy to read.
+> "*Names*: Names of variables, functions, and files should be informative, an appropriate length, and easy to read.
 
-*Comments*: Your comments should add extra information not contained in the code, such as a summary or a caveat.
+> *Comments*: Your comments should add extra information not contained in the code, such as a summary or a caveat.
 
-*Docstrings*: Your functions should always have a docstring that describes the inputs and outputs of the function, as well as the purpose of that function.
+> *Docstrings*: Your functions should always have a docstring that describes the inputs and outputs of the function, as well as the purpose of that function.
 
-*READMEs*: Every repository or project should have an introduction that advertises your code and lets other people know why they should use it.
+> *READMEs*: Every repository or project should have an introduction that advertises your code and lets other people know why they should use it.
 
-*Jupyter notebooks*: Your notebooks will be much easier to read if you give them good names, give them a structure, and intersperse text and code.
+> *Jupyter notebooks*: Your notebooks will be much easier to read if you give them good names, give them a structure, and intersperse text and code.
 
-*Experiment tracking*: Experiments, especially in machine learning projects, should be tracked in a structured way."
+> *Experiment tracking*: Experiments, especially in machine learning projects, should be tracked in a structured way."
 
 In addition to these recommendations, we can also think about technical documentation in terms of different genres, which can help clarify the purpose of your documentation. The [Diátaxis](https://diataxis.fr/) documentation framework is an interesting example. It divides technical documents into four types: 
 
@@ -157,13 +154,12 @@ curl -L "https://books.google.com/ngrams/json?content=%22literate%20programming%
 
 I converted the JSON file to a CSV and then imported it as a DataFrame using [Polars](https://pola.rs/), a DataFrame library written in Rust, with an intuitive API, similar to [dplyr](https://dplyr.tidyverse.org/) in R.
 ```{python}
-#| echo: false
-
+# Set folder paths
 DATA_DIR = Path("../data")
 json_path = DATA_DIR / "ngrams.json"
 csv_path = DATA_DIR / "ngrams.csv"
 
-YEAR_START = 1800  # must match what you requested
+YEAR_START = 1800 
 
 with json_path.open() as f:
     series_list = json.load(f)
@@ -189,8 +185,6 @@ with csv_path.open("w", newline="") as f:
 ```
 
 ```{python}
-#| echo: false
-
 # Filter to >= 1984
 
 df = (
@@ -209,7 +203,6 @@ df = (
 In Quarto, you can render formatted tables from code. Here, I use the [Great Tables](https://github.com/posit-dev/great-tables) package, based on the original [GT](https://gt.rstudio.com/) package in R. Great Tables has a cool "nanoplot" function, which allows you to include a plot in a table.
 
 ```{python}
-#| echo: false
 #| output: false
 import polars as pl
 from great_tables import GT, nanoplot_options
@@ -305,6 +298,10 @@ out_tbl_path = (
 out_tbl_path.parent.mkdir(parents=True, exist_ok=True)
 
 gt_tbl.save(out_tbl_path)
+```
+
+```{python}
+gt_tbl
 ```
 
 ![](images/ngram_decade_summary.png){width=80%}
