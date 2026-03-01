@@ -5,6 +5,8 @@ fontsize: "30"
 
 Welcome to `care-code-connect` 🤗
 
+*"Building persuasive technologies with AI and Machine Learning for health, well-being & sustainability"*
+
 ![](images/carecodeconnect.jpeg)
 
 To learn about us, explore our:

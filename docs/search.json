@@ -221,7 +221,7 @@
     "href": "index.html",
     "title": "care-code-connect",
     "section": "",
-    "text": "Welcome to care-code-connect 🤗\n\nTo learn about us, explore our:\n\nAbout: who we are and what we do.\nBlog: revisioning data science for the age of AI.\nProjects: building solutions to complex social problems.\nTestimonials: what our collaborators say about us.\n\nThis home page was made with ❤️ using Python, Quarto, and deployed with GitHub Actions."
+    "text": "Welcome to care-code-connect 🤗\n“Building persuasive technologies with AI and Machine Learning for health, well-being & sustainability”\n\nTo learn about us, explore our:\n\nAbout: who we are and what we do.\nBlog: revisioning data science for the age of AI.\nProjects: building solutions to complex social problems.\nTestimonials: what our collaborators say about us.\n\nThis home page was made with ❤️ using Python, Quarto, and deployed with GitHub Actions."
   },
   {
     "objectID": "projects/mapmind/mapmind_demographics.html",
