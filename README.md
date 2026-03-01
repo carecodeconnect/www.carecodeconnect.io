@@ -9,7 +9,7 @@ The project is a Quarto **website project** with its main configuration in `_qua
 ### Prerequisites
 
 - Quarto CLI installed (`quarto --version` should work).
-- A working Python environment for pages that execute Python code (e.g. a Conda `mapmind` environment built with the `projects/mapmind/conda-mapmind.yml` setup).
+- A working Python environment for pages that execute Python code
 - You can recreate the full MapMind analysis environment from:
 
 - `projects/mapmind/conda-mapmind.yml` (Conda environment file).
