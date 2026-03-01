@@ -1,0 +1,98 @@
+gazzard2016:
+  type: Book
+  title: "Now the Chips Are Down: The BBC Micro"
+  author: Gazzard, A.
+  date: 2016
+  publisher: The MIT Press
+
+granger2021:
+  type: Article
+  title: "Jupyter: Thinking and Storytelling with Code and Data"
+  author:
+    - Granger, B. E. 
+    - Pérez, F.
+  serial-number: 
+    doi: "10.1109/MCSE.2021.3059263"
+  page-range: 7-14
+  date: 2021
+  parent:
+    title: "Computing in Science & Engineering"
+    volume: 23
+    issue: 2
+
+kluyver2016:
+  type: Chapter
+  title: "Jupyter notebooks - a publication format for reproducible computational workflows"
+  author:
+    - Kluyver, T.
+    - Ragan-Kelley, B.
+    - Pérez, F.
+    - Granger, B.
+    - Bussonnier, M.
+    - Frederic, J.
+    - Kelley, K.
+    - Hamrick, J.
+    - Grout, J.
+    - Corlay, S.
+    - Ivanov, P.
+    - Avila, D.
+    - Abdalla, S.
+    - Willing, C.
+    - Jupyter Development Team
+  date: 2016
+  parent:
+    title: "Positioning and Power in Academic Publishing: Players, Agents and Agendas"
+    author: 
+      - Loizides, F.
+      - Schmidt, B.
+
+knuth1984:
+  type: Article
+  title: Literate Programming
+  author: Knuth, D. E.
+  serial-number: 
+    doi: "10.1093/comjnl/27.2.97"
+  page-range: 97-111
+  date: 1984
+  parent:
+    title: The Computer Journal
+    volume: 27
+    issue: 2
+
+nelson2024:
+  type: Book
+  title: "Software Engineering for Data Scientists: From Notebooks to Scalable Systems"
+  author: Nelson, C.
+  date: 2024
+  publisher: O'Reilly
+
+orwell1945:
+  type: Book
+  title: Politics and the English Language
+  author: Orwell, G.
+  date: 1945
+  publisher: Penguin Books
+  location: London
+
+perez2007:
+  type: Article
+  title: "IPython: A System for Interactive Scientific Computing"
+  author: 
+    - Pérez, F. 
+    - Granger, B. E.
+  serial-number:
+    doi: "10.1109/MCSE.2007.53"
+  page-range: 21-29
+  date: 2007
+  parent:
+    title: "Computing in Science & Engineering"
+    volume: 9
+    issue: 3
+
+snow1959:
+  type: Book
+  title: "The Two Cultures and the Scientific Revolution"
+  author: Snow, C. P.
+  date: 1959
+  publisher: Cambridge University Press
+  location: New York

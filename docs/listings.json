@@ -2,7 +2,9 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/blog/2026-03-01-welcome.html"
+      "/blog/in-praise-of-documentation/AGENTS.html",
+      "/blog/in-praise-of-documentation/docs/presentation.html",
+      "/blog/in-praise-of-documentation/docs/talk.html"
     ]
   }
 ]

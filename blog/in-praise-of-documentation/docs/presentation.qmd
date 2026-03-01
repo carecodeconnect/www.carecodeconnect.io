@@ -1,0 +1,34 @@
+---
+title: "In Praise of Documentation"
+format:
+    revealjs:
+        theme: serif
+---
+
+# How I learned to love documentation
+
+---
+
+![BBC Micro](images/bbc_micro.jpg){width=50%}
+
+---
+
+![BBC BASIC](images/bbc_basic.gif){width=50%}
+
+--- 
+
+![User Guide](images/bbc_micro_user_guide.jpg){width=50%}
+
+---
+
+![BBC Micro User](images/bbc_micro_user.jpg){width=50%}
+
+---
+
+The perils of poor documentation
+
+--- 
+
+![Enshitification](images/enshitification.jpg){width=50%}
+
+--- 

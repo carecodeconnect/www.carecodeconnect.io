@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-03-01">
+
+<title>care-code-connect - In Praise of Documentation: Tools, Tips &amp; Techniques for Literate Programming in the AI Age</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../../css/styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">care-code-connect</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../projects.html" rel="" target="">
+ <span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../testimonials.html" rel="" target="">
+ <span class="menu-text">Testimonials</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#todo" id="toc-todo" class="nav-link active" data-scroll-target="#todo">TODO</a></li>
+  <li><a href="#in-praise-of-documentation" id="toc-in-praise-of-documentation" class="nav-link" data-scroll-target="#in-praise-of-documentation">In Praise of Documentation</a></li>
+  <li><a href="#how-i-learned-to-love-documentation" id="toc-how-i-learned-to-love-documentation" class="nav-link" data-scroll-target="#how-i-learned-to-love-documentation">How I Learned to Love Documentation</a></li>
+  <li><a href="#the-perils-of-poor-documentation" id="toc-the-perils-of-poor-documentation" class="nav-link" data-scroll-target="#the-perils-of-poor-documentation">The Perils of Poor Documentation</a></li>
+  <li><a href="#why-document-your-code" id="toc-why-document-your-code" class="nav-link" data-scroll-target="#why-document-your-code">Why Document Your Code</a></li>
+  <li><a href="#types-of-documentation" id="toc-types-of-documentation" class="nav-link" data-scroll-target="#types-of-documentation">Types of Documentation</a></li>
+  <li><a href="#literate-programming" id="toc-literate-programming" class="nav-link" data-scroll-target="#literate-programming">Literate Programming</a></li>
+  <li><a href="#history-of-literate-programming" id="toc-history-of-literate-programming" class="nav-link" data-scroll-target="#history-of-literate-programming">History of Literate Programming</a></li>
+  <li><a href="#scientific-publishing-tools" id="toc-scientific-publishing-tools" class="nav-link" data-scroll-target="#scientific-publishing-tools">Scientific Publishing Tools</a>
+  <ul class="collapse">
+  <li><a href="#jupyter-and-marimo-notebooks" id="toc-jupyter-and-marimo-notebooks" class="nav-link" data-scroll-target="#jupyter-and-marimo-notebooks">Jupyter and Marimo notebooks</a></li>
+  <li><a href="#r-markdown-and-quarto" id="toc-r-markdown-and-quarto" class="nav-link" data-scroll-target="#r-markdown-and-quarto">R Markdown and Quarto</a></li>
+  </ul></li>
+  <li><a href="#computer-programs-as-literature" id="toc-computer-programs-as-literature" class="nav-link" data-scroll-target="#computer-programs-as-literature">Computer Programs as Literature</a></li>
+  <li><a href="#rules-for-good-writing" id="toc-rules-for-good-writing" class="nav-link" data-scroll-target="#rules-for-good-writing">Rules for Good Writing</a></li>
+  <li><a href="#documentation-in-the-age-of-ai" id="toc-documentation-in-the-age-of-ai" class="nav-link" data-scroll-target="#documentation-in-the-age-of-ai">Documentation in the Age of AI</a></li>
+  <li><a href="#concluding-remarks" id="toc-concluding-remarks" class="nav-link" data-scroll-target="#concluding-remarks">Concluding Remarks</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">In Praise of Documentation: Tools, Tips &amp; Techniques for Literate Programming in the AI Age</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">documentation</div>
+    <div class="quarto-category">talks</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 1, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="todo" class="level1">
+<h1>TODO</h1>
+<ul>
+<li>Add clean code/pragmatic programming on documentation</li>
+<li>Add diagram note</li>
+<li>Add dataviz note</li>
+</ul>
+</section>
+<section id="in-praise-of-documentation" class="level1">
+<h1>In Praise of Documentation</h1>
+<p>This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I’ll explore tools for data science understood and the idea that data science involves doing “literate programming” where we create “computational narrative”.</p>
+<p>I enjoy writing technical documentation. I enjoy trying to explain things to people. Helping people make sense of a report or a tool. But I realise my enjoyment is not shared widely in the field. While writing documentation is generally considered a “good thing”, many engineers in industry tend to either not document their work, or document their work poorly. I’ll speculate about why this might be the case. And I’ll argue <em>why good documentation is always a good thing</em>. I’ll give suggestions for how you can write documentation in the best way possible.</p>
+<p>This document is written in <a href="https://quarto.org/">Quarto</a>, a Markdown format, that can be rendered into PDF or HTML format. To illustrate how Quarto works, I’ll “show the code”, reflexively illustrating how I wrote the documentation for this talk on documentation.</p>
+</section>
+<section id="how-i-learned-to-love-documentation" class="level1">
+<h1>How I Learned to Love Documentation</h1>
+<p>I first discovered the pleasures of technical documentation 40 years ago, as an 8 year old boy, using a BBC Microcomputer.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/bbc_micro.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">BBC Micro</figcaption>
+</figure>
+</div>
+<p>This computer was my best friend. The BBC Micro was an 8-bit computer, funded by the British Broadcasting Corporation (BBC), and released in 1981 as the centrepiece of their <a href="https://clp.bbcrewind.co.uk/">Computer Literacy Project</a>.</p>
+<p>This project aimed to make the British public more computer literate, by making computers and programming more widely accessible to the massses, mainly by making the BBC Micro available for use in schools <span class="citation" data-cites="gazzard2016">Gazzard (<a href="#ref-gazzard2016" role="doc-biblioref">2016</a>)</span>. The machine was designed and built by Acorn Computers in Cambridge, England who also built my first computer, the <a href="https://en.wikipedia.org/wiki/Acorn_Electron">Acorn Electron</a>, and the <a href="https://en.wikipedia.org/wiki/ARM_architecture_family">ARM</a> processor - now powering most mobile phones.</p>
+<p>One of the distinctive features of the BBC Micro was that after you had plugged the computer into your TV set, when you switched on the computer (which made the sound “beeee-beep”), you immediately found yourself on what we now call a “command line”, which looked something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/bbc_basic.gif" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">BBC BASIC</figcaption>
+</figure>
+</div>
+<p>I was faced with an immediate practical problem: how do I use this thing? Remember, at the time, I have no mouse, a keyboard as my input device, and there’s no Graphical User Interface.</p>
+<p>Thankfully, the computer came with a <a href="https://www.bbcmicrobot.com/docs/BBC_User_Guide.pdf">User Guide</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/bbc_micro_user_guide.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">User Guide</figcaption>
+</figure>
+</div>
+<p>It explained how to type BBC BASIC commands to “run” your programs using the keyboard. The programs would run from cassette tapes or 5 1/4 inch diskettes. There was also a magazine, <a href="https://en.wikipedia.org/wiki/The_Micro_User">BBC Micro User</a>, which I avidly collected.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/bbc_micro_user.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">BBC Micro User</figcaption>
+</figure>
+</div>
+<p>I learnt to use the computer by reading this printed “physical” media. To use the computer, I had to type commands. It turns out, these were the commands of the programming language BBC BASIC. As soon as the machine had booted up, and typing commands, I was already programming. BBC BASIC was a scripting language, designed to be beginner-friendly, by Sophie Wilson of Acorn Computers. I learnt to program in BBC BASIC by manually typing out the ‘type-in program’ code listings for computer games in the magazines.</p>
+<p>I tell you this story not only for nostalgic reasons, but also to impress upon you the important role played by documentation in my early experience with computers. Reading documentation was part-and-parcel of learning to use the computer. And learning to program. I learnt early the value of good documentation in democratising access to computers and to understanding the code that the computers “run” on them. I also learnt the value of early “open source” software in the form of ‘type-in programs’ in magazines.</p>
+<p>In these early days of popular computing in Britain, learning the technical task of computer programming was intimately tied to reading the literature of documentation.</p>
+<p>I later learned my early enjoyment for reading what we came to call “docs” was matched by an enjoyment in <em>writing</em> technical “docs”. I enjoyed trying to explain to people things that were difficult to understand. Or describe how or why I did something the way I did it. Or tell the story of some feature or analysis. Essentially, I came to enjoy writing user guides.</p>
+<p>I realised that by trying to explain something to someone, I often learnt something myself in the process. Something new about what I had done. Or what the analysis or the tool meant in the context of the project. Even just trying to explain to someone <em>how to run</em> some program was often fascinating to me. I guess writing a user guide is offering “tech support”. Perhaps I felt I was being useful.</p>
+<p>But I quickly realised other data scientists and software engineers often didn’t share my interest or indeed passion for “docs”. I often found people either wouldn’t document their code at all, or they would document it poorly, only under duress. This makes sense, in part, due to the speed of work in industry. But I’ve found this attitude can lead to not only poor practice, but can even have disastrous consequencies for companies.</p>
+</section>
+<section id="the-perils-of-poor-documentation" class="level1">
+<h1>The Perils of Poor Documentation</h1>
+<p>In one case, at a company to remain nameless, an entire data production system - and I am using that phrase generously - along with the new (second) cloud infrastructure built to replace it - were implemented either without any documentation, or with very poor documentation.</p>
+<p>The legacy system was filled with sprawling SQL scripts - the length of <em>War and Peace</em> - and SQL code was embedded into configuration files that were then executed by the production system (I never thought this was possible), and with the production database login and password details hardcoded into a Python script. All without any version control. (I never thought this was possible either!). And, just to add insult to injury, an entire Azure Data Lake was implemented by external consultants, to fix the legacy system - in addition to the existing cloud infrastructure - without writing any documentation at all.</p>
+<p>It was not just the length of the SQL scripts that was the problem. The SQL scripts seemed to have been written in such a style as to make their meaning and purpose entirely obscure to the reader. They had been written with a palpable carelessness. The reasons for why particular decisions were made had been left in the head of the programmer. Any institutional memory had been lost.</p>
+<p>I realise this is an extreme example. The “bad” things that can happen without good documentation are usually more mundane. New colleagues might feel alienated, or struggle to quickly learn a new and complex codebase, or be unable to easily update a legacy system. Without documentation or institutional memory, it might take a whole team of PhD-level developers months, even years, to reverse engineer a large codebase, to be in a position to rebuild or replace it.</p>
+<p>While digging into the archaeological sites of legacy codebases, I made an important realisation: code itself is a form of communication. Or, as I too often discovered, miscommunication. With or without documentation, poorly written code can have disastrous consequences for companies.</p>
+<p>I think poorly written code, and software systems with poor or no documentation are part of what Corey Doctorow calls the “enshitification” of software. While I usually don’t like “nomimal” words - when a noun is created out of a verb - and would warn against using them, because they usually make writing bad, I’ll make an exception with “enshitification”.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/enshitification.jpg" class="img-fluid figure-img" style="width:25.0%"></p>
+<figcaption class="figure-caption">Enshitification</figcaption>
+</figure>
+</div>
+<p>How can we make our code communicate better? Or less shit?</p>
+</section>
+<section id="why-document-your-code" class="level1">
+<h1>Why Document Your Code</h1>
+<p>Before I answer this question about “how” to document our code, I’ll give evidence that it is not just me who thinks that documentation is a “good thing”.</p>
+<p>In her recent book <em>Software Engineering for Data Scientists</em>, Catherine Nelson writes:</p>
+<blockquote class="blockquote">
+<p>“Documentation is an often overlooked aspect of data science. It’s commonly left until the end of a project, but then you’re excited to move on to a new project, and the documentation is rushed or omitted completely. However, … documentation is a crucial part of making your code reproducible. If you want other people to use your code, or if you want to come back to your code in the future, it needs good documentation. It’s impossible to remember all your thoughts from when you originally wrote the code or initially carried out the experiments, so they need to be recorded.” <span class="citation" data-cites="nelson2024">Nelson (<a href="#ref-nelson2024" role="doc-biblioref">2024</a>)</span></p>
+</blockquote>
+<p>I would agree with all these points. I would also add that documentation is essential for understanding the meaning of the code. Why does it do what it does in the way that it does? Documentation is the best way to answer this and similar questions.</p>
+</section>
+<section id="types-of-documentation" class="level1">
+<h1>Types of Documentation</h1>
+<p>Nelson summarises different types of documentation that are relevant to data science workflows. Here, I am directly quoting her recommendations, because I agree with them:</p>
+<p>“<em>Names</em>: Names of variables, functions, and files should be informative, an appropriate length, and easy to read.</p>
+<p><em>Comments</em>: Your comments should add extra information not contained in the code, such as a summary or a caveat.</p>
+<p><em>Docstrings</em>: Your functions should always have a docstring that describes the inputs and outputs of the function, as well as the purpose of that function.</p>
+<p><em>READMEs</em>: Every repository or project should have an introduction that advertises your code and lets other people know why they should use it.</p>
+<p><em>Jupyter notebooks</em>: Your notebooks will be much easier to read if you give them good names, give them a structure, and intersperse text and code.</p>
+<p><em>Experiment tracking</em>: Experiments, especially in machine learning projects, should be tracked in a structured way.”</p>
+<p>In addition to these recommendations, we can also think about technical documentation in terms of different genres, which can help clarify the purpose of your documentation. The <a href="https://diataxis.fr/">Diátaxis</a> documentation framework is an interesting example. It divides technical documents into four types:</p>
+<ul>
+<li><p>Tutorials</p></li>
+<li><p>How-to guides</p></li>
+<li><p>Technical reference</p></li>
+<li><p>Explanation</p></li>
+</ul>
+<p>When writing your documentation, you could think about the purpose of the documentation, and which documentation type is most applicable for your use case. For a detailed explanation and application of Diátaxis, see this PyData <a href="https://youtu.be/buEKMi4tAew?si=t5fvKikngPt5ZhEX">talk</a>.</p>
+</section>
+<section id="literate-programming" class="level1">
+<h1>Literate Programming</h1>
+<p>The advice given above by Nelson, especially the recommendation to use Jupyter notebooks, can be considered advice for “literate programming”.</p>
+<p>Literate programming is perhaps the most commonly recommended <em>genre</em> or <em>style</em> of computer programming for data science. In literate programming, written prose is interspersed with computer code, within the same document, called a “notebook”. Notebooks can be run locally (e.g.&nbsp;a Jupyter <code>.ipynb</code> file) or in cloud environments (e.g.&nbsp;<a href="https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-development-using-notebooks">Azure Synapse</a>, <a href="https://docs.databricks.com/aws/en/notebooks/">Databricks</a>, or <a href="https://colab.research.google.com/notebook">Google Colab</a>).</p>
+<p>The popularity of the “notebook” format for data science makes sense, because data science involves scientific programming, and the structure advocated for literate programming resembles scientific writing - especially the genre of the scientific laboratory report. This report style is commonly structured into Introduction, Method, Results, and Conclusion sections. The “notebook” allows the data scientist to use a similar scientific report format. This is suitable for data exploration, experimentation, and communicating the results of research - especially reporting the findings of data analysis or machine learning experiments. Really, then, the argument for better documentation is an argument for better scientific research practice.</p>
+<p>Quarto is a similar tool for literate programming, especially for scientific computing, where data analysis is presented within a report. For example, the following “code cell” executes a Python kernel (a virtual environment, in this case, using <a href="https://docs.astral.sh/uv/">uv</a>), which in turn executes the <code>print</code> function, and the output of that function is displayed within the rendered document.</p>
+<div class="cell" data-execution_count="2">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">This is a docstring. </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">It explains what a module, class, or function does.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Usually over multiple lines.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a comment, an explanation, on a single line. I'm illustrating "classic" software documentation.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"O'Brien: How many fingers am I holding up, Winston? </span><span class="ch">\n</span><span class="ss"> O'Brien holds up </span><span class="sc">{</span><span class="dv">2</span><span class="op">+</span><span class="dv">2</span><span class="sc">}</span><span class="ss"> fingers </span><span class="ch">\n</span><span class="ss"> Winston: </span><span class="ch">\"</span><span class="ss">Four</span><span class="ch">\"</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>O'Brien: How many fingers am I holding up, Winston? 
+ O'Brien holds up 4 fingers 
+ Winston: "Four"</code></pre>
+</div>
+</div>
+<p>Code execution can also be done in-line, for example, O’Brien held up <code>{python} 2 + 2</code> fingers.</p>
+<p>I was interested to find out when “literate programming” became popuar, so I used Google Books Ngram Viewer search for this term from 1800 to 2026. This shows the frequency of use of this term in published books.</p>
+<p>I executed this command with <code>curl</code> from inside the <code>pydata/data</code> folder, which downloaded an <code>ngrams.json</code> file containing the data:</p>
+<pre><code>curl -L "https://books.google.com/ngrams/json?content=%22literate%20programming%22&amp;year_start=1800&amp;year_end=2026&amp;corpus=26&amp;smoothing=0" -o ngrams.json</code></pre>
+<p>I converted the JSON file to a CSV and then imported it as a DataFrame using <a href="https://pola.rs/">Polars</a>, a DataFrame library written in Rust, with an intuitive API, similar to <a href="https://dplyr.tidyverse.org/">dplyr</a> in R.</p>
+<p>In Quarto, you can render formatted tables from code. Here, I use the <a href="https://github.com/posit-dev/great-tables">Great Tables</a> package, based on the original <a href="https://gt.rstudio.com/">GT</a> package in R. Great Tables has a cool “nanoplot” function, which allows you to include a plot in a table.</p>
+<p><img src="images/ngram_decade_summary.png" class="img-fluid" style="width:80.0%"></p>
+<p>You can also display plots. Here, I’m using <a href="https://plotnine.org/">plotnine</a> which is a Python version of the <a href="https://ggplot2.tidyverse.org/">ggplot2</a> data visualisation library in R.</p>
+<p><img src="images/ngram_literate_programming.png" class="img-fluid"></p>
+</section>
+<section id="history-of-literate-programming" class="level1">
+<h1>History of Literate Programming</h1>
+<p>While the basic technical implementation of literate programming will be familiar to most data scientists, the origins and history of literate programming might be less familar.</p>
+<p>The term “literate programming” was coined in 1984, by the American computer scientist Donald Knuth, later Professor Emeritus at Stanford University <span class="citation" data-cites="knuth1984">Knuth (<a href="#ref-knuth1984" role="doc-biblioref">1984</a>)</span>.</p>
+<p>Knuth proposed literate programming as a new “motto” for software development, building upon the foundations of “structured programming”. He built a system called <strong>WEB</strong> for implementing this new genre of literate programming. Knuth suggests literate programming is “inherently bilingual”, because it combines two different genres of writing within the same computer program files:</p>
+<ul>
+<li><p>A document formatting language</p></li>
+<li><p>A programming language</p></li>
+</ul>
+<p>The document formatting language is a typesetting system (TeX), which is used to render an <em>informal</em> English-language explanation of the program, while the programming language (PASCAL) is the <em>formal</em> computer code, which is compiled by the compiler, and then executed by the user.</p>
+<p>Knuth thereby developed a new literary form, reversing the traditional “structured programming” approach to documentation. In the “structured programming” approach, the formal computer code is primary, and informal documentation is secondary, optionally embedded into the code as <em>comments</em> (as in the example above).</p>
+<p>It is interesting to notice that Knuth’s <strong>WEB</strong> system was designed as a “tool for systems programmers, not for high school students or hobbyists”, because the programmer needs to be “comfortable dealing with multiple languages simultaneously” <span class="citation" data-cites="knuth1984">Knuth (<a href="#ref-knuth1984" role="doc-biblioref">1984</a>)</span>.</p>
+<p>40 years later, literate programming is most commonly adopted not by systems programmers, but by data scientists who tend to use high-level scripting languages (e.g.&nbsp;R, Python, Julia). And the tools of literate programming are considered particularly applicable for teaching and learning programming, especially in cloud environments where the programming language interpreter is included (e.g.&nbsp;Google Colab).</p>
+<p>The preference for the notebook as a tool for literate programming in education and data science might be due to the simplicitly of the Markdown language that is used as the informal typesetting language (rather than TeX). So the burdens on becoming “bilingual” might be less than if they had to learn TeX.</p>
+</section>
+<section id="scientific-publishing-tools" class="level1">
+<h1>Scientific Publishing Tools</h1>
+<p>Knuth’s recommendations form the basis of contemporary technical tools for scientific programming, later called “data science”. These tools have been developed for cross-language programming applications. The technical implementation of literate programming is done in a very similar way in the following scientific publishing tools.</p>
+<section id="jupyter-and-marimo-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="jupyter-and-marimo-notebooks">Jupyter and Marimo notebooks</h2>
+<p>The Jupyter notebook was introduced as an “IPython Notebook” in 2011 as a document publishing format to ensure <em>reproducible</em> computational workflows for “open science” across different academic research fields.</p>
+<p>“Notebooks — documents integrating prose, code and results — offer a way to publish a computational method which can be readily read and replicated.” <span class="citation" data-cites="kluyver2016">Kluyver et al. (<a href="#ref-kluyver2016" role="doc-biblioref">2016</a>)</span></p>
+<p>“Prose text can be interleaved with the code and output in a notebook to explain and highlight specific parts, forming a rich computational narrative.”</p>
+<p>The 2016 article about Jupyter does not mention literate programming or the work of Knuth. Instead, they write that notebooks are an evaluation of “interactive programming” via interactive shell or REPL (read-evaluate-print-loop) workflows. A later 2021 article about Jupyter does cite literate programming, but the authors describe Jupyter notebooks allowing the user to create a “computational narrative”, which is distinct from literate programming “in its incorporation of interactive computing as its central element” <span class="citation" data-cites="granger2021">Granger and Pérez (<a href="#ref-granger2021" role="doc-biblioref">2021</a>)</span>. It is proposed “the computational narratives of Jupyter notebooks support both individual exploration of ideas and sharing of the resulting knowledge in a reusable, reproducible manner that encourages feedback and collaboration” <span class="citation" data-cites="granger2021">Granger and Pérez (<a href="#ref-granger2021" role="doc-biblioref">2021</a>)</span></p>
+<p>This makes sense because Knuth’s literate programming was developed for use with a compiled rather than interpreted language.</p>
+<p>Jupyter notebooks grew out of the IPython <span class="citation" data-cites="perez2007">Pérez and Granger (<a href="#ref-perez2007" role="doc-biblioref">2007</a>)</span> project, introduced in 2001 by physicists from the University of Colorado, as an enhanced Python shell for interactive scientific computing. The 2016 article also cites as influences the use of notebooks in mathematics such as in computer algebra systems Mathematica and SageMath.</p>
+<p>The name “Jupyter” intended to encompass multiple programming languages - Julia and Python -</p>
+<p>Jupyter notebooks use <a href="https://minrk-nbconvert.readthedocs.io/en/stable/"><code>nbconvert</code></a> and <a href="https://pandoc.org/">Pandoc</a> to convert <code>.ipynb</code> files to other formats (e.g.&nbsp;HTML, PDF), and <a href="https://nbviewer.org/"><code>nbviewer</code></a> can be used to host a web server to view rendered HTML versions of notebooks. This allows the knowledge within Jupyter notebooks to be shared with others.</p>
+<p>While <a href="https://jupyter.org/">Jupyter</a> notebooks remain a key tool for data scientists in their development work, they have a number of issues, which make them difficult to be scaled up for use in production systems.</p>
+<p>As JSON files, they are not straightforward to version control. Notebooks are designed so the cells are run in their order of presentation, but cells can be executed out of order, and then the notebook saved with outputs that do not match execution order. And if they contain many execution cells, they can become quite large and unwiedly, leading to IDE crashes.</p>
+<p>The default criticism of data scientists is that by leaving their code in a Jupyter notebook, they make it almost impossible to deploy their models into production, or build scalable systems.</p>
+<p>Several solutions have been proposed for these problems:</p>
+<ul>
+<li><p><a href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> attempts to solve the version control problem by synchronising notebooks with Python scripts. This can make Jupyter notebooks easier to work with agentic coding workflows (see below).</p></li>
+<li><p><a href="https://marimo.io/">Marimo</a> notebooks are “reactive” and designed to address the problems in Jupyter notebooks: “Run a cell and marimo reacts by automatically running the cells that reference its variables. Delete a cell and marimo scrubs its variables from program memory, eliminating hidden state.” (<a href="https://docs.marimo.io/faq/#choosing-marimo">Marimo FAQ</a>).</p></li>
+<li><p>Nelson recommends using Jupyter notebooks for development work, before refactoring notebooks into modularised Python scripts with accompanying tests <span class="citation" data-cites="nelson2024">Nelson (<a href="#ref-nelson2024" role="doc-biblioref">2024</a>)</span>. This is quite a common workflow in industry settings.</p></li>
+</ul>
+</section>
+<section id="r-markdown-and-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-and-quarto">R Markdown and Quarto</h2>
+<p>In the R ecosystem, <a href="https://rmarkdown.rstudio.com/">R Markdown</a> is a Markdown format that allows executable code cells.</p>
+<p><a href="https://www.markdownguide.org/">Markdown</a> is a very simple typesetting format stored in plain text files.</p>
+<p><a href="https://quarto.org/">Quarto</a> is a scientific publishing system, developed from the foundations of R Markdown. It uses text files with a <code>.qmd</code> format. In short, you intersperse prose written in Markdown format, with “code cells” which are enclosed with three backticks (```) for their start and end.</p>
+<p>At the top of the Quarto document is a YAML section, specifying the configuration of the document:</p>
+<pre><code>---
+title: "In Praise of Documentation: Tools, Tips &amp; Techniques for Literate Programming in the AI Age"
+format: 
+    typst: 
+        toc: false
+bibliography: refs.yaml
+bibliographystyle: apa
+jupyter: pydata
+---</code></pre>
+<p>If you want to execute Python code cells in the document, Quarto uses Jupyter to execute the Python via an IPython kernel. In this case, that kernel is called <code>pydata</code>.</p>
+<p>This Quarto document is configured to render as a PDF by default. To render the document, on the command line, you type:</p>
+<pre><code>quarto render talk.qmd</code></pre>
+<p>The current document uses <a href="https://typst.app/">Typst</a> for rendering the PDF. Typst is a new typesetting system designed as a more accessible version of LaTeX. For my bibliography, I’m using the <a href="https://github.com/typst/hayagriva/blob/main/docs/file-format.md">Hayagriva</a> YAML format. For more on bibliographies in Typst, see <a href="https://typst.app/docs/reference/model/bibliography/">Bibliography</a>.</p>
+<p>A particularly cool feature of Quarto is the ability to export to <a href="https://quarto.org/docs/output-formats/gfm.html">GFM</a> (GitHub Flavoured Markdown) format. This allows you to export your Quarto document to a GitHub compatible format which gets rendered for the web. For example, if you want to include code execution in the <code>README.md</code> of your GitHub repository, you would specify this format in your YAML:</p>
+<pre><code>---
+title: "My Project"
+format: gfm
+---</code></pre>
+<p>Then, you can render the document, which executes the code cells and includes the results in the outputted Markdown file. Cool!</p>
+<p>Both R Markdown and Quarto use <a href="https://pandoc.org/">Pandoc</a> for converting between Markdown and various formats (e.g.&nbsp;PDF, HTML, GFM).</p>
+<p>Quarto enables publishing scientific articles, books, and using new methods of storytelling with “scrollytelling” using <a href="https://closeread.dev/">closeread</a> extension.</p>
+</section>
+</section>
+<section id="computer-programs-as-literature" class="level1">
+<h1>Computer Programs as Literature</h1>
+<p>While Knuth’s literate programming style has been widely implemented into data science workflows, and will be familiar to most data scientists, his original ideas about computer programming might be less familar.</p>
+<p>Knuth makes several arguments to support his “motto” of literate programming:</p>
+<blockquote class="blockquote">
+<p>“I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be <em>works of literature</em>”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>“Let us change our traditional attitude to the construction of progams. Instead of imagining that our main task is to instruct a <em>computer</em> what to do, let us concentrate rather on explaining to <em>human beings</em> what we want a computer to do”.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>“The practitioner of literate programming can be regarded as an essayist, whose main concern is with exposition and excellence of style. Such an author, with thesaurus in hand, chooses the names of variables carefully and explains what each variable means. He or she strives for a program that is comprehensible because its concepts have been introduced in an order that is best for human understanding, using a mixture of formal and informal methods that reinforce each other”.</p>
+</blockquote>
+<p>I was frankly astonished when I read these paragraphs. These are a very unusual, and bold, set of arguments for a computer scientist to make. Knuth appears to be flipping the disciplinary association of programming from computer science - whether based in mathematics or engineering - to literature, a humanities discipline. The usually technical domain of programming is turned into a non-technical literary domain.</p>
+<p>On reading his statements, I was reminded of the comments by the English novelist and physical chemist C. P. Snow on “the two cultures” of physical scientists and literary scholars <span class="citation" data-cites="snow1959">Snow (<a href="#ref-snow1959" role="doc-biblioref">1959</a>)</span>. He described these as two “polar” groups who had little contact with one another, yet much misunderstanding between them.</p>
+<p>I find it fascinating to think about how both data science and software engineering could be different, if computer software was considered as works of literature, and programmers as essayists.</p>
+<p>If we were to seriously take on board what Knuth is saying, it seems to me, the implications would be profound, and take us far beyond the creation of a relatively niche new genre of “literate programming”, which would come to be used mostly by data scientists. I think the implications would reach far beyond scientific computing and data science to the whole of software engineering.</p>
+<p>I don’t have time now to fully explore the implications of Knuth’s arguments. For now, I can say that, in the humanities, there is an area called “code studies” (see <a href="https://en.wikipedia.org/wiki/Critical_code_studies">Critical Code Studies</a>), where scholars analyse computer code as literature. But this involves the analysis, rather than the writing of code. As I understand them, Knuth’s arguments are to be applied primarily by software developers, who tend to be engineers, rather than humanities scholars (or artists or poets or writers).</p>
+<p>Whether or not we agree with Knuth’s description of the literate programmer as an “essayist”, I think we should take seriously his arguments about improving the “style” of our programming. After all, code is a form of communication. To improve our communication, we need to take more care with our writing. We need to take better care about how we write.</p>
+</section>
+<section id="rules-for-good-writing" class="level1">
+<h1>Rules for Good Writing</h1>
+<p>We can start small, and follow in the spirit of Knuth, by taking inspiration from one of the greatest writers of the 20th century.</p>
+<p>In his 1945 essay <em>Politics and the English Language</em> <span class="citation" data-cites="orwell1945">Orwell (<a href="#ref-orwell1945" role="doc-biblioref">1945</a>)</span>, George Orwell presented rules for how to write well. While he was writing 80 years ago about the political language of his time, his rules are relevant to writing technical documentation now.</p>
+<p>Orwell considered good writing to be active, precise, and simple. He argued we should write actively rather than passively, be precise rather than vague, and use simple verbs rather than complex longer words or phrases. If we can drop a word from a sentence without losing the meaning, we should drop it. Orwell called the use of language a habit. And he made a close relationship between language and thought. By learning to write well, we can develop good ways of thinking. By writing clearly, we can think clearly, and thereby communicate our thoughts more clearly to others. The thoughts are in the words, and our thinking is displayed in our writing, so we had better choose our words wisely.</p>
+<p>I would add that when we write - whether code or documentation - we should should write with a reader in mind. Like a presentation has an audience, a written document has a reader. This reader might be our future self. Or a colleague who needs to learn about some report or tool. Or even an AI agent we are instructing. In this sense, coding is a mode of technical communication.</p>
+</section>
+<section id="documentation-in-the-age-of-ai" class="level1">
+<h1>Documentation in the Age of AI</h1>
+<p>My nostalgia for an earlier age, where I manually typed out code from magazines, had to learn by myself how to fix things, and my citation of George Orwell are no doubt related to living in a dystopic age of AI, where we commonly use generative AI to write our documentation for us.</p>
+<p>Orwell’s rules have particular relevance to our current age. Orwell was critical of lazy writing, and I have little doubt he would have criticised us for outsourcing our thinking to machines. In Orwell’s day, lazy writers would use stock phrases, so they could avoid the difficult work of thinking about what new things they wanted to say. Instead, we should consciously choose relevant words, to express the unique meaning of what we want to express.</p>
+<p>In the present day, software engineering is being transformed by AI, especially through code asssistants and agentic workflows, where we instruct agents to write our code and documentation for us. I’ve noticed developers are particularly keen to outsource the boring (or difficult) work of writing documentation to AI.</p>
+<p>At the same time, written documentation is becoming more important for AI-assisted workflows. The following trends are becoming popular in software engineering, which will surely impact data science too:</p>
+<ul>
+<li><p><a href="https://en.wikipedia.org/wiki/Spec-driven_development">Spec-driven development</a> reverses the usual approach to documentation in software engineering, where documentation is written <em>after</em> the software itself. Instead, specifications are written in a machine-readable format, which can then be read by coding agents.</p></li>
+<li><p><a href="https://agents.md/">AGENTS.MD</a> is an emerging standard way of implementing spec-driven development. <code>AGENTS.md</code> is text file in Markdown format, written to be read by coding agents, which they use to create a plan and then execute that plan. I’ve included a simple <code>AGENTS.md</code> file in the root of the repository as an example to show how this can work in practice.</p></li>
+<li><p>Coding agent CLI or IDE tools can be instructed to read the <code>AGENTS.md</code> and do “spec-driven development” (e.g.&nbsp;Cursor, OpenAI Codex, Claude Code).</p></li>
+</ul>
+<p>While many engineers are outsourcing their coding and documentation to AI agents, others are using handwritten “lab” notebooks, to keep their notes. This counter trend of handwriting with a pen or pencil, to preserve the physical “handicraft” of thinking and remembering, or learn a new skill is also common within education and industry settings.</p>
+</section>
+<section id="concluding-remarks" class="level1">
+<h1>Concluding Remarks</h1>
+<p>When building data systems, or doing data analysis, we are <em>writing text</em>. When we code, we are writing. And, when we write technical documentation, we are also writing. The code we write now will be read by our future selves, future readers of our reports, and future users of our software tools. In writing our code today, we are writing the legacy code of tomorrow. And documentation is a user guide for the legacy code infrastructures of the future.</p>
+<p>In summary, writing good documentation allows us to:</p>
+<ul>
+<li><p>Feel good about ourselves, be appreciated by others, whilst also making the world a better place</p></li>
+<li><p>Preserve institutional and personal memory</p></li>
+<li><p>Ensure scientific reproducibility</p></li>
+<li><p>Allow better version control so that our software is robust</p></li>
+<li><p>Enable responsible stewardship of technical systems to allow their future maintenance</p></li>
+</ul>
+<p>I hope to have impressed upon you the importance of writing docs, such that you might also be <em>in praise of documentation</em>.</p>
+</section>
+<section id="resources" class="level1">
+<h1>Resources</h1>
+<p><a href="https://www.writethedocs.org/guide/">Write the Docs</a>: best practices for creating software documentation and technical writing.</p>
+<p>Ghost: “Revisioning data science in the age of AI”</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-gazzard2016" class="csl-entry" role="listitem">
+Gazzard, A. 2016. <em>Now the Chips Are down: The BBC Micro</em>. The MIT Press.
+</div>
+<div id="ref-granger2021" class="csl-entry" role="listitem">
+Granger, B. E., and F. Pérez. 2021. <span>“Jupyter: Thinking and Storytelling with Code and Data.”</span> <em>Computing in Science &amp; Engineering</em> 23 (2): 7–14. <a href="https://doi.org/10.1109/MCSE.2021.3059263">https://doi.org/10.1109/MCSE.2021.3059263</a>.
+</div>
+<div id="ref-kluyver2016" class="csl-entry" role="listitem">
+Kluyver, T., B. Ragan-Kelley, F. Pérez, B. Granger, M. Bussonnier, J. Frederic, K. Kelley, et al. 2016. <span>“Jupyter Notebooks – a Publication Format for Reproducible Computational Workflows.”</span> In <em>Positioning and Power in Academic Publishing: Players, Agents and Agendas</em>, edited by F. Loizides and B. Schmidt.
+</div>
+<div id="ref-knuth1984" class="csl-entry" role="listitem">
+Knuth, D. E. 1984. <span>“Literate Programming.”</span> <em>The Computer Journal</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+</div>
+<div id="ref-nelson2024" class="csl-entry" role="listitem">
+Nelson, C. 2024. <em>Software Engineering for Data Scientists: From Notebooks to Scalable Systems</em>. O’Reilly.
+</div>
+<div id="ref-orwell1945" class="csl-entry" role="listitem">
+Orwell, G. 1945. <em>Politics and the English Language</em>. London: Penguin Books.
+</div>
+<div id="ref-perez2007" class="csl-entry" role="listitem">
+Pérez, F., and B. E. Granger. 2007. <span>“IPython: A System for Interactive Scientific Computing.”</span> <em>Computing in Science &amp; Engineering</em> 9 (3): 21–29. <a href="https://doi.org/10.1109/MCSE.2007.53">https://doi.org/10.1109/MCSE.2007.53</a>.
+</div>
+<div id="ref-snow1959" class="csl-entry" role="listitem">
+Snow, C. P. 1959. <em>The Two Cultures and the Scientific Revolution</em>. New York: Cambridge University Press.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
