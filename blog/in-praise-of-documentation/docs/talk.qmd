@@ -10,6 +10,11 @@ jupyter: pydata
 bibliography: refs.bib
 ---
 
+You can also explore:
+
+- [Slide deck for this talk](presentation.html)
+- [Project notes and AGENTS spec](../AGENTS.html)
+
 ```{python}
 #| echo: false
 
@@ -23,12 +28,6 @@ from great_tables import GT
 from plotnine import ggplot, aes, geom_line, labs, theme_gray
 
 ```
-
-# TODO
-
-- Add clean code/pragmatic programming on documentation
-- Add diagram note
-- Add dataviz note
 
 # In Praise of Documentation
 

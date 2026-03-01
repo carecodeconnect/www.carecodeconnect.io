@@ -165,14 +165,14 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Welcome to the care-code-connect blog! 🤗\n“Revisioning data science for the age of AI”\nThis space collects reflections on how we can revision data science as a human-centric discipline in the age of AI. New posts will appear below …\n\n\n\n\n\n\n\n\n\n\nAGENTS.md\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nIn Praise of Documentation\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nIn Praise of Documentation: Tools, Tips & Techniques for Literate Programming in the AI Age\n\n\n\n\n\n\n\ndocumentation\n\n\ntalks\n\n\n\n\n\n\n\n\n\n\n\nMar 1, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Welcome to the care-code-connect blog! 🤗\n“Revisioning data science for the age of AI”\nNew posts will appear below!\n\n\n\n\n\n\n\n\n\n\nIn Praise of Documentation: Tools, Tips & Techniques for Literate Programming in the AI Age\n\n\n\n\n\n\n\ndocumentation\n\n\ntalks\n\n\n\n\n\n\n\n\n\n\n\nMar 1, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/in-praise-of-documentation/docs/talk.html",
     "href": "blog/in-praise-of-documentation/docs/talk.html",
     "title": "In Praise of Documentation: Tools, Tips & Techniques for Literate Programming in the AI Age",
     "section": "",
-    "text": "Add clean code/pragmatic programming on documentation\nAdd diagram note\nAdd dataviz note"
+    "text": "You can also explore:"
   },
   {
     "objectID": "blog/in-praise-of-documentation/docs/talk.html#jupyter-and-marimo-notebooks",

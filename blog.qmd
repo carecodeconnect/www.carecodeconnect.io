@@ -2,7 +2,8 @@
 title: "Blog"
 toc: true
 listing:
-  contents: blog
+  contents:
+    - blog/in-praise-of-documentation/docs/talk.qmd
   sort: "date desc"
   type: default
   fields: [title, description, date, categories]
@@ -12,4 +13,4 @@ Welcome to the `care-code-connect` blog! 🤗
 
 *"Revisioning data science for the age of AI"*
 
-This space collects reflections on how we can revision data science as a human-centric discipline in the age of AI. New posts will appear below ...
+New posts will appear below!
