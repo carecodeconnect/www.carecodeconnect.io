@@ -3,17 +3,17 @@ project:
   output-dir: docs
 
 website:
-  title: "Portfolio"
+  title: "care-code-connect"
   navbar:
     right:
       - href: index.qmd
         text: Home
       - href: about.qmd
         text: About
-      - href: projects.qmd
-        text: Projects
       - href: blog.qmd
         text: Blog
+      - href: projects.qmd
+        text: Projects
       - href: testimonials.qmd
         text: Testimonials
 
