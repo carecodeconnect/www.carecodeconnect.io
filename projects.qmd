@@ -7,7 +7,7 @@ toc: true
 
 # A Mindset for the Anthropocene
 
-![A Mindset for the Anthropocene](_site/projects/mindset_for_anthropocene/mindset_for_anthropocene.png)
+![A Mindset for the Anthropocene](projects/mindset_for_anthropocene/mindset_for_anthropocene.png)
 
 This project involved network visualisation of resources for sustainable futures: [A Mindset for the Anthropocene](https://www.ama-project.org/explore/)
 
@@ -98,7 +98,7 @@ Predicts how likely individuals are to receive their H1N1 and seasonal flu vacci
 
 # Jhāna.AI: Personal Meditation Guide
 
-![Jhāna.AI: Real-time brain sensing guiding the user in a loving-kindness meditation](_site/projects/jhana/jhana-loving-kindness-sample.gif)
+![Jhāna.AI: Real-time brain sensing guiding the user in a loving-kindness meditation](projects/jhana/jhana-loving-kindness-sample.gif)
 
 Interactive voice assistant which uses real-time brain sensing to guide the user in ancient Jhana Meditation, for reaching states of concentration, bliss and calm, and finding relief from pain. `Jhāna.AI` uses cutting-edge technologies of biofeedback, deep learning, and natural language processing for personalised guided meditation sessions.
 
@@ -106,19 +106,19 @@ Interactive voice assistant which uses real-time brain sensing to guide the user
 
 # [MapMind (Part I): Mapping the Mindfulness Movement](_site/projects/mapmind/mapmind_mapping.html)
 
-![Heatmap of mindfulness teachers and mindfulness teaching in the U.K.](_site/projects/mapmind/images/mapmind_heatmap_new.png)
+![Heatmap of mindfulness teachers and mindfulness teaching in the U.K.](projects/mapmind/images/mapmind_heatmap_new.png)
 
 The MapMind project studied the people at the forefront of the mindfulness movement. The analysis in this report utilized the Machine Learning algorithm **K-Means clustering** to explore the urban concentrations of mindfulness teaching, demonstrating its effectiveness in handling nationwide geospatial datasets.
 
 # [MapMind (Part II): Who Are Mindfulness Teachers?](_site/projects/mapmind/mapmind_demographics.html)
 
-![The project studied the people at the forefront of the mindfulness movement](_site/projects/mapmind/images/mindfulness-in-uk.jpg)
+![The project studied the people at the forefront of the mindfulness movement](projects/mapmind/images/mindfulness-in-uk.jpg)
 
 In Part II of the MapMind project, we explore the demographics of mindfulness teachers. We use **Exploratory Data Analysis** (EDA) and **data visualisation** to reveal the hidden patterns in the survey data using descriptive statistics.
 
 # [MapMind (Part III): Digital Divides: Mindfulness Teaching & Technology](_site/projects/mapmind/mapmind_technology.html)
 
-![The project studied digital divides in mindfulness teaching](_site/projects/mapmind/images/mapmind-digital-divides.png)
+![The project studied digital divides in mindfulness teaching](projects/mapmind/images/mapmind-digital-divides.png)
 
 The final part of the MapMind project looks at how mindfulness teachers relate to technology, and uses predictive modeling using **Chi-Squared tests** and **logistic regression** to identify the factors that predict whether mindfulness teachers engage in online teaching based on several features, including gender, years of teaching experience, whether they hold a management position, and their nationality.
 
