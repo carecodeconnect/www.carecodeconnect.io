@@ -156,72 +156,72 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "Skills",
+    "title": "About",
     "section": "",
-    "text": "📊 Excel\n🧮 Numpy\n📚 Pandas\n🔍 NVIVO\n📐 SPSS\n📖 Text Mining\n🧐 Thematic Analysis\n📏 Tidyverse (dplyr)"
+    "text": "Welcome to care-code-connect! 🤗\nWe combine the tools of social science and data science to build solutions to complex social problems.\nIn short, we care, code, connect.\nExplore our projects to find out more!\nThis portfolio was made with ❤️ using Python, Quarto and Shiny."
   },
   {
-    "objectID": "about.html#data-analysis",
-    "href": "about.html#data-analysis",
-    "title": "Skills",
-    "section": "",
-    "text": "📊 Excel\n🧮 Numpy\n📚 Pandas\n🔍 NVIVO\n📐 SPSS\n📖 Text Mining\n🧐 Thematic Analysis\n📏 Tidyverse (dplyr)"
+    "objectID": "about.html#skills",
+    "href": "about.html#skills",
+    "title": "About",
+    "section": "Skills",
+    "text": "Skills\n\nExpertise in scientific research, education, mentoring and project leadership. Skilled in research, model development, deployment, evaluation, and monitoring across the lifecycle of data products.\nAdvanced expertise building persuasive technologies to create behaviour change in the health, well-being, and sustainability domains. Deep expertise in causal inference and experimentation and building ML and AI systems for predictive analysis and generation of text, language, and talk-in-interaction, informed by cutting-edge human-computer interaction research on people’s use of digital technologies.\nApplies best practices in software engineering - functional and object-oriented programming, testing, version control - to Machine Learning and AI production pipelines at scale.\nUser and product sense with research-based skillset combining conceptual, critical thinking and communication skills with scientific, programming, and engineering skills."
   },
   {
-    "objectID": "about.html#data-engineering",
-    "href": "about.html#data-engineering",
-    "title": "Skills",
-    "section": "Data Engineering",
-    "text": "Data Engineering\n\n🖥️ Bash\n🐋 Docker\n🌐 Git & GitHub\n🐧 Linux\n⚙️ NGINX\n🧪 Pytest\n💻 Shell Scripting"
+    "objectID": "about.html#programming-languages",
+    "href": "about.html#programming-languages",
+    "title": "About",
+    "section": "Programming Languages",
+    "text": "Programming Languages\n\nRust, Python, R, SQL, bash"
   },
   {
-    "objectID": "about.html#data-visualisation",
-    "href": "about.html#data-visualisation",
-    "title": "Skills",
-    "section": "Data Visualisation",
-    "text": "Data Visualisation\n\n📉 D3.js\n🗺️ Folium\n📊 Ggplot2\n🌍 Leaflet\n📈 Matplotlib\n📊 Plotly\n📈 Seaborn"
-  },
-  {
-    "objectID": "about.html#databases-programming",
-    "href": "about.html#databases-programming",
-    "title": "Skills",
-    "section": "Databases & Programming",
-    "text": "Databases & Programming\n\n🐍 Python\n💻 R\n💾 SQL"
-  },
-  {
-    "objectID": "about.html#dashboards-reporting",
-    "href": "about.html#dashboards-reporting",
-    "title": "Skills",
-    "section": "Dashboards & Reporting",
-    "text": "Dashboards & Reporting\n\n📄 LaTeX\n📊 Markdown\n📈 Quarto\n📊 Shiny\n📄 Sphynx\n📈 Streamlit"
+    "objectID": "about.html#data-science-analytics",
+    "href": "about.html#data-science-analytics",
+    "title": "About",
+    "section": "Data Science & Analytics",
+    "text": "Data Science & Analytics\n\npandas, polars, matplotlib, plotnine, tidyverse (dplyr, ggplot2)"
   },
   {
     "objectID": "about.html#machine-learning",
     "href": "about.html#machine-learning",
-    "title": "Skills",
+    "title": "About",
     "section": "Machine Learning",
-    "text": "Machine Learning\n\n🤖 Keras\n📜 NLTK\n🤖 Pytorch\n🧠 Scikit-Learn\n🧠 SpaCy\n🤖 Tensorflow"
+    "text": "Machine Learning\n\nNumPy, scikit-learn, TensorFlow, PyTorch"
   },
   {
-    "objectID": "about.html#people-skills",
-    "href": "about.html#people-skills",
-    "title": "Skills",
-    "section": "People Skills",
-    "text": "People Skills\n\n🗣️ Communication\n🤝 Collaboration\n🌍 Cultural Awareness\n💡 Generating Insightful Impacts\n🌐 Global Experience\n📈 Leadership\n🧠 Lifelong Learning\n🤹 Marketing\n🧑‍🏫 Mentoring\n🧘‍♂️ Patience\n🎤 Presentations\n🤝 Project Management\n🧑‍🔬 Psychology\n🧑‍💼 Recruitment\n👥 Stakeholder Engagement\n🛠️ Teamwork"
+    "objectID": "about.html#software-engineering-devops",
+    "href": "about.html#software-engineering-devops",
+    "title": "About",
+    "section": "Software Engineering & DevOps",
+    "text": "Software Engineering & DevOps\n\nDocumentation (Jupyter, Quarto, Sphinx), version control (git/GitHub), testing (PyTest), CI/CD (GitHub Actions), containerisation (Docker)"
   },
   {
-    "objectID": "about.html#research",
-    "href": "about.html#research",
-    "title": "Skills",
-    "section": "Research",
-    "text": "Research\n\n🔬 Experiments\n🗣️ Interviews\n🧑‍🤝‍🧑 Focus Groups\n📊 Qualtrics\n📉 Survey Monkey\n🌐 Web Surveys"
+    "objectID": "about.html#ai-engineering",
+    "href": "about.html#ai-engineering",
+    "title": "About",
+    "section": "AI Engineering",
+    "text": "AI Engineering\n\nOpenAI API, Codex, Cursor, Ollama, HuggingFace, LangChain, Weights&Biases"
+  },
+  {
+    "objectID": "about.html#cloud-infrastructure",
+    "href": "about.html#cloud-infrastructure",
+    "title": "About",
+    "section": "Cloud Infrastructure",
+    "text": "Cloud Infrastructure\n\nAWS (EC2, S3), Microsoft Azure DevOps, Google Cloud Platform"
+  },
+  {
+    "objectID": "about.html#business-intelligence-tools",
+    "href": "about.html#business-intelligence-tools",
+    "title": "About",
+    "section": "Business Intelligence Tools",
+    "text": "Business Intelligence Tools\n\nTableau, Power BI, Zoho Analytics, Excel"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "care-code-connect",
     "section": "",
-    "text": "Welcome to our portfolio! 🤗\nSocial Data Science combines the tools of social science and data science to build solutions to complex social problems.\n\nWe decode the matrix of human relations with technology: by linking computation with interpretation, we tell the human stories behind the data.\nWe build machine learning solutions to create caring futures: a data revolution that is equitable, fair, and sustainable. Our solutions are infused with care, ethics, privacy. We are sensitive to cultural, geographical, historical circumstances, social contexts and differences that make a difference.\nWe use cutting-edge free and open source technologies to put people at the heart of the data. We inform evidence-based decision-making and actionable ‘outsights’ to make the world a better place.\n\nIn short, we care, code, connect.\nExplore our projects to find out more!\nThis portfolio was made with ❤️ using Python, Quarto and Shiny."
+    "text": "Welcome to care-code-connect 🤗\nPlease expore our:\n\nBlog: revisioning data science for the age of AI.\nProjects: building solutions to complex social problems.\nTestimonials: what our collaborators say about us.\n\nThis home page was made with ❤️ using Python with Quarto."
   },
   {
     "objectID": "projects/mapmind/mapmind_demographics.html",
