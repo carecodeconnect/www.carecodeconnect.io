@@ -94,19 +94,19 @@ Interactive voice assistant which uses real-time brain sensing to guide the user
 
 [Click for GitHub repository](https://github.com/carecodeconnect/jhana-dev)
 
-# [MapMind (Part I): Mapping the Mindfulness Movement](_site/projects/mapmind/mapmind_mapping.html)
+# [MapMind (Part I): Mapping the Mindfulness Movement](projects/mapmind/mapmind_mapping.html)
 
 ![Heatmap of mindfulness teachers and mindfulness teaching in the U.K.](projects/mapmind/images/mapmind_heatmap_new.png)
 
 The MapMind project studied the people at the forefront of the mindfulness movement. The analysis in this report utilized the Machine Learning algorithm **K-Means clustering** to explore the urban concentrations of mindfulness teaching, demonstrating its effectiveness in handling nationwide geospatial datasets.
 
-# [MapMind (Part II): Who Are Mindfulness Teachers?](_site/projects/mapmind/mapmind_demographics.html)
+# [MapMind (Part II): Who Are Mindfulness Teachers?](projects/mapmind/mapmind_demographics.html)
 
 ![The project studied the people at the forefront of the mindfulness movement](projects/mapmind/images/mindfulness-in-uk.jpg)
 
 In Part II of the MapMind project, we explore the demographics of mindfulness teachers. We use **Exploratory Data Analysis** (EDA) and **data visualisation** to reveal the hidden patterns in the survey data using descriptive statistics.
 
-# [MapMind (Part III): Digital Divides: Mindfulness Teaching & Technology](_site/projects/mapmind/mapmind_technology.html)
+# [MapMind (Part III): Digital Divides: Mindfulness Teaching & Technology](projects/mapmind/mapmind_technology.html)
 
 ![The project studied digital divides in mindfulness teaching](projects/mapmind/images/mapmind-digital-divides.png)
 
