@@ -172,7 +172,7 @@
     "href": "blog/in-praise-of-documentation/docs/talk.html",
     "title": "In Praise of Documentation: Tools, Tips & Techniques for Literate Programming in the AI Age",
     "section": "",
-    "text": "This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I’ll explore tools for data science understood and the idea that data science involves doing “literate programming” where we create “computational narrative”.\nI enjoy writing technical documentation. I enjoy trying to explain things to people. Helping people make sense of a report or a tool. But I realise my enjoyment is not shared widely in the field. While writing documentation is generally considered a “good thing”, many engineers in industry tend to either not document their work, or document their work poorly. I’ll speculate about why this might be the case. And I’ll argue why good documentation is always a good thing. I’ll give suggestions for how you can write documentation in the best way possible.\nThis document is written in Quarto, a Markdown format, that can be rendered into PDF or HTML format. To illustrate how Quarto works, I’ll “show the code”, reflexively illustrating how I wrote the documentation for this talk on documentation.\nAlong with this text, you can also explore:"
+    "text": "This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I’ll explore tools for data science understood and the idea that data science involves doing “literate programming” where we create “computational narrative”.\nI enjoy writing technical documentation. I enjoy trying to explain things to people. Helping people make sense of a report or a tool. But I realise my enjoyment is not shared widely in the field. While writing documentation is generally considered a “good thing”, many engineers in industry tend to either not document their work, or document their work poorly. I’ll speculate about why this might be the case. And I’ll argue why good documentation is always a good thing. I’ll give suggestions for how you can write documentation in the best way possible.\nThis document is written in Quarto, a Markdown format, that can be rendered into PDF or HTML format. To illustrate how Quarto works, I’ll “show the code”, reflexively illustrating how I wrote the documentation for this talk on documentation.\nAlong with this text, you can also explore the slide deck for this talk."
   },
   {
     "objectID": "blog/in-praise-of-documentation/docs/talk.html#jupyter-and-marimo-notebooks",
@@ -193,7 +193,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Welcome to care-code-connect! 🤗\n“Building persuasive technologies with AI and Machine Learning for health, well-being & sustainability”\nWe combine the tools of social science and data science to build solutions to complex social problems.\nIn short, we care, code, connect.\nExplore our blog and projects to find out more!"
+    "text": "Welcome to the carecodeconnect home page! 🤗\n“Building persuasive technologies with AI and Machine Learning for health, well-being & sustainability”\nWe combine the tools of social science and data science to build solutions to complex social problems.\nIn short, we care, code, connect.\nExplore our blog and projects to find out more!"
   },
   {
     "objectID": "about.html#skills",
@@ -254,9 +254,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "care-code-connect",
+    "title": "carecodecommect",
     "section": "",
-    "text": "Welcome to care-code-connect 🤗\n“Building persuasive technologies with AI and Machine Learning for health, well-being & sustainability”\n\nTo learn about us, explore our:\n\nAbout: who we are and what we do.\nBlog: revisioning data science for the age of AI.\nProjects: building solutions to complex social problems.\nTestimonials: what our collaborators say about us.\n\nThis home page was made with ❤️ using Python, Quarto, and deployed with GitHub Actions."
+    "text": "Welcome to the carecodeconnect home page 🤗\n“Building persuasive technologies with AI and Machine Learning for health, well-being & sustainability”\n\nTo learn about us, explore our:\n\nAbout: who we are and what we do\nBlog: revisioning data science for the age of AI\nProjects: building solutions to complex social problems\nTestimonials: what our collaborators say about us\n\nThis home page was made with ❤️ using Python, Quarto, and deployed with GitHub Actions."
   },
   {
     "objectID": "projects/mapmind/mapmind_demographics.html",

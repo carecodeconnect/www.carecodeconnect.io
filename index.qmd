@@ -1,10 +1,10 @@
 ---
 format: 
     html:
-        fontsize: large
+        fontsize: x-large
 ---
 
-Welcome to `care-code-connect` 🤗
+Welcome to the `carecodeconnect` home page 🤗
 
 *"Building persuasive technologies with AI and Machine Learning for health, well-being & sustainability"*
 
@@ -12,12 +12,12 @@ Welcome to `care-code-connect` 🤗
 
 To learn about us, explore our:
 
-- [About](about.qmd): who we are and what we do.
+- [About](about.qmd): who we are and what we do
 
-- [Blog](blog.qmd): revisioning data science for the age of AI.
+- [Blog](blog.qmd): revisioning data science for the age of AI
 
-- [Projects](projects.qmd): building solutions to complex social problems.
+- [Projects](projects.qmd): building solutions to complex social problems
 
-- [Testimonials](testimonials.qmd): what our collaborators say about us.
+- [Testimonials](testimonials.qmd): what our collaborators say about us
 
 This home page was made with ❤️ using [Python](https://www.python.org/), [Quarto](https://quarto.org/), and deployed with [GitHub Actions](https://docs.github.com/en/actions).

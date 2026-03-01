@@ -2,7 +2,7 @@
 title: "About"
 ---
 
-Welcome to `care-code-connect`! 🤗
+Welcome to the `carecodeconnect` home page! 🤗
 
 *"Building persuasive technologies with AI and Machine Learning for health, well-being & sustainability"*
 
@@ -18,13 +18,13 @@ In short, we **care**, **code**, **connect**.
 
 Explore our [blog](blog.qmd) and [projects](projects.qmd) to find out more!
 
-# Recent projects
+# Recent Projects
 
-- Building robust and reliable LLM/SLM AI assistant to help freelancers find high quality gigs (Shoutt).
+- Building robust and reliable LLM/SLM AI assistant to help freelancers find high quality gigs @ [Shoutt International](https://shoutt.ai).
 
-- Automated data analytics, causal inference, and predictive models for enhancing eco-driving behaviours (Lightfoot).
+- Automated data analytics, causal inference, and predictive models for enhancing eco-driving behaviours @ [Lightfoot](https://www.lightfoot.co.uk/).
 
-- Built interactive meditation assistant providing personalised guidance using voice and brain signals for enhanced well-being (Data Science Retreat).
+- Built interactive meditation assistant providing personalised guidance using voice and brain signals for enhanced well-being @ [Data Science Retreat](https://www.datascienceretreat.com/).
 
 ## Skills
 

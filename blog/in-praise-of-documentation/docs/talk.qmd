@@ -29,10 +29,7 @@ I enjoy writing technical documentation. I enjoy trying to explain things to peo
 
 This document is written in [Quarto](https://quarto.org/), a Markdown format, that can be rendered into PDF or HTML format. To illustrate how Quarto works, I'll "show the code", reflexively illustrating how I wrote the documentation for this talk on documentation.
 
-Along with this text, you can also explore:
-
-- [Slide deck for this talk](presentation.html)
-- [Project notes and AGENTS spec](../AGENTS.html)
+Along with this text, you can also explore the [slide deck for this talk](presentation.html).
 
 # How I Learned to Love Documentation
 
@@ -491,7 +488,7 @@ At the same time, written documentation is becoming more important for AI-assist
 
 - [Spec-driven development](https://en.wikipedia.org/wiki/Spec-driven_development) reverses the usual approach to documentation in software engineering, where documentation is written *after* the software itself. Instead, specifications are written in a machine-readable format, which can then be read by coding agents.
 
-- [AGENTS.MD](https://agents.md/) is an emerging standard way of implementing spec-driven development. `AGENTS.md` is text file in Markdown format, written to be read by coding agents, which they use to create a plan and then execute that plan. I've included a simple `AGENTS.md` file in the root of the repository as an example to show how this can work in practice.
+- [AGENTS.MD](https://agents.md/) is an emerging standard way of implementing spec-driven development. `AGENTS.md` is text file in Markdown format, written to be read by coding agents, which they use to create a plan and then execute that plan. I've included a simple [AGENTS.md](../AGENTS.md) file in the root of the repository as an example to show how this can work in practice.
 
 - Coding agent CLI or IDE tools can be instructed to read the `AGENTS.md` and do "spec-driven development" (e.g. Cursor, OpenAI Codex, Claude Code).
 

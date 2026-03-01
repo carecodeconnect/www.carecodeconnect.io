@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-03-01">
 
-<title>care-code-connect - In Praise of Documentation: Tools, Tips &amp; Techniques for Literate Programming in the AI Age</title>
+<title>carecodecommect - In Praise of Documentation: Tools, Tips &amp; Techniques for Literate Programming in the AI Age</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -129,7 +129,7 @@ div.csl-indent {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title">care-code-connect</span>
+    <span class="navbar-title">carecodecommect</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -226,11 +226,7 @@ div.csl-indent {
 <p>This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I’ll explore tools for data science understood and the idea that data science involves doing “literate programming” where we create “computational narrative”.</p>
 <p>I enjoy writing technical documentation. I enjoy trying to explain things to people. Helping people make sense of a report or a tool. But I realise my enjoyment is not shared widely in the field. While writing documentation is generally considered a “good thing”, many engineers in industry tend to either not document their work, or document their work poorly. I’ll speculate about why this might be the case. And I’ll argue <em>why good documentation is always a good thing</em>. I’ll give suggestions for how you can write documentation in the best way possible.</p>
 <p>This document is written in <a href="https://quarto.org/">Quarto</a>, a Markdown format, that can be rendered into PDF or HTML format. To illustrate how Quarto works, I’ll “show the code”, reflexively illustrating how I wrote the documentation for this talk on documentation.</p>
-<p>Along with this text, you can also explore:</p>
-<ul>
-<li><a href="presentation.html">Slide deck for this talk</a></li>
-<li><a href="../AGENTS.html">Project notes and AGENTS spec</a></li>
-</ul>
+<p>Along with this text, you can also explore the <a href="presentation.html">slide deck for this talk</a>.</p>
 <section id="how-i-learned-to-love-documentation" class="level1">
 <h1>How I Learned to Love Documentation</h1>
 <p>I first discovered the pleasures of technical documentation 40 years ago, as an 8 year old boy, using a BBC Microcomputer.</p>
@@ -449,7 +445,7 @@ format: gfm
 <p>At the same time, written documentation is becoming more important for AI-assisted workflows. The following trends are becoming popular in software engineering, which will surely impact data science too:</p>
 <ul>
 <li><p><a href="https://en.wikipedia.org/wiki/Spec-driven_development">Spec-driven development</a> reverses the usual approach to documentation in software engineering, where documentation is written <em>after</em> the software itself. Instead, specifications are written in a machine-readable format, which can then be read by coding agents.</p></li>
-<li><p><a href="https://agents.md/">AGENTS.MD</a> is an emerging standard way of implementing spec-driven development. <code>AGENTS.md</code> is text file in Markdown format, written to be read by coding agents, which they use to create a plan and then execute that plan. I’ve included a simple <code>AGENTS.md</code> file in the root of the repository as an example to show how this can work in practice.</p></li>
+<li><p><a href="https://agents.md/">AGENTS.MD</a> is an emerging standard way of implementing spec-driven development. <code>AGENTS.md</code> is text file in Markdown format, written to be read by coding agents, which they use to create a plan and then execute that plan. I’ve included a simple <a href="../../../blog/in-praise-of-documentation/AGENTS.html">AGENTS.md</a> file in the root of the repository as an example to show how this can work in practice.</p></li>
 <li><p>Coding agent CLI or IDE tools can be instructed to read the <code>AGENTS.md</code> and do “spec-driven development” (e.g.&nbsp;Cursor, OpenAI Codex, Claude Code).</p></li>
 </ul>
 <p>While many engineers are outsourcing their coding and documentation to AI agents, others are using handwritten “lab” notebooks, to keep their notes. This counter trend of handwriting with a pen or pencil, to preserve the physical “handicraft” of thinking and remembering, or learn a new skill is also common within education and industry settings.</p>
