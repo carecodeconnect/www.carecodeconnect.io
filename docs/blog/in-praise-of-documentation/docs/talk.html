@@ -398,9 +398,9 @@ bibliographystyle: apa
 jupyter: pydata
 ---</code></pre>
 <p>If you want to execute Python code cells in the document, Quarto uses Jupyter to execute the Python via an IPython kernel. In this case, that kernel is called <code>pydata</code>.</p>
-<p>This Quarto document was originally configured to render a PDF with Typst. To render the Typst version, on the command line, you type:</p>
+<p>This Quarto document was originally configured to render a PDF with Typst. To render that Typst PDF, on the command line, you type:</p>
 <pre><code>quarto render talk.qmd</code></pre>
-<p>For the website build, the bibliography is now handled by Pandoc using a BibTeX file (<code>refs.bib</code>) so that citations render correctly to HTML (and can also be used with standard PDF output), while the Typst/Hayagriva setup is reserved for a separate, standalone PDF render.</p>
+<p>In practice, the Typst/Hayagriva setup worked well for standalone PDF output but failed when the site was rendered as HTML, because Pandoc (used by Quarto for HTML) cannot read Hayagriva bibliographies or the <code>typst</code> format. For the website build, the bibliography is therefore handled by Pandoc using a BibTeX file (<code>refs.bib</code>), so that citations render correctly to HTML (and standard PDF), while Typst is kept only for separate, manual PDF renders.</p>
 <p>A particularly cool feature of Quarto is the ability to export to <a href="https://quarto.org/docs/output-formats/gfm.html">GFM</a> (GitHub Flavoured Markdown) format. This allows you to export your Quarto document to a GitHub compatible format which gets rendered for the web. For example, if you want to include code execution in the <code>README.md</code> of your GitHub repository, you would specify this format in your YAML:</p>
 <pre><code>---
 title: "My Project"
