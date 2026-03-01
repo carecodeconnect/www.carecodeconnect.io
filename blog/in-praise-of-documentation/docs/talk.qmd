@@ -23,11 +23,13 @@ from plotnine import ggplot, aes, geom_line, labs, theme_gray
 
 ```
 
-This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I'll explore tools for data science understood and the idea that data science involves doing "literate programming" where we create "computational narrative".
+This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I'll explore tools for "literate programming", where we create "computational narrative", as well as tips for writing well. It turns out that writing documentation is becoming more important in the age of AI.
 
 I enjoy writing technical documentation. I enjoy trying to explain things to people. Helping people make sense of a report or a tool. But I realise my enjoyment is not shared widely in the field. While writing documentation is generally considered a "good thing", many engineers in industry tend to either not document their work, or document their work poorly. I'll speculate about why this might be the case. And I'll argue *why good documentation is always a good thing*. I'll give suggestions for how you can write documentation in the best way possible.
 
 This document is written in [Quarto](https://quarto.org/), a Markdown format, that can be rendered into PDF or HTML format. To illustrate how Quarto works, I'll "show the code", reflexively illustrating how I wrote the documentation for this talk on documentation.
+
+Originally, the PDF for this talk was rendered with Typst using a Hayagriva-style `refs.yaml` bibliography. For the web version of the site, the citations now use a Pandoc-compatible BibTeX file (`refs.bib`), so that the same source can be rendered reliably to HTML (and standard PDF) by Pandoc's citation engine.
 
 Along with this text, you can also explore the [slide deck for this talk](presentation.html).
 
@@ -39,7 +41,7 @@ I first discovered the pleasures of technical documentation 40 years ago, as an 
 
 This computer was my best friend. The BBC Micro was an 8-bit computer, funded by the British Broadcasting Corporation (BBC), and released in 1981 as the centrepiece of their [Computer Literacy Project](https://clp.bbcrewind.co.uk/). 
 
-This project aimed to make the British public more computer literate, by making computers and programming more widely accessible to the massses, mainly by making the BBC Micro available for use in schools @gazzard2016. The machine was designed and built by Acorn Computers in Cambridge, England who also built my first computer, the [Acorn Electron](https://en.wikipedia.org/wiki/Acorn_Electron), and the [ARM](https://en.wikipedia.org/wiki/ARM_architecture_family) processor - now powering most mobile phones. 
+This project aimed to make the British public more computer literate, by making computers and programming more widely accessible to the massses, mainly by making the BBC Micro available for use in schools [@gazzard2016]. The machine was designed and built by Acorn Computers in Cambridge, England who also built my first computer, the [Acorn Electron](https://en.wikipedia.org/wiki/Acorn_Electron), and the [ARM](https://en.wikipedia.org/wiki/ARM_architecture_family) processor - now powering most mobile phones.
 
 One of the distinctive features of the BBC Micro was that after you had plugged the computer into your TV set, when you switched on the computer (which made the sound "beeee-beep"), you immediately found yourself on what we now call a "command line", which looked something like this:
 
@@ -91,7 +93,7 @@ Before I answer this question about "how" to document our code, I'll give eviden
 
 In her recent book *Software Engineering for Data Scientists*, Catherine Nelson writes:
 
-> "Documentation is an often overlooked aspect of data science. It’s commonly left until the end of a project, but then you’re excited to move on to a new project, and the documentation is rushed or omitted completely. However, ... documentation is a crucial part of making your code reproducible. If you want other people to use your code, or if you want to come back to your code in the future, it needs good documentation. It’s impossible to remember all your thoughts from when you originally wrote the code or initially carried out the experiments, so they need to be recorded." @nelson2024
+> "Documentation is an often overlooked aspect of data science. It’s commonly left until the end of a project, but then you’re excited to move on to a new project, and the documentation is rushed or omitted completely. However, ... documentation is a crucial part of making your code reproducible. If you want other people to use your code, or if you want to come back to your code in the future, it needs good documentation. It’s impossible to remember all your thoughts from when you originally wrote the code or initially carried out the experiments, so they need to be recorded." [@nelson2024]
 
 I would agree with all these points. I would also add that documentation is essential for understanding the meaning of the code. Why does it do what it does in the way that it does? Documentation is the best way to answer this and similar questions.
 
@@ -341,7 +343,7 @@ p.save(out_path, dpi=300)
 
 While the basic technical implementation of literate programming will be familiar to most data scientists, the origins and history of literate programming might be less familar.
 
-The term "literate programming" was coined in 1984, by the American computer scientist Donald Knuth, later Professor Emeritus at Stanford University @knuth1984. 
+The term "literate programming" was coined in 1984, by the American computer scientist Donald Knuth, later Professor Emeritus at Stanford University [@knuth1984].
 
 Knuth proposed literate programming as a new "motto" for software development, building upon the foundations of "structured programming". He built a system called **WEB** for implementing this new genre of literate programming. Knuth suggests literate programming is "inherently bilingual", because it combines two different genres of writing within the same computer program files:
 
@@ -353,7 +355,7 @@ The document formatting language is a typesetting system (TeX), which is used to
 
 Knuth thereby developed a new literary form, reversing the traditional "structured programming" approach to documentation. In the "structured programming" approach, the formal computer code is primary, and informal documentation is secondary, optionally embedded into the code as *comments* (as in the example above).
 
-It is interesting to notice that Knuth's **WEB** system was designed as a "tool for systems programmers, not for high school students or hobbyists", because the programmer needs to be "comfortable dealing with multiple languages simultaneously" @knuth1984. 
+It is interesting to notice that Knuth's **WEB** system was designed as a "tool for systems programmers, not for high school students or hobbyists", because the programmer needs to be "comfortable dealing with multiple languages simultaneously" [@knuth1984].
 
 40 years later, literate programming is most commonly adopted not by systems programmers, but by data scientists who tend to use high-level scripting languages (e.g. R, Python, Julia). And the tools of literate programming are considered particularly applicable for teaching and learning programming, especially in cloud environments where the programming language interpreter is included (e.g. Google Colab).
 
@@ -367,15 +369,15 @@ Knuth's recommendations form the basis of contemporary technical tools for scien
 
 The Jupyter notebook was introduced as an "IPython Notebook" in 2011 as a document publishing format to ensure *reproducible* computational workflows for "open science" across different academic research fields.
 
-"Notebooks — documents integrating prose, code and results — offer a way to publish a computational method which can be readily read and replicated." @kluyver2016
+"Notebooks — documents integrating prose, code and results — offer a way to publish a computational method which can be readily read and replicated." [@kluyver2016]
 
 "Prose text can be interleaved with the code and output in a notebook to explain and highlight specific parts, forming a rich computational narrative."
 
-The 2016 article about Jupyter does not mention literate programming or the work of Knuth. Instead, they write that notebooks are an evaluation of "interactive programming" via interactive shell or REPL (read-evaluate-print-loop) workflows. A later 2021 article about Jupyter does cite literate programming, but the authors describe Jupyter notebooks allowing the user to create a "computational narrative", which is distinct from literate programming "in its incorporation of interactive computing as its central element" @granger2021. It is proposed "the computational narratives of Jupyter notebooks support both individual exploration of ideas and sharing of the resulting knowledge in a reusable, reproducible manner that encourages feedback and collaboration" @granger2021
+The 2016 article about Jupyter does not mention literate programming or the work of Knuth. Instead, they write that notebooks are an evaluation of "interactive programming" via interactive shell or REPL (read-evaluate-print-loop) workflows. A later 2021 article about Jupyter does cite literate programming, but the authors describe Jupyter notebooks allowing the user to create a "computational narrative", which is distinct from literate programming "in its incorporation of interactive computing as its central element" [@granger2021]. It is proposed "the computational narratives of Jupyter notebooks support both individual exploration of ideas and sharing of the resulting knowledge in a reusable, reproducible manner that encourages feedback and collaboration" [@granger2021]
 
 This makes sense because Knuth's literate programming was developed for use with a compiled rather than interpreted language.
 
-Jupyter notebooks grew out of the IPython @perez2007 project, introduced in 2001 by physicists from the University of Colorado, as an enhanced Python shell for interactive scientific computing. The 2016 article also cites as influences the use of notebooks in mathematics such as in computer algebra systems Mathematica and SageMath.
+Jupyter notebooks grew out of the IPython [@perez2007] project, introduced in 2001 by physicists from the University of Colorado, as an enhanced Python shell for interactive scientific computing. The 2016 article also cites as influences the use of notebooks in mathematics such as in computer algebra systems Mathematica and SageMath.
 
 The name "Jupyter" intended to encompass multiple programming languages - Julia and Python - 
 
@@ -393,7 +395,7 @@ Several solutions have been proposed for these problems:
 
 * [Marimo](https://marimo.io/) notebooks are "reactive" and designed to address the problems in Jupyter notebooks: "Run a cell and marimo reacts by automatically running the cells that reference its variables. Delete a cell and marimo scrubs its variables from program memory, eliminating hidden state." ([Marimo FAQ](https://docs.marimo.io/faq/#choosing-marimo)).
 
-* Nelson recommends using Jupyter notebooks for development work, before refactoring notebooks into modularised Python scripts with accompanying tests @nelson2024. This is quite a common workflow in industry settings.
+* Nelson recommends using Jupyter notebooks for development work, before refactoring notebooks into modularised Python scripts with accompanying tests [@nelson2024]. This is quite a common workflow in industry settings.
 
 ## R Markdown and Quarto
 
@@ -419,13 +421,13 @@ jupyter: pydata
 
 If you want to execute Python code cells in the document, Quarto uses Jupyter to execute the Python via an IPython kernel. In this case, that kernel is called `pydata`.
 
-This Quarto document is configured to render as a PDF by default. To render the document, on the command line, you type:
+This Quarto document was originally configured to render a PDF with Typst. To render the Typst version, on the command line, you type:
 
 ```
 quarto render talk.qmd
 ```
 
-The current document uses [Typst](https://typst.app/) for rendering the PDF. Typst is a new typesetting system designed as a more accessible version of LaTeX. For my bibliography, I'm using the [Hayagriva](https://github.com/typst/hayagriva/blob/main/docs/file-format.md) YAML format. For more on bibliographies in Typst, see [Bibliography](https://typst.app/docs/reference/model/bibliography/).
+For the website build, the bibliography is now handled by Pandoc using a BibTeX file (`refs.bib`) so that citations render correctly to HTML (and can also be used with standard PDF output), while the Typst/Hayagriva setup is reserved for a separate, standalone PDF render.
 
 A particularly cool feature of Quarto is the ability to export to [GFM](https://quarto.org/docs/output-formats/gfm.html) (GitHub Flavoured Markdown) format. This allows you to export your Quarto document to a GitHub compatible format which gets rendered for the web. For example, if you want to include code execution in the `README.md` of your GitHub repository, you would specify this format in your YAML:
 
@@ -456,7 +458,7 @@ Knuth makes several arguments to support his "motto" of literate programming:
 
 I was frankly astonished when I read these paragraphs. These are a very unusual, and bold, set of arguments for a computer scientist to make. Knuth appears to be flipping the disciplinary association of programming from computer science - whether based in mathematics or engineering - to literature, a humanities discipline. The usually technical domain of programming is turned into a non-technical literary domain.
 
-On reading his statements, I was reminded of the comments by the English novelist and physical chemist C. P. Snow on "the two cultures" of physical scientists and literary scholars @snow1959. He described these as two "polar" groups who had little contact with one another, yet much misunderstanding between them.
+On reading his statements, I was reminded of the comments by the English novelist and physical chemist C. P. Snow on "the two cultures" of physical scientists and literary scholars [@snow1959]. He described these as two "polar" groups who had little contact with one another, yet much misunderstanding between them.
 
 I find it fascinating to think about how both data science and software engineering could be different, if computer software was considered as works of literature, and programmers as essayists.
 
@@ -470,7 +472,7 @@ Whether or not we agree with Knuth's description of the literate programmer as a
 
 We can start small, and follow in the spirit of Knuth, by taking inspiration from one of the greatest writers of the 20th century.
 
-In his 1945 essay *Politics and the English Language* @orwell1945, George Orwell presented rules for how to write well. While he was writing 80 years ago about the political language of his time, his rules are relevant to writing technical documentation now.
+In his 1945 essay *Politics and the English Language* [@orwell1945], George Orwell presented rules for how to write well. While he was writing 80 years ago about the political language of his time, his rules are relevant to writing technical documentation now.
 
 Orwell considered good writing to be active, precise, and simple. He argued we should write actively rather than passively, be precise rather than vague, and use simple verbs rather than complex longer words or phrases. If we can drop a word from a sentence without losing the meaning, we should drop it. Orwell called the use of language a habit. And he made a close relationship between language and thought. By learning to write well, we can develop good ways of thinking. By writing clearly, we can think clearly, and thereby communicate our thoughts more clearly to others. The thoughts are in the words, and our thinking is displayed in our writing, so we had better choose our words wisely.
 

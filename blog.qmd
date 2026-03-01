@@ -9,7 +9,7 @@ listing:
   fields: [title, description, date, categories]
 ---
 
-Welcome to the `care-code-connect` blog! 🤗
+Welcome to the `carecodeconnect` blog! 🤗
 
 *"Revisioning data science for the age of AI"*
 
