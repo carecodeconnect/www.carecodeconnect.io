@@ -9,12 +9,6 @@ format:
 jupyter: pydata
 bibliography: refs.bib
 ---
-
-You can also explore:
-
-- [Slide deck for this talk](presentation.html)
-- [Project notes and AGENTS spec](../AGENTS.html)
-
 ```{python}
 #| echo: false
 
@@ -29,13 +23,16 @@ from plotnine import ggplot, aes, geom_line, labs, theme_gray
 
 ```
 
-# In Praise of Documentation
-
 This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I'll explore tools for data science understood and the idea that data science involves doing "literate programming" where we create "computational narrative".
 
 I enjoy writing technical documentation. I enjoy trying to explain things to people. Helping people make sense of a report or a tool. But I realise my enjoyment is not shared widely in the field. While writing documentation is generally considered a "good thing", many engineers in industry tend to either not document their work, or document their work poorly. I'll speculate about why this might be the case. And I'll argue *why good documentation is always a good thing*. I'll give suggestions for how you can write documentation in the best way possible.
 
 This document is written in [Quarto](https://quarto.org/), a Markdown format, that can be rendered into PDF or HTML format. To illustrate how Quarto works, I'll "show the code", reflexively illustrating how I wrote the documentation for this talk on documentation.
+
+Along with this text, you can also explore:
+
+- [Slide deck for this talk](presentation.html)
+- [Project notes and AGENTS spec](../AGENTS.html)
 
 # How I Learned to Love Documentation
 
