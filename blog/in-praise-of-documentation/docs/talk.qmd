@@ -333,10 +333,9 @@ p.save(out_path, dpi=300)
 ```
 
 ```{python}
-# Display the interactive plot
+# Display the plot
 p
 ```
-![](images/ngram_literate_programming.png)
 
 # History of Literate Programming
 
