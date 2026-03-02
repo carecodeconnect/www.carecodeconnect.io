@@ -381,7 +381,15 @@ The name "Jupyter" intended to encompass multiple programming languages - Julia 
 
 Jupyter notebooks use [`nbconvert`](https://minrk-nbconvert.readthedocs.io/en/stable/) and [Pandoc](https://pandoc.org/) to convert `.ipynb` files to other formats (e.g. HTML, PDF), and [`nbviewer`](https://nbviewer.org/) can be used to host a web server to view rendered HTML versions of notebooks. This allows the knowledge within Jupyter notebooks to be shared with others.
 
-While [Jupyter](https://jupyter.org/) notebooks remain a key tool for data scientists in their development work, they have a number of issues, which make them difficult to be scaled up for use in production systems. 
+While Jupyter notebooks remain a key tool for data scientists in their development work, they have a number of issues, which make them difficult to be scaled up for use in production systems. 
+
+Indeed, Jupyter notebooks have been criticised for encouraging bad habits, which lead to problems with reproducibility. 
+
+"Among the main criticisms are hidden states, unexpected execution order with fragmented code, and bad practices of naming, versioning, testing, and modularizing code. Also, the notebook format does not encode its library dependencies with associated versions, which can make it hard (or even impossible) to reproduce the notebook" [@pimentel2019]
+
+@pimentel2019 analysed 1.4 million notebooks on GitHub and found that "out of 863,878 attempted executions of valid notebooks (i.e., notebooks with defined Python version and execution order), only 24.11% executed without errors and only 4.03% produced the same results." They make eight recommendations for improving the use of Jupyter notebooks.
+
+"Markdown plays a considerable role in notebooks, but the size of markdown cells may not be enough for well-described narratives, potentially compromising reproducibility" [@pimentel2019]
 
 As JSON files, they are not straightforward to version control. Notebooks are designed so the cells are run in their order of presentation, but cells can be executed out of order, and then the notebook saved with outputs that do not match execution order. And if they contain many execution cells, they can become quite large and unwiedly, leading to IDE crashes.
 
