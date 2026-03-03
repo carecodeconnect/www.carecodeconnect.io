@@ -99,15 +99,10 @@ I would agree with all these points. I would also add that documentation is esse
 Nelson summarises different types of documentation that are relevant to data science workflows. Here, I am directly quoting her recommendations, because I agree with them:
 
 > "*Names*: Names of variables, functions, and files should be informative, an appropriate length, and easy to read.
-
 > *Comments*: Your comments should add extra information not contained in the code, such as a summary or a caveat.
-
 > *Docstrings*: Your functions should always have a docstring that describes the inputs and outputs of the function, as well as the purpose of that function.
-
 > *READMEs*: Every repository or project should have an introduction that advertises your code and lets other people know why they should use it.
-
 > *Jupyter notebooks*: Your notebooks will be much easier to read if you give them good names, give them a structure, and intersperse text and code.
-
 > *Experiment tracking*: Experiments, especially in machine learning projects, should be tracked in a structured way."
 
 In addition to these recommendations, we can also think about technical documentation in terms of different genres, which can help clarify the purpose of your documentation. The [Diátaxis](https://diataxis.fr/) documentation framework is an interesting example. It divides technical documents into four types: 
@@ -416,12 +411,14 @@ At the top of the Quarto document is a YAML section, specifying the configuratio
 ```
 ---
 title: "In Praise of Documentation: Tools, Tips & Techniques for Literate Programming in the AI Age"
-format: 
-    typst: 
-        toc: false
-bibliography: refs.yaml
-bibliographystyle: apa
+date: "2026-03-01"
+categories: [documentation, talks]
+format:
+  html:
+    toc: true
+    code-fold: true
 jupyter: pydata
+bibliography: refs.bib
 ---
 ```
 
@@ -523,5 +520,3 @@ I hope to have impressed upon you the importance of writing docs, such that you 
 # Resources
 
 [Write the Docs](https://www.writethedocs.org/guide/): best practices for creating software documentation and technical writing.
-
-Ghost: "Revisioning data science in the age of AI"

@@ -7,7 +7,7 @@
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
   <title>carecodeconnect - In Praise of Documentation</title>
@@ -28,7 +28,26 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -318,8 +337,12 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+  <script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
 </head>
-<body class="quarto-light">
+<body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
@@ -331,6 +354,36 @@
 
 </section>
 <section>
+<section id="overview" class="title-slide slide level1 center">
+<h1>Overview</h1>
+<ul>
+<li><p>How I learned to love documentation</p></li>
+<li><p>The perils of poor documentation</p></li>
+<li><p>Why document your code</p></li>
+<li><p>Types of documentatin</p></li>
+<li><p>Literate programming</p></li>
+<li><p>Scientific publishing tools</p></li>
+<li><p>Computer programs as literature</p></li>
+<li><p>Documentation in the age of AI</p></li>
+</ul>
+<aside class="notes">
+<p>This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I’ll explore tools for “literate programming”, where we create “computational narrative”, as well as tips for writing well. It turns out that writing documentation is becoming more important in the age of AI. Essentially, I’m arguing for better scientific research practice, especially in data science in industry. At the end, I’ll share a link to the longer written version of this talk.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
 <section id="how-i-learned-to-love-documentation" class="title-slide slide level1 center">
 <h1>How I learned to love documentation</h1>
 
@@ -338,34 +391,494 @@
 <section class="slide level2">
 
 
-<img data-src="images/bbc_micro.jpg" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">BBC Micro</p></section>
-<section class="slide level2">
-
-
-<img data-src="images/bbc_basic.gif" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">BBC BASIC</p></section>
-<section class="slide level2">
-
-
-<img data-src="images/bbc_micro_user_guide.jpg" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">User Guide</p></section>
-<section class="slide level2">
-
-
-<img data-src="images/bbc_micro_user.jpg" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">BBC Micro User</p></section>
-<section class="slide level2">
-
-<p>The perils of poor documentation</p>
+<img data-src="images/bbc_micro.jpg" style="width:50.0%" class="r-stretch"><aside class="notes">
+<p>I first discovered the pleasures of technical documentation 40 years ago, as an 8 year old boy, using a BBC Microcomputer.</p>
+<p>This computer was my best friend. The BBC Micro was an 8-bit computer, funded by the British Broadcasting Corporation (BBC), and released in 1981 as the centrepiece of their <a href="https://clp.bbcrewind.co.uk/">Computer Literacy Project</a>.</p>
+<p>This project aimed to make the British public more computer literate, by making computers and programming more widely accessible to the massses, mainly by making the BBC Micro available for use in schools <span class="citation" data-cites="gazzard2016">(<a href="#/recommended-resources" role="doc-biblioref" onclick="">Gazzard 2016</a>)</span>. The machine was designed and built by Acorn Computers in Cambridge, England who also built my first computer, the <a href="https://en.wikipedia.org/wiki/Acorn_Electron">Acorn Electron</a>, and the <a href="https://en.wikipedia.org/wiki/ARM_architecture_family">ARM</a> processor - now powering most mobile phones.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
 
-<img data-src="images/enshitification.jpg" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">Enshitification</p></section>
+<img data-src="images/bbc_basic.gif" style="width:50.0%" class="r-stretch"><aside class="notes">
+<p>One of the distinctive features of the BBC Micro was that after you had plugged the computer into your TV set, when you switched on the computer (which made the sound “beeee-beep”), you immediately found yourself on what we now call a “command line”, which looked something like this. I was faced with an immediate practical problem: how do I use this thing? Remember, at the time, I have no mouse, a keyboard as my input device, and there’s no Graphical User Interface.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section class="slide level2">
 
+
+<img data-src="images/bbc_micro_user_guide.jpg" style="width:50.0%" class="r-stretch"><aside class="notes">
+<p>Thankfully, the computer came with a <a href="https://www.bbcmicrobot.com/docs/BBC_User_Guide.pdf">User Guide</a>. It explained how to type BBC BASIC commands to “run” your programs using the keyboard. The programs would run from cassette tapes or 5 1/4 inch diskettes.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+
+<img data-src="images/bbc_micro_user.jpg" style="width:50.0%" class="r-stretch"><aside class="notes">
+<p>There was also a magazine, <a href="https://en.wikipedia.org/wiki/The_Micro_User">BBC Micro User</a>, which I avidly collected. I learnt to program in BBC BASIC by manually typing out the ‘type-in program’ code listings for computer games in the magazines. In these early days of popular computing in Britain, learning the technical task of computer programming was intimately tied to reading the literature of documentation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="the-perils-of-poor-documentation" class="title-slide slide level1 center">
+<h1>The perils of poor documentation</h1>
+<aside class="notes">
+<p>Bad things can happen in companies without good documentation. Documentation is the institutional memory of a company. Without (good), it becomes difficult to understand a codebase, fix it, or update it. It might take a whole team of PhD-level developers months, even years, to reverse engineer a large legacy codebase, to be in a position to rebuild or replace it. New colleagues can feel alienated, or struggle to quickly learn a new and complex codebase, or be unable to easily update the system.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+
+<img data-src="images/enshitification.jpg" style="width:50.0%" class="r-stretch"><aside class="notes">
+<p>I think poorly written code, and software systems with poor or no documentation are part of what Corey Doctorow calls the “enshitification” of software. While I usually don’t like “nomimal” words - when a noun is created out of a verb - and would warn against using them, because they usually make writing bad, I’ll make an exception with “enshitification”.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="why-document-your-code" class="title-slide slide level1 center">
+<h1>Why document your code</h1>
+<p>“Documentation is an often overlooked aspect of data science. It’s commonly left until the end of a project, but then you’re excited to move on to a new project, and the documentation is rushed or omitted completely. However, … documentation is a crucial part of making your code reproducible. If you want other people to use your code, or if you want to come back to your code in the future, it needs good documentation. It’s impossible to remember all your thoughts from when you originally wrote the code or initially carried out the experiments, so they need to be recorded.” <span class="citation" data-cites="nelson2024">(<a href="#/recommended-resources" role="doc-biblioref" onclick="">Nelson 2024</a>)</span></p>
+<aside class="notes">
+<p>In her recent book <em>Software Engineering for Data Scientists</em>, Catherine Nelson writes:</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="types-of-documentation" class="title-slide slide level1 center">
+<h1>Types of documentation</h1>
+<p>“<em>Names</em>: Names of variables, functions, and files should be informative, an appropriate length, and easy to read.</p>
+<p><em>Comments</em>: Your comments should add extra information not contained in the code, such as a summary or a caveat.</p>
+<p><em>Docstrings</em>: Your functions should always have a docstring that describes the inputs and outputs of the function, as well as the purpose of that function.</p>
+<p><em>READMEs</em>: Every repository or project should have an introduction that advertises your code and lets other people know why they should use it.</p>
+<p><em>Experiment tracking</em>: Experiments, especially in machine learning projects, should be tracked in a structured way.”</p>
+<p><strong>Jupyter notebooks</strong>: <strong>Your notebooks will be much easier to read if you give them good names, give them a structure, and intersperse text and code.</strong></p>
+<p><span class="citation" data-cites="nelson2024">Nelson (<a href="#/recommended-resources" role="doc-biblioref" onclick="">2024</a>)</span></p>
+<aside class="notes">
+<p>Nelson summarises different types of documentation that are relevant to data science workflows. Here, I am directly quoting her recommendations, because I agree with them:</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="literate-programming" class="title-slide slide level1 center">
+<h1>Literate programming</h1>
+<ul>
+<li><p>A document formatting language</p></li>
+<li><p>A programming language</p></li>
+</ul>
+<p><span class="citation" data-cites="knuth1984">Knuth (<a href="#/recommended-resources" role="doc-biblioref" onclick="">1984</a>)</span></p>
+<aside class="notes">
+<p>The advice given above by Nelson, especially the recommendation to use Jupyter notebooks, can be considered advice for “literate programming”. Literate programming is perhaps the most commonly recommended <em>genre</em> or <em>style</em> of computer programming for data science. In literate programming, written prose is interspersed with computer code, within the same document, called a “notebook”. While the basic technical implementation of literate programming will be familiar to most data scientists, the origins and history of literate programming might be less familar.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="history-of-literate-programming" class="title-slide slide level1 center">
+<h1>History of literate programming</h1>
+<p><strong>WEB</strong> system:</p>
+<ul>
+<li><p>A document formatting language (TeX)</p></li>
+<li><p>A programming language (PASCAL)</p></li>
+</ul>
+<p><span class="citation" data-cites="knuth1984">Knuth (<a href="#/recommended-resources" role="doc-biblioref" onclick="">1984</a>)</span></p>
+<aside class="notes">
+<p>The term “literate programming” was coined in 1984, by the American computer scientist Donald Knuth, later Professor Emeritus at Stanford University <span class="citation" data-cites="knuth1984">(<a href="#/recommended-resources" role="doc-biblioref" onclick="">Knuth 1984</a>)</span>. Knuth proposed literate programming as a new “motto” for software development, building upon the foundations of “structured programming”. He built a system called <strong>WEB</strong> for implementing this new genre of literate programming. Knuth suggests literate programming is “inherently bilingual”, because it combines two different genres of writing within the same computer program files: * A document formatting language * A programming language The document formatting language is a typesetting system (TeX), which is used to render an <em>informal</em> English-language explanation of the program, while the programming language (PASCAL) is the <em>formal</em> computer code, which is compiled by the compiler, and then executed by the user. Knuth thereby developed a new literary form, reversing the traditional “structured programming” approach to documentation. In the “structured programming” approach, the formal computer code is primary, and informal documentation is secondary, optionally embedded into the code as <em>comments</em> (as in the example above). It is interesting to notice that Knuth’s <strong>WEB</strong> system was designed as a “tool for systems programmers, not for high school students or hobbyists”, because the programmer needs to be “comfortable dealing with multiple languages simultaneously” <span class="citation" data-cites="knuth1984">(<a href="#/recommended-resources" role="doc-biblioref" onclick="">Knuth 1984</a>)</span>. 40 years later, literate programming is most commonly adopted not by systems programmers, but by data scientists who tend to use high-level scripting languages (e.g.&nbsp;R, Python, Julia). And the tools of literate programming are considered particularly applicable for teaching and learning programming, especially in cloud environments where the programming language interpreter is included (e.g.&nbsp;Google Colab).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="history-of-literate-programming-cont." class="title-slide slide level1 center">
+<h1>History of literate programming (cont.)</h1>
+<div class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="presentation_files/figure-revealjs/cell-6-output-1.png" width="960" height="480"></p>
+<figcaption>Google Ngram plot for literate programming (1984+, 5y smoothed)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>I was interested to find out when “literate programming” became popuar, so I used Google Books Ngram Viewer search for this term from 1800 to 2026. This shows the frequency of use of this term in published books. In Quarto, you can render formatted plots or tables from code. Here, I’m using <a href="https://plotnine.org/">plotnine</a> which is a Python version of the <a href="https://ggplot2.tidyverse.org/">ggplot2</a> data visualisation library in R.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="history-of-literate-programming-cont.-1" class="title-slide slide level1 center">
+<h1>History of literate programming (cont.)</h1>
+<div class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="7">
+
+<div id="btmaoajiyj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#btmaoajiyj table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#btmaoajiyj thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#btmaoajiyj p { margin: 0; padding: 0; }
+ #btmaoajiyj .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #btmaoajiyj .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #btmaoajiyj .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #btmaoajiyj .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #btmaoajiyj .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #btmaoajiyj .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #btmaoajiyj .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #btmaoajiyj .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #btmaoajiyj .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #btmaoajiyj .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #btmaoajiyj .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #btmaoajiyj .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #btmaoajiyj .gt_spanner_row { border-bottom-style: hidden; }
+ #btmaoajiyj .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #btmaoajiyj .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #btmaoajiyj .gt_from_md> :first-child { margin-top: 0; }
+ #btmaoajiyj .gt_from_md> :last-child { margin-bottom: 0; }
+ #btmaoajiyj .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #btmaoajiyj .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #btmaoajiyj .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #btmaoajiyj .gt_row_group_first td { border-top-width: 2px; }
+ #btmaoajiyj .gt_row_group_first th { border-top-width: 2px; }
+ #btmaoajiyj .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #btmaoajiyj .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #btmaoajiyj .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #btmaoajiyj .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #btmaoajiyj .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #btmaoajiyj .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #btmaoajiyj .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #btmaoajiyj .gt_left { text-align: left; }
+ #btmaoajiyj .gt_center { text-align: center; }
+ #btmaoajiyj .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #btmaoajiyj .gt_font_normal { font-weight: normal; }
+ #btmaoajiyj .gt_font_bold { font-weight: bold; }
+ #btmaoajiyj .gt_font_italic { font-style: italic; }
+ #btmaoajiyj .gt_super { font-size: 65%; }
+ #btmaoajiyj .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #btmaoajiyj .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+
+  <tr class="gt_heading">
+    <td colspan="6" class="gt_heading gt_title gt_font_normal">Google Ngram: "literate programming"</td>
+  </tr>
+  <tr class="gt_heading">
+    <td colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Decade patterns (1984–2019), per-billion tokens</td>
+  </tr>
+<tr class="gt_col_headings">
+  <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="decade">Decade</th>
+  <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="trend">Trend (yearly)</th>
+  <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="mean_per_billion">Mean</th>
+  <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="max_per_billion">Max</th>
+  <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="max_year">Max year</th>
+  <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="n_years">Years</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+  <tr>
+    <td class="gt_row gt_left">1980s</td>
+    <td class="gt_row gt_left"><div><svg role="img" viewbox="0 0 400 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;"><defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style><path d="M 50.0,115.0 C 75.0,115.0 85.0,115.0 110.0,115.0 C 135.0,115.0 145.0,115.0 170.0,115.0 C 195.0,115.0 205.0,115.0 230.0,115.0 C 255.0,115.0 265.0,93.04123711340206 290.0,93.04123711340206 C 315.0,93.04123711340206 325.0,78.19587628865979 350.0,78.19587628865979" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="95.20618556701031" width="320" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="105.20618556701031" x2="350" y2="105.20618556701031" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="360" y="115.20618556701031" fill="transparent" stroke="transparent" font-size="30px">0.095</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="100.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="120.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="160.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="180.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="220.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="240.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="280.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="300.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.21</text></g><g class="vert-line"><rect x="340.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="360.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.36</text></g></svg></div></td>
+    <td class="gt_row gt_right">0.095</td>
+    <td class="gt_row gt_right">0.357</td>
+    <td class="gt_row gt_right">1989</td>
+    <td class="gt_row gt_right">6</td>
+  </tr>
+  <tr>
+    <td class="gt_row gt_left">1990s</td>
+    <td class="gt_row gt_left"><div><svg role="img" viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;"><defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style><path d="M 50.0,94.69072164948453 C 75.0,94.69072164948453 80.55555555555554,104.48453608247424 105.55555555555554,104.48453608247424 C 130.55555555555554,104.48453608247424 136.1111111111111,74.58762886597938 161.1111111111111,74.58762886597938 C 186.1111111111111,74.58762886597938 191.66666666666666,94.79381443298969 216.66666666666666,94.79381443298969 C 241.66666666666666,94.79381443298969 247.22222222222217,90.05154639175258 272.2222222222222,90.05154639175258 C 297.2222222222222,90.05154639175258 302.77777777777777,61.8041237113402 327.77777777777777,61.8041237113402 C 352.77777777777777,61.8041237113402 358.3333333333333,95.41237113402062 383.3333333333333,95.41237113402062 C 408.3333333333333,95.41237113402062 413.8888888888889,90.25773195876289 438.8888888888889,90.25773195876289 C 463.8888888888889,90.25773195876289 469.4444444444444,47.06185567010309 494.4444444444444,47.06185567010309 C 519.4444444444443,47.06185567010309 525.0,67.16494845360825 550.0,67.16494845360825" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="72.03092783505154" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="82.03092783505154" x2="550" y2="82.03092783505154" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="92.03092783505154" fill="transparent" stroke="transparent" font-size="30px">0.32</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.20</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.10</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.39</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.20</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.52</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0.19</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.66</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.46</text></g></svg></div></td>
+    <td class="gt_row gt_right">0.320</td>
+    <td class="gt_row gt_right">0.659</td>
+    <td class="gt_row gt_right">1998</td>
+    <td class="gt_row gt_right">10</td>
+  </tr>
+  <tr>
+    <td class="gt_row gt_left">2000s</td>
+    <td class="gt_row gt_left"><div><svg role="img" viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;"><defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style><path d="M 50.0,53.76288659793815 C 75.0,53.76288659793815 80.55555555555554,79.84536082474226 105.55555555555554,79.84536082474226 C 130.55555555555554,79.84536082474226 136.1111111111111,90.25773195876289 161.1111111111111,90.25773195876289 C 186.1111111111111,90.25773195876289 191.66666666666666,103.14432989690721 216.66666666666666,103.14432989690721 C 241.66666666666666,103.14432989690721 247.22222222222217,61.082474226804116 272.2222222222222,61.082474226804116 C 297.2222222222222,61.082474226804116 302.77777777777777,90.56701030927834 327.77777777777777,90.56701030927834 C 352.77777777777777,90.56701030927834 358.3333333333333,107.16494845360825 383.3333333333333,107.16494845360825 C 408.3333333333333,107.16494845360825 413.8888888888889,92.0103092783505 438.8888888888889,92.0103092783505 C 463.8888888888889,92.0103092783505 469.4444444444444,92.31958762886599 494.4444444444444,92.31958762886599 C 519.4444444444443,92.31958762886599 525.0,103.24742268041237 550.0,103.24742268041237" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="77.34020618556701" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="87.34020618556701" x2="550" y2="87.34020618556701" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="97.34020618556701" fill="transparent" stroke="transparent" font-size="30px">0.27</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.59</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.34</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.52</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0.076</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.11</text></g></svg></div></td>
+    <td class="gt_row gt_right">0.268</td>
+    <td class="gt_row gt_right">0.594</td>
+    <td class="gt_row gt_right">2000</td>
+    <td class="gt_row gt_right">10</td>
+  </tr>
+  <tr>
+    <td class="gt_row gt_left">2010s</td>
+    <td class="gt_row gt_left"><div><svg role="img" viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;"><defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style><path d="M 50.0,115.0 C 75.0,115.0 80.55555555555554,102.9381443298969 105.55555555555554,102.9381443298969 C 130.55555555555554,102.9381443298969 136.1111111111111,92.93814432989691 161.1111111111111,92.93814432989691 C 186.1111111111111,92.93814432989691 191.66666666666666,80.77319587628865 216.66666666666666,80.77319587628865 C 241.66666666666666,80.77319587628865 247.22222222222217,100.87628865979381 272.2222222222222,100.87628865979381 C 297.2222222222222,100.87628865979381 302.77777777777777,102.83505154639175 327.77777777777777,102.83505154639175 C 352.77777777777777,102.83505154639175 358.3333333333333,115.0 383.3333333333333,115.0 C 408.3333333333333,115.0 413.8888888888889,99.22680412371135 438.8888888888889,99.22680412371135 C 463.8888888888889,99.22680412371135 469.4444444444444,102.62886597938144 494.4444444444444,102.62886597938144 C 519.4444444444443,102.62886597938144 525.0,15.0 550.0,15.0" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="82.72164948453609" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="92.72164948453609" x2="550" y2="92.72164948453609" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="102.72164948453609" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.21</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.33</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.14</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.15</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.97</text></g></svg></div></td>
+    <td class="gt_row gt_right">0.216</td>
+    <td class="gt_row gt_right">0.970</td>
+    <td class="gt_row gt_right">2019</td>
+    <td class="gt_row gt_right">10</td>
+  </tr>
+</tbody>
+
+
+</table>
+
+</div>
+        
+<p>Google Ngram table for literate programming (1984+, 5y smoothed)</p>
+</div>
+</div>
+<aside class="notes">
+<p>Then, I used the <a href="https://github.com/posit-dev/great-tables">Great Tables</a> package, based on the original <a href="https://gt.rstudio.com/">GT</a> package in R. Great Tables has a cool “nanoplot” function, which allows you to include a plot in a table.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-execution_count="8">
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"3c7f5efdcc20473d8b97b15d62f1e2f6","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+</div>
+</section></section>
+<section>
+<section id="scientific-publishing-tools" class="title-slide slide level1 center">
+<h1>Scientific publishing tools</h1>
+
+</section>
+<section id="jupyter-and-marimo-notebooks" class="slide level2">
+<h2>Jupyter and Marimo notebooks</h2>
+</section>
+<section id="r-markdown-and-quarto" class="slide level2">
+<h2>R Markdown and Quarto</h2>
+<pre><code>---
+title: "In Praise of Documentation: Tools, Tips &amp; Techniques for Literate Programming in the AI Age"
+date: "2026-03-01"
+categories: [documentation, talks]
+format:
+  html:
+    toc: true
+    code-fold: true
+jupyter: pydata
+bibliography: refs.bib
+---</code></pre>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="computer-programs-as-literature" class="title-slide slide level1 center">
+<h1>Computer programs as literature</h1>
+<p>“I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be <em>works of literature</em>”</p>
+<p>“Let us change our traditional attitude to the construction of progams. Instead of imagining that our main task is to instruct a <em>computer</em> what to do, let us concentrate rather on explaining to <em>human beings</em> what we want a computer to do”.</p>
+<p>“The practitioner of literate programming can be regarded as an essayist, whose main concern is with exposition and excellence of style. Such an author, with thesaurus in hand, chooses the names of variables carefully and explains what each variable means. He or she strives for a program that is comprehensible because its concepts have been introduced in an order that is best for human understanding, using a mixture of formal and informal methods that reinforce each other”.</p>
+<p><span class="citation" data-cites="knuth1984">Knuth (<a href="#/recommended-resources" role="doc-biblioref" onclick="">1984</a>)</span></p>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="rules-for-good-writing" class="title-slide slide level1 center">
+<h1>Rules for good writing</h1>
+
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="documentation-in-the-age-of-ai" class="title-slide slide level1 center">
+<h1>Documentation in the age of AI</h1>
+<ul>
+<li><p><a href="https://en.wikipedia.org/wiki/Spec-driven_development">Spec-driven development</a></p></li>
+<li><p><a href="https://agents.md/">AGENTS.MD</a></p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="benefits-of-writing-good-documentation" class="title-slide slide level1 center">
+<h1>Benefits of writing good documentation</h1>
+<ul>
+<li><p>Feel good about ourselves, be appreciated by others, whilst also making the world a better place</p></li>
+<li><p>Preserve institutional and personal memory</p></li>
+<li><p>Ensure scientific reproducibility</p></li>
+<li><p>Allow better version control, so software is robust</p></li>
+<li><p>Enable responsible stewardship of technical systems, to allow future maintenance</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="concluding-remarks" class="title-slide slide level1 center">
+<h1>Concluding remarks</h1>
+<aside class="notes">
+<p>When building data systems, or doing data analysis, we are <em>writing text</em>. When we code, we are communicating. We are writing. And, when we write technical documentation, pbviously, we are also writing. The code we write now will be read by our future selves, future readers of our reports, and future users of our software tools. In writing our code today, we are writing the legacy code of tomorrow. And documentation is a user guide for the data infrastructures of the future. So, take care of these infrastructures, by writing good documentation!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section id="recommended-resources" class="title-slide slide level1 smaller scrollable">
+<h1>Recommended Resources</h1>
+<p>To read a longer version of this talk, visit the blog @ <a href="https://www.carecodeconnect.io/">carecodeconnect.io</a></p>
+<p><a href="https://diataxis.fr/">Diátaxis</a>: documentation framework</p>
+<p><a href="https://www.writethedocs.org/guide/">Write the Docs</a>: best practices for creating software documentation and technical writing.</p>
 
 <div class="footer footer-default">
 
 </div>
-</section></section>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-gazzard2016" class="csl-entry" role="listitem">
+Gazzard, A. 2016. <em>Now the Chips Are down: The BBC Micro</em>. The MIT Press.
+</div>
+<div id="ref-knuth1984" class="csl-entry" role="listitem">
+Knuth, D. E. 1984. <span>“Literate Programming.”</span> <em>The Computer Journal</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+</div>
+<div id="ref-nelson2024" class="csl-entry" role="listitem">
+Nelson, C. 2024. <em>Software Engineering for Data Scientists: From Notebooks to Scalable Systems</em>. O’Reilly.
+</div>
+</div>
+</section>
     </div>
   </div>
 
@@ -392,13 +905,13 @@
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
+'smaller': true,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': false,
+'smaller': true,
  
         // Display controls in the bottom right corner
         controls: false,
@@ -576,6 +1089,9 @@
           RevealZoom
         ]
       });
+    </script>
+    <script type="application/vnd.jupyter.widget-state+json">
+    {"state":{"0f31a32fee1b4a7db32712ec3b7ed06e":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"1794e34da39d4c33a0b7d9ac118d392b":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMarkerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMarkerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMarkerView","alt":"","base":false,"bottom":false,"draggable":true,"icon":null,"keyboard":true,"location":[52.204793,360.121558],"name":"","opacity":1,"options":["alt","draggable","keyboard","pm_ignore","rise_offset","rise_on_hover","rotation_angle","rotation_origin","title","z_index_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"rise_offset":250,"rise_on_hover":false,"rotation_angle":0,"rotation_origin":"","snap_ignore":true,"subitems":[],"title":"","visible":true,"z_index_offset":0}},"38984224af5548ac97a9470f8bea0bba":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletZoomControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletZoomControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletZoomControlView","options":["position","zoom_in_text","zoom_in_title","zoom_out_text","zoom_out_title"],"position":"topleft","zoom_in_text":"+","zoom_in_title":"Zoom in","zoom_out_text":"-","zoom_out_title":"Zoom out"}},"3c7f5efdcc20473d8b97b15d62f1e2f6":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapModel","state":{"_dom_classes":[],"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMapView","bottom":0,"bounce_at_zoom_limits":true,"box_zoom":true,"center":[52.204793,360.121558],"close_popup_on_click":true,"controls":["IPY_MODEL_aca08d602a924e759cb70794a76d44e3","IPY_MODEL_a8ea803b551a4cb38562b623242178a5"],"crs":{"custom":false,"name":"EPSG3857"},"default_style":"IPY_MODEL_6f34fc214da94242951c20308cd511ac","double_click_zoom":true,"dragging":true,"dragging_style":"IPY_MODEL_c8f43e704a014e14a06fdd2e5d85aa3e","east":0,"fullscreen":false,"inertia":true,"inertia_deceleration":3000,"inertia_max_speed":1500,"interpolation":"bilinear","keyboard":true,"keyboard_pan_offset":80,"keyboard_zoom_offset":1,"layers":["IPY_MODEL_dd6289a362ed4194977509fb33825a3d","IPY_MODEL_1794e34da39d4c33a0b7d9ac118d392b"],"layout":"IPY_MODEL_7b46c6dd8fa946f79d5b64762e8551d3","left":9007199254740991,"max_zoom":null,"min_zoom":null,"modisdate":"2026-03-02","north":0,"options":["bounce_at_zoom_limits","box_zoom","center","close_popup_on_click","double_click_zoom","dragging","fullscreen","inertia","inertia_deceleration","inertia_max_speed","interpolation","keyboard","keyboard_pan_offset","keyboard_zoom_offset","max_zoom","min_zoom","prefer_canvas","scroll_wheel_zoom","tap","tap_tolerance","touch_zoom","world_copy_jump","zoom","zoom_animation_threshold","zoom_delta","zoom_snap"],"panes":{},"prefer_canvas":false,"right":0,"scroll_wheel_zoom":false,"south":0,"style":"IPY_MODEL_8e83c6f9674344059e9b59a0b93ecb27","tabbable":null,"tap":true,"tap_tolerance":15,"tooltip":null,"top":9007199254740991,"touch_zoom":true,"west":0,"window_url":"","world_copy_jump":false,"zoom":15,"zoom_animation_threshold":4,"zoom_delta":1,"zoom_snap":1}},"50dd693a8cd34d16a6ebbafdf1dce00f":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapModel","state":{"_dom_classes":[],"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMapView","bottom":0,"bounce_at_zoom_limits":true,"box_zoom":true,"center":[0,0],"close_popup_on_click":true,"controls":["IPY_MODEL_38984224af5548ac97a9470f8bea0bba","IPY_MODEL_b4c0757c63df4dffbfbc84b774e02d49"],"crs":{"custom":false,"name":"EPSG3857"},"default_style":"IPY_MODEL_82a4a4d197e7481bb31e64a750a949fd","double_click_zoom":true,"dragging":true,"dragging_style":"IPY_MODEL_db18d173aa9e4d07ade6c94d1a33d2b7","east":0,"fullscreen":false,"inertia":true,"inertia_deceleration":3000,"inertia_max_speed":1500,"interpolation":"bilinear","keyboard":true,"keyboard_pan_offset":80,"keyboard_zoom_offset":1,"layers":["IPY_MODEL_c45cbe4bea2c43d89df8f14b6c8436e6"],"layout":"IPY_MODEL_887a05bf4c2b4ad7a0693f4a7e510741","left":9007199254740991,"max_zoom":null,"min_zoom":null,"modisdate":"2026-03-02","north":0,"options":["bounce_at_zoom_limits","box_zoom","center","close_popup_on_click","double_click_zoom","dragging","fullscreen","inertia","inertia_deceleration","inertia_max_speed","interpolation","keyboard","keyboard_pan_offset","keyboard_zoom_offset","max_zoom","min_zoom","prefer_canvas","scroll_wheel_zoom","tap","tap_tolerance","touch_zoom","world_copy_jump","zoom","zoom_animation_threshold","zoom_delta","zoom_snap"],"panes":{},"prefer_canvas":false,"right":0,"scroll_wheel_zoom":false,"south":0,"style":"IPY_MODEL_0f31a32fee1b4a7db32712ec3b7ed06e","tabbable":null,"tap":true,"tap_tolerance":15,"tooltip":null,"top":9007199254740991,"touch_zoom":true,"west":0,"window_url":"","world_copy_jump":false,"zoom":4,"zoom_animation_threshold":4,"zoom_delta":1,"zoom_snap":1}},"6f34fc214da94242951c20308cd511ac":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"7b46c6dd8fa946f79d5b64762e8551d3":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"82a4a4d197e7481bb31e64a750a949fd":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"887a05bf4c2b4ad7a0693f4a7e510741":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"8e83c6f9674344059e9b59a0b93ecb27":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"a8ea803b551a4cb38562b623242178a5":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletAttributionControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletAttributionControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletAttributionControlView","options":["position","prefix"],"position":"bottomright","prefix":"ipyleaflet"}},"aca08d602a924e759cb70794a76d44e3":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletZoomControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletZoomControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletZoomControlView","options":["position","zoom_in_text","zoom_in_title","zoom_out_text","zoom_out_title"],"position":"topleft","zoom_in_text":"+","zoom_in_title":"Zoom in","zoom_out_text":"-","zoom_out_title":"Zoom out"}},"b4c0757c63df4dffbfbc84b774e02d49":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletAttributionControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletAttributionControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletAttributionControlView","options":["position","prefix"],"position":"bottomright","prefix":"ipyleaflet"}},"c45cbe4bea2c43d89df8f14b6c8436e6":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletTileLayerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletTileLayerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletTileLayerView","attribution":"&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors","base":true,"bottom":true,"bounds":null,"detect_retina":false,"loading":false,"max_native_zoom":null,"max_zoom":19,"min_native_zoom":null,"min_zoom":1,"name":"OpenStreetMap.Mapnik","no_wrap":false,"opacity":1,"options":["attribution","bounds","detect_retina","max_native_zoom","max_zoom","min_native_zoom","min_zoom","no_wrap","pm_ignore","tile_size","tms","zoom_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"show_loading":false,"snap_ignore":true,"subitems":[],"tile_size":256,"tms":false,"url":"https://tile.openstreetmap.org/{z}/{x}/{y}.png","visible":true,"zoom_offset":0}},"c8f43e704a014e14a06fdd2e5d85aa3e":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"move"}},"db18d173aa9e4d07ade6c94d1a33d2b7":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"move"}},"dd6289a362ed4194977509fb33825a3d":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletTileLayerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletTileLayerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletTileLayerView","attribution":"&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors","base":true,"bottom":true,"bounds":null,"detect_retina":false,"loading":false,"max_native_zoom":null,"max_zoom":19,"min_native_zoom":null,"min_zoom":1,"name":"OpenStreetMap.Mapnik","no_wrap":false,"opacity":1,"options":["attribution","bounds","detect_retina","max_native_zoom","max_zoom","min_native_zoom","min_zoom","no_wrap","pm_ignore","tile_size","tms","zoom_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"show_loading":false,"snap_ignore":true,"subitems":[],"tile_size":256,"tms":false,"url":"https://tile.openstreetmap.org/{z}/{x}/{y}.png","visible":true,"zoom_offset":0}}},"version_major":2,"version_minor":0}
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {

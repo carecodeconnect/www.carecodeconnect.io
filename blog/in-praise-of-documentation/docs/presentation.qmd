@@ -2,33 +2,461 @@
 title: "In Praise of Documentation"
 format:
     revealjs:
-        theme: serif
+        theme: black
+        smaller: true
+bibliography: refs.bib
+jupyter: pydata
+---
+
+```{python}
+# Python package imports
+import json
+import csv
+from pathlib import Path
+import polars as pl
+from great_tables import GT, nanoplot_options
+from plotnine import ggplot, aes, geom_line, labs, theme_gray
+import ipyleaflet
+```
+
+```{python}
+# Set folder paths
+DATA_DIR = Path("../data")
+json_path = DATA_DIR / "ngrams.json"
+csv_path = DATA_DIR / "ngrams.csv"
+
+YEAR_START = 1800 
+
+with json_path.open() as f:
+    series_list = json.load(f)
+
+if not series_list:
+    raise ValueError("No records found in ngrams.json")
+
+# Infer year_end from the returned timeseries length (avoids off-by-N forever)
+n_years = len(series_list[0]["timeseries"])
+year_end = YEAR_START + n_years - 1
+years = list(range(YEAR_START, year_end + 1))
+
+with csv_path.open("w", newline="") as f:
+    w = csv.writer(f)
+    w.writerow(["year", "ngram", "value"])
+    for s in series_list:
+        ngram = s["ngram"]
+        ts = s["timeseries"]
+        if len(ts) != len(years):
+            raise ValueError(f"{ngram}: timeseries length {len(ts)} != {len(years)}")
+        for y, v in zip(years, ts):
+            w.writerow([y, ngram, v])
+```
+
+```{python}
+# Filter to >= 1984
+
+df = (
+    pl.read_csv("../data/ngrams.csv")
+    .filter(pl.col("year") >= 1984)
+    .with_columns((pl.col("value") * 1e9).alias("per_billion"))
+    .sort("year")
+    .with_columns(
+        pl.col("per_billion")
+        .rolling_mean(window_size=5, min_samples=1)
+        .alias("per_billion_smooth_5y")
+    )
+)
+```
+
+
+# Overview
+
+* How I learned to love documentation
+
+* The perils of poor documentation
+
+* Why document your code
+
+* Types of documentatin
+
+* Literate programming
+
+* Scientific publishing tools
+
+* Computer programs as literature
+
+* Documentation in the age of AI
+
+:::notes
+This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I'll explore tools for "literate programming", where we create "computational narrative", as well as tips for writing well. It turns out that writing documentation is becoming more important in the age of AI. Essentially, I'm arguing for better scientific research practice, especially in data science in industry. At the end, I'll share a link to the longer written version of this talk.
+:::
+
 ---
 
 # How I learned to love documentation
 
 ---
 
-![BBC Micro](images/bbc_micro.jpg){width=50%}
+![](images/bbc_micro.jpg){width=50%}
+
+:::notes
+I first discovered the pleasures of technical documentation 40 years ago, as an 8 year old boy, using a BBC Microcomputer. 
+
+This computer was my best friend. The BBC Micro was an 8-bit computer, funded by the British Broadcasting Corporation (BBC), and released in 1981 as the centrepiece of their [Computer Literacy Project](https://clp.bbcrewind.co.uk/). 
+
+This project aimed to make the British public more computer literate, by making computers and programming more widely accessible to the massses, mainly by making the BBC Micro available for use in schools [@gazzard2016]. The machine was designed and built by Acorn Computers in Cambridge, England who also built my first computer, the [Acorn Electron](https://en.wikipedia.org/wiki/Acorn_Electron), and the [ARM](https://en.wikipedia.org/wiki/ARM_architecture_family) processor - now powering most mobile phones.
+:::
 
 ---
 
-![BBC BASIC](images/bbc_basic.gif){width=50%}
+![](images/bbc_basic.gif){width=50%}
 
+:::notes
+One of the distinctive features of the BBC Micro was that after you had plugged the computer into your TV set, when you switched on the computer (which made the sound "beeee-beep"), you immediately found yourself on what we now call a "command line", which looked something like this.
+I was faced with an immediate practical problem: how do I use this thing? Remember, at the time, I have no mouse, a keyboard as my input device, and there's no Graphical User Interface.
+:::
 --- 
 
-![User Guide](images/bbc_micro_user_guide.jpg){width=50%}
+![](images/bbc_micro_user_guide.jpg){width=50%}
+
+:::notes
+Thankfully, the computer came with a [User Guide](https://www.bbcmicrobot.com/docs/BBC_User_Guide.pdf). 
+It explained how to type BBC BASIC commands to "run" your programs using the keyboard. The programs would run from cassette tapes or 5 1/4 inch diskettes. 
+:::
+---
+
+![](images/bbc_micro_user.jpg){width=50%}
+
+:::notes
+There was also a magazine, [BBC Micro User](https://en.wikipedia.org/wiki/The_Micro_User), which I avidly collected. 
+I learnt to program in BBC BASIC by manually typing out the 'type-in program' code listings for computer games in the magazines.
+In these early days of popular computing in Britain, learning the technical task of computer programming was intimately tied to reading the literature of documentation.
+:::
 
 ---
 
-![BBC Micro User](images/bbc_micro_user.jpg){width=50%}
+# The perils of poor documentation
+
+:::notes
+Bad things can happen in companies without good documentation. Documentation is the institutional memory of a company. Without (good), it becomes difficult to understand a codebase, fix it, or update it. It might take a whole team of PhD-level developers months, even years, to reverse engineer a large legacy codebase, to be in a position to rebuild or replace it. New colleagues can feel alienated, or struggle to quickly learn a new and complex codebase, or be unable to easily update the system. 
+:::
+--- 
+
+![](images/enshitification.jpg){width=50%}
+
+:::notes
+I think poorly written code, and software systems with poor or no documentation are part of what Corey Doctorow calls the "enshitification" of software. While I usually don't like "nomimal" words - when a noun is created out of a verb - and would warn against using them, because they usually make writing bad, I'll make an exception with "enshitification".
+:::
+--- 
+
+# Why document your code
+
+"Documentation is an often overlooked aspect of data science. It’s commonly left until the end of a project, but then you’re excited to move on to a new project, and the documentation is rushed or omitted completely. However, ... documentation is a crucial part of making your code reproducible. If you want other people to use your code, or if you want to come back to your code in the future, it needs good documentation. It’s impossible to remember all your thoughts from when you originally wrote the code or initially carried out the experiments, so they need to be recorded." [@nelson2024]
+
+:::notes
+In her recent book *Software Engineering for Data Scientists*, Catherine Nelson writes:
+:::
 
 ---
 
-The perils of poor documentation
+# Types of documentation
 
---- 
+"*Names*: Names of variables, functions, and files should be informative, an appropriate length, and easy to read.
 
-![Enshitification](images/enshitification.jpg){width=50%}
+*Comments*: Your comments should add extra information not contained in the code, such as a summary or a caveat.
 
---- 
+*Docstrings*: Your functions should always have a docstring that describes the inputs and outputs of the function, as well as the purpose of that function.
+
+*READMEs*: Every repository or project should have an introduction that advertises your code and lets other people know why they should use it.
+
+*Experiment tracking*: Experiments, especially in machine learning projects, should be tracked in a structured way."
+
+**Jupyter notebooks**: **Your notebooks will be much easier to read if you give them good names, give them a structure, and intersperse text and code.**
+
+@nelson2024
+
+:::notes
+Nelson summarises different types of documentation that are relevant to data science workflows. Here, I am directly quoting her recommendations, because I agree with them:
+:::
+
+---
+
+# Literate programming
+
+* A document formatting language
+
+* A programming language
+
+@knuth1984
+
+:::notes
+The advice given above by Nelson, especially the recommendation to use Jupyter notebooks, can be considered advice for "literate programming". Literate programming is perhaps the most commonly recommended *genre* or *style* of computer programming for data science. In literate programming, written prose is interspersed with computer code, within the same document, called a "notebook".
+While the basic technical implementation of literate programming will be familiar to most data scientists, the origins and history of literate programming might be less familar.
+:::
+---
+
+# History of literate programming
+
+**WEB** system:
+
+* A document formatting language (TeX)
+
+* A programming language (PASCAL)
+
+@knuth1984
+
+:::notes
+The term "literate programming" was coined in 1984, by the American computer scientist Donald Knuth, later Professor Emeritus at Stanford University [@knuth1984].
+Knuth proposed literate programming as a new "motto" for software development, building upon the foundations of "structured programming". He built a system called **WEB** for implementing this new genre of literate programming. Knuth suggests literate programming is "inherently bilingual", because it combines two different genres of writing within the same computer program files:
+* A document formatting language
+* A programming language
+The document formatting language is a typesetting system (TeX), which is used to render an *informal* English-language explanation of the program, while the programming language (PASCAL) is the *formal* computer code, which is compiled by the compiler, and then executed by the user.
+Knuth thereby developed a new literary form, reversing the traditional "structured programming" approach to documentation. In the "structured programming" approach, the formal computer code is primary, and informal documentation is secondary, optionally embedded into the code as *comments* (as in the example above).
+It is interesting to notice that Knuth's **WEB** system was designed as a "tool for systems programmers, not for high school students or hobbyists", because the programmer needs to be "comfortable dealing with multiple languages simultaneously" [@knuth1984].
+40 years later, literate programming is most commonly adopted not by systems programmers, but by data scientists who tend to use high-level scripting languages (e.g. R, Python, Julia). And the tools of literate programming are considered particularly applicable for teaching and learning programming, especially in cloud environments where the programming language interpreter is included (e.g. Google Colab).
+:::
+---
+
+# History of literate programming (cont.)
+
+```{python}
+#| output: false
+
+# Save as a real PNG (Typst has trouble with the auto-generated SVG here)
+out_path = (
+    Path("docs/images/ngram_literate_programming.png")
+    if Path("docs").is_dir() and Path("docs/talk.qmd").exists()
+    else Path("images/ngram_literate_programming.png")
+)
+out_path.parent.mkdir(parents=True, exist_ok=True)
+
+p = (
+    ggplot(df, aes("year", "per_billion_smooth_5y"))
+    + geom_line()
+    + labs(
+        title='Google Ngram: "literate programming" (1984+, 5y smoothed)',
+        x="Year",
+        y="Frequency (per billion tokens, 5y rolling mean)",
+    )
+    + theme_gray()
+)
+
+p.save(out_path, dpi=300)
+```
+
+```{python}
+#| fig-cap: "Google Ngram plot for literate programming (1984+, 5y smoothed)"
+
+# Display the plot
+p.show()
+```
+
+:::notes
+I was interested to find out when "literate programming" became popuar, so I used Google Books Ngram Viewer search for this term from 1800 to 2026. This shows the frequency of use of this term in published books.
+In Quarto, you can render formatted plots or tables from code. 
+Here, I'm using [plotnine](https://plotnine.org/) which is a Python version of the [ggplot2](https://ggplot2.tidyverse.org/) data visualisation library in R.
+:::
+---
+
+# History of literate programming (cont.)
+
+```{python}
+#| output: false
+
+df_raw_tbl = (
+    pl.read_csv("../data/ngrams.csv")
+    .with_columns(pl.col("year").cast(pl.Int64))
+    .with_columns((pl.col("value") * 1e9).alias("per_billion"))
+    .sort("year")
+)
+
+# focus on meaningful window; also drop trailing all-zero years
+last_nz_year = (
+    df_raw_tbl.filter(pl.col("per_billion") > 0)
+    .select(pl.col("year").max().alias("last_nz"))
+    .item()
+)
+
+# Don't overwrite the main `df` used for plotting (it contains `per_billion_smooth_5y`).
+df_tbl = df_raw_tbl.filter((pl.col("year") >= 1984) & (pl.col("year") <= last_nz_year))
+
+by_decade = (
+    df_tbl.with_columns((pl.col("year") // 10 * 10).alias("decade"))
+    .group_by("decade")
+    .agg(
+        pl.len().alias("n_years"),
+        pl.col("per_billion").mean().alias("mean_per_billion"),
+        pl.col("per_billion").median().alias("median_per_billion"),
+        pl.col("per_billion").max().alias("max_per_billion"),
+        pl.col("year")
+        .filter(pl.col("per_billion") == pl.col("per_billion").max())
+        .first()
+        .alias("max_year"),
+        pl.col("per_billion").alias("series_vals"),
+    )
+    .with_columns(
+        pl.col("series_vals")
+        .list.eval(pl.element().round(3).cast(pl.Utf8))
+        .list.join(" ")
+        .alias("trend")
+    )
+    .drop("series_vals")
+    .with_columns((pl.col("decade").cast(pl.Utf8) + "s").alias("decade"))
+    .sort("decade")
+)
+
+from pathlib import Path
+
+gt_tbl = (
+    GT(
+        by_decade.select(
+            [
+                "decade",
+                "trend",
+                "mean_per_billion",
+                "max_per_billion",
+                "max_year",
+                "n_years",
+            ]
+        )
+    )
+    .tab_header(
+        title='Google Ngram: "literate programming"',
+        subtitle=f"Decade patterns (1984–{last_nz_year}), per-billion tokens",
+    )
+    .cols_label(
+        decade="Decade",
+        trend="Trend (yearly)",
+        mean_per_billion="Mean",
+        max_per_billion="Max",
+        max_year="Max year",
+        n_years="Years",
+    )
+    .fmt_number(columns=["mean_per_billion", "max_per_billion"], decimals=3)
+    .fmt_nanoplot(
+        columns="trend",
+        autoscale=True,
+        reference_line="mean",
+        options=nanoplot_options(
+            data_line_stroke_width=2,
+            data_line_stroke_color="#4D4D4D",
+            show_data_points=False,
+            show_data_area=False,
+        ),
+    )
+)
+
+out_tbl_path = (
+    Path("docs/images/ngram_decade_summary.png")
+    if Path("docs").is_dir() and Path("docs/talk.qmd").exists()
+    else Path("images/ngram_decade_summary.png")
+)
+out_tbl_path.parent.mkdir(parents=True, exist_ok=True)
+
+gt_tbl.save(out_tbl_path)
+```
+
+```{python}
+#| fig-cap: "Google Ngram table for literate programming (1984+, 5y smoothed)"
+
+# Display the interactive table
+gt_tbl
+```
+
+:::notes
+Then, I used the [Great Tables](https://github.com/posit-dev/great-tables) package, based on the original [GT](https://gt.rstudio.com/) package in R. Great Tables has a cool "nanoplot" function, which allows you to include a plot in a table.
+:::
+---
+
+```{python}
+from ipyleaflet import Map, Marker
+
+m = Map()
+
+center = (52.204793, 360.121558)
+
+m = Map(center=center, zoom=15)
+
+marker = Marker(location=center)
+m.add(marker);
+
+display(m)
+```
+
+# Scientific publishing tools
+
+---
+
+## Jupyter and Marimo notebooks
+
+---
+
+## R Markdown and Quarto
+
+```
+---
+title: "In Praise of Documentation: Tools, Tips & Techniques for Literate Programming in the AI Age"
+date: "2026-03-01"
+categories: [documentation, talks]
+format:
+  html:
+    toc: true
+    code-fold: true
+jupyter: pydata
+bibliography: refs.bib
+---
+```
+
+---
+
+# Computer programs as literature
+
+"I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be *works of literature*" 
+
+"Let us change our traditional attitude to the construction of progams. Instead of imagining that our main task is to instruct a *computer* what to do, let us concentrate rather on explaining to *human beings* what we want a computer to do".
+
+"The practitioner of literate programming can be regarded as an essayist, whose main concern is with exposition and excellence of style. Such an author, with thesaurus in hand, chooses the names of variables carefully and explains what each variable means. He or she strives for a program that is comprehensible because its concepts have been introduced in an order that is best for human understanding, using a mixture of formal and informal methods that reinforce each other".
+
+@knuth1984
+
+---
+
+# Rules for good writing
+
+---
+
+# Documentation in the age of AI
+
+- [Spec-driven development](https://en.wikipedia.org/wiki/Spec-driven_development)
+
+- [AGENTS.MD](https://agents.md/) 
+
+---
+
+# Benefits of writing good documentation
+
+* Feel good about ourselves, be appreciated by others, whilst also making the world a better place
+
+* Preserve institutional and personal memory
+
+* Ensure scientific reproducibility
+
+* Allow better version control, so software is robust
+
+* Enable responsible stewardship of technical systems, to allow future maintenance
+
+---
+
+# Concluding remarks
+
+:::notes
+When building data systems, or doing data analysis, we are *writing text*. When we code, we are communicating. We are writing. And, when we write technical documentation, pbviously, we are also writing. The code we write now will be read by our future selves, future readers of our reports, and future users of our software tools. In writing our code today, we are writing the legacy code of tomorrow. And documentation is a user guide for the data infrastructures of the future. So, take care of these infrastructures, by writing good documentation!
+:::
+---
+
+# Recommended Resources
+
+To read a longer version of this talk, visit the blog @ [carecodeconnect.io](https://www.carecodeconnect.io/)
+
+[Diátaxis](https://diataxis.fr/): documentation framework
+
+[Write the Docs](https://www.writethedocs.org/guide/): best practices for creating software documentation and technical writing.
+
