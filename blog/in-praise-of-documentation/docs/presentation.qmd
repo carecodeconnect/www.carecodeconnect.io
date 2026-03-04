@@ -5,6 +5,7 @@ format:
         theme: black
         smaller: true
         embed-resources: true
+        auto-stretch: true
 bibliography: refs.bib
 jupyter: pydata
 ---
@@ -89,7 +90,7 @@ df = (
 This presentation was made with ❤️ using [Quarto](https://quarto.org/), [Python](https://www.python.org/), and deployed with [GitHub Actions](https://docs.github.com/en/actions).
 
 :::notes
-This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I'll explore tools for "literate programming", where we create "computational narrative", as well as tips for writing well. It turns out that writing documentation is becoming more important in the age of AI. Essentially, I'm arguing for better scientific research practice, especially in data science in industry. At the end, I'll share a link to the longer written version of this talk.
+This talk is in praise of documentation. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document it. I'll explore tools for "literate programming" and share tips for writing well. Writing good documentation is becoming more important in the age of AI. I'm essentially arguing for better scientific research practice in data science in industry.
 :::
 
 # How I learned to love documentation
@@ -111,8 +112,7 @@ This project aimed to make the British public more computer literate, by making 
 ![](images/bbc_basic.gif){width=50%}
 
 :::notes
-One of the distinctive features of the BBC Micro was that after you had plugged the computer into your TV set, when you switched on the computer (which made the sound "beeee-beep"), you immediately found yourself on what we now call a "command line", which looked something like this.
-I was faced with an immediate practical problem: how do I use this thing? Remember, at the time, I have no mouse, a keyboard as my input device, and there's no Graphical User Interface.
+One of the distinctive features of the BBC Micro was that after you had plugged the computer into your TV set, when you switched on the computer (which made the sound "beeee-beep"), you immediately found yourself on what we now call a "command line", which looked something like this. I was faced with an immediate practical problem: how do I use this thing? I have no mouse, only a keyboard as my input device, and there's no Graphical User Interface.
 :::
 --- 
 
@@ -120,26 +120,28 @@ I was faced with an immediate practical problem: how do I use this thing? Rememb
 
 :::notes
 Thankfully, the computer came with a [User Guide](https://www.bbcmicrobot.com/docs/BBC_User_Guide.pdf). 
-It explained how to type BBC BASIC commands to "run" your programs using the keyboard. The programs would run from cassette tapes or 5 1/4 inch diskettes. 
+It explained how to type BBC BASIC commands to "run" your programs using the keyboard. The programs would run from cassette tapes or 5 1/4 inch "floppy disks" 
 :::
 ---
 
-![](images/bbc_micro_user.jpg){width=50%}
+![](images/bbc_micro_user.jpg){width=50% fig-align="center"}
 
 :::notes
 There was also a magazine, [BBC Micro User](https://en.wikipedia.org/wiki/The_Micro_User), which I avidly collected. 
 I learnt to program in BBC BASIC by manually typing out the 'type-in program' code listings for computer games in the magazines.
-In these early days of popular computing in Britain, learning the technical task of computer programming was intimately tied to reading the literature of documentation.
+In these early days of popular computing in Britain, learning the technical task of computer programming was intimately tied to reading documentation literature.
 :::
 
 # The perils of poor documentation
 
 :::notes
-Bad things can happen in companies without good documentation. Documentation is the institutional memory of a company. Without (good), it becomes difficult to understand a codebase, fix it, or update it. It might take a whole team of PhD-level developers months, even years, to reverse engineer a large legacy codebase, to be in a position to rebuild or replace it. New colleagues can feel alienated, or struggle to quickly learn a new and complex codebase, or be unable to easily update the system. 
+
+Years later, I learned my early enjoyment for reading what we came to call "docs" was matched by an enjoyment in *writing* technical "docs". But I quickly realised other data scientists and software engineers often didn't share my interest or indeed passion for "the docs". I often found people either wouldn't document their code at all, or they would document it poorly, and only under duress.
+Bad things can happen in companies without good documentation. Documentation is the institutional memory of a company. Without (good) documentation, it becomes difficult to understand a codebase. New colleagues can feel alienated, struggle to quickly learn a new and complex codebase, or be unable to fix or update it. It might take a whole team of PhD-level developers months, even years, to reverse engineer a large legacy codebase, to be in a position to rebuild or replace it. 
 :::
 --- 
 
-![](images/enshitification.jpg){width=50%}
+![](images/enshitification.jpg){width=50% fig-align="center"}
 
 :::notes
 I think poorly written code, and software systems with poor or no documentation are part of what Corey Doctorow calls the "enshitification" of software. While I usually don't like "nomimal" words - when a noun is created out of a verb - and would warn against using them, because they usually make writing bad, I'll make an exception with "enshitification".
@@ -170,7 +172,7 @@ In her recent book *Software Engineering for Data Scientists*, Catherine Nelson 
 @nelson2024
 
 :::notes
-Nelson summarises different types of documentation that are relevant to data science workflows. Here, I am directly quoting her recommendations, because I agree with them:
+She goes on to summarise different types of documentation that are relevant to data science workflows. Here, I am directly quoting her recommendations, because I agree with them:
 :::
 
 # Development loop
@@ -194,8 +196,9 @@ F --> B
 @knuth1984
 
 :::notes
-The advice given above by Nelson, especially the recommendation to use Jupyter notebooks, can be considered advice for "literate programming". Literate programming is perhaps the most commonly recommended *genre* or *style* of computer programming for data science. In literate programming, written prose is interspersed with computer code, within the same document, called a "notebook".
-While the basic technical implementation of literate programming will be familiar to most data scientists, the origins and history of literate programming might be less familar.
+Nelson's advice, especially her advice for how to use Jupyter notebooks, can be considered advice for "literate programming". Literate programming is perhaps the most commonly recommended *genre* or *style* of computer programming for data science. The term "literate programming" was coined in 1984, by the American computer scientist Donald Knuth, later Professor Emeritus at Stanford University [@knuth1984]. In literate programming, written prose is interspersed with computer code, within the same document, called a "notebook".
+Knuth suggests literate programming is "inherently bilingual", because it combines two different genres of writing within the same computer program files: a document formatting language
+and a programming language. While the basic technical implementation of literate programming will be familiar to most data scientists, the origins and history of literate programming might be less familar.
 :::
 
 # History of literate programming
@@ -206,16 +209,12 @@ While the basic technical implementation of literate programming will be familia
 
 * A programming language (PASCAL)
 
-@knuth1984
+A "tool for systems programmers, not for high school students or hobbyists", because the programmer needs to be "comfortable dealing with multiple languages simultaneously" [@knuth1984].
 
 :::notes
-The term "literate programming" was coined in 1984, by the American computer scientist Donald Knuth, later Professor Emeritus at Stanford University [@knuth1984].
-Knuth proposed literate programming as a new "motto" for software development, building upon the foundations of "structured programming". He built a system called **WEB** for implementing this new genre of literate programming. Knuth suggests literate programming is "inherently bilingual", because it combines two different genres of writing within the same computer program files:
-* A document formatting language
-* A programming language
-The document formatting language is a typesetting system (TeX), which is used to render an *informal* English-language explanation of the program, while the programming language (PASCAL) is the *formal* computer code, which is compiled by the compiler, and then executed by the user.
-Knuth thereby developed a new literary form, reversing the traditional "structured programming" approach to documentation. In the "structured programming" approach, the formal computer code is primary, and informal documentation is secondary, optionally embedded into the code as *comments* (as in the example above).
-It is interesting to notice that Knuth's **WEB** system was designed as a "tool for systems programmers, not for high school students or hobbyists", because the programmer needs to be "comfortable dealing with multiple languages simultaneously" [@knuth1984].
+Knuth proposed literate programming as a new "motto" for software development, building upon the foundations of "structured programming". He built a system called **WEB** for implementing this new genre.
+The document formatting language is a typesetting system (TeX), used to render an *informal* English-language explanation of the program, while the programming language (PASCAL) is the *formal* computer code, which is compiled by the compiler, and then executed by the user.
+Knuth thereby developed a new literary form, reversing the traditional "structured programming" approach to documentation, where the formal computer code is primary, and informal documentation is secondary, and optionally embedded into the code as *comments*.
 :::
 
 ---
@@ -253,7 +252,7 @@ p.show()
 ```
 
 :::notes
-I was interested to find out when "literate programming" became popuar, so I used Google Books Ngram Viewer search for this term from 1800 to 2026. This shows the frequency of use of this term in published books.
+I was interested to find out when "literate programming" became popular, so I used Google Books Ngram Viewer to search for this term This shows the frequency of use of this term in published books, which increases from the mid-1980s onwards.
 In Quarto, you can render formatted plots or tables from code. 
 Here, I'm using [plotnine](https://plotnine.org/) which is a Python version of the [ggplot2](https://ggplot2.tidyverse.org/) data visualisation library in R.
 :::
@@ -363,7 +362,7 @@ gt_tbl
 ```
 
 :::notes
-Then, I used the [Great Tables](https://github.com/posit-dev/great-tables) package, based on the original [GT](https://gt.rstudio.com/) package in R. Great Tables has a cool "nanoplot" function, which allows you to include a plot in a table.
+Then, I used the [Great Tables](https://github.com/posit-dev/great-tables) package, based on the original [GT](https://gt.rstudio.com/) package in R. Great Tables has a cool "nanoplot" function, which allows you to include an interactive plot in a table.
 :::
 
 ---
@@ -384,7 +383,9 @@ m.add(marker);
 
 display(m)
 ```
-
+:::notes
+I couldn't resist the temptation to display an interactive map of Cambridge, UK, the home of Acorn Computers, and birthplace of the BBC Microcomputer, using the `IPyLeaflet` library.
+:::
 # Scientific publishing tools
 
 :::notes
@@ -425,7 +426,7 @@ While Jupyter notebooks remain a key tool for data scientists in their developme
 :::notes
 Several solutions have been proposed for these problems:
 
-* [Jupytext](https://jupytext.readthedocs.io/en/latest/) attempts to solve the version control problem by synchronising notebooks with Python scripts. This can make Jupyter notebooks easier to work with agentic coding workflows (see below).
+* [Jupytext](https://jupytext.readthedocs.io/en/latest/) attempts to solve the version control problem by synchronising notebooks with Python scripts. This can make the JSON files of Jupyter notebooks easier to work with agentic coding workflows (see below).
 
 * [Marimo](https://marimo.io/) notebooks are "reactive" and designed to address the problems in Jupyter notebooks: "Run a cell and marimo reacts by automatically running the cells that reference its variables. Delete a cell and marimo scrubs its variables from program memory, eliminating hidden state." ([Marimo FAQ](https://docs.marimo.io/faq/#choosing-marimo)).
 
@@ -467,8 +468,7 @@ You render the Quarto document with `quarto render talk.qmd` on the command line
 
 :::notes
 At the top of the Quarto document is a YAML section, specifying the configuration of the document.
-If you want to execute Python code cells in the document, Quarto uses Jupyter to execute the Python via an IPython kernel. In this case, that kernel is called `pydata`.
-To render the Quarto document, on the command line, you type:
+If you want to execute Python code cells in the document, Quarto uses `IPython` kernels. In this case, that kernel is a `uv` virtual environment called `pydata`.
 :::
 
 # Computer programs as literature
@@ -482,11 +482,11 @@ To render the Quarto document, on the command line, you type:
 @knuth1984
 
 :::notes
-While Knuth's literate programming style has been widely implemented into data science workflows, and will be familiar to most data scientists, his original ideas about computer programming might be less familar.
+While Knuth's literate programming style will be familiar to most data scientists, his original ideas about computer programming might be less known.
 
 Knuth makes several arguments to support his "motto" of literate programming.
 
-I was frankly astonished when I read these paragraphs. These are a very unusual, and bold, set of arguments for a computer scientist to make. Knuth appears to be flipping the disciplinary association of programming from computer science - whether based in mathematics or engineering - to literature, a humanities discipline. The usually technical domain of programming is turned into a non-technical literary domain.
+I was frankly astonished when I read these paragraphs. They are a very unusual, and bold, set of arguments for a computer scientist to make. Knuth appears to be flipping the disciplinary association of programming from computer science - whether based in mathematics or engineering (so-called "technical" disciplines or "hard" sciences) - to literature, a non-technical, humanities "soft" discipline. The technical domain of programming is turned into a literary domain.
 
 I find it fascinating to think about how both data science and software engineering could be different, if computer software was considered as works of literature, and programmers as essayists.
 :::
@@ -508,18 +508,28 @@ If we can drop a word from a sentence without losing the meaning, we should drop
 ::::
 
 :::notes
-We can start small, and follow in the spirit of Knuth, by taking inspiration from one of the greatest writers of the 20th century.
+In this vein, we can follow in the spirit of Knuth, by taking inspiration from one of the greatest writers of the 20th century.
 
 In his 1945 essay *Politics and the English Language* [@orwell1945], George Orwell presented rules for how to write well. While he was writing 80 years ago about the political language of his time, his rules are relevant to writing technical documentation now.
 :::
 
 # Rules for good writing
 
+
+:::: { .columns }
+::: { .column width="40%" }
+![George Orwell at the BBC in 1940](images/george_orwell_bbc.jpg){width=100%}
+:::
+
+::: { .column width="60%" }
 Orwell called the use of language a habit. And he made a close relationship between language and thought. 
 
 By learning to write well, we can develop good ways of thinking. By writing clearly, we can think clearly, and thereby communicate our thoughts more clearly to others. 
 
 The thoughts are in the words, and our thinking is displayed in our writing, so we had better choose our words wisely.
+:::
+::::
+
 
 # Documentation in the age of AI
 
@@ -536,14 +546,14 @@ At the same time, written documentation is becoming more important for AI-assist
 
 [Spec-driven development](https://en.wikipedia.org/wiki/Spec-driven_development) reverses the usual approach to documentation in software engineering, where documentation is written *after* the software itself. Instead, specifications are written in a machine-readable format, which can then be read by coding agents.
 
-[AGENTS.MD](https://agents.md/) is an emerging standard way of implementing spec-driven development. `AGENTS.md` is text file in Markdown format, written to be read by coding agents, which they use to create a plan and then execute that plan. I've included a simple [AGENTS.md](../AGENTS.md) file in the root of the repository as an example to show how this can work in practice.
+[AGENTS.MD](https://agents.md/) is an emerging standard way of implementing spec-driven development. /This is a text file in Markdown format, written to be read by coding agents, which they use to create a plan and then execute that plan.
 :::
 
 # Benefits of writing good documentation
 
 * Feel like a human being, rather than a machine
 
-* Feel good about ourselves, be appreciated by others, whilst also making the world a better place
+* Feel good about ourselves, be appreciated by others, whilst also making the world a (slightly) better place
 
 * Preserve institutional and personal memory
 
@@ -562,7 +572,7 @@ I hope to have impressed upon you the importance of writing docs, such that you 
 # Concluding remarks
 
 :::notes
-When building data systems, or doing data analysis, we are *writing text*. When we code, we are communicating. We are writing. And, when we write technical documentation, pbviously, we are also writing. The code we write now will be read by our future selves, future readers of our reports, and future users of our software tools. In writing our code today, we are writing the legacy code of tomorrow. And documentation is a user guide for the data infrastructures of the future. So, take care of these infrastructures, by writing good documentation!
+When we build data systems, or do data analysis, we are *writing text*. When we code, we are communicating. We are writing. And, when we write technical documentation, we're also writing. The code we write now will be read by our future selves, future readers of our reports, and future users of our software tools. In writing our code today, we are writing the legacy code of tomorrow. And documentation is a user guide for the data infrastructures of the future. So, take care of these infrastructures, by writing good documentation! Please.
 :::
 
 # Recommended Resources
