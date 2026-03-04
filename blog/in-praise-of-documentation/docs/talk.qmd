@@ -446,7 +446,7 @@ bibliography: refs.bib
 
 If you want to execute Python code cells in the document, Quarto uses Jupyter to execute the Python via an IPython kernel. In this case, that kernel is called `pydata`.
 
-To render that Typst PDF, on the command line, you type:
+To render the Quarto document, on the command line, you type:
 
 ```
 quarto render talk.qmd
