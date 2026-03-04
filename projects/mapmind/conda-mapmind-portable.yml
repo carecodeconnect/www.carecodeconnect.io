@@ -1,0 +1,8 @@
+name: mapmind
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - quarto
+prefix: /home/solaris/miniconda3/envs/mapmind
