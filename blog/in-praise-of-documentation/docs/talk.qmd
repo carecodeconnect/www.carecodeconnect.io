@@ -352,6 +352,26 @@ p.save(out_path, dpi=300)
 p
 ```
 
+You can also display interactive maps. Here, I'm using the `IPyLeaflet` library to display a map of Cambridge, UK, the home of Acorn Computers, and birthplace of the BBC Microcomputer.
+
+```{python}
+#| fig-cap: "`IPyLeaflet` map of Cambridge, UK"
+
+from ipyleaflet import Map, Marker
+
+m = Map()
+
+center = (52.204793, 360.121558)
+
+m = Map(center=center, zoom=15)
+
+marker = Marker(location=center)
+m.add(marker);
+
+display(m)
+```
+
+
 # History of Literate Programming
 
 While the basic technical implementation of literate programming will be familiar to most data scientists, the origins and history of literate programming might be less familar.
@@ -497,9 +517,17 @@ Whether or not we agree with Knuth's description of the literate programmer as a
 
 We can start small, and follow in the spirit of Knuth, by taking inspiration from one of the greatest writers of the 20th century.
 
+:::: { .columns }
+::: { .column width="40%" }
+![George Orwell at the BBC in 1940](images/george_orwell_bbc.jpg){width=90%}
+:::
+
+::: { .column width="60%" }
 In his 1945 essay *Politics and the English Language* [@orwell1945], George Orwell presented rules for how to write well. While he was writing 80 years ago about the political language of his time, his rules are relevant to writing technical documentation now.
 
 Orwell considered good writing to be active, precise, and simple. He argued we should write actively rather than passively, be precise rather than vague, and use simple verbs rather than complex longer words or phrases. If we can drop a word from a sentence without losing the meaning, we should drop it. Orwell called the use of language a habit. And he made a close relationship between language and thought. By learning to write well, we can develop good ways of thinking. By writing clearly, we can think clearly, and thereby communicate our thoughts more clearly to others. The thoughts are in the words, and our thinking is displayed in our writing, so we had better choose our words wisely.
+:::
+::::
 
 I would add that when we write - whether code or documentation - we should should write with a reader in mind. Like a presentation has an audience, a written document has a reader. This reader might be our future self. Or a colleague who needs to learn about some report or tool. Or even an AI agent we are instructing. In this sense, coding is a mode of technical communication. 
 
@@ -537,8 +565,14 @@ In summary, writing good documentation allows us to:
 
 * Enable responsible stewardship of technical systems to allow their future maintenance
 
+* Documentation can be technically "fun"
+
 I hope to have impressed upon you the importance of writing docs, such that you might also be *in praise of documentation*.
 
-# Resources
+# Recommended Resources
+
+[Diátaxis](https://diataxis.fr/): documentation framework
 
 [Write the Docs](https://www.writethedocs.org/guide/): best practices for creating software documentation and technical writing.
+
+# References

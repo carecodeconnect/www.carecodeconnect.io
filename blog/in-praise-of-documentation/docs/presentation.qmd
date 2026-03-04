@@ -76,7 +76,7 @@ df = (
 
 * Why document your code
 
-* Types of documentatin
+* Types of documentation
 
 * Literate programming
 
@@ -368,7 +368,8 @@ Then, I used the [Great Tables](https://github.com/posit-dev/great-tables) packa
 
 ---
 ```{python}
-#| fig-cap: "IPyLeaflet map of Cambridge, UK"
+#| fig-cap: "`IPyLeaflet` map of Cambridge, UK"
+#| column: screen
 
 from ipyleaflet import Map, Marker
 
@@ -443,7 +444,7 @@ In the R ecosystem, [R Markdown](https://rmarkdown.rstudio.com/) is a Markdown f
 [Quarto](https://quarto.org/) is a scientific publishing system, developed from the foundations of R Markdown. It uses text files with a `.qmd` format. In short, you intersperse prose written in Markdown format, with "code cells" which are enclosed with three backticks (```) for their start and end.
 :::
 
-# Example of Quarto document
+# Example of Quarto YAML
 
 
 ```
@@ -461,7 +462,7 @@ bibliography: refs.bib
 ```
 
 
-You render the Quarto document with the command `quarto render talk.qmd`.
+You render the Quarto document with `quarto render talk.qmd` on the command line.
 
 
 :::notes
@@ -492,11 +493,19 @@ I find it fascinating to think about how both data science and software engineer
 
 # Rules for good writing
 
-George Orwell [@orwell1945] considered good writing to be active, precise, and simple. 
+:::: { .columns }
+::: { .column width="40%" }
+![George Orwell at the BBC in 1940](images/george_orwell_bbc.jpg){width=100%}
+:::
 
-He argued we should write actively rather than passively, be precise rather than vague, and use simple verbs rather than complex longer words or phrases. 
+::: { .column width="60%" }
+George Orwell [@orwell1945] considered good writing to be active, precise, and simple.
 
-If we can drop a word from a sentence without losing the meaning, we should drop it. 
+He argued we should write actively rather than passively, be precise rather than vague, and use simple verbs rather than complex longer words or phrases.
+
+If we can drop a word from a sentence without losing the meaning, we should drop it.
+:::
+::::
 
 :::notes
 We can start small, and follow in the spirit of Knuth, by taking inspiration from one of the greatest writers of the 20th century.
@@ -544,6 +553,8 @@ At the same time, written documentation is becoming more important for AI-assist
 
 * Enable responsible stewardship of technical systems, to allow future maintenance
 
+* Documentation can be technically "fun"
+
 :::notes
 I hope to have impressed upon you the importance of writing docs, such that you might also be *in praise of documentation*.
 :::
@@ -562,3 +573,4 @@ To read a longer version of this talk, visit the blog @ [carecodeconnect.io](htt
 
 [Write the Docs](https://www.writethedocs.org/guide/): best practices for creating software documentation and technical writing.
 
+# References
