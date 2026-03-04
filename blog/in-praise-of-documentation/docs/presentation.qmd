@@ -173,7 +173,7 @@ In her recent book *Software Engineering for Data Scientists*, Catherine Nelson 
 Nelson summarises different types of documentation that are relevant to data science workflows. Here, I am directly quoting her recommendations, because I agree with them:
 :::
 
-# Documentation in a development loop
+# Development loop
 
 ```{mermaid}
 graph TD
@@ -197,7 +197,6 @@ F --> B
 The advice given above by Nelson, especially the recommendation to use Jupyter notebooks, can be considered advice for "literate programming". Literate programming is perhaps the most commonly recommended *genre* or *style* of computer programming for data science. In literate programming, written prose is interspersed with computer code, within the same document, called a "notebook".
 While the basic technical implementation of literate programming will be familiar to most data scientists, the origins and history of literate programming might be less familar.
 :::
----
 
 # History of literate programming
 
@@ -219,7 +218,7 @@ Knuth thereby developed a new literary form, reversing the traditional "structur
 It is interesting to notice that Knuth's **WEB** system was designed as a "tool for systems programmers, not for high school students or hobbyists", because the programmer needs to be "comfortable dealing with multiple languages simultaneously" [@knuth1984].
 :::
 
-# History of literate programming (cont.)
+---
 
 ```{python}
 #| output: false
@@ -259,8 +258,7 @@ In Quarto, you can render formatted plots or tables from code.
 Here, I'm using [plotnine](https://plotnine.org/) which is a Python version of the [ggplot2](https://ggplot2.tidyverse.org/) data visualisation library in R.
 :::
 
-# History of literate programming (cont.)
-
+---
 ```{python}
 #| output: false
 
@@ -368,7 +366,10 @@ gt_tbl
 Then, I used the [Great Tables](https://github.com/posit-dev/great-tables) package, based on the original [GT](https://gt.rstudio.com/) package in R. Great Tables has a cool "nanoplot" function, which allows you to include a plot in a table.
 :::
 
+---
 ```{python}
+#| fig-cap: "IPyLeaflet map of Cambridge, UK"
+
 from ipyleaflet import Map, Marker
 
 m = Map()
@@ -403,12 +404,13 @@ The Jupyter notebook was introduced as an "IPython Notebook" in 2011 as a docume
 
 # Limitations of Jupyter notebooks
 
-"Among the main criticisms are hidden states, unexpected execution order with fragmented code, and bad practices of naming, versioning, testing, and modularizing code. Also, the notebook format does not encode its library dependencies with associated versions, which can make it hard (or even impossible) to reproduce the notebook" [@pimentel2019]
+@pimentel2019 analysed 1.4 million notebooks on GitHub and found that "out of 863,878 attempted executions of valid notebooks (i.e., notebooks with defined Python version and execution order), only 24.11% executed without errors and only 4.03% produced the same results." 
 
-@pimentel2019 analysed 1.4 million notebooks on GitHub and found that "out of 863,878 attempted executions of valid notebooks (i.e., notebooks with defined Python version and execution order), only 24.11% executed without errors and only 4.03% produced the same results." They make eight recommendations for improving the use of Jupyter notebooks.
+They make eight recommendations for improving the use of Jupyter notebooks.
 
 :::notes
 While Jupyter notebooks remain a key tool for data scientists in their development work, they have a number of issues, which make them difficult to be scaled up for use in production systems. 
+"Among the main criticisms are hidden states, unexpected execution order with fragmented code, and bad practices of naming, versioning, testing, and modularizing code. Also, the notebook format does not encode its library dependencies with associated versions, which can make it hard (or even impossible) to reproduce the notebook" [@pimentel2019]
 :::
 
 # Solutions to the limitations of Jupyter notebooks
@@ -458,9 +460,9 @@ bibliography: refs.bib
 ---
 ```
 
-```{bash}
-quarto render talk.qmd
-```
+
+You render the Quarto document with the command `quarto render talk.qmd`.
+
 
 :::notes
 At the top of the Quarto document is a YAML section, specifying the configuration of the document.
@@ -490,7 +492,7 @@ I find it fascinating to think about how both data science and software engineer
 
 # Rules for good writing
 
-Orwell [@orwell1945] considered good writing to be active, precise, and simple. 
+George Orwell [@orwell1945] considered good writing to be active, precise, and simple. 
 
 He argued we should write actively rather than passively, be precise rather than vague, and use simple verbs rather than complex longer words or phrases. 
 
@@ -502,7 +504,7 @@ We can start small, and follow in the spirit of Knuth, by taking inspiration fro
 In his 1945 essay *Politics and the English Language* [@orwell1945], George Orwell presented rules for how to write well. While he was writing 80 years ago about the political language of his time, his rules are relevant to writing technical documentation now.
 :::
 
-# Rules for good writing (cont.)
+# Rules for good writing
 
 Orwell called the use of language a habit. And he made a close relationship between language and thought. 
 
