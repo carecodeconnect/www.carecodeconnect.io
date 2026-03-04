@@ -4,6 +4,7 @@ project:
 
 website:
   title: "carecodeconnect"
+  site-url: https://www.carecodeconnect.io
   navbar:
     right:
       - href: index.qmd

@@ -1,1 +1,4 @@
-Sitemap: https://carecodeconnect.quarto.pub/portfolio/sitemap.xml
+User-agent: *
+Allow: /
+
+Sitemap: https://www.carecodeconnect.io/sitemap.xml
