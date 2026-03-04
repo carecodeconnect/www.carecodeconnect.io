@@ -392,7 +392,7 @@ I couldn't resist the temptation to display an interactive map of Cambridge, UK,
 40 years later, literate programming is most commonly adopted not by systems programmers, but by data scientists who tend to use high-level scripting languages (e.g. R, Python, Julia). And the tools of literate programming are considered particularly applicable for teaching and learning programming, especially in cloud environments where the programming language interpreter is included (e.g. Google Colab).
 :::
 
-## Jupyter notebooks
+# Jupyter notebooks
 
 "Notebooks — documents integrating prose, code and results — offer a way to publish a computational method which can be readily read and replicated."
 
@@ -433,7 +433,7 @@ Several solutions have been proposed for these problems:
 * Nelson recommends using Jupyter notebooks for development work, before refactoring notebooks into modularised Python scripts with accompanying tests [@nelson2024]. This is quite a common workflow in industry settings.
 :::
 
-## R Markdown and Quarto
+# R Markdown and Quarto
 
 * [R Markdown](https://rmarkdown.rstudio.com/)
 
