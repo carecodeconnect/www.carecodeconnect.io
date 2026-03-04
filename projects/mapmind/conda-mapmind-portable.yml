@@ -4,5 +4,23 @@ channels:
   - defaults
 dependencies:
   - python=3.10
-  - quarto
-prefix: /home/solaris/miniconda3/envs/mapmind
+  - ipykernel
+  - requests
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - plotly
+  - statsmodels
+  - scikit-learn
+  - imbalanced-learn
+  - xgboost
+  - optuna
+  - nltk
+  - prettytable
+  - pyreadstat
+  - folium
+  - geopandas
+  - shapely
+  - geopy
