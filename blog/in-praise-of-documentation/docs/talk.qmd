@@ -30,6 +30,8 @@ Originally, the PDF for this talk was rendered with Typst using a Hayagriva-styl
 
 Along with this text, you can also explore the [slide deck for this talk](presentation.html).
 
+This talk was made with ❤️ using [Quarto](https://quarto.org/), [Python](https://www.python.org/), and deployed with [GitHub Actions](https://docs.github.com/en/actions).
+
 # How I Learned to Love Documentation
 
 I first discovered the pleasures of technical documentation 40 years ago, as an 8 year old boy, using a BBC Microcomputer. 
@@ -116,6 +118,24 @@ In addition to these recommendations, we can also think about technical document
 * Explanation 
 
 When writing your documentation, you could think about the purpose of the documentation, and which documentation type is most applicable for your use case. For a detailed explanation and application of Diátaxis, see this PyData [talk](https://youtu.be/buEKMi4tAew?si=t5fvKikngPt5ZhEX).
+
+
+# Documentation in a development loop
+
+Rather than seeing documentation as a separate activity, to be written after the code, we can see it as an integral part of the development loop.
+
+Here is a simple Mermaid diagram to illustrate this idea.
+
+Diagrams can also be a useful way to communicate ideas, and to help others understand your code.
+```{mermaid}
+graph TD
+A[Start feature or analysis] --> B[Explore & experiment]
+B --> C[Write code]
+C --> D[Write & update documentation]
+D --> E[Review & refactor]
+E --> F[Share / deploy]
+F --> B
+```
 
 # Literate Programming
 
@@ -358,23 +378,25 @@ The preference for the notebook as a tool for literate programming in education 
 
 Knuth's recommendations form the basis of contemporary technical tools for scientific programming, later called "data science". These tools have been developed for cross-language programming applications. The technical implementation of literate programming is done in a very similar way in the following scientific publishing tools.
 
-## Jupyter and Marimo notebooks
+## Jupyter notebooks
 
-The Jupyter notebook was introduced as an "IPython Notebook" in 2011 as a document publishing format to ensure *reproducible* computational workflows for "open science" across different academic research fields.
+The Jupyter notebook was introduced as an "IPython Notebook" in 2011 as a document publishing format to ensure *reproducible* computational workflows for "open science" across different academic research fields. Jupyter notebooks grew out of the IPython [@perez2007] project, introduced in 2001 by physicists from the University of Colorado, as an enhanced Python shell for interactive scientific computing. A later 2016 article also cites as influences the use of notebooks in mathematics such as in computer algebra systems Mathematica and SageMath.
 
 "Notebooks — documents integrating prose, code and results — offer a way to publish a computational method which can be readily read and replicated." [@kluyver2016]
 
 "Prose text can be interleaved with the code and output in a notebook to explain and highlight specific parts, forming a rich computational narrative."
 
-The 2016 article about Jupyter does not mention literate programming or the work of Knuth. Instead, they write that notebooks are an evaluation of "interactive programming" via interactive shell or REPL (read-evaluate-print-loop) workflows. A later 2021 article about Jupyter does cite literate programming, but the authors describe Jupyter notebooks allowing the user to create a "computational narrative", which is distinct from literate programming "in its incorporation of interactive computing as its central element" [@granger2021]. It is proposed "the computational narratives of Jupyter notebooks support both individual exploration of ideas and sharing of the resulting knowledge in a reusable, reproducible manner that encourages feedback and collaboration" [@granger2021]
+The 2016 article about Jupyter does not mention literate programming or the work of Knuth. Instead, they write that notebooks are an evaluation of "interactive programming" via interactive shell or REPL (read-evaluate-print-loop) workflows. 
+
+A later 2021 article about Jupyter does cite literate programming, but the authors describe Jupyter notebooks allowing the user to create a "computational narrative", which is distinct from literate programming "in its incorporation of interactive computing as its central element" [@granger2021]. It is proposed "the computational narratives of Jupyter notebooks support both individual exploration of ideas and sharing of the resulting knowledge in a reusable, reproducible manner that encourages feedback and collaboration" [@granger2021]
 
 This makes sense because Knuth's literate programming was developed for use with a compiled rather than interpreted language.
 
-Jupyter notebooks grew out of the IPython [@perez2007] project, introduced in 2001 by physicists from the University of Colorado, as an enhanced Python shell for interactive scientific computing. The 2016 article also cites as influences the use of notebooks in mathematics such as in computer algebra systems Mathematica and SageMath.
-
-The name "Jupyter" intended to encompass multiple programming languages - Julia and Python - 
+The name "Jupyter" intended to encompass multiple programming languages - Julia and Python - and allowed the use of multiple programming languages in the same notebook via the use of kernels.
 
 Jupyter notebooks use [`nbconvert`](https://minrk-nbconvert.readthedocs.io/en/stable/) and [Pandoc](https://pandoc.org/) to convert `.ipynb` files to other formats (e.g. HTML, PDF), and [`nbviewer`](https://nbviewer.org/) can be used to host a web server to view rendered HTML versions of notebooks. This allows the knowledge within Jupyter notebooks to be shared with others.
+
+## Limitations of Jupyter notebooks
 
 While Jupyter notebooks remain a key tool for data scientists in their development work, they have a number of issues, which make them difficult to be scaled up for use in production systems. 
 
@@ -424,7 +446,7 @@ bibliography: refs.bib
 
 If you want to execute Python code cells in the document, Quarto uses Jupyter to execute the Python via an IPython kernel. In this case, that kernel is called `pydata`.
 
-This Quarto document was originally configured to render a PDF with Typst. To render that Typst PDF, on the command line, you type:
+To render that Typst PDF, on the command line, you type:
 
 ```
 quarto render talk.qmd

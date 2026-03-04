@@ -113,6 +113,9 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script src="../../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -178,11 +181,13 @@ div.csl-indent {
   <li><a href="#the-perils-of-poor-documentation" id="toc-the-perils-of-poor-documentation" class="nav-link" data-scroll-target="#the-perils-of-poor-documentation">The Perils of Poor Documentation</a></li>
   <li><a href="#why-document-your-code" id="toc-why-document-your-code" class="nav-link" data-scroll-target="#why-document-your-code">Why Document Your Code</a></li>
   <li><a href="#types-of-documentation" id="toc-types-of-documentation" class="nav-link" data-scroll-target="#types-of-documentation">Types of Documentation</a></li>
+  <li><a href="#documentation-in-a-development-loop" id="toc-documentation-in-a-development-loop" class="nav-link" data-scroll-target="#documentation-in-a-development-loop">Documentation in a development loop</a></li>
   <li><a href="#literate-programming" id="toc-literate-programming" class="nav-link" data-scroll-target="#literate-programming">Literate Programming</a></li>
   <li><a href="#history-of-literate-programming" id="toc-history-of-literate-programming" class="nav-link" data-scroll-target="#history-of-literate-programming">History of Literate Programming</a></li>
   <li><a href="#scientific-publishing-tools" id="toc-scientific-publishing-tools" class="nav-link" data-scroll-target="#scientific-publishing-tools">Scientific Publishing Tools</a>
   <ul class="collapse">
-  <li><a href="#jupyter-and-marimo-notebooks" id="toc-jupyter-and-marimo-notebooks" class="nav-link" data-scroll-target="#jupyter-and-marimo-notebooks">Jupyter and Marimo notebooks</a></li>
+  <li><a href="#jupyter-notebooks" id="toc-jupyter-notebooks" class="nav-link" data-scroll-target="#jupyter-notebooks">Jupyter notebooks</a></li>
+  <li><a href="#limitations-of-jupyter-notebooks" id="toc-limitations-of-jupyter-notebooks" class="nav-link" data-scroll-target="#limitations-of-jupyter-notebooks">Limitations of Jupyter notebooks</a></li>
   <li><a href="#r-markdown-and-quarto" id="toc-r-markdown-and-quarto" class="nav-link" data-scroll-target="#r-markdown-and-quarto">R Markdown and Quarto</a></li>
   </ul></li>
   <li><a href="#computer-programs-as-literature" id="toc-computer-programs-as-literature" class="nav-link" data-scroll-target="#computer-programs-as-literature">Computer Programs as Literature</a></li>
@@ -241,6 +246,7 @@ div.csl-indent {
 <p>This document is written in <a href="https://quarto.org/">Quarto</a>, a Markdown format, that can be rendered into PDF or HTML format. To illustrate how Quarto works, I’ll “show the code”, reflexively illustrating how I wrote the documentation for this talk on documentation.</p>
 <p>Originally, the PDF for this talk was rendered with Typst using a Hayagriva-style <code>refs.yaml</code> bibliography. For the web version of the site, the citations now use a Pandoc-compatible BibTeX file (<code>refs.bib</code>), so that the same source can be rendered reliably to HTML (and standard PDF) by Pandoc’s citation engine.</p>
 <p>Along with this text, you can also explore the <a href="presentation.html">slide deck for this talk</a>.</p>
+<p>This talk was made with ❤️ using <a href="https://quarto.org/">Quarto</a>, <a href="https://www.python.org/">Python</a>, and deployed with <a href="https://docs.github.com/en/actions">GitHub Actions</a>.</p>
 <section id="how-i-learned-to-love-documentation" class="level1">
 <h1>How I Learned to Love Documentation</h1>
 <p>I first discovered the pleasures of technical documentation 40 years ago, as an 8 year old boy, using a BBC Microcomputer.</p>
@@ -320,6 +326,28 @@ div.csl-indent {
 <li><p>Explanation</p></li>
 </ul>
 <p>When writing your documentation, you could think about the purpose of the documentation, and which documentation type is most applicable for your use case. For a detailed explanation and application of Diátaxis, see this PyData <a href="https://youtu.be/buEKMi4tAew?si=t5fvKikngPt5ZhEX">talk</a>.</p>
+</section>
+<section id="documentation-in-a-development-loop" class="level1">
+<h1>Documentation in a development loop</h1>
+<p>Rather than seeing documentation as a separate activity, to be written after the code, we can see it as an integral part of the development loop.</p>
+<p>Here is a simple Mermaid diagram to illustrate this idea.</p>
+<p>Diagrams can also be a useful way to communicate ideas, and to help others understand your code.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+A[Start feature or analysis] --&gt; B[Explore &amp; experiment]
+B --&gt; C[Write code]
+C --&gt; D[Write &amp; update documentation]
+D --&gt; E[Review &amp; refactor]
+E --&gt; F[Share / deploy]
+F --&gt; B
+</pre>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="literate-programming" class="level1">
 <h1>Literate Programming</h1>
@@ -508,55 +536,55 @@ div.csl-indent {
 </details>
 <div class="cell-output cell-output-display" data-execution_count="6">
 
-<div id="dgeybmrynb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="cwrtfyznuz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#dgeybmrynb table {
+#cwrtfyznuz table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#dgeybmrynb thead, tbody, tfoot, tr, td, th { border-style: none; }
+#cwrtfyznuz thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#dgeybmrynb p { margin: 0; padding: 0; }
- #dgeybmrynb .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #dgeybmrynb .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #dgeybmrynb .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #dgeybmrynb .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #dgeybmrynb .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #dgeybmrynb .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #dgeybmrynb .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #dgeybmrynb .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #dgeybmrynb .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #dgeybmrynb .gt_column_spanner_outer:first-child { padding-left: 0; }
- #dgeybmrynb .gt_column_spanner_outer:last-child { padding-right: 0; }
- #dgeybmrynb .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #dgeybmrynb .gt_spanner_row { border-bottom-style: hidden; }
- #dgeybmrynb .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #dgeybmrynb .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #dgeybmrynb .gt_from_md> :first-child { margin-top: 0; }
- #dgeybmrynb .gt_from_md> :last-child { margin-bottom: 0; }
- #dgeybmrynb .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #dgeybmrynb .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #dgeybmrynb .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #dgeybmrynb .gt_row_group_first td { border-top-width: 2px; }
- #dgeybmrynb .gt_row_group_first th { border-top-width: 2px; }
- #dgeybmrynb .gt_striped { color: #333333; background-color: #F4F4F4; }
- #dgeybmrynb .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #dgeybmrynb .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
- #dgeybmrynb .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
- #dgeybmrynb .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
- #dgeybmrynb .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #dgeybmrynb .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #dgeybmrynb .gt_left { text-align: left; }
- #dgeybmrynb .gt_center { text-align: center; }
- #dgeybmrynb .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #dgeybmrynb .gt_font_normal { font-weight: normal; }
- #dgeybmrynb .gt_font_bold { font-weight: bold; }
- #dgeybmrynb .gt_font_italic { font-style: italic; }
- #dgeybmrynb .gt_super { font-size: 65%; }
- #dgeybmrynb .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #dgeybmrynb .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#cwrtfyznuz p { margin: 0; padding: 0; }
+ #cwrtfyznuz .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #cwrtfyznuz .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #cwrtfyznuz .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #cwrtfyznuz .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #cwrtfyznuz .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #cwrtfyznuz .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #cwrtfyznuz .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #cwrtfyznuz .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #cwrtfyznuz .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #cwrtfyznuz .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #cwrtfyznuz .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #cwrtfyznuz .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #cwrtfyznuz .gt_spanner_row { border-bottom-style: hidden; }
+ #cwrtfyznuz .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #cwrtfyznuz .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #cwrtfyznuz .gt_from_md> :first-child { margin-top: 0; }
+ #cwrtfyznuz .gt_from_md> :last-child { margin-bottom: 0; }
+ #cwrtfyznuz .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #cwrtfyznuz .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #cwrtfyznuz .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #cwrtfyznuz .gt_row_group_first td { border-top-width: 2px; }
+ #cwrtfyznuz .gt_row_group_first th { border-top-width: 2px; }
+ #cwrtfyznuz .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #cwrtfyznuz .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #cwrtfyznuz .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #cwrtfyznuz .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #cwrtfyznuz .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #cwrtfyznuz .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #cwrtfyznuz .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #cwrtfyznuz .gt_left { text-align: left; }
+ #cwrtfyznuz .gt_center { text-align: center; }
+ #cwrtfyznuz .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #cwrtfyznuz .gt_font_normal { font-weight: normal; }
+ #cwrtfyznuz .gt_font_bold { font-weight: bold; }
+ #cwrtfyznuz .gt_font_italic { font-style: italic; }
+ #cwrtfyznuz .gt_super { font-size: 65%; }
+ #cwrtfyznuz .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #cwrtfyznuz .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
@@ -674,16 +702,19 @@ div.csl-indent {
 <section id="scientific-publishing-tools" class="level1">
 <h1>Scientific Publishing Tools</h1>
 <p>Knuth’s recommendations form the basis of contemporary technical tools for scientific programming, later called “data science”. These tools have been developed for cross-language programming applications. The technical implementation of literate programming is done in a very similar way in the following scientific publishing tools.</p>
-<section id="jupyter-and-marimo-notebooks" class="level2">
-<h2 class="anchored" data-anchor-id="jupyter-and-marimo-notebooks">Jupyter and Marimo notebooks</h2>
-<p>The Jupyter notebook was introduced as an “IPython Notebook” in 2011 as a document publishing format to ensure <em>reproducible</em> computational workflows for “open science” across different academic research fields.</p>
+<section id="jupyter-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="jupyter-notebooks">Jupyter notebooks</h2>
+<p>The Jupyter notebook was introduced as an “IPython Notebook” in 2011 as a document publishing format to ensure <em>reproducible</em> computational workflows for “open science” across different academic research fields. Jupyter notebooks grew out of the IPython <span class="citation" data-cites="perez2007">(<a href="#ref-perez2007" role="doc-biblioref">Pérez and Granger 2007</a>)</span> project, introduced in 2001 by physicists from the University of Colorado, as an enhanced Python shell for interactive scientific computing. A later 2016 article also cites as influences the use of notebooks in mathematics such as in computer algebra systems Mathematica and SageMath.</p>
 <p>“Notebooks — documents integrating prose, code and results — offer a way to publish a computational method which can be readily read and replicated.” <span class="citation" data-cites="kluyver2016">(<a href="#ref-kluyver2016" role="doc-biblioref">Kluyver et al. 2016</a>)</span></p>
 <p>“Prose text can be interleaved with the code and output in a notebook to explain and highlight specific parts, forming a rich computational narrative.”</p>
-<p>The 2016 article about Jupyter does not mention literate programming or the work of Knuth. Instead, they write that notebooks are an evaluation of “interactive programming” via interactive shell or REPL (read-evaluate-print-loop) workflows. A later 2021 article about Jupyter does cite literate programming, but the authors describe Jupyter notebooks allowing the user to create a “computational narrative”, which is distinct from literate programming “in its incorporation of interactive computing as its central element” <span class="citation" data-cites="granger2021">(<a href="#ref-granger2021" role="doc-biblioref">Granger and Pérez 2021</a>)</span>. It is proposed “the computational narratives of Jupyter notebooks support both individual exploration of ideas and sharing of the resulting knowledge in a reusable, reproducible manner that encourages feedback and collaboration” <span class="citation" data-cites="granger2021">(<a href="#ref-granger2021" role="doc-biblioref">Granger and Pérez 2021</a>)</span></p>
+<p>The 2016 article about Jupyter does not mention literate programming or the work of Knuth. Instead, they write that notebooks are an evaluation of “interactive programming” via interactive shell or REPL (read-evaluate-print-loop) workflows.</p>
+<p>A later 2021 article about Jupyter does cite literate programming, but the authors describe Jupyter notebooks allowing the user to create a “computational narrative”, which is distinct from literate programming “in its incorporation of interactive computing as its central element” <span class="citation" data-cites="granger2021">(<a href="#ref-granger2021" role="doc-biblioref">Granger and Pérez 2021</a>)</span>. It is proposed “the computational narratives of Jupyter notebooks support both individual exploration of ideas and sharing of the resulting knowledge in a reusable, reproducible manner that encourages feedback and collaboration” <span class="citation" data-cites="granger2021">(<a href="#ref-granger2021" role="doc-biblioref">Granger and Pérez 2021</a>)</span></p>
 <p>This makes sense because Knuth’s literate programming was developed for use with a compiled rather than interpreted language.</p>
-<p>Jupyter notebooks grew out of the IPython <span class="citation" data-cites="perez2007">(<a href="#ref-perez2007" role="doc-biblioref">Pérez and Granger 2007</a>)</span> project, introduced in 2001 by physicists from the University of Colorado, as an enhanced Python shell for interactive scientific computing. The 2016 article also cites as influences the use of notebooks in mathematics such as in computer algebra systems Mathematica and SageMath.</p>
-<p>The name “Jupyter” intended to encompass multiple programming languages - Julia and Python -</p>
+<p>The name “Jupyter” intended to encompass multiple programming languages - Julia and Python - and allowed the use of multiple programming languages in the same notebook via the use of kernels.</p>
 <p>Jupyter notebooks use <a href="https://minrk-nbconvert.readthedocs.io/en/stable/"><code>nbconvert</code></a> and <a href="https://pandoc.org/">Pandoc</a> to convert <code>.ipynb</code> files to other formats (e.g.&nbsp;HTML, PDF), and <a href="https://nbviewer.org/"><code>nbviewer</code></a> can be used to host a web server to view rendered HTML versions of notebooks. This allows the knowledge within Jupyter notebooks to be shared with others.</p>
+</section>
+<section id="limitations-of-jupyter-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-jupyter-notebooks">Limitations of Jupyter notebooks</h2>
 <p>While Jupyter notebooks remain a key tool for data scientists in their development work, they have a number of issues, which make them difficult to be scaled up for use in production systems.</p>
 <p>Indeed, Jupyter notebooks have been criticised for encouraging bad habits, which lead to problems with reproducibility.</p>
 <p>“Among the main criticisms are hidden states, unexpected execution order with fragmented code, and bad practices of naming, versioning, testing, and modularizing code. Also, the notebook format does not encode its library dependencies with associated versions, which can make it hard (or even impossible) to reproduce the notebook” <span class="citation" data-cites="pimentel2019">(<a href="#ref-pimentel2019" role="doc-biblioref">Pimentel and Friere 2019</a>)</span></p>
@@ -716,7 +747,7 @@ jupyter: pydata
 bibliography: refs.bib
 ---</code></pre>
 <p>If you want to execute Python code cells in the document, Quarto uses Jupyter to execute the Python via an IPython kernel. In this case, that kernel is called <code>pydata</code>.</p>
-<p>This Quarto document was originally configured to render a PDF with Typst. To render that Typst PDF, on the command line, you type:</p>
+<p>To render that Typst PDF, on the command line, you type:</p>
 <pre><code>quarto render talk.qmd</code></pre>
 <p>In practice, the Typst/Hayagriva setup worked well for standalone PDF output but failed when the site was rendered as HTML, because Pandoc (used by Quarto for HTML) cannot read Hayagriva bibliographies or the <code>typst</code> format. For the website build, the bibliography is therefore handled by Pandoc using a BibTeX file (<code>refs.bib</code>), so that citations render correctly to HTML (and standard PDF), while Typst is kept only for separate, manual PDF renders.</p>
 <p>A particularly cool feature of Quarto is the ability to export to <a href="https://quarto.org/docs/output-formats/gfm.html">GFM</a> (GitHub Flavoured Markdown) format. This allows you to export your Quarto document to a GitHub compatible format which gets rendered for the web. For example, if you want to include code execution in the <code>README.md</code> of your GitHub repository, you would specify this format in your YAML:</p>
