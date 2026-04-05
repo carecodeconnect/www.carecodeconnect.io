@@ -1,0 +1,10 @@
+---
+title: "RSS / newsletter test post"
+description: "Temporary stub to verify blog.xml and Buttondown; safe to delete after testing."
+date: "2026-04-05"
+categories: [meta]
+---
+
+This is a **throwaway post** used to confirm that a new URL appears in the site feed (`blog.xml`) and that your newsletter RSS automation can pick up a new item.
+
+When you are finished testing, delete the folder `posts/rss-test-stub/`, run `quarto render`, and commit.
