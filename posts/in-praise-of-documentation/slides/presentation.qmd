@@ -80,10 +80,12 @@ df = (
 
 # tl;dr
 
-Please document your code
+*Please document your code.*
 
 :::notes
-This talk is in praise of documentation and has one simple message: please document your code. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document it. I'll explore tools for "literate programming" and share tips for writing well. Writing good documentation is becoming more important in the age of AI. I'm essentially arguing for better scientific research practice in data science in industry.
+This talk is in praise of documentation and has one simple message: please document your code. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document it. 
+
+I'll explore tools for "literate programming" and share tips for writing well. Writing good documentation is becoming more important in the age of AI. I'm essentially arguing for better scientific research practice in data science in industry.
 :::
 
 # How I learned to love documentation
@@ -137,7 +139,12 @@ Bad things can happen in companies without good documentation. Documentation is 
 "Documentation is an often overlooked aspect of data science. It’s commonly left until the end of a project, but then you’re excited to move on to a new project, and the documentation is rushed or omitted completely. However, ... documentation is a crucial part of making your code reproducible. If you want other people to use your code, or if you want to come back to your code in the future, it needs good documentation. It’s impossible to remember all your thoughts from when you originally wrote the code or initially carried out the experiments, so they need to be recorded." [@nelson2024]
 
 :::notes
-In her recent book *Software Engineering for Data Scientists*, Catherine Nelson writes:
+In her recent book *Software Engineering for Data Scientists*, Catherine Nelson argues for the importance of documentation.
+
+I would add that by documenting our code, we can preserve the institutional and personal memory of a company or project. 
+
+And enable responsible stewardship of technical systems, to allow their future maintenance.
+
 :::
 
 # Types of documentation
@@ -157,7 +164,7 @@ In her recent book *Software Engineering for Data Scientists*, Catherine Nelson 
 @nelson2024
 
 :::notes
-She goes on to summarise different types of documentation that are relevant to data science workflows. Here, I am directly quoting her recommendations, because I agree with them:
+She goes on to summarise different types of documentation that are relevant to data science workflows. I'm directly quoting her recommendations, because I agree with them.
 :::
 
 # Development loop
@@ -172,6 +179,9 @@ E --> F[Share / deploy]
 F --> B
 ```
 
+:::
+Documentation does not only include writing prose. It can also include diagrams, tables, and other visual elements. Here I'm using a [Mermaid](https://mermaid.js.org/) diagram to illustrate the development loop.
+:::
 # Literate programming
 
 * A document formatting language
@@ -181,9 +191,11 @@ F --> B
 @knuth1984
 
 :::notes
-Nelson's advice, especially her advice for how to use Jupyter notebooks, can be considered advice for "literate programming". Literate programming is perhaps the most commonly recommended *genre* or *style* of computer programming for data science. The term "literate programming" was coined in 1984, by the American computer scientist Donald Knuth, later Professor Emeritus at Stanford University [@knuth1984]. In literate programming, written prose is interspersed with computer code, within the same document, called a "notebook".
-Knuth suggests literate programming is "inherently bilingual", because it combines two different genres of writing within the same computer program files: a document formatting language
-and a programming language. While the basic technical implementation of literate programming will be familiar to most data scientists, the origins and history of literate programming might be less familar.
+Nelson's advice, especially her advice for how to use Jupyter notebooks, can be considered advice for "literate programming". 
+Literate programming is perhaps the most commonly recommended *genre* or *style* of computer programming for data science. 
+The term "literate programming" was coined in 1984, by the American computer scientist Donald Knuth, later Professor Emeritus at Stanford University [@knuth1984]. In literate programming, written prose is interspersed with computer code, within the same document, called a "notebook".
+Knuth suggests literate programming is "inherently bilingual", because it combines two different genres of writing within the same computer program files: a document formatting language and a programming language. 
+While the basic technical implementation of literate programming will be familiar to most data scientists, the origins and history of literate programming might be less familar.
 :::
 
 # History of literate programming
@@ -193,8 +205,6 @@ and a programming language. While the basic technical implementation of literate
 * A document formatting language (TeX)
 
 * A programming language (PASCAL)
-
-A "tool for systems programmers, not for high school students or hobbyists", because the programmer needs to be "comfortable dealing with multiple languages simultaneously" [@knuth1984].
 
 :::notes
 Knuth proposed literate programming as a new "motto" for software development, building upon the foundations of "structured programming". He built a system called **WEB** for implementing this new genre.
@@ -360,11 +370,18 @@ display(m)
 ```
 :::notes
 I couldn't resist the temptation to display an interactive map of Cambridge, UK, the home of Acorn Computers, and birthplace of the BBC Microcomputer, using the `IPyLeaflet` library.
+
+Yes, documentation can be technically "fun".
 :::
+
 # Scientific publishing tools
 
+The original **WEB** system was designed as a "tool for systems programmers, not for high school students or hobbyists", because the programmer needs to be "comfortable dealing with multiple languages simultaneously" [@knuth1984].
+
 :::notes
-40 years later, literate programming is most commonly adopted not by systems programmers, but by data scientists who tend to use high-level scripting languages (e.g. R, Python, Julia). And the tools of literate programming are considered particularly applicable for teaching and learning programming, especially in cloud environments where the programming language interpreter is included (e.g. Google Colab).
+40 years later, literate programming is most commonly adopted not by systems programmers, but by scientific programmers and data scientists who tend to use high-level scripting languages (e.g. R, Python, Julia). 
+And the tools of literate programming are considered particularly applicable for teaching and learning programming, especially in cloud environments where the programming language interpreter is included (e.g. Google Colab).
+The tools of literate programming are designed to support the practice of scientific reproducibility.
 :::
 
 # Jupyter notebooks
@@ -381,13 +398,25 @@ The Jupyter notebook was introduced as an "IPython Notebook" in 2011 as a docume
 
 # Limitations of Jupyter notebooks
 
-@pimentel2019 analysed 1.4 million notebooks on GitHub and found that "out of 863,878 attempted executions of valid notebooks (i.e., notebooks with defined Python version and execution order), only 24.11% executed without errors and only 4.03% produced the same results." 
+@pimentel2019 analysed:
 
-They make eight recommendations for improving the use of Jupyter notebooks.
+- 1.4 million notebooks on GitHub 
+
+Found that:
+
+- Out of 863,878 attempted executions of valid notebooks (i.e., notebooks with defined Python version and execution order)
+
+- Only 24.11% executed without errors 
+
+- Only 4.03% produced the same results
+
+They make recommendations for improving the use of Jupyter notebooks.
 
 :::notes
 While Jupyter notebooks remain a key tool for data scientists in their development work, they have a number of issues, which make them difficult to be scaled up for use in production systems. 
-"Among the main criticisms are hidden states, unexpected execution order with fragmented code, and bad practices of naming, versioning, testing, and modularizing code. Also, the notebook format does not encode its library dependencies with associated versions, which can make it hard (or even impossible) to reproduce the notebook" [@pimentel2019]
+"Among the main criticisms are hidden states, unexpected execution order with fragmented code, and bad practices of naming, versioning, testing, and modularizing code. 
+Also, the notebook format does not encode its library dependencies with associated versions, which can make it hard (or even impossible) to reproduce the notebook" [@pimentel2019].
+So, ironically, Jupyter notebooks tend to be associated with poor software engineering practices, which undermine their reproducibility.
 :::
 
 # Solutions to the limitations of Jupyter notebooks
@@ -410,12 +439,15 @@ Several solutions have been proposed for these problems:
 
 # R Markdown and Quarto
 
-* [R Markdown](https://rmarkdown.rstudio.com/)
+* [`knitr`](https://yihui.org/knitr/) 
+
+- [R Markdown](https://rmarkdown.rstudio.com/)
 
 * [Quarto](https://quarto.org/)
 
 :::notes
 In the R ecosystem, [R Markdown](https://rmarkdown.rstudio.com/) is a Markdown format that allows executable code cells.
+It uses the [`knitr`](https://yihui.org/knitr/) package to execute code cells and render the output.
 [Markdown](https://www.markdownguide.org/) is a very simple typesetting format stored in plain text files.
 [Quarto](https://quarto.org/) is a scientific publishing system, developed from the foundations of R Markdown. It uses text files with a `.qmd` format. In short, you intersperse prose written in Markdown format, with "code cells" which are enclosed with three backticks (```) for their start and end.
 :::
@@ -432,21 +464,25 @@ format:
   html:
     toc: true
     code-fold: true
-jupyter: python3
+jupyter: pydata
 bibliography: refs.bib
 ---
 ```
 
-
-You render the Quarto document with `quarto render posts/in-praise-of-documentation/index.qmd` on the command line (from the site repository root).
-
+You render a Quarto document, using the `quarto render` command on the command line.
 
 :::notes
 At the top of the Quarto document is a YAML section, specifying the configuration of the document.
-If you want to execute Python code cells in the document, Quarto uses `IPython` kernels. Set `QUARTO_PYTHON` to your project interpreter (for example the repo `.venv` after `uv sync`) so the `python3` kernel uses the same packages as your render.
+If you want to execute Python code cells in the document, Quarto uses `IPython` kernels, here called `pydata`.
 :::
 
 # Computer programs as literature
+
+:::notes
+Knuth makes several arguments to support his "motto" of literate programming.
+:::
+
+---
 
 "I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be *works of literature*" 
 
@@ -457,13 +493,13 @@ If you want to execute Python code cells in the document, Quarto uses `IPython` 
 @knuth1984
 
 :::notes
-While Knuth's literate programming style will be familiar to most data scientists, his original ideas about computer programming might be less known.
+I was frankly astonished when I read these paragraphs. They are a very unusual, and bold, set of arguments for a computer scientist to make. 
+Knuth appears to be flipping the disciplinary association of programming from computer science - whether based in mathematics or engineering (so-called "technical" disciplines or "hard" sciences) - to literature, a non-technical, humanities "soft" discipline. 
+The technical domain of programming is turned into a literary domain.
 
-Knuth makes several arguments to support his "motto" of literate programming.
+I find it fascinating to think about how both data science and software engineering could be different, if computer software was considered as works of literature, and programmers as essayists. Or if the hierarchy between technical and literary disciplines was reversed.
 
-I was frankly astonished when I read these paragraphs. They are a very unusual, and bold, set of arguments for a computer scientist to make. Knuth appears to be flipping the disciplinary association of programming from computer science - whether based in mathematics or engineering (so-called "technical" disciplines or "hard" sciences) - to literature, a non-technical, humanities "soft" discipline. The technical domain of programming is turned into a literary domain.
-
-I find it fascinating to think about how both data science and software engineering could be different, if computer software was considered as works of literature, and programmers as essayists.
+For a moment, imagine the words of an outstanding writer, such as George Orwell, were to be applied to programming. Let's take some advice from Orwell on how to write well.
 :::
 
 # Rules for good writing
@@ -488,8 +524,8 @@ In this vein, we can follow in the spirit of Knuth, by taking inspiration from o
 In his 1945 essay *Politics and the English Language* [@orwell1945], George Orwell presented rules for how to write well. While he was writing 80 years ago about the political language of his time, his rules are relevant to writing technical documentation now.
 :::
 
-# Rules for good writing
 
+# Rules for good writing
 
 :::: { .columns }
 ::: { .column width="40%" }
@@ -502,9 +538,18 @@ Orwell called the use of language a habit. And he made a close relationship betw
 By learning to write well, we can develop good ways of thinking. By writing clearly, we can think clearly, and thereby communicate our thoughts more clearly to others. 
 
 The thoughts are in the words, and our thinking is displayed in our writing, so we had better choose our words wisely.
-:::
-::::
 
+In writing well, we can feel more like a human being, rather than a machine.
+:::
+
+# Documentation in the age of AI
+
+:::notes
+Fast forward to the present day, and software engineering is being transformed by AI, especially through code asssistants and agentic workflows, where we instruct agents to write our code and documentation for us. 
+I've noticed developers are particularly keen to outsource the boring (or difficult) work of writing documentation to AI.
+The poor reproducibility of Jupyter notebooks, alongside our outsourcing of documentation to AI, make it easy for me to lament the death of literate programming.
+Yet, at the same time, written documentation is becoming even more important for AI-assisted workflows. 
+:::
 
 # Documentation in the age of AI
 
@@ -512,50 +557,49 @@ The thoughts are in the words, and our thinking is displayed in our writing, so 
 
 - [AGENTS.MD](https://agents.md/) 
 
-- Coding agent CLI or IDE tools can be instructed to read the `AGENTS.md` and do "spec-driven development" (e.g. Cursor, OpenAI Codex, Claude Code).
+- Coding agent CLI or IDE tools can be instructed to read the `AGENTS.md` and do "spec-driven development" (e.g. Claude Code, Cursor, OpenAI Codex).
 
 :::notes
-In the present day, software engineering is being transformed by AI, especially through code asssistants and agentic workflows, where we instruct agents to write our code and documentation for us. I've noticed developers are particularly keen to outsource the boring (or difficult) work of writing documentation to AI.
-
-At the same time, written documentation is becoming more important for AI-assisted workflows. The following trends are becoming popular in software engineering, which will surely impact data science too:
+The following trends are becoming popular in software engineering, which will surely impact data science too:
 
 [Spec-driven development](https://en.wikipedia.org/wiki/Spec-driven_development) reverses the usual approach to documentation in software engineering, where documentation is written *after* the software itself. Instead, specifications are written in a machine-readable format, which can then be read by coding agents.
 
-[AGENTS.MD](https://agents.md/) is an emerging standard way of implementing spec-driven development. /This is a text file in Markdown format, written to be read by coding agents, which they use to create a plan and then execute that plan.
-:::
-
-# Benefits of writing good documentation
-
-* Feel like a human being, rather than a machine
-
-* Feel good about ourselves, be appreciated by others, whilst also making the world a (slightly) better place
-
-* Preserve institutional and personal memory
-
-* Ensure scientific reproducibility
-
-* Allow better version control, so software is robust
-
-* Enable responsible stewardship of technical systems, to allow future maintenance
-
-* Documentation can be technically "fun"
-
-:::notes
-I hope to have impressed upon you the importance of writing docs, such that you might also be *in praise of documentation*.
+[AGENTS.MD](https://agents.md/) is an emerging standard way of implementing spec-driven development. This is a text file in Markdown format, written to be read by coding agents, which they use to create a plan and then execute that plan.
 :::
 
 # Concluding remarks
 
 :::notes
-When we build data systems, or do data analysis, we are *writing text*. When we code, we are communicating. We are writing. And, when we write technical documentation, we're also writing. The code we write now will be read by our future selves, future readers of our reports, and future users of our software tools. In writing our code today, we are writing the legacy code of tomorrow. And documentation is a user guide for the data infrastructures of the future. So, take care of these infrastructures, by writing good documentation! Please.
+I hope to have impressed upon you the importance of writing docs, such that you might also be *in praise of documentation*.
+When we build data systems, or do data analysis, we are *writing text*. 
+When we code, arguably, we are communicating. We are writing. Whether to a human or an AI agent.
+And, when we write technical documentation, we're also writing. 
+The code we write now will be read by our future selves, future readers of our reports, and future users of our software tools. 
+In writing our code today, we are writing the legacy code of tomorrow. 
+And documentation is a user guide for the data infrastructures of the future. 
+While writing documentation can be technically "fun", the solution to the lack of documentation is not so much technical as cultural. It is a matter of taking time to care and attention. 
+So, take care of software infrastructures, by writing good documentation! 
+Please ...
 :::
 
-# Recommended Resources
+# Further Resources
 
 To read a longer version of this talk, see the [blog post](https://www.carecodeconnect.io/posts/in-praise-of-documentation/).
 
-[Diátaxis](https://diataxis.fr/): documentation framework
+[Diátaxis](https://diataxis.fr/): documentation framework.
+
+[`man`](https://www.man7.org/linux/man-pages/man1/man.1.html): manual pages for Unix-like operating systems.
+
+[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/): MkDocs theme and extensions for fast, searchable, polished project docs.
+
+[Mermaid](https://mermaid.js.org/): diagramming tool for creating diagrams in Markdown.
+
+[Read the Docs](https://readthedocs.org/): free hosting that builds and publishes documentation from your repository.
+
+[Sphinx](https://www.sphinx-doc.org/): extensible documentation generator (reStructuredText-first) used widely in Python for multi-format technical docs.
 
 [Write the Docs](https://www.writethedocs.org/guide/): best practices for creating software documentation and technical writing.
+
+[Zensical](https://zensical.org/): static site generator for Markdown documentation sites, from the same ecosystem as Material for MkDocs.
 
 # References
