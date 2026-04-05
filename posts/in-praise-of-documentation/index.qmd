@@ -125,18 +125,13 @@ When writing your documentation, you could think about the purpose of the docume
 
 Rather than seeing documentation as a separate activity, to be written after the code, we can see it as an integral part of the development loop.
 
-Here is a simple Mermaid diagram to illustrate this idea.
+Here is a simple outline of that loop:
+
+* Explore and experiment, then write code  
+* Write and update documentation as you go  
+* Review, refactor, share or deploy — then iterate  
 
 Diagrams can also be a useful way to communicate ideas, and to help others understand your code.
-```{mermaid}
-graph TD
-A[Start feature or analysis] --> B[Explore & experiment]
-B --> C[Write code]
-C --> D[Write & update documentation]
-D --> E[Review & refactor]
-E --> F[Share / deploy]
-F --> B
-```
 
 # Literate Programming
 

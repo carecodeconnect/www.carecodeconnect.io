@@ -4,30 +4,9 @@ page-layout: full
 toc: true
 ---
 
-```{mermaid}
-graph TD;
-    A[Raspberry Pi 5] -->|Hosts| B[Ubuntu Server];
-    B --> C[SSH for Remote Access];
-    B -->|Web Server| D[NGINX];
-    D --> E[UFW Firewall];
-    D -->|SSL Encryption| F[SSL Certificates];
-    B -->|Publishing & Presentation| G[Quarto];
-    G -->|Content Editing| H[Visual Studio Code];
-    G -->|Version Control| I[Git with GitHub];
-    H -->|Remote Development| J[VS Code Remote Development Extension];
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#fcf,stroke:#333,stroke-width:2px
-    style C fill:#cff,stroke:#333,stroke-width:2px
-    style D fill:#fcf,stroke:#333,stroke-width:2px
-    style E fill:#cff,stroke:#333,stroke-width:2px
-    style F fill:#fcf,stroke:#333,stroke-width:2px
-    style G fill:#cff,stroke:#333,stroke-width:2px
-    style H fill:#fcf,stroke:#333,stroke-width:2px
-    style I fill:#cff,stroke:#333,stroke-width:2px
-    style J fill:#fcf,stroke:#333,stroke-width:2px
-
-```
+- **Raspberry Pi 5** hosts **Ubuntu Server** (SSH for remote access).
+- **NGINX** as the web server, with **UFW** and **SSL** certificates.
+- **Quarto** for publishing and presentations; **Visual Studio Code** for editing; **Git** / **GitHub** for version control; **VS Code Remote Development** for working on the server.
 
 # Executive Summary
 

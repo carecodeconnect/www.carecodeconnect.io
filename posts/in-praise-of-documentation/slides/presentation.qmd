@@ -7,7 +7,6 @@ format:
         embed-resources: true
         auto-stretch: true
 bibliography: ../refs.bib
-jupyter: python3
 ---
 
 ```{python}
@@ -80,7 +79,7 @@ df = (
 
 # tl;dr
 
-*Please document your code.*
+*Please* document your code.
 
 :::notes
 This talk is in praise of documentation and has one simple message: please document your code. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document it. 
@@ -130,8 +129,13 @@ In these early days of popular computing in Britain, learning the technical task
 # The perils of poor documentation
 
 :::notes
-Years later, I learned my early enjoyment for reading what we came to call "docs" was matched by an enjoyment in *writing* technical "docs". But I quickly realised other data scientists and software engineers often didn't share my interest or indeed passion for "the docs". I often found people either wouldn't document their code at all, or they would document it poorly, and only under duress.
-Bad things can happen in companies without good documentation. Documentation is the institutional memory of a company. Without (good) documentation, it becomes difficult to understand a codebase. New colleagues can feel alienated, struggle to quickly learn a new and complex codebase, or be unable to fix or update it. It might take a whole team of PhD-level developers months, even years, to reverse engineer a large legacy codebase, to be in a position to rebuild or replace it. 
+Years later, I learned my early enjoyment for reading what we came to call "docs" was matched by an enjoyment in *writing* technical "docs". 
+But I quickly realised other data scientists and software engineers often didn't share my interest or indeed passion for "the docs". 
+I often found people either wouldn't document their code at all, or they would document it poorly, and only under duress.
+But bad things can happen in companies without good documentation. 
+Documentation is the institutional memory of a company. Without (good) documentation, it becomes difficult to understand a codebase. 
+New colleagues can feel alienated, struggle to quickly learn a new and complex codebase, or be unable to fix or update it. 
+It might take a whole team of PhD-level developers months, even years, to reverse engineer a large legacy codebase, to be in a position to rebuild or replace it. 
 :::
 
 # Why document your code
@@ -144,7 +148,6 @@ In her recent book *Software Engineering for Data Scientists*, Catherine Nelson 
 I would add that by documenting our code, we can preserve the institutional and personal memory of a company or project. 
 
 And enable responsible stewardship of technical systems, to allow their future maintenance.
-
 :::
 
 # Types of documentation
@@ -169,19 +172,14 @@ She goes on to summarise different types of documentation that are relevant to d
 
 # Development loop
 
-```{mermaid}
-graph TD
-A[Start feature or analysis] --> B[Explore & experiment]
-B --> C[Write code]
-C --> D[Write & update documentation]
-D --> E[Review & refactor]
-E --> F[Share / deploy]
-F --> B
-```
+* Explore and experiment, then write code  
+* Write and update documentation as you go  
+* Review, refactor, share or deploy — then iterate
 
+:::notes
+Documentation does not only include writing prose. It can also include diagrams, tables, and other visual elements.
 :::
-Documentation does not only include writing prose. It can also include diagrams, tables, and other visual elements. Here I'm using a [Mermaid](https://mermaid.js.org/) diagram to illustrate the development loop.
-:::
+
 # Literate programming
 
 * A document formatting language
@@ -198,7 +196,7 @@ Knuth suggests literate programming is "inherently bilingual", because it combin
 While the basic technical implementation of literate programming will be familiar to most data scientists, the origins and history of literate programming might be less familar.
 :::
 
-# History of literate programming
+# A brief history of literate programming
 
 **WEB** system:
 
@@ -398,11 +396,7 @@ The Jupyter notebook was introduced as an "IPython Notebook" in 2011 as a docume
 
 # Limitations of Jupyter notebooks
 
-@pimentel2019 analysed:
-
-- 1.4 million notebooks on GitHub 
-
-Found that:
+@pimentel2019 analysed 1.4 million notebooks on GitHub and found that:
 
 - Out of 863,878 attempted executions of valid notebooks (i.e., notebooks with defined Python version and execution order)
 
@@ -592,7 +586,7 @@ To read a longer version of this talk, see the [blog post](https://www.carecodec
 
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/): MkDocs theme and extensions for fast, searchable, polished project docs.
 
-[Mermaid](https://mermaid.js.org/): diagramming tool for creating diagrams in Markdown.
+[Pandoc](https://pandoc.org/): universal document converter.
 
 [Read the Docs](https://readthedocs.org/): free hosting that builds and publishes documentation from your repository.
 

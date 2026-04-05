@@ -100,9 +100,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../css/styles.css">
@@ -261,39 +258,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">graph TD;
-    A[Raspberry Pi 5] --&gt;|Hosts| B[Ubuntu Server];
-    B --&gt; C[SSH for Remote Access];
-    B --&gt;|Web Server| D[NGINX];
-    D --&gt; E[UFW Firewall];
-    D --&gt;|SSL Encryption| F[SSL Certificates];
-    B --&gt;|Publishing &amp; Presentation| G[Quarto];
-    G --&gt;|Content Editing| H[Visual Studio Code];
-    G --&gt;|Version Control| I[Git with GitHub];
-    H --&gt;|Remote Development| J[VS Code Remote Development Extension];
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#fcf,stroke:#333,stroke-width:2px
-    style C fill:#cff,stroke:#333,stroke-width:2px
-    style D fill:#fcf,stroke:#333,stroke-width:2px
-    style E fill:#cff,stroke:#333,stroke-width:2px
-    style F fill:#fcf,stroke:#333,stroke-width:2px
-    style G fill:#cff,stroke:#333,stroke-width:2px
-    style H fill:#fcf,stroke:#333,stroke-width:2px
-    style I fill:#cff,stroke:#333,stroke-width:2px
-    style J fill:#fcf,stroke:#333,stroke-width:2px
-
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<ul>
+<li><strong>Raspberry Pi 5</strong> hosts <strong>Ubuntu Server</strong> (SSH for remote access).</li>
+<li><strong>NGINX</strong> as the web server, with <strong>UFW</strong> and <strong>SSL</strong> certificates.</li>
+<li><strong>Quarto</strong> for publishing and presentations; <strong>Visual Studio Code</strong> for editing; <strong>Git</strong> / <strong>GitHub</strong> for version control; <strong>VS Code Remote Development</strong> for working on the server.</li>
+</ul>
 <section id="executive-summary" class="level1">
 <h1>Executive Summary</h1>
 <p>This project decribes the process I followed to create a self-hosted web server to host my data science portfolio. This website was made with ❤️ using <a href="https://quarto.org/">Quarto</a> on a <a href="https://www.raspberrypi.com/products/raspberry-pi-5/">Raspberry Pi 5</a> hosted with <a href="https://ubuntu.com/server">Ubuntu Server</a> and <a href="https://nginx.org/en/">NGINX</a></p>
