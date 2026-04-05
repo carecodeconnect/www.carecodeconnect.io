@@ -79,7 +79,7 @@ df = (
 
 # tl;dr
 
-*Please* document your code.
+Please document your code.
 
 :::notes
 This talk is in praise of documentation and has one simple message: please document your code. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document it. 
@@ -170,17 +170,7 @@ And enable responsible stewardship of technical systems, to allow their future m
 She goes on to summarise different types of documentation that are relevant to data science workflows. I'm directly quoting her recommendations, because I agree with them.
 :::
 
-# Development loop
-
-* Explore and experiment, then write code  
-* Write and update documentation as you go  
-* Review, refactor, share or deploy — then iterate
-
-:::notes
-Documentation does not only include writing prose. It can also include diagrams, tables, and other visual elements.
-:::
-
-# Literate programming
+# A brief history of literate programming
 
 * A document formatting language
 
@@ -372,7 +362,7 @@ I couldn't resist the temptation to display an interactive map of Cambridge, UK,
 Yes, documentation can be technically "fun".
 :::
 
-# Scientific publishing tools
+---
 
 The original **WEB** system was designed as a "tool for systems programmers, not for high school students or hobbyists", because the programmer needs to be "comfortable dealing with multiple languages simultaneously" [@knuth1984].
 
@@ -394,11 +384,9 @@ The tools of literate programming are designed to support the practice of scient
 The Jupyter notebook was introduced as an "IPython Notebook" in 2011 as a document publishing format to ensure *reproducible* computational workflows for "open science" across different academic research fields.
 :::
 
-# Limitations of Jupyter notebooks
+# Limitations of Jupyter
 
-@pimentel2019 analysed 1.4 million notebooks on GitHub and found that:
-
-- Out of 863,878 attempted executions of valid notebooks (i.e., notebooks with defined Python version and execution order)
+@pimentel2019 analysed 1.4 million notebooks on GitHub and found that out of 863,878 attempted executions of valid notebooks (i.e., notebooks with defined Python version and execution order):
 
 - Only 24.11% executed without errors 
 
@@ -413,7 +401,7 @@ Also, the notebook format does not encode its library dependencies with associat
 So, ironically, Jupyter notebooks tend to be associated with poor software engineering practices, which undermine their reproducibility.
 :::
 
-# Solutions to the limitations of Jupyter notebooks
+# Solutions to limitations
 
 * [Jupytext](https://jupytext.readthedocs.io/en/latest/) 
 
@@ -446,7 +434,7 @@ It uses the [`knitr`](https://yihui.org/knitr/) package to execute code cells an
 [Quarto](https://quarto.org/) is a scientific publishing system, developed from the foundations of R Markdown. It uses text files with a `.qmd` format. In short, you intersperse prose written in Markdown format, with "code cells" which are enclosed with three backticks (```) for their start and end.
 :::
 
-# Example of Quarto YAML
+# Quarto YAML
 
 
 ```
@@ -463,7 +451,7 @@ bibliography: refs.bib
 ---
 ```
 
-You render a Quarto document, using the `quarto render` command on the command line.
+To render a Quarto document, use `quarto render` on the command line.
 
 :::notes
 At the top of the Quarto document is a YAML section, specifying the configuration of the document.
@@ -480,7 +468,11 @@ Knuth makes several arguments to support his "motto" of literate programming.
 
 "I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be *works of literature*" 
 
+---
+
 "Let us change our traditional attitude to the construction of progams. Instead of imagining that our main task is to instruct a *computer* what to do, let us concentrate rather on explaining to *human beings* what we want a computer to do".
+
+---
 
 "The practitioner of literate programming can be regarded as an essayist, whose main concern is with exposition and excellence of style. Such an author, with thesaurus in hand, chooses the names of variables carefully and explains what each variable means. He or she strives for a program that is comprehensible because its concepts have been introduced in an order that is best for human understanding, using a mixture of formal and informal methods that reinforce each other".
 
@@ -535,6 +527,7 @@ The thoughts are in the words, and our thinking is displayed in our writing, so 
 
 In writing well, we can feel more like a human being, rather than a machine.
 :::
+::::
 
 # Documentation in the age of AI
 
@@ -578,7 +571,7 @@ Please ...
 
 # Further Resources
 
-To read a longer version of this talk, see the [blog post](https://www.carecodeconnect.io/posts/in-praise-of-documentation/).
+To read a longer version of this talk, see the [blog post](https://www.carecodeconnect.io/posts/in-praise-of-documentation/) @ [carecodeconnect.io](https://www.carecodeconnect.io/).
 
 [Diátaxis](https://diataxis.fr/): documentation framework.
 
@@ -591,6 +584,8 @@ To read a longer version of this talk, see the [blog post](https://www.carecodec
 [Read the Docs](https://readthedocs.org/): free hosting that builds and publishes documentation from your repository.
 
 [Sphinx](https://www.sphinx-doc.org/): extensible documentation generator (reStructuredText-first) used widely in Python for multi-format technical docs.
+
+[tldr](https://tldr.sh/): concise, community-driven, open-source help pages for command-line tools.
 
 [Write the Docs](https://www.writethedocs.org/guide/): best practices for creating software documentation and technical writing.
 
