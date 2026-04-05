@@ -317,8 +317,8 @@ survey = pd.read_pickle('data/tidied_survey.pkl')
 # Rename the column
 survey.rename(columns={'R2.4_9': 'training_providers'}, inplace=True)
 
-# Select the renamed column
-training_providers = survey['training_providers']
+# Select the renamed column (object dtype so .replace can introduce a new label; pickle may be categorical)
+training_providers = survey['training_providers'].astype("object")
 
 # Rename 'Bangor' to 'Centre for Mindfulness Research and Practice, Bangor University'
 training_providers = training_providers.replace('Bangor', 'Centre for Mindfulness Research and Practice, Bangor University')
@@ -359,7 +359,7 @@ survey = pd.read_pickle('data/tidied_survey.pkl')
 
 # Rename and clean the data
 survey.rename(columns={'R2.4_9': 'training_providers'}, inplace=True)
-training_providers = survey['training_providers']
+training_providers = survey['training_providers'].astype("object")
 training_providers = training_providers.replace('Bangor', 'Centre for Mindfulness Research and Practice, Bangor University')
 training_providers = training_providers[training_providers != '']
 training_providers = training_providers[~training_providers.isin(['Not applicable', 'Other'])]
@@ -631,7 +631,7 @@ survey = pd.read_pickle('data/tidied_survey.pkl')
 
 # Rename and clean the data
 survey.rename(columns={'R2.4_9': 'training_providers'}, inplace=True)
-training_providers = survey['training_providers']
+training_providers = survey['training_providers'].astype("object")
 training_providers = training_providers.replace('Bangor', 'Centre for Mindfulness Research and Practice, Bangor University')
 training_providers = training_providers[training_providers != '']
 training_providers = training_providers[~training_providers.isin(['Not applicable', 'Other'])]

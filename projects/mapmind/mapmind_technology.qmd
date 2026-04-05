@@ -515,16 +515,17 @@ Overall, this analysis suggests the need for further model refinement and consid
 # Load the survey dataframe
 survey_clean = pd.read_pickle('data/tidied_survey.pkl')
 
-# Convert the necessary columns to 'category' type
+# Only age/formal_education as category here; map `technology` to 0/1 after dropna
+# (assigning int 0/1 into a categorical `technology` column fails on newer pandas)
 category_columns = ['age', 'technology', 'formal_education']
-for col in category_columns:
+for col in ['age', 'formal_education']:
     survey_clean[col] = survey_clean[col].astype('category')
 
 # Drop rows with NaN values in the relevant columns
 survey_clean = survey_clean.dropna(subset=category_columns).copy()
 
 # Convert 'technology' from Yes/No to 0/1
-survey_clean.loc[:, 'technology'] = survey_clean['technology'].map({'Yes': 1, 'No': 0})
+survey_clean['technology'] = survey_clean['technology'].map({'Yes': 1, 'No': 0}).astype('int64')
 
 # Encoding 'age' and 'formal_education'
 age_mapping = {'25-29': 1, '30-34': 2, '35-39': 3, '40-44': 4, '45-49': 5,

@@ -2,11 +2,11 @@
 title: "Blog"
 toc: true
 listing:
-  contents:
-    - blog/in-praise-of-documentation/docs/talk.qmd
+  contents: "posts/**/index.qmd"
   sort: "date desc"
   type: default
   fields: [title, description, date, categories]
+  feed: true
 ---
 
 Welcome to the `carecodeconnect` blog! 🤗

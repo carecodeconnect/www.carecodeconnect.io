@@ -3,21 +3,13 @@
 <head>
     
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    
-        <script>
-            L_NO_TOUCH = false;
-            L_DISABLE_3D = false;
-        </script>
-    
-    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
-    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
@@ -25,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_9c434e38017dadb664ad320d5ad71e68 {
+                #map_c812746cc58e53807da53d2505211f68 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -34,25 +26,51 @@
                 }
                 .leaflet-container { font-size: 1rem; }
             </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
         
 </head>
 <body>
     
     
-            <div class="folium-map" id="map_9c434e38017dadb664ad320d5ad71e68" ></div>
+            <div class="folium-map" id="map_c812746cc58e53807da53d2505211f68" ></div>
         
 </body>
 <script>
     
     
-            var map_9c434e38017dadb664ad320d5ad71e68 = L.map(
-                "map_9c434e38017dadb664ad320d5ad71e68",
+            var map_c812746cc58e53807da53d2505211f68 = L.map(
+                "map_c812746cc58e53807da53d2505211f68",
                 {
                     center: [54.0, -2.0],
                     crs: L.CRS.EPSG3857,
-                    zoom: 6,
-                    zoomControl: true,
-                    preferCanvas: false,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
                 }
             );
 
@@ -60,612 +78,683 @@
 
         
     
-            var tile_layer_f78ec2c6f0507697480e92b3c7e8a29c = L.tileLayer(
+            var tile_layer_1d7acf2043351f1af05861e87a4308f7 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
             );
         
     
-            tile_layer_f78ec2c6f0507697480e92b3c7e8a29c.addTo(map_9c434e38017dadb664ad320d5ad71e68);
+            tile_layer_1d7acf2043351f1af05861e87a4308f7.addTo(map_c812746cc58e53807da53d2505211f68);
         
     
-            var feature_group_3aa70cc2b48f188e4dc22798b69219b2 = L.featureGroup(
-                {}
+            var feature_group_a9d42066f676b8238dfdd278c1fe780c = L.featureGroup(
+                {
+}
             );
         
     
-            var circle_marker_f7c0eb7265f44e0dd5ce84e66d1467e7 = L.circleMarker(
+            var circle_marker_70ba71f3c23c7d17365a753a7b07718c = L.circleMarker(
                 [53.483565, -2.237376],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.111111111111111, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3aa70cc2b48f188e4dc22798b69219b2);
+            ).addTo(feature_group_a9d42066f676b8238dfdd278c1fe780c);
         
     
-        var popup_3aedb23a79495c677e8faf3c3d245321 = L.popup({"maxWidth": "100%"});
+        var popup_9e8b38f98baa7494dc801aa5943701b6 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_9159a176d9686e085fc3f4d6024fa176 = $(`<div id="html_9159a176d9686e085fc3f4d6024fa176" style="width: 100.0%; height: 100.0%;">Training Centre: Breathworks, Frequency: 96</div>`)[0];
-                popup_3aedb23a79495c677e8faf3c3d245321.setContent(html_9159a176d9686e085fc3f4d6024fa176);
+                var html_923fdcf85ecf9c13906e2d6fad586884 = $(`<div id="html_923fdcf85ecf9c13906e2d6fad586884" style="width: 100.0%; height: 100.0%;">Training Centre: Breathworks, Frequency: 96</div>`)[0];
+                popup_9e8b38f98baa7494dc801aa5943701b6.setContent(html_923fdcf85ecf9c13906e2d6fad586884);
             
         
 
-        circle_marker_f7c0eb7265f44e0dd5ce84e66d1467e7.bindPopup(popup_3aedb23a79495c677e8faf3c3d245321)
+        circle_marker_70ba71f3c23c7d17365a753a7b07718c.bindPopup(popup_9e8b38f98baa7494dc801aa5943701b6)
         ;
 
         
     
     
-            var circle_marker_2e8b5eb55233aec8394e65887240450d = L.circleMarker(
+            var circle_marker_909c14a6ffd96bb1a3e02eb17716fefc = L.circleMarker(
                 [53.228436, -4.131024],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.0, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3aa70cc2b48f188e4dc22798b69219b2);
+            ).addTo(feature_group_a9d42066f676b8238dfdd278c1fe780c);
         
     
-        var popup_2bc547949d5c42948e646ab8b8cc8dee = L.popup({"maxWidth": "100%"});
+        var popup_fbcb013f855ebc4dc458d2c9ae56a3b4 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_b71ec793ec40bb2f28042077748910eb = $(`<div id="html_b71ec793ec40bb2f28042077748910eb" style="width: 100.0%; height: 100.0%;">Training Centre: Centre for Mindfulness Research and Practice, Bangor University, Frequency: 135</div>`)[0];
-                popup_2bc547949d5c42948e646ab8b8cc8dee.setContent(html_b71ec793ec40bb2f28042077748910eb);
+                var html_4365fe720205d8868c7b121784221670 = $(`<div id="html_4365fe720205d8868c7b121784221670" style="width: 100.0%; height: 100.0%;">Training Centre: Centre for Mindfulness Research and Practice, Bangor University, Frequency: 135</div>`)[0];
+                popup_fbcb013f855ebc4dc458d2c9ae56a3b4.setContent(html_4365fe720205d8868c7b121784221670);
             
         
 
-        circle_marker_2e8b5eb55233aec8394e65887240450d.bindPopup(popup_2bc547949d5c42948e646ab8b8cc8dee)
+        circle_marker_909c14a6ffd96bb1a3e02eb17716fefc.bindPopup(popup_fbcb013f855ebc4dc458d2c9ae56a3b4)
         ;
 
         
     
     
-            var circle_marker_8d4e1f1a12a11be4cbf8d63736726154 = L.circleMarker(
+            var circle_marker_94c74e2dd0aef8153ef7c2210324966e = L.circleMarker(
                 [50.733148, -3.536457],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1.037037037037037, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3aa70cc2b48f188e4dc22798b69219b2);
+            ).addTo(feature_group_a9d42066f676b8238dfdd278c1fe780c);
         
     
-        var popup_90ec6b19359a588ef3f54b8fb26ef20c = L.popup({"maxWidth": "100%"});
+        var popup_faf4fe39ca1396a07e61a418c84b28c9 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_44dccd1a94b1f2531dbd5cf9f05554a4 = $(`<div id="html_44dccd1a94b1f2531dbd5cf9f05554a4" style="width: 100.0%; height: 100.0%;">Training Centre: Exeter University, Frequency: 14</div>`)[0];
-                popup_90ec6b19359a588ef3f54b8fb26ef20c.setContent(html_44dccd1a94b1f2531dbd5cf9f05554a4);
+                var html_852bed1820bb17b61b2ad7ffbd61c7c6 = $(`<div id="html_852bed1820bb17b61b2ad7ffbd61c7c6" style="width: 100.0%; height: 100.0%;">Training Centre: Exeter University, Frequency: 14</div>`)[0];
+                popup_faf4fe39ca1396a07e61a418c84b28c9.setContent(html_852bed1820bb17b61b2ad7ffbd61c7c6);
             
         
 
-        circle_marker_8d4e1f1a12a11be4cbf8d63736726154.bindPopup(popup_90ec6b19359a588ef3f54b8fb26ef20c)
+        circle_marker_94c74e2dd0aef8153ef7c2210324966e.bindPopup(popup_faf4fe39ca1396a07e61a418c84b28c9)
         ;
 
         
     
     
-            var circle_marker_7aa145f7b9235023d52f1094a8d2c50e = L.circleMarker(
+            var circle_marker_b70f49f87b3d3b5909869eae1ab0142b = L.circleMarker(
                 [50.518268, -3.664509],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.2962962962962963, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3aa70cc2b48f188e4dc22798b69219b2);
+            ).addTo(feature_group_a9d42066f676b8238dfdd278c1fe780c);
         
     
-        var popup_5054857d528ae35eb3e3080295232fad = L.popup({"maxWidth": "100%"});
+        var popup_775071f27a2c851c3ae1c2a0e67e8cca = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_7665ecad5bd4a9a13272e21d44403025 = $(`<div id="html_7665ecad5bd4a9a13272e21d44403025" style="width: 100.0%; height: 100.0%;">Training Centre: Gaia House, Frequency: 4</div>`)[0];
-                popup_5054857d528ae35eb3e3080295232fad.setContent(html_7665ecad5bd4a9a13272e21d44403025);
+                var html_8eb1b529a964f14c78c5196b4fa3ad38 = $(`<div id="html_8eb1b529a964f14c78c5196b4fa3ad38" style="width: 100.0%; height: 100.0%;">Training Centre: Gaia House, Frequency: 4</div>`)[0];
+                popup_775071f27a2c851c3ae1c2a0e67e8cca.setContent(html_8eb1b529a964f14c78c5196b4fa3ad38);
             
         
 
-        circle_marker_7aa145f7b9235023d52f1094a8d2c50e.bindPopup(popup_5054857d528ae35eb3e3080295232fad)
+        circle_marker_b70f49f87b3d3b5909869eae1ab0142b.bindPopup(popup_775071f27a2c851c3ae1c2a0e67e8cca)
         ;
 
         
     
     
-            var circle_marker_afa9dbcd282d30ec7f86abb2ce6a31db = L.circleMarker(
+            var circle_marker_21ced183d1e7256fee32cf93a4d33697 = L.circleMarker(
                 [53.55528, -2.306248],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.37037037037037035, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3aa70cc2b48f188e4dc22798b69219b2);
+            ).addTo(feature_group_a9d42066f676b8238dfdd278c1fe780c);
         
     
-        var popup_0539cdc44fd1151649c144a159a00cae = L.popup({"maxWidth": "100%"});
+        var popup_ad0dcd7638b102eefef66136511ebc5a = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_5c4ad104b524819713682fb74029d7b4 = $(`<div id="html_5c4ad104b524819713682fb74029d7b4" style="width: 100.0%; height: 100.0%;">Training Centre: Integrated Mindfulness Training, Frequency: 5</div>`)[0];
-                popup_0539cdc44fd1151649c144a159a00cae.setContent(html_5c4ad104b524819713682fb74029d7b4);
+                var html_381575e3ba37ca9b990df088990c8e86 = $(`<div id="html_381575e3ba37ca9b990df088990c8e86" style="width: 100.0%; height: 100.0%;">Training Centre: Integrated Mindfulness Training, Frequency: 5</div>`)[0];
+                popup_ad0dcd7638b102eefef66136511ebc5a.setContent(html_381575e3ba37ca9b990df088990c8e86);
             
         
 
-        circle_marker_afa9dbcd282d30ec7f86abb2ce6a31db.bindPopup(popup_0539cdc44fd1151649c144a159a00cae)
+        circle_marker_21ced183d1e7256fee32cf93a4d33697.bindPopup(popup_ad0dcd7638b102eefef66136511ebc5a)
         ;
 
         
     
     
-            var circle_marker_3d74f7380c333463de2bee738e0da084 = L.circleMarker(
+            var circle_marker_83feabb3da6f7d5853a40b99fec0e3a5 = L.circleMarker(
                 [57.235143, -2.459007],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.962962962962963, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3aa70cc2b48f188e4dc22798b69219b2);
+            ).addTo(feature_group_a9d42066f676b8238dfdd278c1fe780c);
         
     
-        var popup_f585294296fbea9c38c7907d9ba16e00 = L.popup({"maxWidth": "100%"});
+        var popup_2f5d38b0d14704c6215062b2f1b25acd = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_6033d484c679900ec03973f6023ba53f = $(`<div id="html_6033d484c679900ec03973f6023ba53f" style="width: 100.0%; height: 100.0%;">Training Centre: Mindfulness Association, Frequency: 40</div>`)[0];
-                popup_f585294296fbea9c38c7907d9ba16e00.setContent(html_6033d484c679900ec03973f6023ba53f);
+                var html_68969ec92f14328195e241e7985ababb = $(`<div id="html_68969ec92f14328195e241e7985ababb" style="width: 100.0%; height: 100.0%;">Training Centre: Mindfulness Association, Frequency: 40</div>`)[0];
+                popup_2f5d38b0d14704c6215062b2f1b25acd.setContent(html_68969ec92f14328195e241e7985ababb);
             
         
 
-        circle_marker_3d74f7380c333463de2bee738e0da084.bindPopup(popup_f585294296fbea9c38c7907d9ba16e00)
+        circle_marker_83feabb3da6f7d5853a40b99fec0e3a5.bindPopup(popup_2f5d38b0d14704c6215062b2f1b25acd)
         ;
 
         
     
     
-            var circle_marker_c382cf1d112686e57be0e25316ff74ba = L.circleMarker(
+            var circle_marker_34461466f3a6063be49b4757806a8482 = L.circleMarker(
                 [51.197622, 0.274699],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1.7777777777777777, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3aa70cc2b48f188e4dc22798b69219b2);
+            ).addTo(feature_group_a9d42066f676b8238dfdd278c1fe780c);
         
     
-        var popup_d2102ff4b0ab1820a90d44d02c8ae4fa = L.popup({"maxWidth": "100%"});
+        var popup_1282817718d73eb4aa07cdb1895f2745 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_cec011b24e9f50f6529fc543d36ecdd6 = $(`<div id="html_cec011b24e9f50f6529fc543d36ecdd6" style="width: 100.0%; height: 100.0%;">Training Centre: Mindfulness in Schools Project, Frequency: 24</div>`)[0];
-                popup_d2102ff4b0ab1820a90d44d02c8ae4fa.setContent(html_cec011b24e9f50f6529fc543d36ecdd6);
+                var html_fd570734c4c43be2926be95f16451001 = $(`<div id="html_fd570734c4c43be2926be95f16451001" style="width: 100.0%; height: 100.0%;">Training Centre: Mindfulness in Schools Project, Frequency: 24</div>`)[0];
+                popup_1282817718d73eb4aa07cdb1895f2745.setContent(html_fd570734c4c43be2926be95f16451001);
             
         
 
-        circle_marker_c382cf1d112686e57be0e25316ff74ba.bindPopup(popup_d2102ff4b0ab1820a90d44d02c8ae4fa)
+        circle_marker_34461466f3a6063be49b4757806a8482.bindPopup(popup_1282817718d73eb4aa07cdb1895f2745)
         ;
 
         
     
     
-            var circle_marker_f61bc4cf9ec28ad0498efd21f3697e5b = L.circleMarker(
+            var circle_marker_4060041e4895c063c49a24dd5eca068b = L.circleMarker(
                 [50.90813, -3.12112],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1.1111111111111112, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3aa70cc2b48f188e4dc22798b69219b2);
+            ).addTo(feature_group_a9d42066f676b8238dfdd278c1fe780c);
         
     
-        var popup_c9f585ed88a8022148750a22193ac16b = L.popup({"maxWidth": "100%"});
+        var popup_6e31b1ce1dd2d241b7b5680f3b497834 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_80b69b0016c018e1d6571513e4330147 = $(`<div id="html_80b69b0016c018e1d6571513e4330147" style="width: 100.0%; height: 100.0%;">Training Centre: Mindfulness UK, Frequency: 15</div>`)[0];
-                popup_c9f585ed88a8022148750a22193ac16b.setContent(html_80b69b0016c018e1d6571513e4330147);
+                var html_0fc97a46ea3607408baa5fee35260484 = $(`<div id="html_0fc97a46ea3607408baa5fee35260484" style="width: 100.0%; height: 100.0%;">Training Centre: Mindfulness UK, Frequency: 15</div>`)[0];
+                popup_6e31b1ce1dd2d241b7b5680f3b497834.setContent(html_0fc97a46ea3607408baa5fee35260484);
             
         
 
-        circle_marker_f61bc4cf9ec28ad0498efd21f3697e5b.bindPopup(popup_c9f585ed88a8022148750a22193ac16b)
+        circle_marker_4060041e4895c063c49a24dd5eca068b.bindPopup(popup_6e31b1ce1dd2d241b7b5680f3b497834)
         ;
 
         
     
     
-            var circle_marker_aba1be60c49dac3ef73abc0ec87ec800 = L.circleMarker(
+            var circle_marker_12a60a910aca38a0bf97cf5a00bae0f0 = L.circleMarker(
                 [52.966575, -1.123125],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.7407407407407407, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3aa70cc2b48f188e4dc22798b69219b2);
+            ).addTo(feature_group_a9d42066f676b8238dfdd278c1fe780c);
         
     
-        var popup_9f01bf1a1d543c15fd2986aa0238dc0d = L.popup({"maxWidth": "100%"});
+        var popup_a1ef74ec226370246bd58617697ed760 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_a7762b577e52a16d86a3600681ea57c6 = $(`<div id="html_a7762b577e52a16d86a3600681ea57c6" style="width: 100.0%; height: 100.0%;">Training Centre: Nottingham Centre for Mindfulness, Frequency: 10</div>`)[0];
-                popup_9f01bf1a1d543c15fd2986aa0238dc0d.setContent(html_a7762b577e52a16d86a3600681ea57c6);
+                var html_cc333f159a67ef037283f44bd848440a = $(`<div id="html_cc333f159a67ef037283f44bd848440a" style="width: 100.0%; height: 100.0%;">Training Centre: Nottingham Centre for Mindfulness, Frequency: 10</div>`)[0];
+                popup_a1ef74ec226370246bd58617697ed760.setContent(html_cc333f159a67ef037283f44bd848440a);
             
         
 
-        circle_marker_aba1be60c49dac3ef73abc0ec87ec800.bindPopup(popup_9f01bf1a1d543c15fd2986aa0238dc0d)
+        circle_marker_12a60a910aca38a0bf97cf5a00bae0f0.bindPopup(popup_a1ef74ec226370246bd58617697ed760)
         ;
 
         
     
     
-            var circle_marker_2a36e9e686516ef3002e0097d6418105 = L.circleMarker(
+            var circle_marker_7ca04f869a215075b830677dbcec6a83 = L.circleMarker(
                 [51.750728, -1.238643],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.7407407407407405, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3aa70cc2b48f188e4dc22798b69219b2);
+            ).addTo(feature_group_a9d42066f676b8238dfdd278c1fe780c);
         
     
-        var popup_6386787560bc6ac8db61971080d9b274 = L.popup({"maxWidth": "100%"});
+        var popup_28d28577e927439c3e45f677fef7d8d8 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_6ebb133a8dbe4f4332b161a1db31d65a = $(`<div id="html_6ebb133a8dbe4f4332b161a1db31d65a" style="width: 100.0%; height: 100.0%;">Training Centre: Oxford Mindfulness Centre, Frequency: 37</div>`)[0];
-                popup_6386787560bc6ac8db61971080d9b274.setContent(html_6ebb133a8dbe4f4332b161a1db31d65a);
+                var html_ee5473fb67886bf8f1b1cc9c4f0f66e7 = $(`<div id="html_ee5473fb67886bf8f1b1cc9c4f0f66e7" style="width: 100.0%; height: 100.0%;">Training Centre: Oxford Mindfulness Centre, Frequency: 37</div>`)[0];
+                popup_28d28577e927439c3e45f677fef7d8d8.setContent(html_ee5473fb67886bf8f1b1cc9c4f0f66e7);
             
         
 
-        circle_marker_2a36e9e686516ef3002e0097d6418105.bindPopup(popup_6386787560bc6ac8db61971080d9b274)
+        circle_marker_7ca04f869a215075b830677dbcec6a83.bindPopup(popup_28d28577e927439c3e45f677fef7d8d8)
         ;
 
         
     
     
-            var circle_marker_262a1514ddc1648a31fdd003c2a910e4 = L.circleMarker(
+            var circle_marker_bc3bc25963fe89db6950f71cce786554 = L.circleMarker(
                 [50.830141, -0.18422],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3aa70cc2b48f188e4dc22798b69219b2);
+            ).addTo(feature_group_a9d42066f676b8238dfdd278c1fe780c);
         
     
-        var popup_4dea31b60bf6e8809154815d06c9e6f1 = L.popup({"maxWidth": "100%"});
+        var popup_f9052f4ad657c83ff01e2509206e96ea = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_f562ee3b468232419ac9c2736f6da62b = $(`<div id="html_f562ee3b468232419ac9c2736f6da62b" style="width: 100.0%; height: 100.0%;">Training Centre: Sussex Mindfulness Centre, Frequency: 27</div>`)[0];
-                popup_4dea31b60bf6e8809154815d06c9e6f1.setContent(html_f562ee3b468232419ac9c2736f6da62b);
+                var html_f574bc9c3dd72f1436cd0f590185edc2 = $(`<div id="html_f574bc9c3dd72f1436cd0f590185edc2" style="width: 100.0%; height: 100.0%;">Training Centre: Sussex Mindfulness Centre, Frequency: 27</div>`)[0];
+                popup_f9052f4ad657c83ff01e2509206e96ea.setContent(html_f574bc9c3dd72f1436cd0f590185edc2);
             
         
 
-        circle_marker_262a1514ddc1648a31fdd003c2a910e4.bindPopup(popup_4dea31b60bf6e8809154815d06c9e6f1)
+        circle_marker_bc3bc25963fe89db6950f71cce786554.bindPopup(popup_f9052f4ad657c83ff01e2509206e96ea)
         ;
 
         
     
     
-            var circle_marker_bc80145fc9d2bf8f7854eb7d4dbcc1a6 = L.circleMarker(
+            var circle_marker_dc9b773c7896ff755658a649b774ca0a = L.circleMarker(
                 [42.272889, -71.767704],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.6666666666666666, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3aa70cc2b48f188e4dc22798b69219b2);
+            ).addTo(feature_group_a9d42066f676b8238dfdd278c1fe780c);
         
     
-        var popup_f02bfba249ea6547cf54e32fbc069ed9 = L.popup({"maxWidth": "100%"});
+        var popup_075643841ed8ae129766d5c6f324fbd2 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_0c289161daad1c90cebfe91a27dfe1c0 = $(`<div id="html_0c289161daad1c90cebfe91a27dfe1c0" style="width: 100.0%; height: 100.0%;">Training Centre: UMass Centre for Mindfulness, Frequency: 9</div>`)[0];
-                popup_f02bfba249ea6547cf54e32fbc069ed9.setContent(html_0c289161daad1c90cebfe91a27dfe1c0);
+                var html_a0ed1a0cc3f860bd96c7dfe9f7d6ba9b = $(`<div id="html_a0ed1a0cc3f860bd96c7dfe9f7d6ba9b" style="width: 100.0%; height: 100.0%;">Training Centre: UMass Centre for Mindfulness, Frequency: 9</div>`)[0];
+                popup_075643841ed8ae129766d5c6f324fbd2.setContent(html_a0ed1a0cc3f860bd96c7dfe9f7d6ba9b);
             
         
 
-        circle_marker_bc80145fc9d2bf8f7854eb7d4dbcc1a6.bindPopup(popup_f02bfba249ea6547cf54e32fbc069ed9)
+        circle_marker_dc9b773c7896ff755658a649b774ca0a.bindPopup(popup_075643841ed8ae129766d5c6f324fbd2)
         ;
 
         
     
     
-            var circle_marker_9d4646f6b0750f8410a21ec4e3f7bd1c = L.circleMarker(
+            var circle_marker_605768aea459f1baea73707ede871166 = L.circleMarker(
                 [57.164841, -2.100237],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.9629629629629629, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3aa70cc2b48f188e4dc22798b69219b2);
+            ).addTo(feature_group_a9d42066f676b8238dfdd278c1fe780c);
         
     
-        var popup_a4f05280f8948235ac8c3afa9b52c45a = L.popup({"maxWidth": "100%"});
+        var popup_147404cf68a0406c22cf04bab3710bb8 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_e471a1673eb5fbeeb7e10864e079f4e5 = $(`<div id="html_e471a1673eb5fbeeb7e10864e079f4e5" style="width: 100.0%; height: 100.0%;">Training Centre: University of Aberdeen, Frequency: 13</div>`)[0];
-                popup_a4f05280f8948235ac8c3afa9b52c45a.setContent(html_e471a1673eb5fbeeb7e10864e079f4e5);
+                var html_090ba5ed051d170aba96c4cb077f2852 = $(`<div id="html_090ba5ed051d170aba96c4cb077f2852" style="width: 100.0%; height: 100.0%;">Training Centre: University of Aberdeen, Frequency: 13</div>`)[0];
+                popup_147404cf68a0406c22cf04bab3710bb8.setContent(html_090ba5ed051d170aba96c4cb077f2852);
             
         
 
-        circle_marker_9d4646f6b0750f8410a21ec4e3f7bd1c.bindPopup(popup_a4f05280f8948235ac8c3afa9b52c45a)
+        circle_marker_605768aea459f1baea73707ede871166.bindPopup(popup_147404cf68a0406c22cf04bab3710bb8)
         ;
 
         
     
     
-            var circle_marker_9baebb67d83852e592dfdcf23cb73945 = L.circleMarker(
+            var circle_marker_9f41447270ce0af0beb05e7c05f562cd = L.circleMarker(
                 [55.856137, -4.247321],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.7407407407407407, "stroke": true, "weight": 3}
-            ).addTo(feature_group_3aa70cc2b48f188e4dc22798b69219b2);
+            ).addTo(feature_group_a9d42066f676b8238dfdd278c1fe780c);
         
     
-        var popup_61ce24d96d067028cc6b38fe72f35f04 = L.popup({"maxWidth": "100%"});
+        var popup_8daf81d0c361c3ddd030e2eae4b5756a = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_9772555fa16d172b775a7f483b502456 = $(`<div id="html_9772555fa16d172b775a7f483b502456" style="width: 100.0%; height: 100.0%;">Training Centre: Youth Mindfulness, Frequency: 10</div>`)[0];
-                popup_61ce24d96d067028cc6b38fe72f35f04.setContent(html_9772555fa16d172b775a7f483b502456);
+                var html_d8505b63bb174e7a932ed9f96889f7ee = $(`<div id="html_d8505b63bb174e7a932ed9f96889f7ee" style="width: 100.0%; height: 100.0%;">Training Centre: Youth Mindfulness, Frequency: 10</div>`)[0];
+                popup_8daf81d0c361c3ddd030e2eae4b5756a.setContent(html_d8505b63bb174e7a932ed9f96889f7ee);
             
         
 
-        circle_marker_9baebb67d83852e592dfdcf23cb73945.bindPopup(popup_61ce24d96d067028cc6b38fe72f35f04)
+        circle_marker_9f41447270ce0af0beb05e7c05f562cd.bindPopup(popup_8daf81d0c361c3ddd030e2eae4b5756a)
         ;
 
         
     
     
-            feature_group_3aa70cc2b48f188e4dc22798b69219b2.addTo(map_9c434e38017dadb664ad320d5ad71e68);
+            feature_group_a9d42066f676b8238dfdd278c1fe780c.addTo(map_c812746cc58e53807da53d2505211f68);
         
     
-            var feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b = L.featureGroup(
-                {}
+            var feature_group_68e152e423fe4a61ac00e591ef4e0ffa = L.featureGroup(
+                {
+}
             );
         
     
-            var circle_marker_aadfe1e3e007dd0d3ea80b92f036d4e2 = L.circleMarker(
+            var circle_marker_b6fd142ddc9c428061f1cf118951c1cd = L.circleMarker(
                 [51.79146, -0.519677],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.383419689119171, "stroke": true, "weight": 3}
-            ).addTo(feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b);
+            ).addTo(feature_group_68e152e423fe4a61ac00e591ef4e0ffa);
         
     
-        var popup_2d05d069eb4def569960ff40a561d1d5 = L.popup({"maxWidth": "100%"});
+        var popup_b4a48654dfa7f6448ac75430ab3d1eaa = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_542c6a0f26a74029d3efa961342bc0ff = $(`<div id="html_542c6a0f26a74029d3efa961342bc0ff" style="width: 100.0%; height: 100.0%;">Retreat Centre: Amaravati Retreat Centre, Frequency: 46</div>`)[0];
-                popup_2d05d069eb4def569960ff40a561d1d5.setContent(html_542c6a0f26a74029d3efa961342bc0ff);
+                var html_1eb88f150e7e135ac0be4e7d07d3cdcd = $(`<div id="html_1eb88f150e7e135ac0be4e7d07d3cdcd" style="width: 100.0%; height: 100.0%;">Retreat Centre: Amaravati Retreat Centre, Frequency: 46</div>`)[0];
+                popup_b4a48654dfa7f6448ac75430ab3d1eaa.setContent(html_1eb88f150e7e135ac0be4e7d07d3cdcd);
             
         
 
-        circle_marker_aadfe1e3e007dd0d3ea80b92f036d4e2.bindPopup(popup_2d05d069eb4def569960ff40a561d1d5)
+        circle_marker_b6fd142ddc9c428061f1cf118951c1cd.bindPopup(popup_b4a48654dfa7f6448ac75430ab3d1eaa)
         ;
 
         
     
     
-            var circle_marker_bbef270a31419fc308a215c36538f776 = L.circleMarker(
+            var circle_marker_5e8272a23e49af2a4bb26d97eac6d286 = L.circleMarker(
                 [53.483565, -2.237376],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.9844559585492227, "stroke": true, "weight": 3}
-            ).addTo(feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b);
+            ).addTo(feature_group_68e152e423fe4a61ac00e591ef4e0ffa);
         
     
-        var popup_d0f72d8e1c0adc7b5f08034ccfd93ddc = L.popup({"maxWidth": "100%"});
+        var popup_d78a3dc764c17ca34ee003dcae5b9111 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_1db00612a1c372f0c8b086876d7057ee = $(`<div id="html_1db00612a1c372f0c8b086876d7057ee" style="width: 100.0%; height: 100.0%;">Retreat Centre: Breathworks, Frequency: 19</div>`)[0];
-                popup_d0f72d8e1c0adc7b5f08034ccfd93ddc.setContent(html_1db00612a1c372f0c8b086876d7057ee);
+                var html_e15f657de5588262397f13939d2de484 = $(`<div id="html_e15f657de5588262397f13939d2de484" style="width: 100.0%; height: 100.0%;">Retreat Centre: Breathworks, Frequency: 19</div>`)[0];
+                popup_d78a3dc764c17ca34ee003dcae5b9111.setContent(html_e15f657de5588262397f13939d2de484);
             
         
 
-        circle_marker_bbef270a31419fc308a215c36538f776.bindPopup(popup_d0f72d8e1c0adc7b5f08034ccfd93ddc)
+        circle_marker_5e8272a23e49af2a4bb26d97eac6d286.bindPopup(popup_d78a3dc764c17ca34ee003dcae5b9111)
         ;
 
         
     
     
-            var circle_marker_2614ecdaea936f8eb5080000cd0d50cc = L.circleMarker(
+            var circle_marker_2a7420c725c1c8991a2af57c16917ea5 = L.circleMarker(
                 [50.518268, -3.664509],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.0, "stroke": true, "weight": 3}
-            ).addTo(feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b);
+            ).addTo(feature_group_68e152e423fe4a61ac00e591ef4e0ffa);
         
     
-        var popup_8df2bbfe865baf94f760734b1722e922 = L.popup({"maxWidth": "100%"});
+        var popup_ef1f8eb3d1ef76f53bbde47fc726002f = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_0a22285457d0762c8493259949d824fb = $(`<div id="html_0a22285457d0762c8493259949d824fb" style="width: 100.0%; height: 100.0%;">Retreat Centre: Gaia House, Frequency: 193</div>`)[0];
-                popup_8df2bbfe865baf94f760734b1722e922.setContent(html_0a22285457d0762c8493259949d824fb);
+                var html_029000eb88eacd638b1f9d1d05838660 = $(`<div id="html_029000eb88eacd638b1f9d1d05838660" style="width: 100.0%; height: 100.0%;">Retreat Centre: Gaia House, Frequency: 193</div>`)[0];
+                popup_ef1f8eb3d1ef76f53bbde47fc726002f.setContent(html_029000eb88eacd638b1f9d1d05838660);
             
         
 
-        circle_marker_2614ecdaea936f8eb5080000cd0d50cc.bindPopup(popup_8df2bbfe865baf94f760734b1722e922)
+        circle_marker_2a7420c725c1c8991a2af57c16917ea5.bindPopup(popup_ef1f8eb3d1ef76f53bbde47fc726002f)
         ;
 
         
     
     
-            var circle_marker_5bead66be0564ca74225ff6ddd60d619 = L.circleMarker(
+            var circle_marker_cdff9387958baac38a1f523af8bc7711 = L.circleMarker(
                 [54.173502, -3.067669],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.8290155440414507, "stroke": true, "weight": 3}
-            ).addTo(feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b);
+            ).addTo(feature_group_68e152e423fe4a61ac00e591ef4e0ffa);
         
     
-        var popup_feca6ecdc69ab2bb6c2b1e514a7a1cea = L.popup({"maxWidth": "100%"});
+        var popup_78750cbb506dcfbdb4857d6a9fb3ce5e = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_6e7956719174225a96f0b92edfab9f48 = $(`<div id="html_6e7956719174225a96f0b92edfab9f48" style="width: 100.0%; height: 100.0%;">Retreat Centre: Manjushri Kadampa Meditation Centre, Frequency: 16</div>`)[0];
-                popup_feca6ecdc69ab2bb6c2b1e514a7a1cea.setContent(html_6e7956719174225a96f0b92edfab9f48);
+                var html_65e2b900f4035d52f4a087eccc3d3eef = $(`<div id="html_65e2b900f4035d52f4a087eccc3d3eef" style="width: 100.0%; height: 100.0%;">Retreat Centre: Manjushri Kadampa Meditation Centre, Frequency: 16</div>`)[0];
+                popup_78750cbb506dcfbdb4857d6a9fb3ce5e.setContent(html_65e2b900f4035d52f4a087eccc3d3eef);
             
         
 
-        circle_marker_5bead66be0564ca74225ff6ddd60d619.bindPopup(popup_feca6ecdc69ab2bb6c2b1e514a7a1cea)
+        circle_marker_cdff9387958baac38a1f523af8bc7711.bindPopup(popup_78750cbb506dcfbdb4857d6a9fb3ce5e)
         ;
 
         
     
     
-            var circle_marker_a10e32d56884ce8a42f9f712129e5061 = L.circleMarker(
+            var circle_marker_534128999e1adea3f6b1606fe1287df6 = L.circleMarker(
                 [51.750728, -1.238643],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.10362694300518134, "stroke": true, "weight": 3}
-            ).addTo(feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b);
+            ).addTo(feature_group_68e152e423fe4a61ac00e591ef4e0ffa);
         
     
-        var popup_4cda0e363e577ba2adc7316ab35c892b = L.popup({"maxWidth": "100%"});
+        var popup_f62168234366cede46ce0b1bad2f9280 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_0740d06b5042fc88caa404b2a57fe515 = $(`<div id="html_0740d06b5042fc88caa404b2a57fe515" style="width: 100.0%; height: 100.0%;">Retreat Centre: Oxford Mindfulness Centre, Frequency: 2</div>`)[0];
-                popup_4cda0e363e577ba2adc7316ab35c892b.setContent(html_0740d06b5042fc88caa404b2a57fe515);
+                var html_ce9dd72081cce47d5cc9ac9aec0b81aa = $(`<div id="html_ce9dd72081cce47d5cc9ac9aec0b81aa" style="width: 100.0%; height: 100.0%;">Retreat Centre: Oxford Mindfulness Centre, Frequency: 2</div>`)[0];
+                popup_f62168234366cede46ce0b1bad2f9280.setContent(html_ce9dd72081cce47d5cc9ac9aec0b81aa);
             
         
 
-        circle_marker_a10e32d56884ce8a42f9f712129e5061.bindPopup(popup_4cda0e363e577ba2adc7316ab35c892b)
+        circle_marker_534128999e1adea3f6b1606fe1287df6.bindPopup(popup_f62168234366cede46ce0b1bad2f9280)
         ;
 
         
     
     
-            var circle_marker_6de6bfdd6979d2cb01e9e2138f3bc57b = L.circleMarker(
+            var circle_marker_30365164a5cd04c80deecde838c821cb = L.circleMarker(
                 [53.056569, -4.222438],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.290155440414507, "stroke": true, "weight": 3}
-            ).addTo(feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b);
+            ).addTo(feature_group_68e152e423fe4a61ac00e591ef4e0ffa);
         
     
-        var popup_cc650a8076171d06b35c552b5d1fccc2 = L.popup({"maxWidth": "100%"});
+        var popup_02df91b8ddd7a4475d35ef81ea93711c = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_2141badd90db6b7da964064234fbe8a5 = $(`<div id="html_2141badd90db6b7da964064234fbe8a5" style="width: 100.0%; height: 100.0%;">Retreat Centre: Trigonos, Frequency: 160</div>`)[0];
-                popup_cc650a8076171d06b35c552b5d1fccc2.setContent(html_2141badd90db6b7da964064234fbe8a5);
+                var html_10c8d5925036e0e70cd6be2419c89ea1 = $(`<div id="html_10c8d5925036e0e70cd6be2419c89ea1" style="width: 100.0%; height: 100.0%;">Retreat Centre: Trigonos, Frequency: 160</div>`)[0];
+                popup_02df91b8ddd7a4475d35ef81ea93711c.setContent(html_10c8d5925036e0e70cd6be2419c89ea1);
             
         
 
-        circle_marker_6de6bfdd6979d2cb01e9e2138f3bc57b.bindPopup(popup_cc650a8076171d06b35c552b5d1fccc2)
+        circle_marker_30365164a5cd04c80deecde838c821cb.bindPopup(popup_02df91b8ddd7a4475d35ef81ea93711c)
         ;
 
         
     
     
-            var circle_marker_0afe22239909c0be10b21fdc5f854c75 = L.circleMarker(
+            var circle_marker_8ad8114396ba4345cba6768cf522f1b6 = L.circleMarker(
                 [52.988445, -3.44418],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.891191709844559, "stroke": true, "weight": 3}
-            ).addTo(feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b);
+            ).addTo(feature_group_68e152e423fe4a61ac00e591ef4e0ffa);
         
     
-        var popup_403dd9cc5e8f8cc2138c40621394132e = L.popup({"maxWidth": "100%"});
+        var popup_6fa3912e5e16abe4d64822fdee8e1fa6 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_9b1bd59aa6bb8d6bc0b2db12753dfdfd = $(`<div id="html_9b1bd59aa6bb8d6bc0b2db12753dfdfd" style="width: 100.0%; height: 100.0%;">Retreat Centre: Triratna Buddhist Community, Frequency: 133</div>`)[0];
-                popup_403dd9cc5e8f8cc2138c40621394132e.setContent(html_9b1bd59aa6bb8d6bc0b2db12753dfdfd);
+                var html_23bb58267fd0ba378f757e11dd5fe59b = $(`<div id="html_23bb58267fd0ba378f757e11dd5fe59b" style="width: 100.0%; height: 100.0%;">Retreat Centre: Triratna Buddhist Community, Frequency: 133</div>`)[0];
+                popup_6fa3912e5e16abe4d64822fdee8e1fa6.setContent(html_23bb58267fd0ba378f757e11dd5fe59b);
             
         
 
-        circle_marker_0afe22239909c0be10b21fdc5f854c75.bindPopup(popup_403dd9cc5e8f8cc2138c40621394132e)
+        circle_marker_8ad8114396ba4345cba6768cf522f1b6.bindPopup(popup_6fa3912e5e16abe4d64822fdee8e1fa6)
         ;
 
         
     
     
-            var circle_marker_443842cd91d2c4d7b6f112a21807175e = L.circleMarker(
+            var circle_marker_35e73f3b2d8c24f48bf6dd75529e6e72 = L.circleMarker(
                 [51.933523, -2.717371],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 4.352331606217616, "stroke": true, "weight": 3}
-            ).addTo(feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b);
+            ).addTo(feature_group_68e152e423fe4a61ac00e591ef4e0ffa);
         
     
-        var popup_23a17e5401ac87bfcb28d608b40f802b = L.popup({"maxWidth": "100%"});
+        var popup_d44fb846404516d90cc61e24439e628b = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_36293e0f82462d17024caf316181b289 = $(`<div id="html_36293e0f82462d17024caf316181b289" style="width: 100.0%; height: 100.0%;">Retreat Centre: Vipassana Trust, Dhamma Dīpa, Frequency: 84</div>`)[0];
-                popup_23a17e5401ac87bfcb28d608b40f802b.setContent(html_36293e0f82462d17024caf316181b289);
+                var html_ce9f7a06115d54c90770845ad9c735b1 = $(`<div id="html_ce9f7a06115d54c90770845ad9c735b1" style="width: 100.0%; height: 100.0%;">Retreat Centre: Vipassana Trust, Dhamma Dīpa, Frequency: 84</div>`)[0];
+                popup_d44fb846404516d90cc61e24439e628b.setContent(html_ce9f7a06115d54c90770845ad9c735b1);
             
         
 
-        circle_marker_443842cd91d2c4d7b6f112a21807175e.bindPopup(popup_23a17e5401ac87bfcb28d608b40f802b)
+        circle_marker_35e73f3b2d8c24f48bf6dd75529e6e72.bindPopup(popup_d44fb846404516d90cc61e24439e628b)
         ;
 
         
     
     
-            var circle_marker_d36f066c06bbb4b2f0389dbdd23eda7b = L.circleMarker(
+            var circle_marker_e9e6b3a6701e53c5a35474af14a70586 = L.circleMarker(
                 [55.533467, -5.0874746],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0207253886010363, "stroke": true, "weight": 3}
-            ).addTo(feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b);
+            ).addTo(feature_group_68e152e423fe4a61ac00e591ef4e0ffa);
         
     
-        var popup_69ae8b07fdeec4c38f049d9934bf7072 = L.popup({"maxWidth": "100%"});
+        var popup_3c314505a423695d14d5f95a36dd1a9d = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_a08b6fc869bcec1cd01911f27268f7d6 = $(`<div id="html_a08b6fc869bcec1cd01911f27268f7d6" style="width: 100.0%; height: 100.0%;">Retreat Centre: Holy Isle, Frequency: 39</div>`)[0];
-                popup_69ae8b07fdeec4c38f049d9934bf7072.setContent(html_a08b6fc869bcec1cd01911f27268f7d6);
+                var html_ae4c3ac730f5df423a71d230ecd7bd76 = $(`<div id="html_ae4c3ac730f5df423a71d230ecd7bd76" style="width: 100.0%; height: 100.0%;">Retreat Centre: Holy Isle, Frequency: 39</div>`)[0];
+                popup_3c314505a423695d14d5f95a36dd1a9d.setContent(html_ae4c3ac730f5df423a71d230ecd7bd76);
             
         
 
-        circle_marker_d36f066c06bbb4b2f0389dbdd23eda7b.bindPopup(popup_69ae8b07fdeec4c38f049d9934bf7072)
+        circle_marker_e9e6b3a6701e53c5a35474af14a70586.bindPopup(popup_3c314505a423695d14d5f95a36dd1a9d)
         ;
 
         
     
     
-            var circle_marker_6107aad1431ea720ff780f192c7db94e = L.circleMarker(
+            var circle_marker_2c77e90935f2ae7c86c940313bc1e65d = L.circleMarker(
                 [44.750513, 0.3415091],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1.2435233160621761, "stroke": true, "weight": 3}
-            ).addTo(feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b);
+            ).addTo(feature_group_68e152e423fe4a61ac00e591ef4e0ffa);
         
     
-        var popup_010c3a54417eead6d61ef142792a2ba3 = L.popup({"maxWidth": "100%"});
+        var popup_7c723b19bd275a5751ae2b8dd4b6811b = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_dc6be54789c8d3e1e1af38f8217b867f = $(`<div id="html_dc6be54789c8d3e1e1af38f8217b867f" style="width: 100.0%; height: 100.0%;">Retreat Centre: Plum Village, Frequency: 24</div>`)[0];
-                popup_010c3a54417eead6d61ef142792a2ba3.setContent(html_dc6be54789c8d3e1e1af38f8217b867f);
+                var html_f6e03188985085043c71819c820cd357 = $(`<div id="html_f6e03188985085043c71819c820cd357" style="width: 100.0%; height: 100.0%;">Retreat Centre: Plum Village, Frequency: 24</div>`)[0];
+                popup_7c723b19bd275a5751ae2b8dd4b6811b.setContent(html_f6e03188985085043c71819c820cd357);
             
         
 
-        circle_marker_6107aad1431ea720ff780f192c7db94e.bindPopup(popup_010c3a54417eead6d61ef142792a2ba3)
+        circle_marker_2c77e90935f2ae7c86c940313bc1e65d.bindPopup(popup_7c723b19bd275a5751ae2b8dd4b6811b)
         ;
 
         
     
     
-            var circle_marker_b669cdfd82758c46333798dc260775a1 = L.circleMarker(
+            var circle_marker_b6c657dbc8162f2aade5845b7262446f = L.circleMarker(
                 [55.287437, -3.1876922],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.9533678756476682, "stroke": true, "weight": 3}
-            ).addTo(feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b);
+            ).addTo(feature_group_68e152e423fe4a61ac00e591ef4e0ffa);
         
     
-        var popup_f7d35cea9056a3c8b8be7910be7999fb = L.popup({"maxWidth": "100%"});
+        var popup_58dd67102788bbebe6bd931c4a7a76e8 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_4694e6fbdae167e0dd0011df1d4a7b4f = $(`<div id="html_4694e6fbdae167e0dd0011df1d4a7b4f" style="width: 100.0%; height: 100.0%;">Retreat Centre: Samye Ling, Frequency: 57</div>`)[0];
-                popup_f7d35cea9056a3c8b8be7910be7999fb.setContent(html_4694e6fbdae167e0dd0011df1d4a7b4f);
+                var html_5e036ef1600be0729ab3c247b01fb71a = $(`<div id="html_5e036ef1600be0729ab3c247b01fb71a" style="width: 100.0%; height: 100.0%;">Retreat Centre: Samye Ling, Frequency: 57</div>`)[0];
+                popup_58dd67102788bbebe6bd931c4a7a76e8.setContent(html_5e036ef1600be0729ab3c247b01fb71a);
             
         
 
-        circle_marker_b669cdfd82758c46333798dc260775a1.bindPopup(popup_f7d35cea9056a3c8b8be7910be7999fb)
+        circle_marker_b6c657dbc8162f2aade5845b7262446f.bindPopup(popup_58dd67102788bbebe6bd931c4a7a76e8)
         ;
 
         
     
     
-            var circle_marker_8d79f8005bde1dc0b8a174a02bb76b0b = L.circleMarker(
+            var circle_marker_f1df784554b1b4d45ed02a0b3df6ca4e = L.circleMarker(
                 [-25.743249, 26.349999],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.15544041450777202, "stroke": true, "weight": 3}
-            ).addTo(feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b);
+            ).addTo(feature_group_68e152e423fe4a61ac00e591ef4e0ffa);
         
     
-        var popup_523015f9046cb5e359e5ad5ae07c5e6f = L.popup({"maxWidth": "100%"});
+        var popup_6379ae2514ccee7baccf4785f83b4667 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_f6d6f903d268aee95e3da5b3e19d540d = $(`<div id="html_f6d6f903d268aee95e3da5b3e19d540d" style="width: 100.0%; height: 100.0%;">Retreat Centre: Tara Rokpa Centre, Frequency: 3</div>`)[0];
-                popup_523015f9046cb5e359e5ad5ae07c5e6f.setContent(html_f6d6f903d268aee95e3da5b3e19d540d);
+                var html_f9e99c401cc1fcc4ab00cb9d730fb989 = $(`<div id="html_f9e99c401cc1fcc4ab00cb9d730fb989" style="width: 100.0%; height: 100.0%;">Retreat Centre: Tara Rokpa Centre, Frequency: 3</div>`)[0];
+                popup_6379ae2514ccee7baccf4785f83b4667.setContent(html_f9e99c401cc1fcc4ab00cb9d730fb989);
             
         
 
-        circle_marker_8d79f8005bde1dc0b8a174a02bb76b0b.bindPopup(popup_523015f9046cb5e359e5ad5ae07c5e6f)
+        circle_marker_f1df784554b1b4d45ed02a0b3df6ca4e.bindPopup(popup_6379ae2514ccee7baccf4785f83b4667)
         ;
 
         
     
     
-            var circle_marker_07b8df84ee99f82289ea6577a3a784c6 = L.circleMarker(
+            var circle_marker_4fca0750f0790e9880c114bddbf6adb8 = L.circleMarker(
                 [51.65083, -3.23167],
                 {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.41450777202072536, "stroke": true, "weight": 3}
-            ).addTo(feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b);
+            ).addTo(feature_group_68e152e423fe4a61ac00e591ef4e0ffa);
         
     
-        var popup_459ec575ed3544a9304e1f3b74e345d5 = L.popup({"maxWidth": "100%"});
+        var popup_99e01d2f89c0f626a7936980f68d5dd4 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_eaa0fb556a2c8c166bcb60d809ea8b0d = $(`<div id="html_eaa0fb556a2c8c166bcb60d809ea8b0d" style="width: 100.0%; height: 100.0%;">Retreat Centre: Western Chan Fellowship, Frequency: 8</div>`)[0];
-                popup_459ec575ed3544a9304e1f3b74e345d5.setContent(html_eaa0fb556a2c8c166bcb60d809ea8b0d);
+                var html_9b0bba14863db1a3bf2cdd44a56ffac5 = $(`<div id="html_9b0bba14863db1a3bf2cdd44a56ffac5" style="width: 100.0%; height: 100.0%;">Retreat Centre: Western Chan Fellowship, Frequency: 8</div>`)[0];
+                popup_99e01d2f89c0f626a7936980f68d5dd4.setContent(html_9b0bba14863db1a3bf2cdd44a56ffac5);
             
         
 
-        circle_marker_07b8df84ee99f82289ea6577a3a784c6.bindPopup(popup_459ec575ed3544a9304e1f3b74e345d5)
+        circle_marker_4fca0750f0790e9880c114bddbf6adb8.bindPopup(popup_99e01d2f89c0f626a7936980f68d5dd4)
         ;
 
         
     
     
-            feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b.addTo(map_9c434e38017dadb664ad320d5ad71e68);
+            feature_group_68e152e423fe4a61ac00e591ef4e0ffa.addTo(map_c812746cc58e53807da53d2505211f68);
         
     
-            var layer_control_dde8ca2f5dcb1551d13e0c47478d9921_layers = {
+            var layer_control_ea245afd41044730b801230a679b689e_layers = {
                 base_layers : {
-                    "openstreetmap" : tile_layer_f78ec2c6f0507697480e92b3c7e8a29c,
+                    "openstreetmap" : tile_layer_1d7acf2043351f1af05861e87a4308f7,
                 },
                 overlays :  {
-                    "Training Centres" : feature_group_3aa70cc2b48f188e4dc22798b69219b2,
-                    "Retreat Centres" : feature_group_24fa4e1d5c42c283efbb3d89f1a43e0b,
+                    "Training Centres" : feature_group_a9d42066f676b8238dfdd278c1fe780c,
+                    "Retreat Centres" : feature_group_68e152e423fe4a61ac00e591ef4e0ffa,
                 },
             };
-            let layer_control_dde8ca2f5dcb1551d13e0c47478d9921 = L.control.layers(
-                layer_control_dde8ca2f5dcb1551d13e0c47478d9921_layers.base_layers,
-                layer_control_dde8ca2f5dcb1551d13e0c47478d9921_layers.overlays,
-                {"autoZIndex": true, "collapsed": true, "position": "topright"}
-            ).addTo(map_9c434e38017dadb664ad320d5ad71e68);
+            let layer_control_ea245afd41044730b801230a679b689e = L.control.layers(
+                layer_control_ea245afd41044730b801230a679b689e_layers.base_layers,
+                layer_control_ea245afd41044730b801230a679b689e_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_c812746cc58e53807da53d2505211f68);
 
         
 </script>

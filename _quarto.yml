@@ -5,6 +5,7 @@ project:
 website:
   title: "carecodeconnect"
   site-url: https://www.carecodeconnect.io
+  description: "Revisioning data science for the age of AI"
   navbar:
     right:
       - href: index.qmd
@@ -17,6 +18,8 @@ website:
         text: Projects
       - href: testimonials.qmd
         text: Testimonials
+      - icon: rss
+        href: blog.xml
 
 format:
   html:

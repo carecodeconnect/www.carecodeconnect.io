@@ -3,21 +3,13 @@
 <head>
     
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    
-        <script>
-            L_NO_TOUCH = false;
-            L_DISABLE_3D = false;
-        </script>
-    
-    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
-    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
@@ -25,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_169193d9a39d13e21c0c126ed524d347 {
+                #map_21ca2df57d240a52cc6cf2d75e83402a {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -34,25 +26,51 @@
                 }
                 .leaflet-container { font-size: 1rem; }
             </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
         
 </head>
 <body>
     
     
-            <div class="folium-map" id="map_169193d9a39d13e21c0c126ed524d347" ></div>
+            <div class="folium-map" id="map_21ca2df57d240a52cc6cf2d75e83402a" ></div>
         
 </body>
 <script>
     
     
-            var map_169193d9a39d13e21c0c126ed524d347 = L.map(
-                "map_169193d9a39d13e21c0c126ed524d347",
+            var map_21ca2df57d240a52cc6cf2d75e83402a = L.map(
+                "map_21ca2df57d240a52cc6cf2d75e83402a",
                 {
                     center: [54.0, -2.0],
                     crs: L.CRS.EPSG3857,
-                    zoom: 6,
-                    zoomControl: true,
-                    preferCanvas: false,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
                 }
             );
 
@@ -60,330 +78,374 @@
 
         
     
-            var tile_layer_08d2c02915f9b9abcbf3e6c2b7ae2dce = L.tileLayer(
+            var tile_layer_475a39096328d5cb054736db9383bada = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
             );
         
     
-            tile_layer_08d2c02915f9b9abcbf3e6c2b7ae2dce.addTo(map_169193d9a39d13e21c0c126ed524d347);
+            tile_layer_475a39096328d5cb054736db9383bada.addTo(map_21ca2df57d240a52cc6cf2d75e83402a);
         
     
-            var feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9 = L.featureGroup(
-                {}
+            var feature_group_a77b21b40e5d428cb48f77b83d7196d5 = L.featureGroup(
+                {
+}
             );
         
     
-            var circle_marker_dcae02de079552fa97168946cb5935b8 = L.circleMarker(
+            var circle_marker_e5305ee1d1775568c232022201e5f19a = L.circleMarker(
                 [53.483565, -2.237376],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.111111111111111, "stroke": true, "weight": 3}
-            ).addTo(feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9);
+            ).addTo(feature_group_a77b21b40e5d428cb48f77b83d7196d5);
         
     
-        var popup_d917d5ecc8f06af28ea488c585e916ac = L.popup({"maxWidth": "100%"});
+        var popup_191093598b26bf2e1af3e33a1879deb8 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_d4e5fb3276757fc5e97f270826c49bc3 = $(`<div id="html_d4e5fb3276757fc5e97f270826c49bc3" style="width: 100.0%; height: 100.0%;">Breathworks: 96</div>`)[0];
-                popup_d917d5ecc8f06af28ea488c585e916ac.setContent(html_d4e5fb3276757fc5e97f270826c49bc3);
+                var html_88fd03e71d5f1de37ab68c694c0a7481 = $(`<div id="html_88fd03e71d5f1de37ab68c694c0a7481" style="width: 100.0%; height: 100.0%;">Breathworks: 96</div>`)[0];
+                popup_191093598b26bf2e1af3e33a1879deb8.setContent(html_88fd03e71d5f1de37ab68c694c0a7481);
             
         
 
-        circle_marker_dcae02de079552fa97168946cb5935b8.bindPopup(popup_d917d5ecc8f06af28ea488c585e916ac)
+        circle_marker_e5305ee1d1775568c232022201e5f19a.bindPopup(popup_191093598b26bf2e1af3e33a1879deb8)
         ;
 
         
     
     
-            var circle_marker_873efe35ba091c3b44bd104b56f907f8 = L.circleMarker(
+            var circle_marker_949b713463ac992d312e7e1592468750 = L.circleMarker(
                 [53.228436, -4.131024],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.0, "stroke": true, "weight": 3}
-            ).addTo(feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9);
+            ).addTo(feature_group_a77b21b40e5d428cb48f77b83d7196d5);
         
     
-        var popup_37be17c638946aff6e92e4cfb1760f43 = L.popup({"maxWidth": "100%"});
+        var popup_53acd50c9d826e3fbd2357601f43482b = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_f26343d54ec04b8e8094dcb07e366430 = $(`<div id="html_f26343d54ec04b8e8094dcb07e366430" style="width: 100.0%; height: 100.0%;">Centre for Mindfulness Research and Practice, Bangor University: 135</div>`)[0];
-                popup_37be17c638946aff6e92e4cfb1760f43.setContent(html_f26343d54ec04b8e8094dcb07e366430);
+                var html_a39f75f06899d90de2478734cd3029c9 = $(`<div id="html_a39f75f06899d90de2478734cd3029c9" style="width: 100.0%; height: 100.0%;">Centre for Mindfulness Research and Practice, Bangor University: 135</div>`)[0];
+                popup_53acd50c9d826e3fbd2357601f43482b.setContent(html_a39f75f06899d90de2478734cd3029c9);
             
         
 
-        circle_marker_873efe35ba091c3b44bd104b56f907f8.bindPopup(popup_37be17c638946aff6e92e4cfb1760f43)
+        circle_marker_949b713463ac992d312e7e1592468750.bindPopup(popup_53acd50c9d826e3fbd2357601f43482b)
         ;
 
         
     
     
-            var circle_marker_7285cbe139f1c84163f34a5914e967c7 = L.circleMarker(
+            var circle_marker_b8f722a9a3f2d54f4bf4d9abc5f02b10 = L.circleMarker(
                 [50.733148, -3.536457],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1.037037037037037, "stroke": true, "weight": 3}
-            ).addTo(feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9);
+            ).addTo(feature_group_a77b21b40e5d428cb48f77b83d7196d5);
         
     
-        var popup_d375c9c3420affa593d3948cfda267bc = L.popup({"maxWidth": "100%"});
+        var popup_fd52d4c516aaa2bb0dea475a9bd99314 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_48dcdf0ab38733fdcdc853e5e58bc33f = $(`<div id="html_48dcdf0ab38733fdcdc853e5e58bc33f" style="width: 100.0%; height: 100.0%;">Exeter University: 14</div>`)[0];
-                popup_d375c9c3420affa593d3948cfda267bc.setContent(html_48dcdf0ab38733fdcdc853e5e58bc33f);
+                var html_13c34b414a90dc1edaa5c140e1157a9c = $(`<div id="html_13c34b414a90dc1edaa5c140e1157a9c" style="width: 100.0%; height: 100.0%;">Exeter University: 14</div>`)[0];
+                popup_fd52d4c516aaa2bb0dea475a9bd99314.setContent(html_13c34b414a90dc1edaa5c140e1157a9c);
             
         
 
-        circle_marker_7285cbe139f1c84163f34a5914e967c7.bindPopup(popup_d375c9c3420affa593d3948cfda267bc)
+        circle_marker_b8f722a9a3f2d54f4bf4d9abc5f02b10.bindPopup(popup_fd52d4c516aaa2bb0dea475a9bd99314)
         ;
 
         
     
     
-            var circle_marker_42018cce951fb0a0183b9fc51b44fc2e = L.circleMarker(
+            var circle_marker_851a7543cf66183c9ef04802d4d6c2f9 = L.circleMarker(
                 [50.518268, -3.664509],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.2962962962962963, "stroke": true, "weight": 3}
-            ).addTo(feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9);
+            ).addTo(feature_group_a77b21b40e5d428cb48f77b83d7196d5);
         
     
-        var popup_14a54436425f31b1f04cef545ae066d0 = L.popup({"maxWidth": "100%"});
+        var popup_0136e665b367db04ce938836680ccf22 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_0af5af6070d449614de8f4c724543319 = $(`<div id="html_0af5af6070d449614de8f4c724543319" style="width: 100.0%; height: 100.0%;">Gaia House: 4</div>`)[0];
-                popup_14a54436425f31b1f04cef545ae066d0.setContent(html_0af5af6070d449614de8f4c724543319);
+                var html_75b1b862d5fc40ef76794d8e5247261a = $(`<div id="html_75b1b862d5fc40ef76794d8e5247261a" style="width: 100.0%; height: 100.0%;">Gaia House: 4</div>`)[0];
+                popup_0136e665b367db04ce938836680ccf22.setContent(html_75b1b862d5fc40ef76794d8e5247261a);
             
         
 
-        circle_marker_42018cce951fb0a0183b9fc51b44fc2e.bindPopup(popup_14a54436425f31b1f04cef545ae066d0)
+        circle_marker_851a7543cf66183c9ef04802d4d6c2f9.bindPopup(popup_0136e665b367db04ce938836680ccf22)
         ;
 
         
     
     
-            var circle_marker_7043a7673dc1ac74ac472a8da3248b4c = L.circleMarker(
+            var circle_marker_d79005ef8531df06bdfe73835cfca02e = L.circleMarker(
                 [53.55528, -2.306248],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.37037037037037035, "stroke": true, "weight": 3}
-            ).addTo(feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9);
+            ).addTo(feature_group_a77b21b40e5d428cb48f77b83d7196d5);
         
     
-        var popup_8afc78f5f0d0e324f15fb494f6c3d91f = L.popup({"maxWidth": "100%"});
+        var popup_efe2aed89e8c0eb4de0bb5d5314cc86f = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_719cc7b71a35796a263fa149c1bd4057 = $(`<div id="html_719cc7b71a35796a263fa149c1bd4057" style="width: 100.0%; height: 100.0%;">Integrated Mindfulness Training: 5</div>`)[0];
-                popup_8afc78f5f0d0e324f15fb494f6c3d91f.setContent(html_719cc7b71a35796a263fa149c1bd4057);
+                var html_8ae516258132e0bc14653dc7edba274b = $(`<div id="html_8ae516258132e0bc14653dc7edba274b" style="width: 100.0%; height: 100.0%;">Integrated Mindfulness Training: 5</div>`)[0];
+                popup_efe2aed89e8c0eb4de0bb5d5314cc86f.setContent(html_8ae516258132e0bc14653dc7edba274b);
             
         
 
-        circle_marker_7043a7673dc1ac74ac472a8da3248b4c.bindPopup(popup_8afc78f5f0d0e324f15fb494f6c3d91f)
+        circle_marker_d79005ef8531df06bdfe73835cfca02e.bindPopup(popup_efe2aed89e8c0eb4de0bb5d5314cc86f)
         ;
 
         
     
     
-            var circle_marker_f03df3fc78754d719b67e7d6d09bb395 = L.circleMarker(
+            var circle_marker_2e1611452f2642eb9ced47f60b50e92d = L.circleMarker(
                 [57.235143, -2.459007],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.962962962962963, "stroke": true, "weight": 3}
-            ).addTo(feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9);
+            ).addTo(feature_group_a77b21b40e5d428cb48f77b83d7196d5);
         
     
-        var popup_e235eba6eda2fd6d5b3803b562942530 = L.popup({"maxWidth": "100%"});
+        var popup_14e5a670dfb233f1e0dcea9d8b7a1a87 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_215a3553eb882201efcb60cccd01324d = $(`<div id="html_215a3553eb882201efcb60cccd01324d" style="width: 100.0%; height: 100.0%;">Mindfulness Association: 40</div>`)[0];
-                popup_e235eba6eda2fd6d5b3803b562942530.setContent(html_215a3553eb882201efcb60cccd01324d);
+                var html_a2958df31e131051020327523fff0728 = $(`<div id="html_a2958df31e131051020327523fff0728" style="width: 100.0%; height: 100.0%;">Mindfulness Association: 40</div>`)[0];
+                popup_14e5a670dfb233f1e0dcea9d8b7a1a87.setContent(html_a2958df31e131051020327523fff0728);
             
         
 
-        circle_marker_f03df3fc78754d719b67e7d6d09bb395.bindPopup(popup_e235eba6eda2fd6d5b3803b562942530)
+        circle_marker_2e1611452f2642eb9ced47f60b50e92d.bindPopup(popup_14e5a670dfb233f1e0dcea9d8b7a1a87)
         ;
 
         
     
     
-            var circle_marker_e9dca607468d24b6eeacb586ff0a62e0 = L.circleMarker(
+            var circle_marker_1cfda1e0765d0ee63a729c271f8e6c8b = L.circleMarker(
                 [51.197622, 0.274699],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1.7777777777777777, "stroke": true, "weight": 3}
-            ).addTo(feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9);
+            ).addTo(feature_group_a77b21b40e5d428cb48f77b83d7196d5);
         
     
-        var popup_30fc6c9c777e6e37cfcba59e1079bfb2 = L.popup({"maxWidth": "100%"});
+        var popup_09d589e16ddc1ff44c261d1982b52879 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_64e226b5fa9d6c0e4f19c71943029d8b = $(`<div id="html_64e226b5fa9d6c0e4f19c71943029d8b" style="width: 100.0%; height: 100.0%;">Mindfulness in Schools Project: 24</div>`)[0];
-                popup_30fc6c9c777e6e37cfcba59e1079bfb2.setContent(html_64e226b5fa9d6c0e4f19c71943029d8b);
+                var html_a5d68817258f2b3700bb41d280e54ee7 = $(`<div id="html_a5d68817258f2b3700bb41d280e54ee7" style="width: 100.0%; height: 100.0%;">Mindfulness in Schools Project: 24</div>`)[0];
+                popup_09d589e16ddc1ff44c261d1982b52879.setContent(html_a5d68817258f2b3700bb41d280e54ee7);
             
         
 
-        circle_marker_e9dca607468d24b6eeacb586ff0a62e0.bindPopup(popup_30fc6c9c777e6e37cfcba59e1079bfb2)
+        circle_marker_1cfda1e0765d0ee63a729c271f8e6c8b.bindPopup(popup_09d589e16ddc1ff44c261d1982b52879)
         ;
 
         
     
     
-            var circle_marker_d2b77d55ac19877aba3bf11ab58dedd9 = L.circleMarker(
+            var circle_marker_cab44ee885340462554d05ceb34bae41 = L.circleMarker(
                 [50.90813, -3.12112],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 1.1111111111111112, "stroke": true, "weight": 3}
-            ).addTo(feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9);
+            ).addTo(feature_group_a77b21b40e5d428cb48f77b83d7196d5);
         
     
-        var popup_9ffd7a8fb0a26f142c6728809891b60b = L.popup({"maxWidth": "100%"});
+        var popup_03a3b268d677d23ca53a716121f6d56f = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_fc410b49fde1ad7b33ed9d7c5c189bf4 = $(`<div id="html_fc410b49fde1ad7b33ed9d7c5c189bf4" style="width: 100.0%; height: 100.0%;">Mindfulness UK: 15</div>`)[0];
-                popup_9ffd7a8fb0a26f142c6728809891b60b.setContent(html_fc410b49fde1ad7b33ed9d7c5c189bf4);
+                var html_5fdcfceb7182a7adcf15f86eb5321444 = $(`<div id="html_5fdcfceb7182a7adcf15f86eb5321444" style="width: 100.0%; height: 100.0%;">Mindfulness UK: 15</div>`)[0];
+                popup_03a3b268d677d23ca53a716121f6d56f.setContent(html_5fdcfceb7182a7adcf15f86eb5321444);
             
         
 
-        circle_marker_d2b77d55ac19877aba3bf11ab58dedd9.bindPopup(popup_9ffd7a8fb0a26f142c6728809891b60b)
+        circle_marker_cab44ee885340462554d05ceb34bae41.bindPopup(popup_03a3b268d677d23ca53a716121f6d56f)
         ;
 
         
     
     
-            var circle_marker_5b2246a1914824a09b27301ecd44dd8f = L.circleMarker(
+            var circle_marker_9e2655009040b3b29fa04ba1b3bd89df = L.circleMarker(
                 [52.966575, -1.123125],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.7407407407407407, "stroke": true, "weight": 3}
-            ).addTo(feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9);
+            ).addTo(feature_group_a77b21b40e5d428cb48f77b83d7196d5);
         
     
-        var popup_4b17e08c218c2265a77e2cded074dcbf = L.popup({"maxWidth": "100%"});
+        var popup_9cb6df8d3eb680c74438c37116a68a6b = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_ffdf9a4e3c376b16b6db336855b6f5bc = $(`<div id="html_ffdf9a4e3c376b16b6db336855b6f5bc" style="width: 100.0%; height: 100.0%;">Nottingham Centre for Mindfulness: 10</div>`)[0];
-                popup_4b17e08c218c2265a77e2cded074dcbf.setContent(html_ffdf9a4e3c376b16b6db336855b6f5bc);
+                var html_a0a9fdd6ab626a42782593ab87ddca37 = $(`<div id="html_a0a9fdd6ab626a42782593ab87ddca37" style="width: 100.0%; height: 100.0%;">Nottingham Centre for Mindfulness: 10</div>`)[0];
+                popup_9cb6df8d3eb680c74438c37116a68a6b.setContent(html_a0a9fdd6ab626a42782593ab87ddca37);
             
         
 
-        circle_marker_5b2246a1914824a09b27301ecd44dd8f.bindPopup(popup_4b17e08c218c2265a77e2cded074dcbf)
+        circle_marker_9e2655009040b3b29fa04ba1b3bd89df.bindPopup(popup_9cb6df8d3eb680c74438c37116a68a6b)
         ;
 
         
     
     
-            var circle_marker_e0ad5ebcc4587eeb054c85099843e8f3 = L.circleMarker(
+            var circle_marker_f7193e8eb932699eab62121a35215395 = L.circleMarker(
                 [51.750728, -1.238643],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.7407407407407405, "stroke": true, "weight": 3}
-            ).addTo(feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9);
+            ).addTo(feature_group_a77b21b40e5d428cb48f77b83d7196d5);
         
     
-        var popup_d1918f9bb1d42c71c20de4dffa547f79 = L.popup({"maxWidth": "100%"});
+        var popup_cb6a61f86ac19d347022459f735158ee = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_63d18a7f1ebbb5bc58f63af108a7c5a4 = $(`<div id="html_63d18a7f1ebbb5bc58f63af108a7c5a4" style="width: 100.0%; height: 100.0%;">Oxford Mindfulness Centre: 37</div>`)[0];
-                popup_d1918f9bb1d42c71c20de4dffa547f79.setContent(html_63d18a7f1ebbb5bc58f63af108a7c5a4);
+                var html_5c4a10aff01ae56022027615e7f80e1b = $(`<div id="html_5c4a10aff01ae56022027615e7f80e1b" style="width: 100.0%; height: 100.0%;">Oxford Mindfulness Centre: 37</div>`)[0];
+                popup_cb6a61f86ac19d347022459f735158ee.setContent(html_5c4a10aff01ae56022027615e7f80e1b);
             
         
 
-        circle_marker_e0ad5ebcc4587eeb054c85099843e8f3.bindPopup(popup_d1918f9bb1d42c71c20de4dffa547f79)
+        circle_marker_f7193e8eb932699eab62121a35215395.bindPopup(popup_cb6a61f86ac19d347022459f735158ee)
         ;
 
         
     
     
-            var circle_marker_2eb56265b9f159051826b28c824c7e37 = L.circleMarker(
+            var circle_marker_38bbec4099c4671cbf26c0e6a5c88a72 = L.circleMarker(
                 [50.830141, -0.18422],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 2.0, "stroke": true, "weight": 3}
-            ).addTo(feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9);
+            ).addTo(feature_group_a77b21b40e5d428cb48f77b83d7196d5);
         
     
-        var popup_90a238ddfee035ac8bdbda2930c15058 = L.popup({"maxWidth": "100%"});
+        var popup_a925c1545b7e614126f8a31f1273ccce = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_1d193abc914018db1d7c33aa44d57818 = $(`<div id="html_1d193abc914018db1d7c33aa44d57818" style="width: 100.0%; height: 100.0%;">Sussex Mindfulness Centre: 27</div>`)[0];
-                popup_90a238ddfee035ac8bdbda2930c15058.setContent(html_1d193abc914018db1d7c33aa44d57818);
+                var html_8b1037abeec9fd09bf2903db06def47f = $(`<div id="html_8b1037abeec9fd09bf2903db06def47f" style="width: 100.0%; height: 100.0%;">Sussex Mindfulness Centre: 27</div>`)[0];
+                popup_a925c1545b7e614126f8a31f1273ccce.setContent(html_8b1037abeec9fd09bf2903db06def47f);
             
         
 
-        circle_marker_2eb56265b9f159051826b28c824c7e37.bindPopup(popup_90a238ddfee035ac8bdbda2930c15058)
+        circle_marker_38bbec4099c4671cbf26c0e6a5c88a72.bindPopup(popup_a925c1545b7e614126f8a31f1273ccce)
         ;
 
         
     
     
-            var circle_marker_d4d68f57adc77d93734b4c6ba98b2b88 = L.circleMarker(
+            var circle_marker_9ae16c5012b1c3806a4621e70833e8a1 = L.circleMarker(
                 [42.272889, -71.767704],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.6666666666666666, "stroke": true, "weight": 3}
-            ).addTo(feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9);
+            ).addTo(feature_group_a77b21b40e5d428cb48f77b83d7196d5);
         
     
-        var popup_1e95d74d29f197d9148fd903e69de74f = L.popup({"maxWidth": "100%"});
+        var popup_c1e46915216c1c57d10b2ea98389b23d = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_72dc7215275adde7371526fa3ab70931 = $(`<div id="html_72dc7215275adde7371526fa3ab70931" style="width: 100.0%; height: 100.0%;">UMass Centre for Mindfulness: 9</div>`)[0];
-                popup_1e95d74d29f197d9148fd903e69de74f.setContent(html_72dc7215275adde7371526fa3ab70931);
+                var html_2ddfc032cdc024b561626c7e1aa414f3 = $(`<div id="html_2ddfc032cdc024b561626c7e1aa414f3" style="width: 100.0%; height: 100.0%;">UMass Centre for Mindfulness: 9</div>`)[0];
+                popup_c1e46915216c1c57d10b2ea98389b23d.setContent(html_2ddfc032cdc024b561626c7e1aa414f3);
             
         
 
-        circle_marker_d4d68f57adc77d93734b4c6ba98b2b88.bindPopup(popup_1e95d74d29f197d9148fd903e69de74f)
+        circle_marker_9ae16c5012b1c3806a4621e70833e8a1.bindPopup(popup_c1e46915216c1c57d10b2ea98389b23d)
         ;
 
         
     
     
-            var circle_marker_3c55edcd7c60976749a452511bc40fb9 = L.circleMarker(
+            var circle_marker_4cfdd5dabb22d8e713afc527d0b0cacc = L.circleMarker(
                 [57.164841, -2.100237],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.9629629629629629, "stroke": true, "weight": 3}
-            ).addTo(feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9);
+            ).addTo(feature_group_a77b21b40e5d428cb48f77b83d7196d5);
         
     
-        var popup_53a3a01c9e52ec1a946a57ce37fac9cf = L.popup({"maxWidth": "100%"});
+        var popup_c49995e34c0404db34e02b995c8b4f50 = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_a470c5bb36691e0847e2342e988e69ad = $(`<div id="html_a470c5bb36691e0847e2342e988e69ad" style="width: 100.0%; height: 100.0%;">University of Aberdeen: 13</div>`)[0];
-                popup_53a3a01c9e52ec1a946a57ce37fac9cf.setContent(html_a470c5bb36691e0847e2342e988e69ad);
+                var html_2c8ce67f2efbc718b4fc803054a680fd = $(`<div id="html_2c8ce67f2efbc718b4fc803054a680fd" style="width: 100.0%; height: 100.0%;">University of Aberdeen: 13</div>`)[0];
+                popup_c49995e34c0404db34e02b995c8b4f50.setContent(html_2c8ce67f2efbc718b4fc803054a680fd);
             
         
 
-        circle_marker_3c55edcd7c60976749a452511bc40fb9.bindPopup(popup_53a3a01c9e52ec1a946a57ce37fac9cf)
+        circle_marker_4cfdd5dabb22d8e713afc527d0b0cacc.bindPopup(popup_c49995e34c0404db34e02b995c8b4f50)
         ;
 
         
     
     
-            var circle_marker_60b6851d9853946b7059a5ee6c79c07b = L.circleMarker(
+            var circle_marker_8ccc5b5fa017c26b9145367bf25dc6c9 = L.circleMarker(
                 [55.856137, -4.247321],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 0.7407407407407407, "stroke": true, "weight": 3}
-            ).addTo(feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9);
+            ).addTo(feature_group_a77b21b40e5d428cb48f77b83d7196d5);
         
     
-        var popup_160399d91ab9f959f471794706710d64 = L.popup({"maxWidth": "100%"});
+        var popup_1cf8d160c4771831e1124daeae54527e = L.popup({
+  "maxWidth": "100%",
+});
 
         
             
-                var html_706fa33df3ad8e3e31181b13e464da5d = $(`<div id="html_706fa33df3ad8e3e31181b13e464da5d" style="width: 100.0%; height: 100.0%;">Youth Mindfulness: 10</div>`)[0];
-                popup_160399d91ab9f959f471794706710d64.setContent(html_706fa33df3ad8e3e31181b13e464da5d);
+                var html_d3d34045a3ee4e772c4abf2fe65363cf = $(`<div id="html_d3d34045a3ee4e772c4abf2fe65363cf" style="width: 100.0%; height: 100.0%;">Youth Mindfulness: 10</div>`)[0];
+                popup_1cf8d160c4771831e1124daeae54527e.setContent(html_d3d34045a3ee4e772c4abf2fe65363cf);
             
         
 
-        circle_marker_60b6851d9853946b7059a5ee6c79c07b.bindPopup(popup_160399d91ab9f959f471794706710d64)
+        circle_marker_8ccc5b5fa017c26b9145367bf25dc6c9.bindPopup(popup_1cf8d160c4771831e1124daeae54527e)
         ;
 
         
     
     
-            feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9.addTo(map_169193d9a39d13e21c0c126ed524d347);
+            feature_group_a77b21b40e5d428cb48f77b83d7196d5.addTo(map_21ca2df57d240a52cc6cf2d75e83402a);
         
     
-            var layer_control_c44a0b164f1ba7dd42ae0a5bb3162cb6_layers = {
+            var layer_control_44b7a919d96d0b1c8389eb0a6d87f76c_layers = {
                 base_layers : {
-                    "openstreetmap" : tile_layer_08d2c02915f9b9abcbf3e6c2b7ae2dce,
+                    "openstreetmap" : tile_layer_475a39096328d5cb054736db9383bada,
                 },
                 overlays :  {
-                    "Mindfulness Training Centers" : feature_group_fd1ef4d1b1a273d3b596ac0ab1ba7ab9,
+                    "Mindfulness Training Centers" : feature_group_a77b21b40e5d428cb48f77b83d7196d5,
                 },
             };
-            let layer_control_c44a0b164f1ba7dd42ae0a5bb3162cb6 = L.control.layers(
-                layer_control_c44a0b164f1ba7dd42ae0a5bb3162cb6_layers.base_layers,
-                layer_control_c44a0b164f1ba7dd42ae0a5bb3162cb6_layers.overlays,
-                {"autoZIndex": true, "collapsed": true, "position": "topright"}
-            ).addTo(map_169193d9a39d13e21c0c126ed524d347);
+            let layer_control_44b7a919d96d0b1c8389eb0a6d87f76c = L.control.layers(
+                layer_control_44b7a919d96d0b1c8389eb0a6d87f76c_layers.base_layers,
+                layer_control_44b7a919d96d0b1c8389eb0a6d87f76c_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_21ca2df57d240a52cc6cf2d75e83402a);
 
         
 </script>

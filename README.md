@@ -8,10 +8,29 @@ The site is a Quarto website project configured in `_quarto.yml` and rendered to
 
 The website uses two separate Python environments:
 
-- `mapmind` (Conda): executes `projects/mapmind/*.qmd` (`jupyter: python3`)
-- `pydata` (uv): executes `blog/in-praise-of-documentation/docs/*.qmd` (`jupyter: pydata`)
+- **`mapmind` (Conda):** executes `projects/mapmind/*.qmd` (`jupyter: python3`)
+- **Root `uv` / `.venv`:** executes pages that need the shared site stack (including `posts/in-praise-of-documentation/*.qmd` when using the repo-wide environment and `jupyter: pydata`).
 
-This separation is intentional.
+Quarto CLI must be installed (`quarto --version`).
+
+**Using uv from the repository root (recommended for `uv run quarto render`)**
+
+1. From the repository root, create the virtual environment and install dependencies:
+
+   ```bash
+   uv sync
+   ```
+
+2. Point Quarto at that interpreter so Jupyter cells use the same packages as your kernels declare (`python3`, `pydata`, etc.):
+
+   ```bash
+   export QUARTO_PYTHON="$PWD/.venv/bin/python"
+   uv run quarto render
+   ```
+
+   Without `QUARTO_PYTHON`, Quarto may use a different Python than `.venv`, and you can see `ModuleNotFoundError` (for example `prettytable` on MapMind pages).
+
+Dependencies are listed in the root `pyproject.toml`. The post bundle under `posts/in-praise-of-documentation/` also has its own `pyproject.toml` if you want a dedicated `uv` env and `pydata` kernel for that bundle only. An optional Conda spec for MapMind alone remains in `projects/mapmind/conda-mapmind.yml`.
 
 ## Cross-platform setup (Linux/macOS)
 
@@ -38,10 +57,12 @@ Then activate it:
 conda activate mapmind
 ```
 
-### 3) Create the blog uv environment and register `pydata` kernel
+### 3) Create the blog post `uv` environment and register `pydata` kernel (optional)
+
+If you use the per-post project instead of only the root `uv sync`:
 
 ```bash
-cd blog/in-praise-of-documentation
+cd posts/in-praise-of-documentation
 uv sync
 uv run python -m ipykernel install --user --name pydata --display-name "Python (pydata)"
 cd ../..

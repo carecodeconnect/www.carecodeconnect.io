@@ -1,0 +1,1378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>carecodeconnect</title>
+<link>https://www.carecodeconnect.io/blog.html</link>
+<atom:link href="https://www.carecodeconnect.io/blog.xml" rel="self" type="application/rss+xml"/>
+<description>Revisioning data science for the age of AI</description>
+<generator>quarto-1.5.6</generator>
+<lastBuildDate>Sun, 01 Mar 2026 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>In Praise of Documentation: Tools, Tips &amp; Techniques for Literate Programming in the AI Age</title>
+  <link>https://www.carecodeconnect.io/posts/in-praise-of-documentation/</link>
+  <description><![CDATA[ 
+
+
+
+
+<div id="24ad5b05" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Python package imports</span></span>
+<span id="cb1-2"></span>
+<span id="cb1-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> json</span>
+<span id="cb1-4"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> csv</span>
+<span id="cb1-5"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> os</span>
+<span id="cb1-6"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> pathlib <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Path</span>
+<span id="cb1-7"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> polars <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pl</span>
+<span id="cb1-8"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> great_tables <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> GT</span>
+<span id="cb1-9"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> plotnine <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> ggplot, aes, geom_line, labs, theme_gray</span></code></pre></div>
+</details>
+</div>
+<p>This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I’ll explore tools for “literate programming”, where we create “computational narrative”, as well as tips for writing well. It turns out that writing documentation is becoming more important in the age of AI.</p>
+<p>I enjoy writing technical documentation. I enjoy trying to explain things to people. Helping people make sense of a report or a tool. But I realise my enjoyment is not shared widely in the field. While writing documentation is generally considered a “good thing”, many engineers in industry tend to either not document their work, or document their work poorly. I’ll speculate about why this might be the case. And I’ll argue <em>why good documentation is always a good thing</em>. I’ll give suggestions for how you can write documentation in the best way possible.</p>
+<p>This document is written in <a href="https://quarto.org/">Quarto</a>, a Markdown format, that can be rendered into PDF or HTML format. To illustrate how Quarto works, I’ll “show the code”, reflexively illustrating how I wrote the documentation for this talk on documentation.</p>
+<p>Originally, the PDF for this talk was rendered with Typst using a Hayagriva-style <code>refs.yaml</code> bibliography. For the web version of the site, the citations now use a Pandoc-compatible BibTeX file (<code>refs.bib</code>), so that the same source can be rendered reliably to HTML (and standard PDF) by Pandoc’s citation engine.</p>
+<p>Along with this text, you can also explore the <a href="slides/presentation.html">slide deck for this talk</a>.</p>
+<p>This talk was made with ❤️ using <a href="https://quarto.org/">Quarto</a>, <a href="https://www.python.org/">Python</a>, and deployed with <a href="https://docs.github.com/en/actions">GitHub Actions</a>.</p>
+<section id="how-i-learned-to-love-documentation" class="level1">
+<h1>How I Learned to Love Documentation</h1>
+<p>I first discovered the pleasures of technical documentation 40 years ago, as an 8 year old boy, using a BBC Microcomputer.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.carecodeconnect.io/posts/in-praise-of-documentation/images/bbc_micro.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>BBC Micro</figcaption>
+</figure>
+</div>
+<p>This computer was my best friend. The BBC Micro was an 8-bit computer, funded by the British Broadcasting Corporation (BBC), and released in 1981 as the centrepiece of their <a href="https://clp.bbcrewind.co.uk/">Computer Literacy Project</a>.</p>
+<p>This project aimed to make the British public more computer literate, by making computers and programming more widely accessible to the massses, mainly by making the BBC Micro available for use in schools <span class="citation" data-cites="gazzard2016">(Gazzard 2016)</span>. The machine was designed and built by Acorn Computers in Cambridge, England who also built my first computer, the <a href="https://en.wikipedia.org/wiki/Acorn_Electron">Acorn Electron</a>, and the <a href="https://en.wikipedia.org/wiki/ARM_architecture_family">ARM</a> processor - now powering most mobile phones.</p>
+<p>One of the distinctive features of the BBC Micro was that after you had plugged the computer into your TV set, when you switched on the computer (which made the sound “beeee-beep”), you immediately found yourself on what we now call a “command line”, which looked something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.carecodeconnect.io/posts/in-praise-of-documentation/images/bbc_basic.gif" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>BBC BASIC</figcaption>
+</figure>
+</div>
+<p>I was faced with an immediate practical problem: how do I use this thing? Remember, at the time, I have no mouse, a keyboard as my input device, and there’s no Graphical User Interface.</p>
+<p>Thankfully, the computer came with a <a href="https://www.bbcmicrobot.com/docs/BBC_User_Guide.pdf">User Guide</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.carecodeconnect.io/posts/in-praise-of-documentation/images/bbc_micro_user_guide.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>User Guide</figcaption>
+</figure>
+</div>
+<p>It explained how to type BBC BASIC commands to “run” your programs using the keyboard. The programs would run from cassette tapes or 5 1/4 inch diskettes. There was also a magazine, <a href="https://en.wikipedia.org/wiki/The_Micro_User">BBC Micro User</a>, which I avidly collected.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.carecodeconnect.io/posts/in-praise-of-documentation/images/bbc_micro_user.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>BBC Micro User</figcaption>
+</figure>
+</div>
+<p>I learnt to use the computer by reading this printed “physical” media. To use the computer, I had to type commands. It turns out, these were the commands of the programming language BBC BASIC. As soon as the machine had booted up, and typing commands, I was already programming. BBC BASIC was a scripting language, designed to be beginner-friendly, by Sophie Wilson of Acorn Computers. I learnt to program in BBC BASIC by manually typing out the ‘type-in program’ code listings for computer games in the magazines.</p>
+<p>I tell you this story not only for nostalgic reasons, but also to impress upon you the important role played by documentation in my early experience with computers. Reading documentation was part-and-parcel of learning to use the computer. And learning to program. I learnt early the value of good documentation in democratising access to computers and to understanding the code that the computers “run” on them. I also learnt the value of early “open source” software in the form of ‘type-in programs’ in magazines.</p>
+<p>In these early days of popular computing in Britain, learning the technical task of computer programming was intimately tied to reading the literature of documentation.</p>
+<p>I later learned my early enjoyment for reading what we came to call “docs” was matched by an enjoyment in <em>writing</em> technical “docs”. I enjoyed trying to explain to people things that were difficult to understand. Or describe how or why I did something the way I did it. Or tell the story of some feature or analysis. Essentially, I came to enjoy writing user guides.</p>
+<p>I realised that by trying to explain something to someone, I often learnt something myself in the process. Something new about what I had done. Or what the analysis or the tool meant in the context of the project. Even just trying to explain to someone <em>how to run</em> some program was often fascinating to me. I guess writing a user guide is offering “tech support”. Perhaps I felt I was being useful.</p>
+<p>But I quickly realised other data scientists and software engineers often didn’t share my interest or indeed passion for “docs”. I often found people either wouldn’t document their code at all, or they would document it poorly, only under duress. This makes sense, in part, due to the speed of work in industry. But I’ve found this attitude can lead to not only poor practice, but can even have disastrous consequencies for companies.</p>
+</section>
+<section id="the-perils-of-poor-documentation" class="level1">
+<h1>The Perils of Poor Documentation</h1>
+<p>In one case, at a company to remain nameless, an entire data production system - and I am using that phrase generously - along with the new (second) cloud infrastructure built to replace it - were implemented either without any documentation, or with very poor documentation.</p>
+<p>The legacy system was filled with sprawling SQL scripts - the length of <em>War and Peace</em> - and SQL code was embedded into configuration files that were then executed by the production system (I never thought this was possible), and with the production database login and password details hardcoded into a Python script. All without any version control. (I never thought this was possible either!). And, just to add insult to injury, an entire Azure Data Lake was implemented by external consultants, to fix the legacy system - in addition to the existing cloud infrastructure - without writing any documentation at all.</p>
+<p>It was not just the length of the SQL scripts that was the problem. The SQL scripts seemed to have been written in such a style as to make their meaning and purpose entirely obscure to the reader. They had been written with a palpable carelessness. The reasons for why particular decisions were made had been left in the head of the programmer. Any institutional memory had been lost.</p>
+<p>I realise this is an extreme example. The “bad” things that can happen without good documentation are usually more mundane. New colleagues might feel alienated, or struggle to quickly learn a new and complex codebase, or be unable to easily update a legacy system. Without documentation or institutional memory, it might take a whole team of PhD-level developers months, even years, to reverse engineer a large codebase, to be in a position to rebuild or replace it.</p>
+<p>While digging into the archaeological sites of legacy codebases, I made an important realisation: code itself is a form of communication. Or, as I too often discovered, miscommunication. With or without documentation, poorly written code can have disastrous consequences for companies.</p>
+<p>I think poorly written code, and software systems with poor or no documentation are part of what Corey Doctorow calls the “enshitification” of software. While I usually don’t like “nomimal” words - when a noun is created out of a verb - and would warn against using them, because they usually make writing bad, I’ll make an exception with “enshitification”.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.carecodeconnect.io/posts/in-praise-of-documentation/images/enshitification.jpg" class="img-fluid figure-img" style="width:25.0%"></p>
+<figcaption>Enshitification</figcaption>
+</figure>
+</div>
+<p>How can we make our code communicate better? Or less shit?</p>
+</section>
+<section id="why-document-your-code" class="level1">
+<h1>Why Document Your Code</h1>
+<p>Before I answer this question about “how” to document our code, I’ll give evidence that it is not just me who thinks that documentation is a “good thing”.</p>
+<p>In her recent book <em>Software Engineering for Data Scientists</em>, Catherine Nelson writes:</p>
+<blockquote class="blockquote">
+<p>“Documentation is an often overlooked aspect of data science. It’s commonly left until the end of a project, but then you’re excited to move on to a new project, and the documentation is rushed or omitted completely. However, … documentation is a crucial part of making your code reproducible. If you want other people to use your code, or if you want to come back to your code in the future, it needs good documentation. It’s impossible to remember all your thoughts from when you originally wrote the code or initially carried out the experiments, so they need to be recorded.” <span class="citation" data-cites="nelson2024">(Nelson 2024)</span></p>
+</blockquote>
+<p>I would agree with all these points. I would also add that documentation is essential for understanding the meaning of the code. Why does it do what it does in the way that it does? Documentation is the best way to answer this and similar questions.</p>
+</section>
+<section id="types-of-documentation" class="level1">
+<h1>Types of Documentation</h1>
+<p>Nelson summarises different types of documentation that are relevant to data science workflows. Here, I am directly quoting her recommendations, because I agree with them:</p>
+<blockquote class="blockquote">
+<p>“<em>Names</em>: Names of variables, functions, and files should be informative, an appropriate length, and easy to read. <em>Comments</em>: Your comments should add extra information not contained in the code, such as a summary or a caveat. <em>Docstrings</em>: Your functions should always have a docstring that describes the inputs and outputs of the function, as well as the purpose of that function. <em>READMEs</em>: Every repository or project should have an introduction that advertises your code and lets other people know why they should use it. <em>Jupyter notebooks</em>: Your notebooks will be much easier to read if you give them good names, give them a structure, and intersperse text and code. <em>Experiment tracking</em>: Experiments, especially in machine learning projects, should be tracked in a structured way.”</p>
+</blockquote>
+<p>In addition to these recommendations, we can also think about technical documentation in terms of different genres, which can help clarify the purpose of your documentation. The <a href="https://diataxis.fr/">Diátaxis</a> documentation framework is an interesting example. It divides technical documents into four types:</p>
+<ul>
+<li><p>Tutorials</p></li>
+<li><p>How-to guides</p></li>
+<li><p>Technical reference</p></li>
+<li><p>Explanation</p></li>
+</ul>
+<p>When writing your documentation, you could think about the purpose of the documentation, and which documentation type is most applicable for your use case. For a detailed explanation and application of Diátaxis, see this PyData <a href="https://youtu.be/buEKMi4tAew?si=t5fvKikngPt5ZhEX">talk</a>.</p>
+</section>
+<section id="documentation-in-a-development-loop" class="level1">
+<h1>Documentation in a development loop</h1>
+<p>Rather than seeing documentation as a separate activity, to be written after the code, we can see it as an integral part of the development loop.</p>
+<p>Here is a simple Mermaid diagram to illustrate this idea.</p>
+<p>Diagrams can also be a useful way to communicate ideas, and to help others understand your code.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+A[Start feature or analysis] --&gt; B[Explore &amp; experiment]
+B --&gt; C[Write code]
+C --&gt; D[Write &amp; update documentation]
+D --&gt; E[Review &amp; refactor]
+E --&gt; F[Share / deploy]
+F --&gt; B
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="literate-programming" class="level1">
+<h1>Literate Programming</h1>
+<p>The advice given above by Nelson, especially the recommendation to use Jupyter notebooks, can be considered advice for “literate programming”.</p>
+<p>Literate programming is perhaps the most commonly recommended <em>genre</em> or <em>style</em> of computer programming for data science. In literate programming, written prose is interspersed with computer code, within the same document, called a “notebook”. Notebooks can be run locally (e.g.&nbsp;a Jupyter <code>.ipynb</code> file) or in cloud environments (e.g.&nbsp;<a href="https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-development-using-notebooks">Azure Synapse</a>, <a href="https://docs.databricks.com/aws/en/notebooks/">Databricks</a>, or <a href="https://colab.research.google.com/notebook">Google Colab</a>).</p>
+<p>The popularity of the “notebook” format for data science makes sense, because data science involves scientific programming, and the structure advocated for literate programming resembles scientific writing - especially the genre of the scientific laboratory report. This report style is commonly structured into Introduction, Method, Results, and Conclusion sections. The “notebook” allows the data scientist to use a similar scientific report format. This is suitable for data exploration, experimentation, and communicating the results of research - especially reporting the findings of data analysis or machine learning experiments. Really, then, the argument for better documentation is an argument for better scientific research practice.</p>
+<p>Quarto is a similar tool for literate programming, especially for scientific computing, where data analysis is presented within a report. For example, the following “code cell” executes a Python kernel (a virtual environment, in this case, using <a href="https://docs.astral.sh/uv/">uv</a>), which in turn executes the <code>print</code> function, and the output of that function is displayed within the rendered document.</p>
+<div id="a50a4a6d" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb2-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">This is a docstring. </span></span>
+<span id="cb2-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">It explains what a module, class, or function does.</span></span>
+<span id="cb2-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">Usually over multiple lines.</span></span>
+<span id="cb2-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""</span></span>
+<span id="cb2-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># This is a comment, an explanation, on a single line. I'm illustrating "classic" software documentation.</span></span>
+<span id="cb2-7"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"O'Brien: How many fingers am I holding up, Winston? </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> O'Brien holds up </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> fingers </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\n</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> Winston: </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\"</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">Four</span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\"</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>O'Brien: How many fingers am I holding up, Winston? 
+ O'Brien holds up 4 fingers 
+ Winston: "Four"</code></pre>
+</div>
+</div>
+<p>Code execution can also be done in-line, for example, O’Brien held up 4 fingers.</p>
+<p>I was interested to find out when “literate programming” became popuar, so I used Google Books Ngram Viewer search for this term from 1800 to 2026. This shows the frequency of use of this term in published books.</p>
+<p>Run this from the <strong>site repository root</strong> so the file lands in this post’s <code>data/</code> folder:</p>
+<pre><code>curl -L "https://books.google.com/ngrams/json?content=%22literate%20programming%22&amp;year_start=1800&amp;year_end=2026&amp;corpus=26&amp;smoothing=0" -o posts/in-praise-of-documentation/data/ngrams.json</code></pre>
+<p>If <code>ngrams.json</code> is missing but <code>ngrams.csv</code> is already present (for example after a clone where only the CSV is tracked), the next cell skips conversion and the rest of the post still runs.</p>
+<p>I converted the JSON file to a CSV when needed, then imported it as a DataFrame using <a href="https://pola.rs/">Polars</a>, a DataFrame library written in Rust, with an intuitive API, similar to <a href="https://dplyr.tidyverse.org/">dplyr</a> in R.</p>
+<div id="e7ba4949" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Paths relative to Quarto project root (works even if cwd differs)</span></span>
+<span id="cb5-2">ROOT <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Path(os.environ.get(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"QUARTO_PROJECT_DIR"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"."</span>)).resolve()</span>
+<span id="cb5-3">BUNDLE <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> ROOT <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"posts/in-praise-of-documentation"</span></span>
+<span id="cb5-4">DATA_DIR <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> BUNDLE <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"data"</span></span>
+<span id="cb5-5">IMAGES_DIR <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> BUNDLE <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"images"</span></span>
+<span id="cb5-6">DATA_DIR.mkdir(parents<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>, exist_ok<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>)</span>
+<span id="cb5-7">IMAGES_DIR.mkdir(parents<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>, exist_ok<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>)</span>
+<span id="cb5-8">json_path <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> DATA_DIR <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ngrams.json"</span></span>
+<span id="cb5-9">csv_path <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> DATA_DIR <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ngrams.csv"</span></span>
+<span id="cb5-10"></span>
+<span id="cb5-11">YEAR_START <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1800</span></span>
+<span id="cb5-12"></span>
+<span id="cb5-13"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> json_path.exists():</span>
+<span id="cb5-14">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">with</span> json_path.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">open</span>() <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> f:</span>
+<span id="cb5-15">        series_list <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> json.load(f)</span>
+<span id="cb5-16"></span>
+<span id="cb5-17">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> series_list:</span>
+<span id="cb5-18">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">raise</span> <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">ValueError</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"No records found in ngrams.json"</span>)</span>
+<span id="cb5-19"></span>
+<span id="cb5-20">    n_years <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(series_list[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>][<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"timeseries"</span>])</span>
+<span id="cb5-21">    year_end <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> YEAR_START <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> n_years <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb5-22">    years <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span>(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">range</span>(YEAR_START, year_end <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span>
+<span id="cb5-23"></span>
+<span id="cb5-24">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">with</span> csv_path.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">open</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"w"</span>, newline<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>) <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> f:</span>
+<span id="cb5-25">        w <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> csv.writer(f)</span>
+<span id="cb5-26">        w.writerow([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ngram"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"value"</span>])</span>
+<span id="cb5-27">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> s <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> series_list:</span>
+<span id="cb5-28">            ngram <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> s[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ngram"</span>]</span>
+<span id="cb5-29">            ts <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> s[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"timeseries"</span>]</span>
+<span id="cb5-30">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(ts) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!=</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(years):</span>
+<span id="cb5-31">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">raise</span> <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">ValueError</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>ngram<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">: timeseries length </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(ts)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> != </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(years)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb5-32">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> y, v <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">zip</span>(years, ts):</span>
+<span id="cb5-33">                w.writerow([y, ngram, v])</span>
+<span id="cb5-34"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">elif</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> csv_path.exists():</span>
+<span id="cb5-35">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">raise</span> <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">FileNotFoundError</span>(</span>
+<span id="cb5-36">        <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Need either </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>json_path<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> (from curl above) or an existing </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>csv_path<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">."</span></span>
+<span id="cb5-37">    )</span></code></pre></div>
+</details>
+</div>
+<div id="cac00028" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Filter to &gt;= 1984</span></span>
+<span id="cb6-2"></span>
+<span id="cb6-3">df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (</span>
+<span id="cb6-4">    pl.read_csv(DATA_DIR <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ngrams.csv"</span>)</span>
+<span id="cb6-5">    .<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">filter</span>(pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1984</span>)</span>
+<span id="cb6-6">    .with_columns((pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"value"</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1e9</span>).alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"per_billion"</span>))</span>
+<span id="cb6-7">    .sort(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>)</span>
+<span id="cb6-8">    .with_columns(</span>
+<span id="cb6-9">        pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"per_billion"</span>)</span>
+<span id="cb6-10">        .rolling_mean(window_size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, min_samples<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb6-11">        .alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"per_billion_smooth_5y"</span>)</span>
+<span id="cb6-12">    )</span>
+<span id="cb6-13">)</span></code></pre></div>
+</details>
+</div>
+<p>In Quarto, you can render formatted tables from code. Here, I use the <a href="https://github.com/posit-dev/great-tables">Great Tables</a> package, based on the original <a href="https://gt.rstudio.com/">GT</a> package in R. Great Tables has a cool “nanoplot” function, which allows you to include a plot in a table.</p>
+<div id="f8db06ad" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> polars <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pl</span>
+<span id="cb7-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> great_tables <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> GT, nanoplot_options</span>
+<span id="cb7-3"></span>
+<span id="cb7-4">df_raw_tbl <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (</span>
+<span id="cb7-5">    pl.read_csv(DATA_DIR <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ngrams.csv"</span>)</span>
+<span id="cb7-6">    .with_columns(pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>).cast(pl.Int64))</span>
+<span id="cb7-7">    .with_columns((pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"value"</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1e9</span>).alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"per_billion"</span>))</span>
+<span id="cb7-8">    .sort(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>)</span>
+<span id="cb7-9">)</span>
+<span id="cb7-10"></span>
+<span id="cb7-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># focus on meaningful window; also drop trailing all-zero years</span></span>
+<span id="cb7-12">last_nz_year <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (</span>
+<span id="cb7-13">    df_raw_tbl.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">filter</span>(pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"per_billion"</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb7-14">    .select(pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>).<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">max</span>().alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"last_nz"</span>))</span>
+<span id="cb7-15">    .item()</span>
+<span id="cb7-16">)</span>
+<span id="cb7-17"></span>
+<span id="cb7-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Don't overwrite the main `df` used for plotting (it contains `per_billion_smooth_5y`).</span></span>
+<span id="cb7-19">df_tbl <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> df_raw_tbl.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">filter</span>((pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1984</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> (pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> last_nz_year))</span>
+<span id="cb7-20"></span>
+<span id="cb7-21">by_decade <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (</span>
+<span id="cb7-22">    df_tbl.with_columns((pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">//</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>).alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"decade"</span>))</span>
+<span id="cb7-23">    .group_by(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"decade"</span>)</span>
+<span id="cb7-24">    .agg(</span>
+<span id="cb7-25">        pl.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>().alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"n_years"</span>),</span>
+<span id="cb7-26">        pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"per_billion"</span>).mean().alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mean_per_billion"</span>),</span>
+<span id="cb7-27">        pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"per_billion"</span>).median().alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"median_per_billion"</span>),</span>
+<span id="cb7-28">        pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"per_billion"</span>).<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">max</span>().alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"max_per_billion"</span>),</span>
+<span id="cb7-29">        pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>)</span>
+<span id="cb7-30">        .<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">filter</span>(pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"per_billion"</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"per_billion"</span>).<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">max</span>())</span>
+<span id="cb7-31">        .first()</span>
+<span id="cb7-32">        .alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"max_year"</span>),</span>
+<span id="cb7-33">        pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"per_billion"</span>).alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"series_vals"</span>),</span>
+<span id="cb7-34">    )</span>
+<span id="cb7-35">    .with_columns(</span>
+<span id="cb7-36">        pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"series_vals"</span>)</span>
+<span id="cb7-37">        .<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span>.<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">eval</span>(pl.element().<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">round</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>).cast(pl.Utf8))</span>
+<span id="cb7-38">        .<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">list</span>.join(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" "</span>)</span>
+<span id="cb7-39">        .alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"trend"</span>)</span>
+<span id="cb7-40">    )</span>
+<span id="cb7-41">    .drop(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"series_vals"</span>)</span>
+<span id="cb7-42">    .with_columns((pl.col(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"decade"</span>).cast(pl.Utf8) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"s"</span>).alias(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"decade"</span>))</span>
+<span id="cb7-43">    .sort(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"decade"</span>)</span>
+<span id="cb7-44">)</span>
+<span id="cb7-45"></span>
+<span id="cb7-46"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> pathlib <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Path</span>
+<span id="cb7-47"></span>
+<span id="cb7-48">gt_tbl <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (</span>
+<span id="cb7-49">    GT(</span>
+<span id="cb7-50">        by_decade.select(</span>
+<span id="cb7-51">            [</span>
+<span id="cb7-52">                <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"decade"</span>,</span>
+<span id="cb7-53">                <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"trend"</span>,</span>
+<span id="cb7-54">                <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mean_per_billion"</span>,</span>
+<span id="cb7-55">                <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"max_per_billion"</span>,</span>
+<span id="cb7-56">                <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"max_year"</span>,</span>
+<span id="cb7-57">                <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"n_years"</span>,</span>
+<span id="cb7-58">            ]</span>
+<span id="cb7-59">        )</span>
+<span id="cb7-60">    )</span>
+<span id="cb7-61">    .tab_header(</span>
+<span id="cb7-62">        title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Google Ngram: "literate programming"'</span>,</span>
+<span id="cb7-63">        subtitle<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Decade patterns (1984–</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>last_nz_year<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">), per-billion tokens"</span>,</span>
+<span id="cb7-64">    )</span>
+<span id="cb7-65">    .cols_label(</span>
+<span id="cb7-66">        decade<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Decade"</span>,</span>
+<span id="cb7-67">        trend<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Trend (yearly)"</span>,</span>
+<span id="cb7-68">        mean_per_billion<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mean"</span>,</span>
+<span id="cb7-69">        max_per_billion<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Max"</span>,</span>
+<span id="cb7-70">        max_year<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Max year"</span>,</span>
+<span id="cb7-71">        n_years<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Years"</span>,</span>
+<span id="cb7-72">    )</span>
+<span id="cb7-73">    .fmt_number(columns<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mean_per_billion"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"max_per_billion"</span>], decimals<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb7-74">    .fmt_nanoplot(</span>
+<span id="cb7-75">        columns<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"trend"</span>,</span>
+<span id="cb7-76">        autoscale<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>,</span>
+<span id="cb7-77">        reference_line<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mean"</span>,</span>
+<span id="cb7-78">        options<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>nanoplot_options(</span>
+<span id="cb7-79">            data_line_stroke_width<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>,</span>
+<span id="cb7-80">            data_line_stroke_color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"#4D4D4D"</span>,</span>
+<span id="cb7-81">            show_data_points<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>,</span>
+<span id="cb7-82">            show_data_area<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>,</span>
+<span id="cb7-83">        ),</span>
+<span id="cb7-84">    )</span>
+<span id="cb7-85">)</span>
+<span id="cb7-86"></span>
+<span id="cb7-87">out_tbl_path <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> IMAGES_DIR <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ngram_decade_summary.png"</span></span>
+<span id="cb7-88">out_tbl_path.parent.mkdir(parents<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>, exist_ok<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>)</span>
+<span id="cb7-89"></span>
+<span id="cb7-90">gt_tbl.save(out_tbl_path)</span></code></pre></div>
+</details>
+</div>
+<div id="057fa94d" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Display the interactive table</span></span>
+<span id="cb8-2">gt_tbl</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+<div id="qyapnazffs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>
+#qyapnazffs table {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+#qyapnazffs thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#qyapnazffs p { margin: 0; padding: 0; }
+ #qyapnazffs .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #qyapnazffs .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #qyapnazffs .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #qyapnazffs .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #qyapnazffs .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #qyapnazffs .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #qyapnazffs .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #qyapnazffs .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #qyapnazffs .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #qyapnazffs .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #qyapnazffs .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #qyapnazffs .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #qyapnazffs .gt_spanner_row { border-bottom-style: hidden; }
+ #qyapnazffs .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #qyapnazffs .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #qyapnazffs .gt_from_md> :first-child { margin-top: 0; }
+ #qyapnazffs .gt_from_md> :last-child { margin-bottom: 0; }
+ #qyapnazffs .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #qyapnazffs .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #qyapnazffs .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #qyapnazffs .gt_row_group_first td { border-top-width: 2px; }
+ #qyapnazffs .gt_row_group_first th { border-top-width: 2px; }
+ #qyapnazffs .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #qyapnazffs .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #qyapnazffs .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #qyapnazffs .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #qyapnazffs .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #qyapnazffs .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #qyapnazffs .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #qyapnazffs .gt_left { text-align: left; }
+ #qyapnazffs .gt_center { text-align: center; }
+ #qyapnazffs .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #qyapnazffs .gt_font_normal { font-weight: normal; }
+ #qyapnazffs .gt_font_bold { font-weight: bold; }
+ #qyapnazffs .gt_font_italic { font-style: italic; }
+ #qyapnazffs .gt_super { font-size: 65%; }
+ #qyapnazffs .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #qyapnazffs .gt_asterisk { font-size: 100%; vertical-align: 0; }
+ 
+</style>
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header gt_heading">
+<th colspan="6" class="gt_heading gt_title gt_font_normal">Google Ngram: "literate programming"</th>
+</tr>
+<tr class="odd gt_heading">
+<th colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Decade patterns (1984–2019), per-billion tokens</th>
+</tr>
+<tr class="header gt_col_headings">
+<th id="decade" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Decade</th>
+<th id="trend" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Trend (yearly)</th>
+<th id="mean_per_billion" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Mean</th>
+<th id="max_per_billion" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Max</th>
+<th id="max_year" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Max year</th>
+<th id="n_years" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Years</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left">1980s</td>
+<td class="gt_row gt_left"><div>
+<svg viewbox="0 0 400 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;">
+<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs>
+<style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style>
+<path d="M 50.0,115.0 C 75.0,115.0 85.0,115.0 110.0,115.0 C 135.0,115.0 145.0,115.0 170.0,115.0 C 195.0,115.0 205.0,115.0 230.0,115.0 C 255.0,115.0 265.0,93.04123711340206 290.0,93.04123711340206 C 315.0,93.04123711340206 325.0,78.19587628865979 350.0,78.19587628865979" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="95.20618556701031" width="320" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="105.20618556701031" x2="350" y2="105.20618556701031" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="360" y="115.20618556701031" fill="transparent" stroke="transparent" font-size="30px">0.095</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="100.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="120.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="160.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="180.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="220.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="240.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="280.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="300.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.21</text></g><g class="vert-line"><rect x="340.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="360.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.36</text></g>
+</svg>
+</div></td>
+<td class="gt_row gt_right">0.095</td>
+<td class="gt_row gt_right">0.357</td>
+<td class="gt_row gt_right">1989</td>
+<td class="gt_row gt_right">6</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left">1990s</td>
+<td class="gt_row gt_left"><div>
+<svg viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;">
+<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs>
+<style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style>
+<path d="M 50.0,94.69072164948453 C 75.0,94.69072164948453 80.55555555555554,104.48453608247424 105.55555555555554,104.48453608247424 C 130.55555555555554,104.48453608247424 136.1111111111111,74.58762886597938 161.1111111111111,74.58762886597938 C 186.1111111111111,74.58762886597938 191.66666666666666,94.79381443298969 216.66666666666666,94.79381443298969 C 241.66666666666666,94.79381443298969 247.22222222222217,90.05154639175258 272.2222222222222,90.05154639175258 C 297.2222222222222,90.05154639175258 302.77777777777777,61.8041237113402 327.77777777777777,61.8041237113402 C 352.77777777777777,61.8041237113402 358.3333333333333,95.41237113402062 383.3333333333333,95.41237113402062 C 408.3333333333333,95.41237113402062 413.8888888888889,90.25773195876289 438.8888888888889,90.25773195876289 C 463.8888888888889,90.25773195876289 469.4444444444444,47.06185567010309 494.4444444444444,47.06185567010309 C 519.4444444444443,47.06185567010309 525.0,67.16494845360825 550.0,67.16494845360825" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="72.03092783505154" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="82.03092783505154" x2="550" y2="82.03092783505154" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="92.03092783505154" fill="transparent" stroke="transparent" font-size="30px">0.32</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.20</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.10</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.39</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.20</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.52</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0.19</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.66</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.46</text></g>
+</svg>
+</div></td>
+<td class="gt_row gt_right">0.320</td>
+<td class="gt_row gt_right">0.659</td>
+<td class="gt_row gt_right">1998</td>
+<td class="gt_row gt_right">10</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left">2000s</td>
+<td class="gt_row gt_left"><div>
+<svg viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;">
+<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs>
+<style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style>
+<path d="M 50.0,53.76288659793815 C 75.0,53.76288659793815 80.55555555555554,79.84536082474226 105.55555555555554,79.84536082474226 C 130.55555555555554,79.84536082474226 136.1111111111111,90.25773195876289 161.1111111111111,90.25773195876289 C 186.1111111111111,90.25773195876289 191.66666666666666,103.14432989690721 216.66666666666666,103.14432989690721 C 241.66666666666666,103.14432989690721 247.22222222222217,61.082474226804116 272.2222222222222,61.082474226804116 C 297.2222222222222,61.082474226804116 302.77777777777777,90.56701030927834 327.77777777777777,90.56701030927834 C 352.77777777777777,90.56701030927834 358.3333333333333,107.16494845360825 383.3333333333333,107.16494845360825 C 408.3333333333333,107.16494845360825 413.8888888888889,92.0103092783505 438.8888888888889,92.0103092783505 C 463.8888888888889,92.0103092783505 469.4444444444444,92.31958762886599 494.4444444444444,92.31958762886599 C 519.4444444444443,92.31958762886599 525.0,103.24742268041237 550.0,103.24742268041237" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="77.34020618556701" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="87.34020618556701" x2="550" y2="87.34020618556701" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="97.34020618556701" fill="transparent" stroke="transparent" font-size="30px">0.27</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.59</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.34</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.52</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0.076</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.11</text></g>
+</svg>
+</div></td>
+<td class="gt_row gt_right">0.268</td>
+<td class="gt_row gt_right">0.594</td>
+<td class="gt_row gt_right">2000</td>
+<td class="gt_row gt_right">10</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left">2010s</td>
+<td class="gt_row gt_left"><div>
+<svg viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;">
+<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs>
+<style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style>
+<path d="M 50.0,115.0 C 75.0,115.0 80.55555555555554,102.9381443298969 105.55555555555554,102.9381443298969 C 130.55555555555554,102.9381443298969 136.1111111111111,92.93814432989691 161.1111111111111,92.93814432989691 C 186.1111111111111,92.93814432989691 191.66666666666666,80.77319587628865 216.66666666666666,80.77319587628865 C 241.66666666666666,80.77319587628865 247.22222222222217,100.87628865979381 272.2222222222222,100.87628865979381 C 297.2222222222222,100.87628865979381 302.77777777777777,102.83505154639175 327.77777777777777,102.83505154639175 C 352.77777777777777,102.83505154639175 358.3333333333333,115.0 383.3333333333333,115.0 C 408.3333333333333,115.0 413.8888888888889,99.22680412371135 438.8888888888889,99.22680412371135 C 463.8888888888889,99.22680412371135 469.4444444444444,102.62886597938144 494.4444444444444,102.62886597938144 C 519.4444444444443,102.62886597938144 525.0,15.0 550.0,15.0" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="82.72164948453609" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="92.72164948453609" x2="550" y2="92.72164948453609" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="102.72164948453609" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.21</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.33</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.14</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.15</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.97</text></g>
+</svg>
+</div></td>
+<td class="gt_row gt_right">0.216</td>
+<td class="gt_row gt_right">0.970</td>
+<td class="gt_row gt_right">2019</td>
+<td class="gt_row gt_right">10</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+        
+</div>
+</div>
+</div>
+<p>You can also display plots. Here, I’m using <a href="https://plotnine.org/">plotnine</a> which is a Python version of the <a href="https://ggplot2.tidyverse.org/">ggplot2</a> data visualisation library in R.</p>
+<div id="95eb4a16" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Save as a real PNG (Typst has trouble with the auto-generated SVG here)</span></span>
+<span id="cb9-2">out_path <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> IMAGES_DIR <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ngram_literate_programming.png"</span></span>
+<span id="cb9-3">out_path.parent.mkdir(parents<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>, exist_ok<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>)</span>
+<span id="cb9-4"></span>
+<span id="cb9-5">p <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (</span>
+<span id="cb9-6">    ggplot(df, aes(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"year"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"per_billion_smooth_5y"</span>))</span>
+<span id="cb9-7">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> geom_line()</span>
+<span id="cb9-8">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> labs(</span>
+<span id="cb9-9">        title<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Google Ngram: "literate programming" (1984+, 5y smoothed)'</span>,</span>
+<span id="cb9-10">        x<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Year"</span>,</span>
+<span id="cb9-11">        y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Frequency (per billion tokens, 5y rolling mean)"</span>,</span>
+<span id="cb9-12">    )</span>
+<span id="cb9-13">    <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> theme_gray()</span>
+<span id="cb9-14">)</span>
+<span id="cb9-15"></span>
+<span id="cb9-16">p.save(out_path, dpi<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">300</span>)</span></code></pre></div>
+</details>
+</div>
+<div id="82b7e9eb" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Display the plot</span></span>
+<span id="cb10-2">p</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+<figure class="figure">
+<p><img src="https://www.carecodeconnect.io/posts/in-praise-of-documentation/index_files/figure-html/cell-9-output-1.png" width="672" height="480" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You can also display interactive maps. Here, I’m using the <code>IPyLeaflet</code> library to display a map of Cambridge, UK, the home of Acorn Computers, and birthplace of the BBC Microcomputer.</p>
+<div id="e8e694af" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> ipyleaflet <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Map, Marker</span>
+<span id="cb11-2"></span>
+<span id="cb11-3">m <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Map()</span>
+<span id="cb11-4"></span>
+<span id="cb11-5">center <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">52.204793</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">360.121558</span>)</span>
+<span id="cb11-6"></span>
+<span id="cb11-7">m <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Map(center<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>center, zoom<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">15</span>)</span>
+<span id="cb11-8"></span>
+<span id="cb11-9">marker <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> Marker(location<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>center)</span>
+<span id="cb11-10">m.add(marker)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb11-11"></span>
+<span id="cb11-12">display(m)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"bd56f042cf7c42a2839f5da4b76e6c92","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+<p><code>IPyLeaflet</code> map of Cambridge, UK</p>
+</div>
+</div>
+</section>
+<section id="history-of-literate-programming" class="level1">
+<h1>History of Literate Programming</h1>
+<p>While the basic technical implementation of literate programming will be familiar to most data scientists, the origins and history of literate programming might be less familar.</p>
+<p>The term “literate programming” was coined in 1984, by the American computer scientist Donald Knuth, later Professor Emeritus at Stanford University <span class="citation" data-cites="knuth1984">(Knuth 1984)</span>.</p>
+<p>Knuth proposed literate programming as a new “motto” for software development, building upon the foundations of “structured programming”. He built a system called <strong>WEB</strong> for implementing this new genre of literate programming. Knuth suggests literate programming is “inherently bilingual”, because it combines two different genres of writing within the same computer program files:</p>
+<ul>
+<li><p>A document formatting language</p></li>
+<li><p>A programming language</p></li>
+</ul>
+<p>The document formatting language is a typesetting system (TeX), which is used to render an <em>informal</em> English-language explanation of the program, while the programming language (PASCAL) is the <em>formal</em> computer code, which is compiled by the compiler, and then executed by the user.</p>
+<p>Knuth thereby developed a new literary form, reversing the traditional “structured programming” approach to documentation. In the “structured programming” approach, the formal computer code is primary, and informal documentation is secondary, optionally embedded into the code as <em>comments</em> (as in the example above).</p>
+<p>It is interesting to notice that Knuth’s <strong>WEB</strong> system was designed as a “tool for systems programmers, not for high school students or hobbyists”, because the programmer needs to be “comfortable dealing with multiple languages simultaneously” <span class="citation" data-cites="knuth1984">(Knuth 1984)</span>.</p>
+<p>40 years later, literate programming is most commonly adopted not by systems programmers, but by data scientists who tend to use high-level scripting languages (e.g.&nbsp;R, Python, Julia). And the tools of literate programming are considered particularly applicable for teaching and learning programming, especially in cloud environments where the programming language interpreter is included (e.g.&nbsp;Google Colab).</p>
+<p>The preference for the notebook as a tool for literate programming in education and data science might be due to the simplicitly of the Markdown language that is used as the informal typesetting language (rather than TeX). So the burdens on becoming “bilingual” might be less than if they had to learn TeX.</p>
+</section>
+<section id="scientific-publishing-tools" class="level1">
+<h1>Scientific Publishing Tools</h1>
+<p>Knuth’s recommendations form the basis of contemporary technical tools for scientific programming, later called “data science”. These tools have been developed for cross-language programming applications. The technical implementation of literate programming is done in a very similar way in the following scientific publishing tools.</p>
+<section id="jupyter-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="jupyter-notebooks">Jupyter notebooks</h2>
+<p>The Jupyter notebook was introduced as an “IPython Notebook” in 2011 as a document publishing format to ensure <em>reproducible</em> computational workflows for “open science” across different academic research fields. Jupyter notebooks grew out of the IPython <span class="citation" data-cites="perez2007">(Pérez and Granger 2007)</span> project, introduced in 2001 by physicists from the University of Colorado, as an enhanced Python shell for interactive scientific computing. A later 2016 article also cites as influences the use of notebooks in mathematics such as in computer algebra systems Mathematica and SageMath.</p>
+<p>“Notebooks — documents integrating prose, code and results — offer a way to publish a computational method which can be readily read and replicated.” <span class="citation" data-cites="kluyver2016">(Kluyver et al. 2016)</span></p>
+<p>“Prose text can be interleaved with the code and output in a notebook to explain and highlight specific parts, forming a rich computational narrative.”</p>
+<p>The 2016 article about Jupyter does not mention literate programming or the work of Knuth. Instead, they write that notebooks are an evaluation of “interactive programming” via interactive shell or REPL (read-evaluate-print-loop) workflows.</p>
+<p>A later 2021 article about Jupyter does cite literate programming, but the authors describe Jupyter notebooks allowing the user to create a “computational narrative”, which is distinct from literate programming “in its incorporation of interactive computing as its central element” <span class="citation" data-cites="granger2021">(Granger and Pérez 2021)</span>. It is proposed “the computational narratives of Jupyter notebooks support both individual exploration of ideas and sharing of the resulting knowledge in a reusable, reproducible manner that encourages feedback and collaboration” <span class="citation" data-cites="granger2021">(Granger and Pérez 2021)</span></p>
+<p>This makes sense because Knuth’s literate programming was developed for use with a compiled rather than interpreted language.</p>
+<p>The name “Jupyter” intended to encompass multiple programming languages - Julia and Python - and allowed the use of multiple programming languages in the same notebook via the use of kernels.</p>
+<p>Jupyter notebooks use <a href="https://minrk-nbconvert.readthedocs.io/en/stable/"><code>nbconvert</code></a> and <a href="https://pandoc.org/">Pandoc</a> to convert <code>.ipynb</code> files to other formats (e.g.&nbsp;HTML, PDF), and <a href="https://nbviewer.org/"><code>nbviewer</code></a> can be used to host a web server to view rendered HTML versions of notebooks. This allows the knowledge within Jupyter notebooks to be shared with others.</p>
+</section>
+<section id="limitations-of-jupyter-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-jupyter-notebooks">Limitations of Jupyter notebooks</h2>
+<p>While Jupyter notebooks remain a key tool for data scientists in their development work, they have a number of issues, which make them difficult to be scaled up for use in production systems.</p>
+<p>Indeed, Jupyter notebooks have been criticised for encouraging bad habits, which lead to problems with reproducibility.</p>
+<p>“Among the main criticisms are hidden states, unexpected execution order with fragmented code, and bad practices of naming, versioning, testing, and modularizing code. Also, the notebook format does not encode its library dependencies with associated versions, which can make it hard (or even impossible) to reproduce the notebook” <span class="citation" data-cites="pimentel2019">(Pimentel et al. 2019)</span></p>
+<p><span class="citation" data-cites="pimentel2019">Pimentel et al. (2019)</span> analysed 1.4 million notebooks on GitHub and found that “out of 863,878 attempted executions of valid notebooks (i.e., notebooks with defined Python version and execution order), only 24.11% executed without errors and only 4.03% produced the same results.” They make eight recommendations for improving the use of Jupyter notebooks.</p>
+<p>“Markdown plays a considerable role in notebooks, but the size of markdown cells may not be enough for well-described narratives, potentially compromising reproducibility” <span class="citation" data-cites="pimentel2019">(Pimentel et al. 2019)</span></p>
+<p>As JSON files, they are not straightforward to version control. Notebooks are designed so the cells are run in their order of presentation, but cells can be executed out of order, and then the notebook saved with outputs that do not match execution order. And if they contain many execution cells, they can become quite large and unwiedly, leading to IDE crashes.</p>
+<p>The default criticism of data scientists is that by leaving their code in a Jupyter notebook, they make it almost impossible to deploy their models into production, or build scalable systems.</p>
+<p>Several solutions have been proposed for these problems:</p>
+<ul>
+<li><p><a href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> attempts to solve the version control problem by synchronising notebooks with Python scripts. This can make Jupyter notebooks easier to work with agentic coding workflows (see below).</p></li>
+<li><p><a href="https://marimo.io/">Marimo</a> notebooks are “reactive” and designed to address the problems in Jupyter notebooks: “Run a cell and marimo reacts by automatically running the cells that reference its variables. Delete a cell and marimo scrubs its variables from program memory, eliminating hidden state.” (<a href="https://docs.marimo.io/faq/#choosing-marimo">Marimo FAQ</a>).</p></li>
+<li><p>Nelson recommends using Jupyter notebooks for development work, before refactoring notebooks into modularised Python scripts with accompanying tests <span class="citation" data-cites="nelson2024">(Nelson 2024)</span>. This is quite a common workflow in industry settings.</p></li>
+</ul>
+</section>
+<section id="r-markdown-and-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-and-quarto">R Markdown and Quarto</h2>
+<p>In the R ecosystem, <a href="https://rmarkdown.rstudio.com/">R Markdown</a> is a Markdown format that allows executable code cells.</p>
+<p><a href="https://www.markdownguide.org/">Markdown</a> is a very simple typesetting format stored in plain text files.</p>
+<p><a href="https://quarto.org/">Quarto</a> is a scientific publishing system, developed from the foundations of R Markdown. It uses text files with a <code>.qmd</code> format. In short, you intersperse prose written in Markdown format, with “code cells” which are enclosed with three backticks (```) for their start and end.</p>
+<p>At the top of the Quarto document is a YAML section, specifying the configuration of the document:</p>
+<pre><code>---
+title: "In Praise of Documentation: Tools, Tips &amp; Techniques for Literate Programming in the AI Age"
+date: "2026-03-01"
+categories: [documentation, talks]
+format:
+  html:
+    toc: true
+    code-fold: true
+jupyter: pydata
+bibliography: refs.bib
+---</code></pre>
+<p>If you want to execute Python code cells in the document, Quarto uses Jupyter to execute the Python via an IPython kernel. In this case, that kernel is called <code>pydata</code>.</p>
+<p>To render the Quarto document, on the command line, you type:</p>
+<pre><code>quarto render posts/in-praise-of-documentation/index.qmd</code></pre>
+<p>In practice, the Typst/Hayagriva setup worked well for standalone PDF output but failed when the site was rendered as HTML, because Pandoc (used by Quarto for HTML) cannot read Hayagriva bibliographies or the <code>typst</code> format. For the website build, the bibliography is therefore handled by Pandoc using a BibTeX file (<code>refs.bib</code>), so that citations render correctly to HTML (and standard PDF), while Typst is kept only for separate, manual PDF renders.</p>
+<p>A particularly cool feature of Quarto is the ability to export to <a href="https://quarto.org/docs/output-formats/gfm.html">GFM</a> (GitHub Flavoured Markdown) format. This allows you to export your Quarto document to a GitHub compatible format which gets rendered for the web. For example, if you want to include code execution in the <code>README.md</code> of your GitHub repository, you would specify this format in your YAML:</p>
+<pre><code>---
+title: "My Project"
+format: gfm
+---</code></pre>
+<p>Then, you can render the document, which executes the code cells and includes the results in the outputted Markdown file. Cool!</p>
+<p>Both R Markdown and Quarto use <a href="https://pandoc.org/">Pandoc</a> for converting between Markdown and various formats (e.g.&nbsp;PDF, HTML, GFM).</p>
+<p>Quarto enables publishing scientific articles, books, and using new methods of storytelling with “scrollytelling” using <a href="https://closeread.dev/">closeread</a> extension.</p>
+</section>
+</section>
+<section id="computer-programs-as-literature" class="level1">
+<h1>Computer Programs as Literature</h1>
+<p>While Knuth’s literate programming style has been widely implemented into data science workflows, and will be familiar to most data scientists, his original ideas about computer programming might be less familar.</p>
+<p>Knuth makes several arguments to support his “motto” of literate programming:</p>
+<blockquote class="blockquote">
+<p>“I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be <em>works of literature</em>”</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>“Let us change our traditional attitude to the construction of progams. Instead of imagining that our main task is to instruct a <em>computer</em> what to do, let us concentrate rather on explaining to <em>human beings</em> what we want a computer to do”.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>“The practitioner of literate programming can be regarded as an essayist, whose main concern is with exposition and excellence of style. Such an author, with thesaurus in hand, chooses the names of variables carefully and explains what each variable means. He or she strives for a program that is comprehensible because its concepts have been introduced in an order that is best for human understanding, using a mixture of formal and informal methods that reinforce each other”.</p>
+</blockquote>
+<p>I was frankly astonished when I read these paragraphs. These are a very unusual, and bold, set of arguments for a computer scientist to make. Knuth appears to be flipping the disciplinary association of programming from computer science - whether based in mathematics or engineering - to literature, a humanities discipline. The usually technical domain of programming is turned into a non-technical literary domain.</p>
+<p>On reading his statements, I was reminded of the comments by the English novelist and physical chemist C. P. Snow on “the two cultures” of physical scientists and literary scholars <span class="citation" data-cites="snow1959">(Snow 1959)</span>. He described these as two “polar” groups who had little contact with one another, yet much misunderstanding between them.</p>
+<p>I find it fascinating to think about how both data science and software engineering could be different, if computer software was considered as works of literature, and programmers as essayists.</p>
+<p>If we were to seriously take on board what Knuth is saying, it seems to me, the implications would be profound, and take us far beyond the creation of a relatively niche new genre of “literate programming”, which would come to be used mostly by data scientists. I think the implications would reach far beyond scientific computing and data science to the whole of software engineering.</p>
+<p>I don’t have time now to fully explore the implications of Knuth’s arguments. For now, I can say that, in the humanities, there is an area called “code studies” (see <a href="https://en.wikipedia.org/wiki/Critical_code_studies">Critical Code Studies</a>), where scholars analyse computer code as literature. But this involves the analysis, rather than the writing of code. As I understand them, Knuth’s arguments are to be applied primarily by software developers, who tend to be engineers, rather than humanities scholars (or artists or poets or writers).</p>
+<p>Whether or not we agree with Knuth’s description of the literate programmer as an “essayist”, I think we should take seriously his arguments about improving the “style” of our programming. After all, code is a form of communication. To improve our communication, we need to take more care with our writing. We need to take better care about how we write.</p>
+</section>
+<section id="rules-for-good-writing" class="level1">
+<h1>Rules for Good Writing</h1>
+<p>We can start small, and follow in the spirit of Knuth, by taking inspiration from one of the greatest writers of the 20th century.</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.carecodeconnect.io/posts/in-praise-of-documentation/images/george_orwell_bbc.jpg" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>George Orwell at the BBC in 1940</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:60%;">
+<p>In his 1945 essay <em>Politics and the English Language</em> <span class="citation" data-cites="orwell1945">(Orwell 1945)</span>, George Orwell presented rules for how to write well. While he was writing 80 years ago about the political language of his time, his rules are relevant to writing technical documentation now.</p>
+<p>Orwell considered good writing to be active, precise, and simple. He argued we should write actively rather than passively, be precise rather than vague, and use simple verbs rather than complex longer words or phrases. If we can drop a word from a sentence without losing the meaning, we should drop it. Orwell called the use of language a habit. And he made a close relationship between language and thought. By learning to write well, we can develop good ways of thinking. By writing clearly, we can think clearly, and thereby communicate our thoughts more clearly to others. The thoughts are in the words, and our thinking is displayed in our writing, so we had better choose our words wisely.</p>
+</div>
+</div>
+<p>I would add that when we write - whether code or documentation - we should should write with a reader in mind. Like a presentation has an audience, a written document has a reader. This reader might be our future self. Or a colleague who needs to learn about some report or tool. Or even an AI agent we are instructing. In this sense, coding is a mode of technical communication.</p>
+</section>
+<section id="documentation-in-the-age-of-ai" class="level1">
+<h1>Documentation in the Age of AI</h1>
+<p>My nostalgia for an earlier age, where I manually typed out code from magazines, had to learn by myself how to fix things, and my citation of George Orwell are no doubt related to living in a dystopic age of AI, where we commonly use generative AI to write our documentation for us.</p>
+<p>Orwell’s rules have particular relevance to our current age. Orwell was critical of lazy writing, and I have little doubt he would have criticised us for outsourcing our thinking to machines. In Orwell’s day, lazy writers would use stock phrases, so they could avoid the difficult work of thinking about what new things they wanted to say. Instead, we should consciously choose relevant words, to express the unique meaning of what we want to express.</p>
+<p>In the present day, software engineering is being transformed by AI, especially through code asssistants and agentic workflows, where we instruct agents to write our code and documentation for us. I’ve noticed developers are particularly keen to outsource the boring (or difficult) work of writing documentation to AI.</p>
+<p>At the same time, written documentation is becoming more important for AI-assisted workflows. The following trends are becoming popular in software engineering, which will surely impact data science too:</p>
+<ul>
+<li><p><a href="https://en.wikipedia.org/wiki/Spec-driven_development">Spec-driven development</a> reverses the usual approach to documentation in software engineering, where documentation is written <em>after</em> the software itself. Instead, specifications are written in a machine-readable format, which can then be read by coding agents.</p></li>
+<li><p><a href="https://agents.md/">AGENTS.MD</a> is an emerging standard way of implementing spec-driven development. <code>AGENTS.md</code> is text file in Markdown format, written to be read by coding agents, which they use to create a plan and then execute that plan. I’ve included a simple <a href="_AGENTS.md"><code>_AGENTS.md</code></a> file in this post bundle as an example to show how this can work in practice.</p></li>
+<li><p>Coding agent CLI or IDE tools can be instructed to read the <code>AGENTS.md</code> and do “spec-driven development” (e.g.&nbsp;Cursor, OpenAI Codex, Claude Code).</p></li>
+</ul>
+<p>While many engineers are outsourcing their coding and documentation to AI agents, others are using handwritten “lab” notebooks, to keep their notes. This counter trend of handwriting with a pen or pencil, to preserve the physical “handicraft” of thinking and remembering, or learn a new skill is also common within education and industry settings.</p>
+</section>
+<section id="concluding-remarks" class="level1">
+<h1>Concluding Remarks</h1>
+<p>When building data systems, or doing data analysis, we are <em>writing text</em>. When we code, we are writing. And, when we write technical documentation, we are also writing. The code we write now will be read by our future selves, future readers of our reports, and future users of our software tools. In writing our code today, we are writing the legacy code of tomorrow. And documentation is a user guide for the legacy code infrastructures of the future.</p>
+<p>In summary, writing good documentation allows us to:</p>
+<ul>
+<li><p>Feel good about ourselves, be appreciated by others, whilst also making the world a better place</p></li>
+<li><p>Preserve institutional and personal memory</p></li>
+<li><p>Ensure scientific reproducibility</p></li>
+<li><p>Allow better version control so that our software is robust</p></li>
+<li><p>Enable responsible stewardship of technical systems to allow their future maintenance</p></li>
+<li><p>Documentation can be technically “fun”</p></li>
+</ul>
+<p>I hope to have impressed upon you the importance of writing docs, such that you might also be <em>in praise of documentation</em>.</p>
+</section>
+<section id="recommended-resources" class="level1">
+<h1>Recommended Resources</h1>
+<p><a href="https://diataxis.fr/">Diátaxis</a>: documentation framework</p>
+<p><a href="https://www.writethedocs.org/guide/">Write the Docs</a>: best practices for creating software documentation and technical writing.</p>
+</section>
+<section id="references" class="level1">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-gazzard2016" class="csl-entry">
+Gazzard, A. 2016. <em>Now the Chips Are down: The BBC Micro</em>. The MIT Press.
+</div>
+<div id="ref-granger2021" class="csl-entry">
+Granger, B. E., and F. Pérez. 2021. <span>“Jupyter: Thinking and Storytelling with Code and Data.”</span> <em>Computing in Science &amp; Engineering</em> 23 (2): 7–14. <a href="https://doi.org/10.1109/MCSE.2021.3059263">https://doi.org/10.1109/MCSE.2021.3059263</a>.
+</div>
+<div id="ref-kluyver2016" class="csl-entry">
+Kluyver, T., B. Ragan-Kelley, F. Pérez, B. Granger, M. Bussonnier, J. Frederic, K. Kelley, et al. 2016. <span>“Jupyter Notebooks – a Publication Format for Reproducible Computational Workflows.”</span> In <em>Positioning and Power in Academic Publishing: Players, Agents and Agendas</em>, edited by F. Loizides and B. Schmidt.
+</div>
+<div id="ref-knuth1984" class="csl-entry">
+Knuth, D. E. 1984. <span>“Literate Programming.”</span> <em>The Computer Journal</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
+</div>
+<div id="ref-nelson2024" class="csl-entry">
+Nelson, C. 2024. <em>Software Engineering for Data Scientists: From Notebooks to Scalable Systems</em>. O’Reilly.
+</div>
+<div id="ref-orwell1945" class="csl-entry">
+Orwell, G. 1945. <em>Politics and the English Language</em>. London: Penguin Books.
+</div>
+<div id="ref-perez2007" class="csl-entry">
+Pérez, F., and B. E. Granger. 2007. <span>“IPython: A System for Interactive Scientific Computing.”</span> <em>Computing in Science &amp; Engineering</em> 9 (3): 21–29. <a href="https://doi.org/10.1109/MCSE.2007.53">https://doi.org/10.1109/MCSE.2007.53</a>.
+</div>
+<div id="ref-pimentel2019" class="csl-entry">
+Pimentel, J. F., L. Murta, V. Braganholo, and J. Friere. 2019. <span>“A Large-Scale Study about Quality and Reproducibility of Jupyter Notebooks.”</span> In <em>IEEE/ACM 16th International Conference on Mining Software Repositories</em>, 507–17. Montreal, QC, Canada. <a href="https://doi.org/10.1109/MSR.2019.00077">https://doi.org/10.1109/MSR.2019.00077</a>.
+</div>
+<div id="ref-snow1959" class="csl-entry">
+Snow, C. P. 1959. <em>The Two Cultures and the Scientific Revolution</em>. New York: Cambridge University Press.
+</div>
+</div></section></div> ]]></description>
+  <category>documentation</category>
+  <category>talks</category>
+  <guid>https://www.carecodeconnect.io/posts/in-praise-of-documentation/</guid>
+  <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
