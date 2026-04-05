@@ -14,3 +14,12 @@ Welcome to the `carecodeconnect` blog! 🤗
 *"Revisioning data science for the age of AI"*
 
 New posts will appear below!
+
+```{=html}
+<p class="small border rounded-2 px-3 py-2 bg-light mt-3">
+  <strong>RSS.</strong> Follow new posts in a feed reader: click the
+  <a href="./blog.xml" title="Open RSS feed"><i class="bi bi-rss" aria-hidden="true"></i><span class="visually-hidden"> RSS </span></a>
+  icon in the site header, or subscribe with this URL:
+  <a href="https://www.carecodeconnect.io/blog.xml"><code>https://www.carecodeconnect.io/blog.xml</code></a>
+</p>
+```
