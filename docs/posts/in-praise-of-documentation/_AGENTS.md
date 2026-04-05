@@ -33,6 +33,6 @@ quarto render posts/in-praise-of-documentation/slides/presentation.qmd
 
 ## Environment
 
-Create or reuse a virtualenv in this folder (e.g. `uv sync`); register its Jupyter kernel as `pydata` if you use that name in the `.qmd` files.
+From the **repository root**, `uv sync` and `export QUARTO_PYTHON="$PWD/.venv/bin/python"` before `quarto preview` / `quarto render` so the `python3` Jupyter kernel matches the site environment. Alternatively, run `uv sync` in this folder and set `QUARTO_PYTHON` to `posts/in-praise-of-documentation/.venv/bin/python`.
 
 For standalone Typst/PDF experiments, use `refs.yaml` in this bundle and render from the project root as needed.

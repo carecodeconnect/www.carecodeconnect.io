@@ -7,7 +7,7 @@ format:
         embed-resources: true
         auto-stretch: true
 bibliography: ../refs.bib
-jupyter: pydata
+jupyter: python3
 ---
 
 ```{python}
@@ -78,28 +78,12 @@ df = (
 ```
 
 
-# Overview
+# tl;dr
 
-* How I learned to love documentation
-
-* The perils of poor documentation
-
-* Why document your code
-
-* Types of documentation
-
-* Literate programming
-
-* Scientific publishing tools
-
-* Computer programs as literature
-
-* Documentation in the age of AI
-
-This presentation was made with ❤️ using [Quarto](https://quarto.org/), [Python](https://www.python.org/), and deployed with [GitHub Actions](https://docs.github.com/en/actions).
+Please document your code
 
 :::notes
-This talk is in praise of documentation. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document it. I'll explore tools for "literate programming" and share tips for writing well. Writing good documentation is becoming more important in the age of AI. I'm essentially arguing for better scientific research practice in data science in industry.
+This talk is in praise of documentation and has one simple message: please document your code. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document it. I'll explore tools for "literate programming" and share tips for writing well. Writing good documentation is becoming more important in the age of AI. I'm essentially arguing for better scientific research practice in data science in industry.
 :::
 
 # How I learned to love documentation
@@ -144,16 +128,8 @@ In these early days of popular computing in Britain, learning the technical task
 # The perils of poor documentation
 
 :::notes
-
 Years later, I learned my early enjoyment for reading what we came to call "docs" was matched by an enjoyment in *writing* technical "docs". But I quickly realised other data scientists and software engineers often didn't share my interest or indeed passion for "the docs". I often found people either wouldn't document their code at all, or they would document it poorly, and only under duress.
 Bad things can happen in companies without good documentation. Documentation is the institutional memory of a company. Without (good) documentation, it becomes difficult to understand a codebase. New colleagues can feel alienated, struggle to quickly learn a new and complex codebase, or be unable to fix or update it. It might take a whole team of PhD-level developers months, even years, to reverse engineer a large legacy codebase, to be in a position to rebuild or replace it. 
-:::
---- 
-
-![](../images/enshitification.jpg){width=50% fig-align="center"}
-
-:::notes
-I think poorly written code, and software systems with poor or no documentation are part of what Corey Doctorow calls the "enshitification" of software. While I usually don't like "nomimal" words - when a noun is created out of a verb - and would warn against using them, because they usually make writing bad, I'll make an exception with "enshitification".
 :::
 
 # Why document your code
@@ -456,7 +432,7 @@ format:
   html:
     toc: true
     code-fold: true
-jupyter: pydata
+jupyter: python3
 bibliography: refs.bib
 ---
 ```
@@ -467,7 +443,7 @@ You render the Quarto document with `quarto render posts/in-praise-of-documentat
 
 :::notes
 At the top of the Quarto document is a YAML section, specifying the configuration of the document.
-If you want to execute Python code cells in the document, Quarto uses `IPython` kernels. In this case, that kernel is a `uv` virtual environment called `pydata`.
+If you want to execute Python code cells in the document, Quarto uses `IPython` kernels. Set `QUARTO_PYTHON` to your project interpreter (for example the repo `.venv` after `uv sync`) so the `python3` kernel uses the same packages as your render.
 :::
 
 # Computer programs as literature

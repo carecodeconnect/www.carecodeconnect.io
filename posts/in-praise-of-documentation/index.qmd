@@ -6,7 +6,7 @@ format:
   html:
     toc: true
     code-fold: true
-jupyter: pydata
+jupyter: python3
 bibliography: refs.bib
 ---
 ```{python}
@@ -463,12 +463,12 @@ format:
   html:
     toc: true
     code-fold: true
-jupyter: pydata
+jupyter: python3
 bibliography: refs.bib
 ---
 ```
 
-If you want to execute Python code cells in the document, Quarto uses Jupyter to execute the Python via an IPython kernel. In this case, that kernel is called `pydata`.
+If you want to execute Python code cells in the document, Quarto uses Jupyter. Set `QUARTO_PYTHON` to your project interpreter (for example `export QUARTO_PYTHON="$PWD/.venv/bin/python"` from the repo root) so the `python3` kernel matches that environment.
 
 To render the Quarto document, on the command line, you type:
 
