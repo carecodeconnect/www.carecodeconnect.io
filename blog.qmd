@@ -7,10 +7,6 @@ listing:
   type: default
   fields: [title, description, date, categories]
   feed: true
-format:
-  html:
-    # Subscribe widget only on this page (see subscribe.html; Quarto blog “Subscriptions”)
-    margin-header: subscribe.html
 ---
 
 Welcome to the `carecodeconnect` blog! 🤗
