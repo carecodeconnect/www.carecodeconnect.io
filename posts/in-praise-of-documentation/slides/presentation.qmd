@@ -194,6 +194,8 @@ While the basic technical implementation of literate programming will be familia
 
 * A programming language (PASCAL)
 
+@knuth1984
+
 :::notes
 Knuth proposed literate programming as a new "motto" for software development, building upon the foundations of "structured programming". He built a system called **WEB** for implementing this new genre.
 The document formatting language is a typesetting system (TeX), used to render an *informal* English-language explanation of the program, while the programming language (PASCAL) is the *formal* computer code, which is compiled by the compiler, and then executed by the user.
@@ -362,7 +364,7 @@ I couldn't resist the temptation to display an interactive map of Cambridge, UK,
 Yes, documentation can be technically "fun".
 :::
 
----
+# A brief history of literate programming
 
 The original **WEB** system was designed as a "tool for systems programmers, not for high school students or hobbyists", because the programmer needs to be "comfortable dealing with multiple languages simultaneously" [@knuth1984].
 
@@ -464,17 +466,17 @@ If you want to execute Python code cells in the document, Quarto uses `IPython` 
 Knuth makes several arguments to support his "motto" of literate programming.
 :::
 
----
+# Computer programs as literature
 
-"I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be *works of literature*" 
+"I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be *works of literature*" @knuth1984
 
----
+# Computer programs as literature
 
-"Let us change our traditional attitude to the construction of progams. Instead of imagining that our main task is to instruct a *computer* what to do, let us concentrate rather on explaining to *human beings* what we want a computer to do".
+"Let us change our traditional attitude to the construction of progams. Instead of imagining that our main task is to instruct a *computer* what to do, let us concentrate rather on explaining to *human beings* what we want a computer to do" @knuth1984
 
----
+# Computer programs as literature
 
-"The practitioner of literate programming can be regarded as an essayist, whose main concern is with exposition and excellence of style. Such an author, with thesaurus in hand, chooses the names of variables carefully and explains what each variable means. He or she strives for a program that is comprehensible because its concepts have been introduced in an order that is best for human understanding, using a mixture of formal and informal methods that reinforce each other".
+"The practitioner of literate programming can be regarded as an essayist, whose main concern is with exposition and excellence of style. Such an author, with thesaurus in hand, chooses the names of variables carefully and explains what each variable means. He or she strives for a program that is comprehensible because its concepts have been introduced in an order that is best for human understanding, using a mixture of formal and informal methods that reinforce each other" @knuth1984
 
 @knuth1984
 
