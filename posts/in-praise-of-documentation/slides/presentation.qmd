@@ -84,7 +84,7 @@ Please document your code.
 :::notes
 This talk is in praise of documentation and has one simple message: please document your code. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document it. 
 
-I'll explore tools for "literate programming" and share tips for writing well. Writing good documentation is becoming more important in the age of AI. I'm essentially arguing for better scientific research practice in data science in industry.
+I'll explore tools for "literate programming" and share tips for writing well. Writing good documentation is becoming more important in the age of AI. I'm essentially arguing for better scientific research practice in data science in industry settings.
 :::
 
 # How I learned to love documentation
@@ -156,13 +156,7 @@ And enable responsible stewardship of technical systems, to allow their future m
 
 *Comments*: Your comments should add extra information not contained in the code, such as a summary or a caveat.
 
-*Docstrings*: Your functions should always have a docstring that describes the inputs and outputs of the function, as well as the purpose of that function.
-
-*READMEs*: Every repository or project should have an introduction that advertises your code and lets other people know why they should use it.
-
-*Experiment tracking*: Experiments, especially in machine learning projects, should be tracked in a structured way."
-
-**Jupyter notebooks**: **Your notebooks will be much easier to read if you give them good names, give them a structure, and intersperse text and code.**
+*Docstrings*: Your functions should always have a docstring that describes the inputs and outputs of the function, as well as the purpose of that function."
 
 @nelson2024
 
@@ -170,7 +164,17 @@ And enable responsible stewardship of technical systems, to allow their future m
 She goes on to summarise different types of documentation that are relevant to data science workflows. I'm directly quoting her recommendations, because I agree with them.
 :::
 
-# A brief history of literate programming
+# Types of documentation
+
+"*READMEs*: Every repository or project should have an introduction that advertises your code and lets other people know why they should use it.
+
+*Experiment tracking*: Experiments, especially in machine learning projects, should be tracked in a structured way."
+
+**Jupyter notebooks**: **Your notebooks will be much easier to read if you give them good names, give them a structure, and intersperse text and code.**"
+
+@nelson2024
+
+# History of literate programming
 
 * A document formatting language
 
@@ -186,7 +190,7 @@ Knuth suggests literate programming is "inherently bilingual", because it combin
 While the basic technical implementation of literate programming will be familiar to most data scientists, the origins and history of literate programming might be less familar.
 :::
 
-# A brief history of literate programming
+# History of literate programming
 
 **WEB** system:
 
@@ -364,7 +368,7 @@ I couldn't resist the temptation to display an interactive map of Cambridge, UK,
 Yes, documentation can be technically "fun".
 :::
 
-# A brief history of literate programming
+# History of literate programming
 
 The original **WEB** system was designed as a "tool for systems programmers, not for high school students or hobbyists", because the programmer needs to be "comfortable dealing with multiple languages simultaneously" [@knuth1984].
 
@@ -577,11 +581,15 @@ To read a longer version of this talk, see the [blog post](https://www.carecodec
 
 [Diátaxis](https://diataxis.fr/): documentation framework.
 
+[Great Docs](https://posit-dev.github.io/great-docs/): documentation site generator for Python packages.
+
 [`man`](https://www.man7.org/linux/man-pages/man1/man.1.html): manual pages for Unix-like operating systems.
 
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/): MkDocs theme and extensions for fast, searchable, polished project docs.
 
 [Pandoc](https://pandoc.org/): universal document converter.
+
+[Quarto](https://quarto.org/): open source scientific and technical publishing system.
 
 [Read the Docs](https://readthedocs.org/): free hosting that builds and publishes documentation from your repository.
 
