@@ -472,17 +472,15 @@ Knuth makes several arguments to support his "motto" of literate programming.
 
 # Computer programs as literature
 
-"I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be *works of literature*" @knuth1984
+"I believe that the time is ripe for significantly better documentation of programs, and that we can best achieve this by considering programs to be *works of literature*" [@knuth1984]
 
 # Computer programs as literature
 
-"Let us change our traditional attitude to the construction of progams. Instead of imagining that our main task is to instruct a *computer* what to do, let us concentrate rather on explaining to *human beings* what we want a computer to do" @knuth1984
+"Let us change our traditional attitude to the construction of progams. Instead of imagining that our main task is to instruct a *computer* what to do, let us concentrate rather on explaining to *human beings* what we want a computer to do" [@knuth1984]
 
 # Computer programs as literature
 
-"The practitioner of literate programming can be regarded as an essayist, whose main concern is with exposition and excellence of style. Such an author, with thesaurus in hand, chooses the names of variables carefully and explains what each variable means. He or she strives for a program that is comprehensible because its concepts have been introduced in an order that is best for human understanding, using a mixture of formal and informal methods that reinforce each other" @knuth1984
-
-@knuth1984
+"The practitioner of literate programming can be regarded as an essayist, whose main concern is with exposition and excellence of style. Such an author, with thesaurus in hand, chooses the names of variables carefully and explains what each variable means. He or she strives for a program that is comprehensible because its concepts have been introduced in an order that is best for human understanding, using a mixture of formal and informal methods that reinforce each other" [@knuth1984]
 
 :::notes
 I was frankly astonished when I read these paragraphs. They are a very unusual, and bold, set of arguments for a computer scientist to make. 
@@ -590,6 +588,8 @@ To read a longer version of this talk, see the [blog post](https://www.carecodec
 [Pandoc](https://pandoc.org/): universal document converter.
 
 [Quarto](https://quarto.org/): open source scientific and technical publishing system.
+
+# Further Resources
 
 [Read the Docs](https://readthedocs.org/): free hosting that builds and publishes documentation from your repository.
 
