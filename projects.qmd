@@ -23,7 +23,7 @@ This project uses Machine Learning to turn customer reviews into actionable insi
 
 [Click for GitHub repository](https://github.com/carecodeconnect/automatic-review-analyzer)
 
-# [Building a Data Science Server on Raspberry Pi](_site/projects/server/server.html)
+# [Building a Data Science Server on Raspberry Pi](projects/server/server.html)
 
 - **Raspberry Pi 5** hosts **Ubuntu Server** (SSH for remote access).
 - **NGINX** as the web server, with **UFW** and **SSL** certificates.

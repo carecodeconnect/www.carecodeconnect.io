@@ -2,14 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.6">
+<meta name="generator" content="quarto-1.10.14">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2026-03-01">
 
-<title>carecodeconnect – In Praise of Documentation: Tools, Tips &amp; Techniques for Literate Programming in the AI Age</title>
+<title>In Praise of Documentation: Tools, Tips &amp; Techniques for Literate Programming in the AI Age – carecodeconnect</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -22,8 +25,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -59,7 +63,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -78,22 +81,27 @@ div.csl-indent {
 }</style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-3b98549e9909330a576f66f19bcdbb27.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-e760cc1cd0671a073af8d16f25a2bb14.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-3b98549e9909330a576f66f19bcdbb27.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-ef34f4205db136e36a9b7a84f2d8d746.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-33123443dcb392e7809b7a2792330aec.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-ef34f4205db136e36a9b7a84f2d8d746.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -121,16 +129,181 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../css/styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -142,7 +315,7 @@ div.csl-indent {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -174,7 +347,8 @@ div.csl-indent {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -213,6 +387,7 @@ div.csl-indent {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">In Praise of Documentation: Tools, Tips &amp; Techniques for Literate Programming in the AI Age</h1>
@@ -242,10 +417,10 @@ div.csl-indent {
 </header>
 
 
-<div id="312a5b3a" class="cell" data-execution_count="1">
+<div id="f9bddf8d" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python package imports</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python package imports</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
@@ -253,7 +428,7 @@ div.csl-indent {
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> ggplot, aes, geom_line, labs, theme_gray</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> ggplot, aes, geom_line, labs, theme_gray</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I’ll explore tools for “literate programming”, where we create “computational narrative”, as well as tips for writing well. It turns out that writing documentation is becoming more important in the age of AI.</p>
@@ -361,16 +536,16 @@ div.csl-indent {
 <p>Literate programming is perhaps the most commonly recommended <em>genre</em> or <em>style</em> of computer programming for data science. In literate programming, written prose is interspersed with computer code, within the same document, called a “notebook”. Notebooks can be run locally (e.g.&nbsp;a Jupyter <code>.ipynb</code> file) or in cloud environments (e.g.&nbsp;<a href="https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-development-using-notebooks">Azure Synapse</a>, <a href="https://docs.databricks.com/aws/en/notebooks/">Databricks</a>, or <a href="https://colab.research.google.com/notebook">Google Colab</a>).</p>
 <p>The popularity of the “notebook” format for data science makes sense, because data science involves scientific programming, and the structure advocated for literate programming resembles scientific writing - especially the genre of the scientific laboratory report. This report style is commonly structured into Introduction, Method, Results, and Conclusion sections. The “notebook” allows the data scientist to use a similar scientific report format. This is suitable for data exploration, experimentation, and communicating the results of research - especially reporting the findings of data analysis or machine learning experiments. Really, then, the argument for better documentation is an argument for better scientific research practice.</p>
 <p>Quarto is a similar tool for literate programming, especially for scientific computing, where data analysis is presented within a report. For example, the following “code cell” executes a Python kernel (a virtual environment, in this case, using <a href="https://docs.astral.sh/uv/">uv</a>), which in turn executes the <code>print</code> function, and the output of that function is displayed within the rendered document.</p>
-<div id="8945fe26" class="cell" data-execution_count="2">
+<div id="7d3fc9ae" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">This is a docstring. </span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">It explains what a module, class, or function does.</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">Usually over multiple lines.</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a comment, an explanation, on a single line. I'm illustrating "classic" software documentation.</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"O'Brien: How many fingers am I holding up, Winston? </span><span class="ch">\n</span><span class="ss"> O'Brien holds up </span><span class="sc">{</span><span class="dv">2</span><span class="op">+</span><span class="dv">2</span><span class="sc">}</span><span class="ss"> fingers </span><span class="ch">\n</span><span class="ss"> Winston: </span><span class="ch">\"</span><span class="ss">Four</span><span class="ch">\"</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"O'Brien: How many fingers am I holding up, Winston? </span><span class="ch">\n</span><span class="ss"> O'Brien holds up </span><span class="sc">{</span><span class="dv">2</span><span class="op">+</span><span class="dv">2</span><span class="sc">}</span><span class="ss"> fingers </span><span class="ch">\n</span><span class="ss"> Winston: </span><span class="ch">\"</span><span class="ss">Four</span><span class="ch">\"</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>O'Brien: How many fingers am I holding up, Winston? 
@@ -384,10 +559,10 @@ div.csl-indent {
 <pre><code>curl -L "https://books.google.com/ngrams/json?content=%22literate%20programming%22&amp;year_start=1800&amp;year_end=2026&amp;corpus=26&amp;smoothing=0" -o posts/in-praise-of-documentation/data/ngrams.json</code></pre>
 <p>If <code>ngrams.json</code> is missing but <code>ngrams.csv</code> is already present (for example after a clone where only the CSV is tracked), the next cell skips conversion and the rest of the post still runs.</p>
 <p>I converted the JSON file to a CSV when needed, then imported it as a DataFrame using <a href="https://pola.rs/">Polars</a>, a DataFrame library written in Rust, with an intuitive API, similar to <a href="https://dplyr.tidyverse.org/">dplyr</a> in R.</p>
-<div id="9b34f976" class="cell" data-execution_count="3">
+<div id="9ac2ef30" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paths relative to Quarto project root (works even if cwd differs)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Paths relative to Quarto project root (works even if cwd differs)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ROOT <span class="op">=</span> Path(os.environ.get(<span class="st">"QUARTO_PROJECT_DIR"</span>, <span class="st">"."</span>)).resolve()</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>BUNDLE <span class="op">=</span> ROOT <span class="op">/</span> <span class="st">"posts/in-praise-of-documentation"</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>DATA_DIR <span class="op">=</span> BUNDLE <span class="op">/</span> <span class="st">"data"</span></span>
@@ -423,13 +598,13 @@ div.csl-indent {
 <span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> <span class="kw">not</span> csv_path.exists():</span>
 <span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">FileNotFoundError</span>(</span>
 <span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"Need either </span><span class="sc">{</span>json_path<span class="sc">}</span><span class="ss"> (from curl above) or an existing </span><span class="sc">{</span>csv_path<span class="sc">}</span><span class="ss">."</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="726522c8" class="cell" data-execution_count="4">
+<div id="6c74c16f" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter to &gt;= 1984</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter to &gt;= 1984</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> (</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    pl.read_csv(DATA_DIR <span class="op">/</span> <span class="st">"ngrams.csv"</span>)</span>
@@ -441,14 +616,14 @@ div.csl-indent {
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        .rolling_mean(window_size<span class="op">=</span><span class="dv">5</span>, min_samples<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        .alias(<span class="st">"per_billion_smooth_5y"</span>)</span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>In Quarto, you can render formatted tables from code. Here, I use the <a href="https://github.com/posit-dev/great-tables">Great Tables</a> package, based on the original <a href="https://gt.rstudio.com/">GT</a> package in R. Great Tables has a cool “nanoplot” function, which allows you to include a plot in a table.</p>
-<div id="8d1b8185" class="cell" data-execution_count="5">
+<div id="4780caac" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> great_tables <span class="im">import</span> GT, nanoplot_options</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df_raw_tbl <span class="op">=</span> (</span>
@@ -537,70 +712,69 @@ div.csl-indent {
 <span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>out_tbl_path <span class="op">=</span> IMAGES_DIR <span class="op">/</span> <span class="st">"ngram_decade_summary.png"</span></span>
 <span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>out_tbl_path.parent.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>gt_tbl.save(out_tbl_path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>gt_tbl.save(out_tbl_path)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="76f99f27" class="cell" data-execution_count="6">
+<div id="932430b4" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the interactive table</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>gt_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the interactive table</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>gt_tbl</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="6">
-<div>
-<div id="yyhilodcvf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="zwrsevsuos" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#yyhilodcvf table {
+#zwrsevsuos table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#yyhilodcvf thead, tbody, tfoot, tr, td, th { border-style: none; }
+#zwrsevsuos thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#yyhilodcvf p { margin: 0; padding: 0; }
- #yyhilodcvf .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #yyhilodcvf .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #yyhilodcvf .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #yyhilodcvf .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #yyhilodcvf .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #yyhilodcvf .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #yyhilodcvf .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #yyhilodcvf .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #yyhilodcvf .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #yyhilodcvf .gt_column_spanner_outer:first-child { padding-left: 0; }
- #yyhilodcvf .gt_column_spanner_outer:last-child { padding-right: 0; }
- #yyhilodcvf .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #yyhilodcvf .gt_spanner_row { border-bottom-style: hidden; }
- #yyhilodcvf .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #yyhilodcvf .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #yyhilodcvf .gt_from_md> :first-child { margin-top: 0; }
- #yyhilodcvf .gt_from_md> :last-child { margin-bottom: 0; }
- #yyhilodcvf .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #yyhilodcvf .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #yyhilodcvf .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #yyhilodcvf .gt_row_group_first td { border-top-width: 2px; }
- #yyhilodcvf .gt_row_group_first th { border-top-width: 2px; }
- #yyhilodcvf .gt_striped { color: #333333; background-color: #F4F4F4; }
- #yyhilodcvf .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #yyhilodcvf .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
- #yyhilodcvf .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
- #yyhilodcvf .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
- #yyhilodcvf .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #yyhilodcvf .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #yyhilodcvf .gt_left { text-align: left; }
- #yyhilodcvf .gt_center { text-align: center; }
- #yyhilodcvf .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #yyhilodcvf .gt_font_normal { font-weight: normal; }
- #yyhilodcvf .gt_font_bold { font-weight: bold; }
- #yyhilodcvf .gt_font_italic { font-style: italic; }
- #yyhilodcvf .gt_super { font-size: 65%; }
- #yyhilodcvf .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #yyhilodcvf .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#zwrsevsuos p { margin: 0; padding: 0; }
+ #zwrsevsuos .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #zwrsevsuos .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #zwrsevsuos .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #zwrsevsuos .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #zwrsevsuos .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #zwrsevsuos .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #zwrsevsuos .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #zwrsevsuos .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #zwrsevsuos .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #zwrsevsuos .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #zwrsevsuos .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #zwrsevsuos .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #zwrsevsuos .gt_spanner_row { border-bottom-style: hidden; }
+ #zwrsevsuos .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #zwrsevsuos .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #zwrsevsuos .gt_from_md> :first-child { margin-top: 0; }
+ #zwrsevsuos .gt_from_md> :last-child { margin-bottom: 0; }
+ #zwrsevsuos .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #zwrsevsuos .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #zwrsevsuos .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #zwrsevsuos .gt_row_group_first td { border-top-width: 2px; }
+ #zwrsevsuos .gt_row_group_first th { border-top-width: 2px; }
+ #zwrsevsuos .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #zwrsevsuos .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #zwrsevsuos .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #zwrsevsuos .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #zwrsevsuos .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #zwrsevsuos .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #zwrsevsuos .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #zwrsevsuos .gt_left { text-align: left; }
+ #zwrsevsuos .gt_center { text-align: center; }
+ #zwrsevsuos .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #zwrsevsuos .gt_font_normal { font-weight: normal; }
+ #zwrsevsuos .gt_font_bold { font-weight: bold; }
+ #zwrsevsuos .gt_font_italic { font-style: italic; }
+ #zwrsevsuos .gt_super { font-size: 65%; }
+ #zwrsevsuos .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #zwrsevsuos .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
-<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <colgroup>
 <col style="width: 16%">
 <col style="width: 16%">
@@ -610,13 +784,13 @@ div.csl-indent {
 <col style="width: 16%">
 </colgroup>
 <thead>
-<tr class="header gt_heading">
-<th colspan="6" class="gt_heading gt_title gt_font_normal">Google Ngram: "literate programming"</th>
+<tr class="gt_heading header">
+<td colspan="6" class="gt_heading gt_title gt_font_normal">Google Ngram: "literate programming"</td>
 </tr>
-<tr class="odd gt_heading">
-<th colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Decade patterns (1984–2019), per-billion tokens</th>
+<tr class="gt_heading even">
+<td colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Decade patterns (1984–2019), per-billion tokens</td>
 </tr>
-<tr class="header gt_col_headings">
+<tr class="gt_col_headings header">
 <th id="decade" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Decade</th>
 <th id="trend" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Trend (yearly)</th>
 <th id="mean_per_billion" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Mean</th>
@@ -630,9 +804,7 @@ div.csl-indent {
 <td class="gt_row gt_left">1980s</td>
 <td class="gt_row gt_left"><div>
 <svg role="img" viewbox="0 0 400 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;">
-<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs>
-<style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style>
-<path d="M 50.0,115.0 C 75.0,115.0 85.0,115.0 110.0,115.0 C 135.0,115.0 145.0,115.0 170.0,115.0 C 195.0,115.0 205.0,115.0 230.0,115.0 C 255.0,115.0 265.0,93.04123711340206 290.0,93.04123711340206 C 315.0,93.04123711340206 325.0,78.19587628865979 350.0,78.19587628865979" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="95.20618556701031" width="320" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="105.20618556701031" x2="350" y2="105.20618556701031" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="360" y="115.20618556701031" fill="transparent" stroke="transparent" font-size="30px">0.095</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="100.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="120.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="160.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="180.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="220.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="240.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="280.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="300.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.21</text></g><g class="vert-line"><rect x="340.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="360.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.36</text></g>
+<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><path d="M 50.0,115.0 C 75.0,115.0 85.0,115.0 110.0,115.0 C 135.0,115.0 145.0,115.0 170.0,115.0 C 195.0,115.0 205.0,115.0 230.0,115.0 C 255.0,115.0 265.0,93.04123711340206 290.0,93.04123711340206 C 315.0,93.04123711340206 325.0,78.19587628865979 350.0,78.19587628865979" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="95.20618556701031" width="320" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="105.20618556701031" x2="350" y2="105.20618556701031" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="360" y="115.20618556701031" fill="transparent" stroke="transparent" font-size="30px">0.095</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="100.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="120.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="160.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="180.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="220.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="240.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="280.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="300.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.21</text></g><g class="vert-line"><rect x="340.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="360.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.36</text></g>
 </svg>
 </div></td>
 <td class="gt_row gt_right">0.095</td>
@@ -644,9 +816,7 @@ div.csl-indent {
 <td class="gt_row gt_left">1990s</td>
 <td class="gt_row gt_left"><div>
 <svg role="img" viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;">
-<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs>
-<style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style>
-<path d="M 50.0,94.69072164948453 C 75.0,94.69072164948453 80.55555555555554,104.48453608247424 105.55555555555554,104.48453608247424 C 130.55555555555554,104.48453608247424 136.1111111111111,74.58762886597938 161.1111111111111,74.58762886597938 C 186.1111111111111,74.58762886597938 191.66666666666666,94.79381443298969 216.66666666666666,94.79381443298969 C 241.66666666666666,94.79381443298969 247.22222222222217,90.05154639175258 272.2222222222222,90.05154639175258 C 297.2222222222222,90.05154639175258 302.77777777777777,61.8041237113402 327.77777777777777,61.8041237113402 C 352.77777777777777,61.8041237113402 358.3333333333333,95.41237113402062 383.3333333333333,95.41237113402062 C 408.3333333333333,95.41237113402062 413.8888888888889,90.25773195876289 438.8888888888889,90.25773195876289 C 463.8888888888889,90.25773195876289 469.4444444444444,47.06185567010309 494.4444444444444,47.06185567010309 C 519.4444444444443,47.06185567010309 525.0,67.16494845360825 550.0,67.16494845360825" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="72.03092783505154" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="82.03092783505154" x2="550" y2="82.03092783505154" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="92.03092783505154" fill="transparent" stroke="transparent" font-size="30px">0.32</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.20</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.10</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.39</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.20</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.52</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0.19</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.66</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.46</text></g>
+<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><path d="M 50.0,94.69072164948453 C 75.0,94.69072164948453 80.55555555555554,104.48453608247424 105.55555555555554,104.48453608247424 C 130.55555555555554,104.48453608247424 136.1111111111111,74.58762886597938 161.1111111111111,74.58762886597938 C 186.1111111111111,74.58762886597938 191.66666666666666,94.79381443298969 216.66666666666666,94.79381443298969 C 241.66666666666666,94.79381443298969 247.22222222222217,90.05154639175258 272.2222222222222,90.05154639175258 C 297.2222222222222,90.05154639175258 302.77777777777777,61.8041237113402 327.77777777777777,61.8041237113402 C 352.77777777777777,61.8041237113402 358.3333333333333,95.41237113402062 383.3333333333333,95.41237113402062 C 408.3333333333333,95.41237113402062 413.8888888888889,90.25773195876289 438.8888888888889,90.25773195876289 C 463.8888888888889,90.25773195876289 469.4444444444444,47.06185567010309 494.4444444444444,47.06185567010309 C 519.4444444444443,47.06185567010309 525.0,67.16494845360825 550.0,67.16494845360825" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="72.03092783505154" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="82.03092783505154" x2="550" y2="82.03092783505154" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="92.03092783505154" fill="transparent" stroke="transparent" font-size="30px">0.32</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.20</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.10</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.39</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.20</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.52</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0.19</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.66</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.46</text></g>
 </svg>
 </div></td>
 <td class="gt_row gt_right">0.320</td>
@@ -658,9 +828,7 @@ div.csl-indent {
 <td class="gt_row gt_left">2000s</td>
 <td class="gt_row gt_left"><div>
 <svg role="img" viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;">
-<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs>
-<style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style>
-<path d="M 50.0,53.76288659793815 C 75.0,53.76288659793815 80.55555555555554,79.84536082474226 105.55555555555554,79.84536082474226 C 130.55555555555554,79.84536082474226 136.1111111111111,90.25773195876289 161.1111111111111,90.25773195876289 C 186.1111111111111,90.25773195876289 191.66666666666666,103.14432989690721 216.66666666666666,103.14432989690721 C 241.66666666666666,103.14432989690721 247.22222222222217,61.082474226804116 272.2222222222222,61.082474226804116 C 297.2222222222222,61.082474226804116 302.77777777777777,90.56701030927834 327.77777777777777,90.56701030927834 C 352.77777777777777,90.56701030927834 358.3333333333333,107.16494845360825 383.3333333333333,107.16494845360825 C 408.3333333333333,107.16494845360825 413.8888888888889,92.0103092783505 438.8888888888889,92.0103092783505 C 463.8888888888889,92.0103092783505 469.4444444444444,92.31958762886599 494.4444444444444,92.31958762886599 C 519.4444444444443,92.31958762886599 525.0,103.24742268041237 550.0,103.24742268041237" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="77.34020618556701" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="87.34020618556701" x2="550" y2="87.34020618556701" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="97.34020618556701" fill="transparent" stroke="transparent" font-size="30px">0.27</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.59</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.34</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.52</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0.076</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.11</text></g>
+<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><path d="M 50.0,53.76288659793815 C 75.0,53.76288659793815 80.55555555555554,79.84536082474226 105.55555555555554,79.84536082474226 C 130.55555555555554,79.84536082474226 136.1111111111111,90.25773195876289 161.1111111111111,90.25773195876289 C 186.1111111111111,90.25773195876289 191.66666666666666,103.14432989690721 216.66666666666666,103.14432989690721 C 241.66666666666666,103.14432989690721 247.22222222222217,61.082474226804116 272.2222222222222,61.082474226804116 C 297.2222222222222,61.082474226804116 302.77777777777777,90.56701030927834 327.77777777777777,90.56701030927834 C 352.77777777777777,90.56701030927834 358.3333333333333,107.16494845360825 383.3333333333333,107.16494845360825 C 408.3333333333333,107.16494845360825 413.8888888888889,92.0103092783505 438.8888888888889,92.0103092783505 C 463.8888888888889,92.0103092783505 469.4444444444444,92.31958762886599 494.4444444444444,92.31958762886599 C 519.4444444444443,92.31958762886599 525.0,103.24742268041237 550.0,103.24742268041237" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="77.34020618556701" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="87.34020618556701" x2="550" y2="87.34020618556701" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="97.34020618556701" fill="transparent" stroke="transparent" font-size="30px">0.27</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.59</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.34</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.52</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0.076</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.11</text></g>
 </svg>
 </div></td>
 <td class="gt_row gt_right">0.268</td>
@@ -672,9 +840,7 @@ div.csl-indent {
 <td class="gt_row gt_left">2010s</td>
 <td class="gt_row gt_left"><div>
 <svg role="img" viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;">
-<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs>
-<style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style>
-<path d="M 50.0,115.0 C 75.0,115.0 80.55555555555554,102.9381443298969 105.55555555555554,102.9381443298969 C 130.55555555555554,102.9381443298969 136.1111111111111,92.93814432989691 161.1111111111111,92.93814432989691 C 186.1111111111111,92.93814432989691 191.66666666666666,80.77319587628865 216.66666666666666,80.77319587628865 C 241.66666666666666,80.77319587628865 247.22222222222217,100.87628865979381 272.2222222222222,100.87628865979381 C 297.2222222222222,100.87628865979381 302.77777777777777,102.83505154639175 327.77777777777777,102.83505154639175 C 352.77777777777777,102.83505154639175 358.3333333333333,115.0 383.3333333333333,115.0 C 408.3333333333333,115.0 413.8888888888889,99.22680412371135 438.8888888888889,99.22680412371135 C 463.8888888888889,99.22680412371135 469.4444444444444,102.62886597938144 494.4444444444444,102.62886597938144 C 519.4444444444443,102.62886597938144 525.0,15.0 550.0,15.0" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="82.72164948453609" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="92.72164948453609" x2="550" y2="92.72164948453609" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="102.72164948453609" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.21</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.33</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.14</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.15</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.97</text></g>
+<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><path d="M 50.0,115.0 C 75.0,115.0 80.55555555555554,102.9381443298969 105.55555555555554,102.9381443298969 C 130.55555555555554,102.9381443298969 136.1111111111111,92.93814432989691 161.1111111111111,92.93814432989691 C 186.1111111111111,92.93814432989691 191.66666666666666,80.77319587628865 216.66666666666666,80.77319587628865 C 241.66666666666666,80.77319587628865 247.22222222222217,100.87628865979381 272.2222222222222,100.87628865979381 C 297.2222222222222,100.87628865979381 302.77777777777777,102.83505154639175 327.77777777777777,102.83505154639175 C 352.77777777777777,102.83505154639175 358.3333333333333,115.0 383.3333333333333,115.0 C 408.3333333333333,115.0 413.8888888888889,99.22680412371135 438.8888888888889,99.22680412371135 C 463.8888888888889,99.22680412371135 469.4444444444444,102.62886597938144 494.4444444444444,102.62886597938144 C 519.4444444444443,102.62886597938144 525.0,15.0 550.0,15.0" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="82.72164948453609" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="92.72164948453609" x2="550" y2="92.72164948453609" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="102.72164948453609" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.21</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.33</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.14</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.15</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.97</text></g>
 </svg>
 </div></td>
 <td class="gt_row gt_right">0.216</td>
@@ -687,15 +853,13 @@ div.csl-indent {
 
 
 </div>
-        
-</div>
 </div>
 </div>
 <p>You can also display plots. Here, I’m using <a href="https://plotnine.org/">plotnine</a> which is a Python version of the <a href="https://ggplot2.tidyverse.org/">ggplot2</a> data visualisation library in R.</p>
-<div id="ff39ae9f" class="cell" data-execution_count="7">
+<div id="434ccae2" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save as a real PNG (Typst has trouble with the auto-generated SVG here)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save as a real PNG (Typst has trouble with the auto-generated SVG here)</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>out_path <span class="op">=</span> IMAGES_DIR <span class="op">/</span> <span class="st">"ngram_literate_programming.png"</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>out_path.parent.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -710,14 +874,14 @@ div.csl-indent {
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> theme_gray()</span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>p.save(out_path, dpi<span class="op">=</span><span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>p.save(out_path, dpi<span class="op">=</span><span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="70ccfb78" class="cell" data-execution_count="8">
+<div id="5f9af162" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the plot</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the plot</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
@@ -728,10 +892,10 @@ div.csl-indent {
 </div>
 </div>
 <p>You can also display interactive maps. Here, I’m using the <code>IPyLeaflet</code> library to display a map of Cambridge, UK, the home of Acorn Computers, and birthplace of the BBC Microcomputer.</p>
-<div id="2b62edbf" class="cell" data-execution_count="9">
+<div id="170d787b" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipyleaflet <span class="im">import</span> Map, Marker</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipyleaflet <span class="im">import</span> Map, Marker</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> Map()</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -742,11 +906,11 @@ div.csl-indent {
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>marker <span class="op">=</span> Marker(location<span class="op">=</span>center)</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>m.add(marker)<span class="op">;</span></span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>display(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>display(m)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"ea0bee482dae4c138f80ab3d8910266d","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"f026f8b4cabe4fdda01d95d8ef229e9d","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 <p><code>IPyLeaflet</code> map of Cambridge, UK</p>
 </div>
@@ -905,7 +1069,7 @@ format: gfm
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-gazzard2016" class="csl-entry" role="listitem">
 Gazzard, A. 2016. <em>Now the Chips Are down: The BBC Micro</em>. The MIT Press.
 </div>
@@ -913,7 +1077,7 @@ Gazzard, A. 2016. <em>Now the Chips Are down: The BBC Micro</em>. The MIT Press.
 Granger, B. E., and F. Pérez. 2021. <span>“Jupyter: Thinking and Storytelling with Code and Data.”</span> <em>Computing in Science &amp; Engineering</em> 23 (2): 7–14. <a href="https://doi.org/10.1109/MCSE.2021.3059263">https://doi.org/10.1109/MCSE.2021.3059263</a>.
 </div>
 <div id="ref-kluyver2016" class="csl-entry" role="listitem">
-Kluyver, T., B. Ragan-Kelley, F. Pérez, B. Granger, M. Bussonnier, J. Frederic, K. Kelley, et al. 2016. <span>“Jupyter Notebooks – a Publication Format for Reproducible Computational Workflows.”</span> In <em>Positioning and Power in Academic Publishing: Players, Agents and Agendas</em>, edited by F. Loizides and B. Schmidt.
+Kluyver, T., B. Ragan-Kelley, F. Pérez, et al. 2016. <span>“Jupyter Notebooks – a Publication Format for Reproducible Computational Workflows.”</span> In <em>Positioning and Power in Academic Publishing: Players, Agents and Agendas</em>, edited by F. Loizides and B. Schmidt.
 </div>
 <div id="ref-knuth1984" class="csl-entry" role="listitem">
 Knuth, D. E. 1984. <span>“Literate Programming.”</span> <em>The Computer Journal</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
@@ -922,59 +1086,87 @@ Knuth, D. E. 1984. <span>“Literate Programming.”</span> <em>The Computer Jou
 Nelson, C. 2024. <em>Software Engineering for Data Scientists: From Notebooks to Scalable Systems</em>. O’Reilly.
 </div>
 <div id="ref-orwell1945" class="csl-entry" role="listitem">
-Orwell, G. 1945. <em>Politics and the English Language</em>. London: Penguin Books.
+Orwell, G. 1945. <em>Politics and the English Language</em>. Penguin Books.
 </div>
 <div id="ref-perez2007" class="csl-entry" role="listitem">
 Pérez, F., and B. E. Granger. 2007. <span>“IPython: A System for Interactive Scientific Computing.”</span> <em>Computing in Science &amp; Engineering</em> 9 (3): 21–29. <a href="https://doi.org/10.1109/MCSE.2007.53">https://doi.org/10.1109/MCSE.2007.53</a>.
 </div>
 <div id="ref-pimentel2019" class="csl-entry" role="listitem">
-Pimentel, J. F., L. Murta, V. Braganholo, and J. Friere. 2019. <span>“A Large-Scale Study about Quality and Reproducibility of Jupyter Notebooks.”</span> In <em>IEEE/ACM 16th International Conference on Mining Software Repositories</em>, 507–17. Montreal, QC, Canada. <a href="https://doi.org/10.1109/MSR.2019.00077">https://doi.org/10.1109/MSR.2019.00077</a>.
+Pimentel, J. F., L. Murta, V. Braganholo, and J. Friere. 2019. <span>“A Large-Scale Study about Quality and Reproducibility of Jupyter Notebooks.”</span> <em>IEEE/ACM 16th International Conference on Mining Software Repositories</em> (Montreal, QC, Canada), 507–17. <a href="https://doi.org/10.1109/MSR.2019.00077">https://doi.org/10.1109/MSR.2019.00077</a>.
 </div>
 <div id="ref-snow1959" class="csl-entry" role="listitem">
-Snow, C. P. 1959. <em>The Two Cultures and the Scientific Revolution</em>. New York: Cambridge University Press.
+Snow, C. P. 1959. <em>The Two Cultures and the Scientific Revolution</em>. Cambridge University Press.
 </div>
 </div></section></div></main> <!-- /main -->
 <script type="application/vnd.jupyter.widget-state+json">
-{"state":{"0ec02b6cd93f4be3acb8d481cfa351db":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapModel","state":{"_dom_classes":[],"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMapView","bottom":0,"bounce_at_zoom_limits":true,"box_zoom":true,"center":[0,0],"close_popup_on_click":true,"controls":["IPY_MODEL_62620057e16545ddbc412c813ea4dca8","IPY_MODEL_3fa89005651e4f14ac7d411563d269d8"],"crs":{"custom":false,"name":"EPSG3857"},"default_style":"IPY_MODEL_9574ee66ac8f4151931fdbfdc53e3268","double_click_zoom":true,"dragging":true,"dragging_style":"IPY_MODEL_fe9254ae0bcd42aba0e6db675a24053c","east":0,"fullscreen":false,"inertia":true,"inertia_deceleration":3000,"inertia_max_speed":1500,"interpolation":"bilinear","keyboard":true,"keyboard_pan_offset":80,"keyboard_zoom_offset":1,"layers":["IPY_MODEL_b3c2da571a4b43008f8fa9e1479c78ce"],"layout":"IPY_MODEL_fc700e9165ab40a4b45568f30d03951d","left":9007199254740991,"max_zoom":null,"min_zoom":null,"modisdate":"2026-04-10","north":0,"options":["bounce_at_zoom_limits","box_zoom","center","close_popup_on_click","double_click_zoom","dragging","fullscreen","inertia","inertia_deceleration","inertia_max_speed","interpolation","keyboard","keyboard_pan_offset","keyboard_zoom_offset","max_zoom","min_zoom","prefer_canvas","scroll_wheel_zoom","tap","tap_tolerance","touch_zoom","world_copy_jump","zoom","zoom_animation_threshold","zoom_delta","zoom_snap"],"panes":{},"prefer_canvas":false,"right":0,"scroll_wheel_zoom":false,"south":0,"style":"IPY_MODEL_61a9c4e01d08416eb993106dcdae6fb5","tabbable":null,"tap":true,"tap_tolerance":15,"tooltip":null,"top":9007199254740991,"touch_zoom":true,"west":0,"window_url":"","world_copy_jump":false,"zoom":4,"zoom_animation_threshold":4,"zoom_delta":1,"zoom_snap":1}},"15e9ba30d1a64dde804861285ae0f432":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"3fa89005651e4f14ac7d411563d269d8":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletAttributionControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletAttributionControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletAttributionControlView","options":["position","prefix"],"position":"bottomright","prefix":"ipyleaflet"}},"5ed7731e65c142a59ad65928f731c770":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletTileLayerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletTileLayerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletTileLayerView","attribution":"&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors","base":true,"bottom":true,"bounds":null,"detect_retina":false,"loading":false,"max_native_zoom":null,"max_zoom":19,"min_native_zoom":null,"min_zoom":1,"name":"OpenStreetMap.Mapnik","no_wrap":false,"opacity":1,"options":["attribution","bounds","detect_retina","max_native_zoom","max_zoom","min_native_zoom","min_zoom","no_wrap","pm_ignore","tile_size","tms","zoom_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"show_loading":false,"snap_ignore":true,"subitems":[],"tile_size":256,"tms":false,"url":"https://tile.openstreetmap.org/{z}/{x}/{y}.png","visible":true,"zoom_offset":0}},"61a9c4e01d08416eb993106dcdae6fb5":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"62620057e16545ddbc412c813ea4dca8":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletZoomControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletZoomControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletZoomControlView","options":["position","zoom_in_text","zoom_in_title","zoom_out_text","zoom_out_title"],"position":"topleft","zoom_in_text":"+","zoom_in_title":"Zoom in","zoom_out_text":"-","zoom_out_title":"Zoom out"}},"6f1251da97c44943b431e787bec41fa6":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"70b233787faa4334949393a0874aae3a":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"9574ee66ac8f4151931fdbfdc53e3268":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"b3c2da571a4b43008f8fa9e1479c78ce":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletTileLayerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletTileLayerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletTileLayerView","attribution":"&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors","base":true,"bottom":true,"bounds":null,"detect_retina":false,"loading":false,"max_native_zoom":null,"max_zoom":19,"min_native_zoom":null,"min_zoom":1,"name":"OpenStreetMap.Mapnik","no_wrap":false,"opacity":1,"options":["attribution","bounds","detect_retina","max_native_zoom","max_zoom","min_native_zoom","min_zoom","no_wrap","pm_ignore","tile_size","tms","zoom_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"show_loading":false,"snap_ignore":true,"subitems":[],"tile_size":256,"tms":false,"url":"https://tile.openstreetmap.org/{z}/{x}/{y}.png","visible":true,"zoom_offset":0}},"b9787917b50947b695a0736d8590da44":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletZoomControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletZoomControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletZoomControlView","options":["position","zoom_in_text","zoom_in_title","zoom_out_text","zoom_out_title"],"position":"topleft","zoom_in_text":"+","zoom_in_title":"Zoom in","zoom_out_text":"-","zoom_out_title":"Zoom out"}},"bc9f8bce87e349f3988eedf7a4ddd2c5":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMarkerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMarkerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMarkerView","alt":"","base":false,"bottom":false,"draggable":true,"icon":null,"keyboard":true,"location":[52.204793,360.121558],"name":"","opacity":1,"options":["alt","draggable","keyboard","pm_ignore","rise_offset","rise_on_hover","rotation_angle","rotation_origin","title","z_index_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"rise_offset":250,"rise_on_hover":false,"rotation_angle":0,"rotation_origin":"","snap_ignore":true,"subitems":[],"title":"","visible":true,"z_index_offset":0}},"d278e1ebc4934038b0b71854a73a5b52":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"move"}},"ea0bee482dae4c138f80ab3d8910266d":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapModel","state":{"_dom_classes":[],"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMapView","bottom":0,"bounce_at_zoom_limits":true,"box_zoom":true,"center":[52.204793,360.121558],"close_popup_on_click":true,"controls":["IPY_MODEL_b9787917b50947b695a0736d8590da44","IPY_MODEL_ed1c23806fb742728e1f609ff366e35f"],"crs":{"custom":false,"name":"EPSG3857"},"default_style":"IPY_MODEL_70b233787faa4334949393a0874aae3a","double_click_zoom":true,"dragging":true,"dragging_style":"IPY_MODEL_d278e1ebc4934038b0b71854a73a5b52","east":0,"fullscreen":false,"inertia":true,"inertia_deceleration":3000,"inertia_max_speed":1500,"interpolation":"bilinear","keyboard":true,"keyboard_pan_offset":80,"keyboard_zoom_offset":1,"layers":["IPY_MODEL_5ed7731e65c142a59ad65928f731c770","IPY_MODEL_bc9f8bce87e349f3988eedf7a4ddd2c5"],"layout":"IPY_MODEL_15e9ba30d1a64dde804861285ae0f432","left":9007199254740991,"max_zoom":null,"min_zoom":null,"modisdate":"2026-04-10","north":0,"options":["bounce_at_zoom_limits","box_zoom","center","close_popup_on_click","double_click_zoom","dragging","fullscreen","inertia","inertia_deceleration","inertia_max_speed","interpolation","keyboard","keyboard_pan_offset","keyboard_zoom_offset","max_zoom","min_zoom","prefer_canvas","scroll_wheel_zoom","tap","tap_tolerance","touch_zoom","world_copy_jump","zoom","zoom_animation_threshold","zoom_delta","zoom_snap"],"panes":{},"prefer_canvas":false,"right":0,"scroll_wheel_zoom":false,"south":0,"style":"IPY_MODEL_6f1251da97c44943b431e787bec41fa6","tabbable":null,"tap":true,"tap_tolerance":15,"tooltip":null,"top":9007199254740991,"touch_zoom":true,"west":0,"window_url":"","world_copy_jump":false,"zoom":15,"zoom_animation_threshold":4,"zoom_delta":1,"zoom_snap":1}},"ed1c23806fb742728e1f609ff366e35f":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletAttributionControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletAttributionControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletAttributionControlView","options":["position","prefix"],"position":"bottomright","prefix":"ipyleaflet"}},"fc700e9165ab40a4b45568f30d03951d":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"fe9254ae0bcd42aba0e6db675a24053c":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"move"}}},"version_major":2,"version_minor":0}
+{"state":{"36a4a6a14c0942ceab41794f650a8296":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"move"}},"36e29e7e2cff4d50bec4bc238e1fa15c":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"4aaf9c2cccef4ad2a72852f1993c4e68":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletZoomControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletZoomControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletZoomControlView","options":["position","zoom_in_text","zoom_in_title","zoom_out_text","zoom_out_title"],"position":"topleft","zoom_in_text":"+","zoom_in_title":"Zoom in","zoom_out_text":"-","zoom_out_title":"Zoom out"}},"55bb82b62b304836b107c37afe8048fc":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapModel","state":{"_dom_classes":[],"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMapView","bottom":0,"bounce_at_zoom_limits":true,"box_zoom":true,"center":[0,0],"close_popup_on_click":true,"controls":["IPY_MODEL_4aaf9c2cccef4ad2a72852f1993c4e68","IPY_MODEL_8d439f8aa1f14f1795a843c653cbb1c6"],"crs":{"custom":false,"name":"EPSG3857"},"default_style":"IPY_MODEL_f0e18a5e1db94f99a74be6e8b40aac0f","double_click_zoom":true,"dragging":true,"dragging_style":"IPY_MODEL_36a4a6a14c0942ceab41794f650a8296","east":0,"fullscreen":false,"inertia":true,"inertia_deceleration":3000,"inertia_max_speed":1500,"interpolation":"bilinear","keyboard":true,"keyboard_pan_offset":80,"keyboard_zoom_offset":1,"layers":["IPY_MODEL_cbc0b9f21361453a984eeaa90757c18f"],"layout":"IPY_MODEL_966f2b971d354df0b5b2c64e97be27f4","left":9007199254740991,"max_zoom":null,"min_zoom":null,"modisdate":"2026-07-07","north":0,"options":["bounce_at_zoom_limits","box_zoom","center","close_popup_on_click","double_click_zoom","dragging","fullscreen","inertia","inertia_deceleration","inertia_max_speed","interpolation","keyboard","keyboard_pan_offset","keyboard_zoom_offset","max_zoom","min_zoom","prefer_canvas","scroll_wheel_zoom","tap","tap_tolerance","touch_zoom","world_copy_jump","zoom","zoom_animation_threshold","zoom_delta","zoom_snap"],"panes":{},"prefer_canvas":false,"right":0,"scroll_wheel_zoom":false,"south":0,"style":"IPY_MODEL_c0e17428794f49529f935fb2d9a095d6","tabbable":null,"tap":true,"tap_tolerance":15,"tooltip":null,"top":9007199254740991,"touch_zoom":true,"west":0,"window_url":"","world_copy_jump":false,"zoom":4,"zoom_animation_threshold":4,"zoom_delta":1,"zoom_snap":1}},"5d12c7ff9a8841a0a857997191f53262":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletAttributionControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletAttributionControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletAttributionControlView","options":["position","prefix"],"position":"bottomright","prefix":"ipyleaflet"}},"72c3c311ea60435ba15f86e71f78d42d":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMarkerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMarkerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMarkerView","alt":"","base":false,"bottom":false,"draggable":true,"icon":null,"keyboard":true,"location":[52.204793,360.121558],"name":"","opacity":1,"options":["alt","draggable","keyboard","pm_ignore","rise_offset","rise_on_hover","rotation_angle","rotation_origin","title","z_index_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"rise_offset":250,"rise_on_hover":false,"rotation_angle":0,"rotation_origin":"","snap_ignore":true,"subitems":[],"title":"","visible":true,"z_index_offset":0}},"84691414d0e2458191313f39259f2f16":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletZoomControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletZoomControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletZoomControlView","options":["position","zoom_in_text","zoom_in_title","zoom_out_text","zoom_out_title"],"position":"topleft","zoom_in_text":"+","zoom_in_title":"Zoom in","zoom_out_text":"-","zoom_out_title":"Zoom out"}},"8d439f8aa1f14f1795a843c653cbb1c6":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletAttributionControlModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletAttributionControlModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletAttributionControlView","options":["position","prefix"],"position":"bottomright","prefix":"ipyleaflet"}},"94818c8c438f4fca8c42512d5e244cdb":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"966f2b971d354df0b5b2c64e97be27f4":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"b7150f33d2214f4dabd816f5f746a6ed":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"move"}},"c0e17428794f49529f935fb2d9a095d6":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"c6ccbce28812400d96ef103aff3ca876":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}},"cbc0b9f21361453a984eeaa90757c18f":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletTileLayerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletTileLayerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletTileLayerView","attribution":"&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors","base":true,"bottom":true,"bounds":null,"detect_retina":false,"loading":false,"max_native_zoom":null,"max_zoom":19,"min_native_zoom":null,"min_zoom":1,"name":"OpenStreetMap.Mapnik","no_wrap":false,"opacity":1,"options":["attribution","bounds","detect_retina","max_native_zoom","max_zoom","min_native_zoom","min_zoom","no_wrap","pm_ignore","tile_size","tms","zoom_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"show_loading":false,"snap_ignore":true,"subitems":[],"tile_size":256,"tms":false,"url":"https://tile.openstreetmap.org/{z}/{x}/{y}.png","visible":true,"zoom_offset":0}},"e7c20339d9ea4052ab92289d509e87a0":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletTileLayerModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletTileLayerModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletTileLayerView","attribution":"&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors","base":true,"bottom":true,"bounds":null,"detect_retina":false,"loading":false,"max_native_zoom":null,"max_zoom":19,"min_native_zoom":null,"min_zoom":1,"name":"OpenStreetMap.Mapnik","no_wrap":false,"opacity":1,"options":["attribution","bounds","detect_retina","max_native_zoom","max_zoom","min_native_zoom","min_zoom","no_wrap","pm_ignore","tile_size","tms","zoom_offset"],"pane":"","pm_ignore":true,"popup":null,"popup_max_height":null,"popup_max_width":300,"popup_min_width":50,"show_loading":false,"snap_ignore":true,"subitems":[],"tile_size":256,"tms":false,"url":"https://tile.openstreetmap.org/{z}/{x}/{y}.png","visible":true,"zoom_offset":0}},"f026f8b4cabe4fdda01d95d8ef229e9d":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapModel","state":{"_dom_classes":[],"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapModel","_view_count":null,"_view_module":"jupyter-leaflet","_view_module_version":"^0.20","_view_name":"LeafletMapView","bottom":0,"bounce_at_zoom_limits":true,"box_zoom":true,"center":[52.204793,360.121558],"close_popup_on_click":true,"controls":["IPY_MODEL_84691414d0e2458191313f39259f2f16","IPY_MODEL_5d12c7ff9a8841a0a857997191f53262"],"crs":{"custom":false,"name":"EPSG3857"},"default_style":"IPY_MODEL_c6ccbce28812400d96ef103aff3ca876","double_click_zoom":true,"dragging":true,"dragging_style":"IPY_MODEL_b7150f33d2214f4dabd816f5f746a6ed","east":0,"fullscreen":false,"inertia":true,"inertia_deceleration":3000,"inertia_max_speed":1500,"interpolation":"bilinear","keyboard":true,"keyboard_pan_offset":80,"keyboard_zoom_offset":1,"layers":["IPY_MODEL_e7c20339d9ea4052ab92289d509e87a0","IPY_MODEL_72c3c311ea60435ba15f86e71f78d42d"],"layout":"IPY_MODEL_36e29e7e2cff4d50bec4bc238e1fa15c","left":9007199254740991,"max_zoom":null,"min_zoom":null,"modisdate":"2026-07-07","north":0,"options":["bounce_at_zoom_limits","box_zoom","center","close_popup_on_click","double_click_zoom","dragging","fullscreen","inertia","inertia_deceleration","inertia_max_speed","interpolation","keyboard","keyboard_pan_offset","keyboard_zoom_offset","max_zoom","min_zoom","prefer_canvas","scroll_wheel_zoom","tap","tap_tolerance","touch_zoom","world_copy_jump","zoom","zoom_animation_threshold","zoom_delta","zoom_snap"],"panes":{},"prefer_canvas":false,"right":0,"scroll_wheel_zoom":false,"south":0,"style":"IPY_MODEL_94818c8c438f4fca8c42512d5e244cdb","tabbable":null,"tap":true,"tap_tolerance":15,"tooltip":null,"top":9007199254740991,"touch_zoom":true,"west":0,"window_url":"","world_copy_jump":false,"zoom":15,"zoom_animation_threshold":4,"zoom_delta":1,"zoom_snap":1}},"f0e18a5e1db94f99a74be6e8b40aac0f":{"model_module":"jupyter-leaflet","model_module_version":"^0.20","model_name":"LeafletMapStyleModel","state":{"_model_module":"jupyter-leaflet","_model_module_version":"^0.20","_model_name":"LeafletMapStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","cursor":"grab"}}},"version_major":2,"version_minor":0}
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -982,162 +1174,184 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/www\.carecodeconnect\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        return container.innerHTML
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1145,185 +1359,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 
 

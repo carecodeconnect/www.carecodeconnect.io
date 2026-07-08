@@ -21,3 +21,5 @@ To learn about us, explore our:
 - [Testimonials](testimonials.qmd): what our collaborators say about us
 
 This home page was made with ❤️ using [Python](https://www.python.org/), [Quarto](https://quarto.org/), and deployed with [GitHub Actions](https://docs.github.com/en/actions).
+
+<a href="https://github.com/carecodeconnect/www.carecodeconnect.io/" title="View the source on GitHub" aria-label="View the source on GitHub"><i class="bi bi-github" style="font-size: 1.5rem;"></i> Source on GitHub</a>

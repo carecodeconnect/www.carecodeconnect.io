@@ -1,0 +1,112 @@
+/*-- scss:defaults --*/
+
+// ---------------------------------------------------------------------------
+// carecodeconnect — retro serif + mono, GRUVBOX DARK
+// Same typography as theme.scss; classic gruvbox dark ground + bright accents.
+// Activated by the navbar light/dark toggle.
+// ---------------------------------------------------------------------------
+
+$web-font-path: "https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap";
+
+// --- Gruvbox dark palette --------------------------------------------------
+$gb-bg0:     #282828;  // ground
+$gb-bg1:     #3c3836;  // panels
+$gb-bg2:     #504945;  // subtle borders
+$gb-fg0:     #fbf1c7;  // strongest text
+$gb-fg1:     #ebdbb2;  // body text
+$gb-gray:    #a89984;  // muted / metadata
+$gb-red:     #fb4934;
+$gb-green:   #b8bb26;
+$gb-yellow:  #fabd2f;
+$gb-blue:    #83a598;
+$gb-aqua:    #8ec07c;
+$gb-orange:  #fe8019;
+
+// --- Map to Bootstrap / Quarto --------------------------------------------
+$body-bg:      $gb-bg0;
+$body-color:   $gb-fg1;
+$link-color:   $gb-blue;
+$border-color: $gb-bg2;
+
+$font-family-serif:     "EB Garamond", Palatino, "Palatino Linotype", Georgia, serif;
+$font-family-monospace: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+$font-family-sans-serif: #{$font-family-serif};
+$font-family-base:       #{$font-family-serif};
+$headings-font-family:   "IBM Plex Mono", monospace;
+$headings-color:         $gb-fg0;
+
+$font-size-root:    20px;
+$line-height-base:  1.6;
+$headings-font-weight: 600;
+$headings-line-height: 1.25;
+$h1-font-size: 2.1rem;
+$h2-font-size: 1.55rem;
+$h3-font-size: 1.2rem;
+
+/*-- scss:rules --*/
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6,
+.quarto-title h1.title { letter-spacing: -0.01em; }
+
+h1.title, h1:not(.title), h2 {
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid $border-color;
+}
+
+.navbar {
+  border-bottom: 1px solid $gb-orange;
+  background-color: $gb-bg1 !important;
+}
+.navbar-brand, .navbar .nav-link {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.navbar-brand::before { content: "~/ "; color: $gb-orange; opacity: 0.9; }
+.navbar .nav-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+a { text-decoration-thickness: 1px; text-underline-offset: 2px; }
+
+code:not(.sourceCode), p code, li code {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85em;
+  color: $gb-orange;
+  background-color: rgba(254, 128, 25, 0.12);
+  padding: 0.05em 0.35em;
+  border-radius: 2px;
+}
+
+div.sourceCode, pre.sourceCode {
+  border: 1px solid $gb-bg2;
+  border-radius: 3px;
+  background-color: $gb-bg1;
+}
+
+.listing-date, .listing-category, .quarto-categories .quarto-category,
+.quarto-title-meta, .page-columns .date {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  color: $gb-gray;
+}
+.quarto-categories .quarto-category, .listing-category {
+  border: 1px solid $gb-bg2;
+  border-radius: 2px;
+  padding: 0.05em 0.4em;
+  text-transform: lowercase;
+}
+.listing-title { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+
+blockquote { border-left: 3px solid $gb-yellow; font-style: italic; color: $gb-gray; }
+
+hr { border-top: 1px solid $border-color; opacity: 1; }
+
+.nav-footer {
+  border-top: 1px solid $border-color;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+}

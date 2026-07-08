@@ -9,7 +9,7 @@
 <link>https://www.carecodeconnect.io/blog.html</link>
 <atom:link href="https://www.carecodeconnect.io/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Revisioning data science for the age of AI</description>
-<generator>quarto-1.5.6</generator>
+<generator>quarto-1.10.14</generator>
 <lastBuildDate>Sun, 01 Mar 2026 00:00:00 GMT</lastBuildDate>
 <item>
   <title>In Praise of Documentation: Tools, Tips &amp; Techniques for Literate Programming in the AI Age</title>
@@ -19,10 +19,11 @@
 
 
 
-<div id="312a5b3a" class="cell" data-execution_count="1">
+
+<div id="f9bddf8d" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Python package imports</span></span>
 <span id="cb1-2"></span>
@@ -54,7 +55,7 @@ font-style: inherit;">import</span> GT</span>
 background-color: null;
 font-style: inherit;">from</span> plotnine <span class="im" style="color: #00769E;
 background-color: null;
-font-style: inherit;">import</span> ggplot, aes, geom_line, labs, theme_gray</span></code></pre></div>
+font-style: inherit;">import</span> ggplot, aes, geom_line, labs, theme_gray</span></code></pre></div></div>
 </details>
 </div>
 <p>This talk is in praise of documentation in data science and software engineering. By the end, I hope to have convinced you that documentation is a good thing, and that if you want your code to be used, you should document your code. I’ll explore tools for “literate programming”, where we create “computational narrative”, as well as tips for writing well. It turns out that writing documentation is becoming more important in the age of AI.</p>
@@ -162,10 +163,10 @@ font-style: inherit;">import</span> ggplot, aes, geom_line, labs, theme_gray</sp
 <p>Literate programming is perhaps the most commonly recommended <em>genre</em> or <em>style</em> of computer programming for data science. In literate programming, written prose is interspersed with computer code, within the same document, called a “notebook”. Notebooks can be run locally (e.g.&nbsp;a Jupyter <code>.ipynb</code> file) or in cloud environments (e.g.&nbsp;<a href="https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-development-using-notebooks">Azure Synapse</a>, <a href="https://docs.databricks.com/aws/en/notebooks/">Databricks</a>, or <a href="https://colab.research.google.com/notebook">Google Colab</a>).</p>
 <p>The popularity of the “notebook” format for data science makes sense, because data science involves scientific programming, and the structure advocated for literate programming resembles scientific writing - especially the genre of the scientific laboratory report. This report style is commonly structured into Introduction, Method, Results, and Conclusion sections. The “notebook” allows the data scientist to use a similar scientific report format. This is suitable for data exploration, experimentation, and communicating the results of research - especially reporting the findings of data analysis or machine learning experiments. Really, then, the argument for better documentation is an argument for better scientific research practice.</p>
 <p>Quarto is a similar tool for literate programming, especially for scientific computing, where data analysis is presented within a report. For example, the following “code cell” executes a Python kernel (a virtual environment, in this case, using <a href="https://docs.astral.sh/uv/">uv</a>), which in turn executes the <code>print</code> function, and the output of that function is displayed within the rendered document.</p>
-<div id="8945fe26" class="cell" data-execution_count="2">
+<div id="7d3fc9ae" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">"""</span></span>
 <span id="cb2-2"><span class="co" style="color: #5E5E5E;
@@ -215,7 +216,7 @@ font-style: inherit;">Four</span><span class="ch" style="color: #20794D;
 background-color: null;
 font-style: inherit;">\"</span><span class="ss" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"</span>)</span></code></pre></div>
+font-style: inherit;">"</span>)</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>O'Brien: How many fingers am I holding up, Winston? 
@@ -229,10 +230,10 @@ font-style: inherit;">"</span>)</span></code></pre></div>
 <pre><code>curl -L "https://books.google.com/ngrams/json?content=%22literate%20programming%22&amp;year_start=1800&amp;year_end=2026&amp;corpus=26&amp;smoothing=0" -o posts/in-praise-of-documentation/data/ngrams.json</code></pre>
 <p>If <code>ngrams.json</code> is missing but <code>ngrams.csv</code> is already present (for example after a clone where only the CSV is tracked), the next cell skips conversion and the rest of the post still runs.</p>
 <p>I converted the JSON file to a CSV when needed, then imported it as a DataFrame using <a href="https://pola.rs/">Polars</a>, a DataFrame library written in Rust, with an intuitive API, similar to <a href="https://dplyr.tidyverse.org/">dplyr</a> in R.</p>
-<div id="9b34f976" class="cell" data-execution_count="3">
+<div id="9ac2ef30" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Paths relative to Quarto project root (works even if cwd differs)</span></span>
 <span id="cb5-2">ROOT <span class="op" style="color: #5E5E5E;
@@ -483,13 +484,13 @@ background-color: null;
 font-style: inherit;">}</span><span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">."</span></span>
-<span id="cb5-37">    )</span></code></pre></div>
+<span id="cb5-37">    )</span></code></pre></div></div>
 </details>
 </div>
-<div id="726522c8" class="cell" data-execution_count="4">
+<div id="6c74c16f" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Filter to &gt;= 1984</span></span>
 <span id="cb6-2"></span>
@@ -539,14 +540,14 @@ font-style: inherit;">1</span>)</span>
 background-color: null;
 font-style: inherit;">"per_billion_smooth_5y"</span>)</span>
 <span id="cb6-12">    )</span>
-<span id="cb6-13">)</span></code></pre></div>
+<span id="cb6-13">)</span></code></pre></div></div>
 </details>
 </div>
 <p>In Quarto, you can render formatted tables from code. Here, I use the <a href="https://github.com/posit-dev/great-tables">Great Tables</a> package, based on the original <a href="https://gt.rstudio.com/">GT</a> package in R. Great Tables has a cool “nanoplot” function, which allows you to include a plot in a table.</p>
-<div id="8d1b8185" class="cell" data-execution_count="5">
+<div id="4780caac" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> polars <span class="im" style="color: #00769E;
 background-color: null;
@@ -887,72 +888,71 @@ font-style: inherit;">=</span><span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">True</span>)</span>
 <span id="cb7-89"></span>
-<span id="cb7-90">gt_tbl.save(out_tbl_path)</span></code></pre></div>
+<span id="cb7-90">gt_tbl.save(out_tbl_path)</span></code></pre></div></div>
 </details>
 </div>
-<div id="76f99f27" class="cell" data-execution_count="6">
+<div id="932430b4" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Display the interactive table</span></span>
-<span id="cb8-2">gt_tbl</span></code></pre></div>
+<span id="cb8-2">gt_tbl</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="6">
-<div>
-<div id="yyhilodcvf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="zwrsevsuos" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#yyhilodcvf table {
+#zwrsevsuos table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#yyhilodcvf thead, tbody, tfoot, tr, td, th { border-style: none; }
+#zwrsevsuos thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#yyhilodcvf p { margin: 0; padding: 0; }
- #yyhilodcvf .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #yyhilodcvf .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #yyhilodcvf .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #yyhilodcvf .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #yyhilodcvf .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #yyhilodcvf .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #yyhilodcvf .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #yyhilodcvf .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #yyhilodcvf .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #yyhilodcvf .gt_column_spanner_outer:first-child { padding-left: 0; }
- #yyhilodcvf .gt_column_spanner_outer:last-child { padding-right: 0; }
- #yyhilodcvf .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #yyhilodcvf .gt_spanner_row { border-bottom-style: hidden; }
- #yyhilodcvf .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #yyhilodcvf .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #yyhilodcvf .gt_from_md> :first-child { margin-top: 0; }
- #yyhilodcvf .gt_from_md> :last-child { margin-bottom: 0; }
- #yyhilodcvf .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #yyhilodcvf .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #yyhilodcvf .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #yyhilodcvf .gt_row_group_first td { border-top-width: 2px; }
- #yyhilodcvf .gt_row_group_first th { border-top-width: 2px; }
- #yyhilodcvf .gt_striped { color: #333333; background-color: #F4F4F4; }
- #yyhilodcvf .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #yyhilodcvf .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
- #yyhilodcvf .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
- #yyhilodcvf .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
- #yyhilodcvf .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #yyhilodcvf .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #yyhilodcvf .gt_left { text-align: left; }
- #yyhilodcvf .gt_center { text-align: center; }
- #yyhilodcvf .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #yyhilodcvf .gt_font_normal { font-weight: normal; }
- #yyhilodcvf .gt_font_bold { font-weight: bold; }
- #yyhilodcvf .gt_font_italic { font-style: italic; }
- #yyhilodcvf .gt_super { font-size: 65%; }
- #yyhilodcvf .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #yyhilodcvf .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#zwrsevsuos p { margin: 0; padding: 0; }
+ #zwrsevsuos .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: 16px; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #zwrsevsuos .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #zwrsevsuos .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #zwrsevsuos .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #zwrsevsuos .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #zwrsevsuos .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #zwrsevsuos .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #zwrsevsuos .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #zwrsevsuos .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #zwrsevsuos .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #zwrsevsuos .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #zwrsevsuos .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #zwrsevsuos .gt_spanner_row { border-bottom-style: hidden; }
+ #zwrsevsuos .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #zwrsevsuos .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #zwrsevsuos .gt_from_md> :first-child { margin-top: 0; }
+ #zwrsevsuos .gt_from_md> :last-child { margin-bottom: 0; }
+ #zwrsevsuos .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #zwrsevsuos .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #zwrsevsuos .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #zwrsevsuos .gt_row_group_first td { border-top-width: 2px; }
+ #zwrsevsuos .gt_row_group_first th { border-top-width: 2px; }
+ #zwrsevsuos .gt_striped { color: #333333; background-color: #F4F4F4; }
+ #zwrsevsuos .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #zwrsevsuos .gt_grand_summary_row { color: #333333; background-color: #FFFFFF; text-transform: inherit; padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; }
+ #zwrsevsuos .gt_first_grand_summary_row_bottom { border-top-style: double; border-top-width: 6px; border-top-color: #D3D3D3; }
+ #zwrsevsuos .gt_last_grand_summary_row_top { border-bottom-style: double; border-bottom-width: 6px; border-bottom-color: #D3D3D3; }
+ #zwrsevsuos .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #zwrsevsuos .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #zwrsevsuos .gt_left { text-align: left; }
+ #zwrsevsuos .gt_center { text-align: center; }
+ #zwrsevsuos .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #zwrsevsuos .gt_font_normal { font-weight: normal; }
+ #zwrsevsuos .gt_font_bold { font-weight: bold; }
+ #zwrsevsuos .gt_font_italic { font-style: italic; }
+ #zwrsevsuos .gt_super { font-size: 65%; }
+ #zwrsevsuos .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #zwrsevsuos .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 
-<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <colgroup>
 <col style="width: 16%">
 <col style="width: 16%">
@@ -962,13 +962,13 @@ font-style: inherit;"># Display the interactive table</span></span>
 <col style="width: 16%">
 </colgroup>
 <thead>
-<tr class="header gt_heading">
-<th colspan="6" class="gt_heading gt_title gt_font_normal">Google Ngram: "literate programming"</th>
+<tr class="gt_heading header">
+<td colspan="6" class="gt_heading gt_title gt_font_normal">Google Ngram: "literate programming"</td>
 </tr>
-<tr class="odd gt_heading">
-<th colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Decade patterns (1984–2019), per-billion tokens</th>
+<tr class="gt_heading even">
+<td colspan="6" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Decade patterns (1984–2019), per-billion tokens</td>
 </tr>
-<tr class="header gt_col_headings">
+<tr class="gt_col_headings header">
 <th id="decade" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Decade</th>
 <th id="trend" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Trend (yearly)</th>
 <th id="mean_per_billion" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Mean</th>
@@ -982,9 +982,7 @@ font-style: inherit;"># Display the interactive table</span></span>
 <td class="gt_row gt_left">1980s</td>
 <td class="gt_row gt_left"><div>
 <svg viewbox="0 0 400 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;">
-<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs>
-<style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style>
-<path d="M 50.0,115.0 C 75.0,115.0 85.0,115.0 110.0,115.0 C 135.0,115.0 145.0,115.0 170.0,115.0 C 195.0,115.0 205.0,115.0 230.0,115.0 C 255.0,115.0 265.0,93.04123711340206 290.0,93.04123711340206 C 315.0,93.04123711340206 325.0,78.19587628865979 350.0,78.19587628865979" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="95.20618556701031" width="320" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="105.20618556701031" x2="350" y2="105.20618556701031" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="360" y="115.20618556701031" fill="transparent" stroke="transparent" font-size="30px">0.095</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="100.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="120.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="160.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="180.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="220.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="240.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="280.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="300.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.21</text></g><g class="vert-line"><rect x="340.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="360.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.36</text></g>
+<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><path d="M 50.0,115.0 C 75.0,115.0 85.0,115.0 110.0,115.0 C 135.0,115.0 145.0,115.0 170.0,115.0 C 195.0,115.0 205.0,115.0 230.0,115.0 C 255.0,115.0 265.0,93.04123711340206 290.0,93.04123711340206 C 315.0,93.04123711340206 325.0,78.19587628865979 350.0,78.19587628865979" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="95.20618556701031" width="320" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="105.20618556701031" x2="350" y2="105.20618556701031" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="360" y="115.20618556701031" fill="transparent" stroke="transparent" font-size="30px">0.095</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="100.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="120.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="160.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="180.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="220.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="240.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="280.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="300.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.21</text></g><g class="vert-line"><rect x="340.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="360.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.36</text></g>
 </svg>
 </div></td>
 <td class="gt_row gt_right">0.095</td>
@@ -996,9 +994,7 @@ font-style: inherit;"># Display the interactive table</span></span>
 <td class="gt_row gt_left">1990s</td>
 <td class="gt_row gt_left"><div>
 <svg viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;">
-<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs>
-<style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style>
-<path d="M 50.0,94.69072164948453 C 75.0,94.69072164948453 80.55555555555554,104.48453608247424 105.55555555555554,104.48453608247424 C 130.55555555555554,104.48453608247424 136.1111111111111,74.58762886597938 161.1111111111111,74.58762886597938 C 186.1111111111111,74.58762886597938 191.66666666666666,94.79381443298969 216.66666666666666,94.79381443298969 C 241.66666666666666,94.79381443298969 247.22222222222217,90.05154639175258 272.2222222222222,90.05154639175258 C 297.2222222222222,90.05154639175258 302.77777777777777,61.8041237113402 327.77777777777777,61.8041237113402 C 352.77777777777777,61.8041237113402 358.3333333333333,95.41237113402062 383.3333333333333,95.41237113402062 C 408.3333333333333,95.41237113402062 413.8888888888889,90.25773195876289 438.8888888888889,90.25773195876289 C 463.8888888888889,90.25773195876289 469.4444444444444,47.06185567010309 494.4444444444444,47.06185567010309 C 519.4444444444443,47.06185567010309 525.0,67.16494845360825 550.0,67.16494845360825" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="72.03092783505154" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="82.03092783505154" x2="550" y2="82.03092783505154" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="92.03092783505154" fill="transparent" stroke="transparent" font-size="30px">0.32</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.20</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.10</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.39</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.20</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.52</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0.19</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.66</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.46</text></g>
+<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><path d="M 50.0,94.69072164948453 C 75.0,94.69072164948453 80.55555555555554,104.48453608247424 105.55555555555554,104.48453608247424 C 130.55555555555554,104.48453608247424 136.1111111111111,74.58762886597938 161.1111111111111,74.58762886597938 C 186.1111111111111,74.58762886597938 191.66666666666666,94.79381443298969 216.66666666666666,94.79381443298969 C 241.66666666666666,94.79381443298969 247.22222222222217,90.05154639175258 272.2222222222222,90.05154639175258 C 297.2222222222222,90.05154639175258 302.77777777777777,61.8041237113402 327.77777777777777,61.8041237113402 C 352.77777777777777,61.8041237113402 358.3333333333333,95.41237113402062 383.3333333333333,95.41237113402062 C 408.3333333333333,95.41237113402062 413.8888888888889,90.25773195876289 438.8888888888889,90.25773195876289 C 463.8888888888889,90.25773195876289 469.4444444444444,47.06185567010309 494.4444444444444,47.06185567010309 C 519.4444444444443,47.06185567010309 525.0,67.16494845360825 550.0,67.16494845360825" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="72.03092783505154" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="82.03092783505154" x2="550" y2="82.03092783505154" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="92.03092783505154" fill="transparent" stroke="transparent" font-size="30px">0.32</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.20</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.10</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.39</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.20</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.52</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0.19</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.66</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.46</text></g>
 </svg>
 </div></td>
 <td class="gt_row gt_right">0.320</td>
@@ -1010,9 +1006,7 @@ font-style: inherit;"># Display the interactive table</span></span>
 <td class="gt_row gt_left">2000s</td>
 <td class="gt_row gt_left"><div>
 <svg viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;">
-<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs>
-<style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style>
-<path d="M 50.0,53.76288659793815 C 75.0,53.76288659793815 80.55555555555554,79.84536082474226 105.55555555555554,79.84536082474226 C 130.55555555555554,79.84536082474226 136.1111111111111,90.25773195876289 161.1111111111111,90.25773195876289 C 186.1111111111111,90.25773195876289 191.66666666666666,103.14432989690721 216.66666666666666,103.14432989690721 C 241.66666666666666,103.14432989690721 247.22222222222217,61.082474226804116 272.2222222222222,61.082474226804116 C 297.2222222222222,61.082474226804116 302.77777777777777,90.56701030927834 327.77777777777777,90.56701030927834 C 352.77777777777777,90.56701030927834 358.3333333333333,107.16494845360825 383.3333333333333,107.16494845360825 C 408.3333333333333,107.16494845360825 413.8888888888889,92.0103092783505 438.8888888888889,92.0103092783505 C 463.8888888888889,92.0103092783505 469.4444444444444,92.31958762886599 494.4444444444444,92.31958762886599 C 519.4444444444443,92.31958762886599 525.0,103.24742268041237 550.0,103.24742268041237" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="77.34020618556701" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="87.34020618556701" x2="550" y2="87.34020618556701" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="97.34020618556701" fill="transparent" stroke="transparent" font-size="30px">0.27</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.59</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.34</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.52</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0.076</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.11</text></g>
+<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><path d="M 50.0,53.76288659793815 C 75.0,53.76288659793815 80.55555555555554,79.84536082474226 105.55555555555554,79.84536082474226 C 130.55555555555554,79.84536082474226 136.1111111111111,90.25773195876289 161.1111111111111,90.25773195876289 C 186.1111111111111,90.25773195876289 191.66666666666666,103.14432989690721 216.66666666666666,103.14432989690721 C 241.66666666666666,103.14432989690721 247.22222222222217,61.082474226804116 272.2222222222222,61.082474226804116 C 297.2222222222222,61.082474226804116 302.77777777777777,90.56701030927834 327.77777777777777,90.56701030927834 C 352.77777777777777,90.56701030927834 358.3333333333333,107.16494845360825 383.3333333333333,107.16494845360825 C 408.3333333333333,107.16494845360825 413.8888888888889,92.0103092783505 438.8888888888889,92.0103092783505 C 463.8888888888889,92.0103092783505 469.4444444444444,92.31958762886599 494.4444444444444,92.31958762886599 C 519.4444444444443,92.31958762886599 525.0,103.24742268041237 550.0,103.24742268041237" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="77.34020618556701" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="87.34020618556701" x2="550" y2="87.34020618556701" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="97.34020618556701" fill="transparent" stroke="transparent" font-size="30px">0.27</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.59</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.34</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.52</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.24</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0.076</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.11</text></g>
 </svg>
 </div></td>
 <td class="gt_row gt_right">0.268</td>
@@ -1024,9 +1018,7 @@ font-style: inherit;"># Display the interactive table</span></span>
 <td class="gt_row gt_left">2010s</td>
 <td class="gt_row gt_left"><div>
 <svg viewbox="0 0 600 130" style="height: 2em; margin-left: auto; margin-right: auto; font-size: inherit; overflow: visible; vertical-align: middle; position:relative;">
-<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs>
-<style> text { font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace; stroke-width: 0.15em; paint-order: stroke; stroke-linejoin: round; cursor: default; } .vert-line:hover rect { fill: #911EB4; fill-opacity: 40%; stroke: #FFFFFF60; color: red; } .vert-line:hover text { stroke: white; fill: #212427; } .horizontal-line:hover text {stroke: white; fill: #212427; } .ref-line:hover rect { stroke: #FFFFFF60; } .ref-line:hover line { stroke: #FF0000; } .ref-line:hover text { stroke: white; fill: #212427; } .y-axis-line:hover rect { fill: #EDEDED; fill-opacity: 60%; stroke: #FFFFFF60; color: red; } .y-axis-line:hover text { stroke: white; stroke-width: 0.20em; fill: #1A1C1F; } </style>
-<path d="M 50.0,115.0 C 75.0,115.0 80.55555555555554,102.9381443298969 105.55555555555554,102.9381443298969 C 130.55555555555554,102.9381443298969 136.1111111111111,92.93814432989691 161.1111111111111,92.93814432989691 C 186.1111111111111,92.93814432989691 191.66666666666666,80.77319587628865 216.66666666666666,80.77319587628865 C 241.66666666666666,80.77319587628865 247.22222222222217,100.87628865979381 272.2222222222222,100.87628865979381 C 297.2222222222222,100.87628865979381 302.77777777777777,102.83505154639175 327.77777777777777,102.83505154639175 C 352.77777777777777,102.83505154639175 358.3333333333333,115.0 383.3333333333333,115.0 C 408.3333333333333,115.0 413.8888888888889,99.22680412371135 438.8888888888889,99.22680412371135 C 463.8888888888889,99.22680412371135 469.4444444444444,102.62886597938144 494.4444444444444,102.62886597938144 C 519.4444444444443,102.62886597938144 525.0,15.0 550.0,15.0" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="82.72164948453609" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="92.72164948453609" x2="550" y2="92.72164948453609" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="102.72164948453609" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.21</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.33</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.14</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.15</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.97</text></g>
+<defs><pattern id="area_pattern" width="8" height="8" patternunits="userSpaceOnUse"><path class="pattern-line" d="M 0,8 l 8,-8 M -1,1 l 4,-4 M 6,10 l 4,-4" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round" shape-rendering="geometricPrecision"></path></pattern></defs><path d="M 50.0,115.0 C 75.0,115.0 80.55555555555554,102.9381443298969 105.55555555555554,102.9381443298969 C 130.55555555555554,102.9381443298969 136.1111111111111,92.93814432989691 161.1111111111111,92.93814432989691 C 186.1111111111111,92.93814432989691 191.66666666666666,80.77319587628865 216.66666666666666,80.77319587628865 C 241.66666666666666,80.77319587628865 247.22222222222217,100.87628865979381 272.2222222222222,100.87628865979381 C 297.2222222222222,100.87628865979381 302.77777777777777,102.83505154639175 327.77777777777777,102.83505154639175 C 352.77777777777777,102.83505154639175 358.3333333333333,115.0 383.3333333333333,115.0 C 408.3333333333333,115.0 413.8888888888889,99.22680412371135 438.8888888888889,99.22680412371135 C 463.8888888888889,99.22680412371135 469.4444444444444,102.62886597938144 494.4444444444444,102.62886597938144 C 519.4444444444443,102.62886597938144 525.0,15.0 550.0,15.0" stroke="#4D4D4D" stroke-width="2" fill="none"></path><g class="ref-line"><rect x="40.0" y="82.72164948453609" width="520" height="20" stroke="transparent" stroke-width="1" fill="transparent"></rect><line class="ref-line" x1="50.0" y1="92.72164948453609" x2="550" y2="92.72164948453609" stroke="#75A8B0" stroke-width="1" stroke-dasharray="4 3" transform="" stroke-linecap="round" vector-effect="non-scaling-stroke"></line><text x="560" y="102.72164948453609" fill="transparent" stroke="transparent" font-size="30px">0.22</text></g><g class="y-axis-line"><rect x="0" y="0" width="65" height="130" stroke="transparent" stroke-width="0" fill="transparent"></rect><text x="0" y="19.0" fill="transparent" stroke="transparent" font-size="25">0.97</text><text x="0" y="126.0" fill="transparent" stroke="transparent" font-size="25">0</text></g><g class="vert-line"><rect x="40.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="60.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="95.55555555555554" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="115.55555555555554" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="151.1111111111111" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="171.1111111111111" y="20" fill="transparent" stroke="transparent" font-size="30px">0.21</text></g><g class="vert-line"><rect x="206.66666666666666" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="226.66666666666666" y="20" fill="transparent" stroke="transparent" font-size="30px">0.33</text></g><g class="vert-line"><rect x="262.2222222222222" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="282.2222222222222" y="20" fill="transparent" stroke="transparent" font-size="30px">0.14</text></g><g class="vert-line"><rect x="317.77777777777777" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="337.77777777777777" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="373.3333333333333" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="393.3333333333333" y="20" fill="transparent" stroke="transparent" font-size="30px">0</text></g><g class="vert-line"><rect x="428.8888888888889" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="448.8888888888889" y="20" fill="transparent" stroke="transparent" font-size="30px">0.15</text></g><g class="vert-line"><rect x="484.4444444444444" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="504.4444444444444" y="20" fill="transparent" stroke="transparent" font-size="30px">0.12</text></g><g class="vert-line"><rect x="540.0" y="0" width="20" height="130" stroke="transparent" stroke-width="12" fill="transparent"></rect><text x="560.0" y="20" fill="transparent" stroke="transparent" font-size="30px">0.97</text></g>
 </svg>
 </div></td>
 <td class="gt_row gt_right">0.216</td>
@@ -1039,15 +1031,13 @@ font-style: inherit;"># Display the interactive table</span></span>
 
 
 </div>
-        
-</div>
 </div>
 </div>
 <p>You can also display plots. Here, I’m using <a href="https://plotnine.org/">plotnine</a> which is a Python version of the <a href="https://ggplot2.tidyverse.org/">ggplot2</a> data visualisation library in R.</p>
-<div id="ff39ae9f" class="cell" data-execution_count="7">
+<div id="434ccae2" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Save as a real PNG (Typst has trouble with the auto-generated SVG here)</span></span>
 <span id="cb9-2">out_path <span class="op" style="color: #5E5E5E;
@@ -1106,16 +1096,16 @@ font-style: inherit;">+</span> theme_gray()</span>
 background-color: null;
 font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">300</span>)</span></code></pre></div>
+font-style: inherit;">300</span>)</span></code></pre></div></div>
 </details>
 </div>
-<div id="70ccfb78" class="cell" data-execution_count="8">
+<div id="5f9af162" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Display the plot</span></span>
-<span id="cb10-2">p</span></code></pre></div>
+<span id="cb10-2">p</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
@@ -1126,10 +1116,10 @@ font-style: inherit;"># Display the plot</span></span>
 </div>
 </div>
 <p>You can also display interactive maps. Here, I’m using the <code>IPyLeaflet</code> library to display a map of Cambridge, UK, the home of Acorn Computers, and birthplace of the BBC Microcomputer.</p>
-<div id="2b62edbf" class="cell" data-execution_count="9">
+<div id="170d787b" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="im" style="color: #00769E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> ipyleaflet <span class="im" style="color: #00769E;
 background-color: null;
@@ -1166,11 +1156,11 @@ font-style: inherit;">=</span>center)</span>
 background-color: null;
 font-style: inherit;">;</span></span>
 <span id="cb11-11"></span>
-<span id="cb11-12">display(m)</span></code></pre></div>
+<span id="cb11-12">display(m)</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"ea0bee482dae4c138f80ab3d8910266d","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"f026f8b4cabe4fdda01d95d8ef229e9d","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 <p><code>IPyLeaflet</code> map of Cambridge, UK</p>
 </div>
@@ -1329,7 +1319,7 @@ format: gfm
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-gazzard2016" class="csl-entry">
 Gazzard, A. 2016. <em>Now the Chips Are down: The BBC Micro</em>. The MIT Press.
 </div>
@@ -1337,7 +1327,7 @@ Gazzard, A. 2016. <em>Now the Chips Are down: The BBC Micro</em>. The MIT Press.
 Granger, B. E., and F. Pérez. 2021. <span>“Jupyter: Thinking and Storytelling with Code and Data.”</span> <em>Computing in Science &amp; Engineering</em> 23 (2): 7–14. <a href="https://doi.org/10.1109/MCSE.2021.3059263">https://doi.org/10.1109/MCSE.2021.3059263</a>.
 </div>
 <div id="ref-kluyver2016" class="csl-entry">
-Kluyver, T., B. Ragan-Kelley, F. Pérez, B. Granger, M. Bussonnier, J. Frederic, K. Kelley, et al. 2016. <span>“Jupyter Notebooks – a Publication Format for Reproducible Computational Workflows.”</span> In <em>Positioning and Power in Academic Publishing: Players, Agents and Agendas</em>, edited by F. Loizides and B. Schmidt.
+Kluyver, T., B. Ragan-Kelley, F. Pérez, et al. 2016. <span>“Jupyter Notebooks – a Publication Format for Reproducible Computational Workflows.”</span> In <em>Positioning and Power in Academic Publishing: Players, Agents and Agendas</em>, edited by F. Loizides and B. Schmidt.
 </div>
 <div id="ref-knuth1984" class="csl-entry">
 Knuth, D. E. 1984. <span>“Literate Programming.”</span> <em>The Computer Journal</em> 27 (2): 97–111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>.
@@ -1346,16 +1336,16 @@ Knuth, D. E. 1984. <span>“Literate Programming.”</span> <em>The Computer Jou
 Nelson, C. 2024. <em>Software Engineering for Data Scientists: From Notebooks to Scalable Systems</em>. O’Reilly.
 </div>
 <div id="ref-orwell1945" class="csl-entry">
-Orwell, G. 1945. <em>Politics and the English Language</em>. London: Penguin Books.
+Orwell, G. 1945. <em>Politics and the English Language</em>. Penguin Books.
 </div>
 <div id="ref-perez2007" class="csl-entry">
 Pérez, F., and B. E. Granger. 2007. <span>“IPython: A System for Interactive Scientific Computing.”</span> <em>Computing in Science &amp; Engineering</em> 9 (3): 21–29. <a href="https://doi.org/10.1109/MCSE.2007.53">https://doi.org/10.1109/MCSE.2007.53</a>.
 </div>
 <div id="ref-pimentel2019" class="csl-entry">
-Pimentel, J. F., L. Murta, V. Braganholo, and J. Friere. 2019. <span>“A Large-Scale Study about Quality and Reproducibility of Jupyter Notebooks.”</span> In <em>IEEE/ACM 16th International Conference on Mining Software Repositories</em>, 507–17. Montreal, QC, Canada. <a href="https://doi.org/10.1109/MSR.2019.00077">https://doi.org/10.1109/MSR.2019.00077</a>.
+Pimentel, J. F., L. Murta, V. Braganholo, and J. Friere. 2019. <span>“A Large-Scale Study about Quality and Reproducibility of Jupyter Notebooks.”</span> <em>IEEE/ACM 16th International Conference on Mining Software Repositories</em> (Montreal, QC, Canada), 507–17. <a href="https://doi.org/10.1109/MSR.2019.00077">https://doi.org/10.1109/MSR.2019.00077</a>.
 </div>
 <div id="ref-snow1959" class="csl-entry">
-Snow, C. P. 1959. <em>The Two Cultures and the Scientific Revolution</em>. New York: Cambridge University Press.
+Snow, C. P. 1959. <em>The Two Cultures and the Scientific Revolution</em>. Cambridge University Press.
 </div>
 </div></section></div> ]]></description>
   <category>documentation</category>

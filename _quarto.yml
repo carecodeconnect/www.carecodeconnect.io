@@ -23,9 +23,23 @@ website:
 
 format:
   html:
-    theme: cerulean
+    theme:
+      light:
+        - litera
+        - theme.scss
+      dark:
+        - darkly
+        - theme-dark.scss
+    highlight-style:
+      light: gruvbox-light
+      dark: gruvbox-dark
     css: css/styles.css
     toc: false
+    include-in-header:
+      - text: |
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
 
 
