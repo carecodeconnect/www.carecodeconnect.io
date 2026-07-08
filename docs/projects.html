@@ -312,6 +312,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#digit-recogniser" id="toc-digit-recogniser" class="nav-link" data-scroll-target="#digit-recogniser">Digit Recogniser</a></li>
   <li><a href="#flu-shot-learning" id="toc-flu-shot-learning" class="nav-link" data-scroll-target="#flu-shot-learning">Flu Shot Learning</a></li>
   <li><a href="#jhāna.ai-personal-meditation-guide" id="toc-jhāna.ai-personal-meditation-guide" class="nav-link" data-scroll-target="#jhāna.ai-personal-meditation-guide">Jhāna.AI: Personal Meditation Guide</a></li>
+  <li><a href="#life-repair-kit" id="toc-life-repair-kit" class="nav-link" data-scroll-target="#life-repair-kit">Life Repair Kit</a></li>
   <li><a href="#mapmind-part-i-mapping-the-mindfulness-movement" id="toc-mapmind-part-i-mapping-the-mindfulness-movement" class="nav-link" data-scroll-target="#mapmind-part-i-mapping-the-mindfulness-movement">MapMind (Part I): Mapping the Mindfulness Movement</a></li>
   <li><a href="#mapmind-part-ii-who-are-mindfulness-teachers" id="toc-mapmind-part-ii-who-are-mindfulness-teachers" class="nav-link" data-scroll-target="#mapmind-part-ii-who-are-mindfulness-teachers">MapMind (Part II): Who Are Mindfulness Teachers?</a></li>
   <li><a href="#mapmind-part-iii-digital-divides-mindfulness-teaching-technology" id="toc-mapmind-part-iii-digital-divides-mindfulness-teaching-technology" class="nav-link" data-scroll-target="#mapmind-part-iii-digital-divides-mindfulness-teaching-technology">MapMind (Part III): Digital Divides: Mindfulness Teaching &amp; Technology</a></li>
@@ -420,6 +421,64 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>Interactive voice assistant which uses real-time brain sensing to guide the user in ancient Jhana Meditation, for reaching states of concentration, bliss and calm, and finding relief from pain. <code>Jhāna.AI</code> uses cutting-edge technologies of biofeedback, deep learning, and natural language processing for personalised guided meditation sessions.</p>
 <p><a href="https://github.com/carecodeconnect/jhana-dev">Click for GitHub repository</a></p>
+</section>
+<section id="life-repair-kit" class="level1">
+<h1><a href="projects/life-repair-kit/index.html">Life Repair Kit</a></h1>
+<p><strong>Life Repair Kit</strong> (<a href="https://www.liferepairkit.de/">liferepairkit.de</a>) is a German-language wellbeing resource hub and self-assessment tool — a full-stack web application built by <code>carecodeconnect</code>. Visitors browse curated mental-health and resilience resources, and can map their own wellbeing with an interactive self-assessment, the <strong>ResilienzRadar</strong>.</p>
+<div id="lrk-radar-embed" style="max-width:440px;margin:1.5rem auto;padding:1.25rem 1rem 1rem;background:#FAF8F4;border:1px solid #E4DED2;border-radius:14px;color:#1F1D1A;">
+  <div id="lrke-svg" style="width:100%;max-width:400px;margin:0 auto;"></div>
+  <div style="margin-top:10px;text-align:center;min-height:60px;">
+    <div id="lrke-name" style="font-family:'EB Garamond',Georgia,serif;font-size:22px;line-height:1.15;font-weight:500;"></div>
+    <div id="lrke-note" style="font-family:'EB Garamond',Georgia,serif;font-size:14px;font-style:italic;color:rgba(31,29,26,.7);margin-top:3px;"></div>
+  </div>
+</div>
+<script>
+(function () {
+  var AREAS = [
+    { label:"Nervensystem", color:"#F5C842" }, { label:"Körper", color:"#F5C842" }, { label:"Geist", color:"#F5C842" },
+    { label:"Familie", color:"#D63C2F" }, { label:"Intimität", color:"#D63C2F" }, { label:"Zuhause", color:"#D63C2F" },
+    { label:"Arbeit", color:"#2B4EA8" }, { label:"Kreativität", color:"#2B4EA8" }, { label:"Sinn", color:"#2B4EA8" },
+    { label:"Storytelling", color:"#1F1D1A" }
+  ];
+  var PROFILES = [
+    { name:"Vieles trägt – einiges wackelt", note:"Ein Alltag, der grundsätzlich funktioniert.", scores:[2,2,4,2,2,3,4,2,3,2] },
+    { name:"In der Krise", note:"Gerade hält wenig. Auch das darf sichtbar werden.", scores:[1,1,1,2,1,2,2,1,1,1] },
+    { name:"Wieder im Gleichgewicht", note:"Ein tragfähiges Fundament über fast alle Bereiche.", scores:[4,4,3,4,3,4,3,4,4,3] },
+    { name:"In voller Kraft", note:"Nahezu alle Lebensbereiche tragen zuverlässig.", scores:[5,5,5,5,4,5,4,5,5,4] }
+  ];
+  var SIZE=520, CX=260, CY=260, RINGS=5, R=190, CENTER_R=36, LABEL_R=214, N=AREAS.length;
+  function ang(i,o){ return (Math.PI*2*(i+o))/N - Math.PI/2; }
+  function wedge(i,s){ var a1=ang(i,-0.5),a2=ang(i,0.5),r=(s/RINGS)*R;
+    return "M "+CX+" "+CY+" L "+(CX+Math.cos(a1)*r).toFixed(2)+" "+(CY+Math.sin(a1)*r).toFixed(2)+
+      " A "+r.toFixed(2)+" "+r.toFixed(2)+" 0 0 1 "+(CX+Math.cos(a2)*r).toFixed(2)+" "+(CY+Math.sin(a2)*r).toFixed(2)+" Z"; }
+  function build(){
+    var rings=""; for(var k=1;k<=RINGS;k++){ rings+='<circle cx="'+CX+'" cy="'+CY+'" r="'+((k/RINGS)*R).toFixed(1)+'" fill="none" stroke="rgba(31,29,26,0.12)" stroke-width="0.6"/>'; }
+    var spokes="",labels="",wedges="";
+    AREAS.forEach(function(a,i){
+      var sa=ang(i,-0.5); spokes+='<line x1="'+CX+'" y1="'+CY+'" x2="'+(CX+Math.cos(sa)*R).toFixed(2)+'" y2="'+(CY+Math.sin(sa)*R).toFixed(2)+'" stroke="rgba(31,29,26,0.12)" stroke-width="0.6"/>';
+      var la=ang(i,0),lx=CX+Math.cos(la)*LABEL_R,ly=CY+Math.sin(la)*LABEL_R,c=Math.cos(la),anc=Math.abs(c)<0.2?"middle":c>0?"start":"end";
+      labels+='<text x="'+lx.toFixed(2)+'" y="'+ly.toFixed(2)+'" text-anchor="'+anc+'" dominant-baseline="middle" font-family="Inter,Helvetica,Arial,sans-serif" font-size="11" font-weight="500" fill="#1F1D1A">'+a.label+'</text>';
+      wedges+='<path data-i="'+i+'" d="" fill="'+a.color+'" fill-opacity="0.92" stroke="#FAF8F4" stroke-width="1" stroke-linejoin="round" style="transition:d 900ms cubic-bezier(.5,.1,.3,1)"/>';
+    });
+    return '<svg viewBox="0 0 '+SIZE+' '+SIZE+'" style="width:100%;height:auto;display:block;overflow:visible" role="img" aria-label="ResilienzRadar – animierte Beispielprofile"><g>'+rings+spokes+wedges+'</g>'+labels+
+      '<g style="pointer-events:none"><circle cx="'+CX+'" cy="'+CY+'" r="'+CENTER_R+'" fill="#FAF8F4" stroke="rgba(31,29,26,0.15)" stroke-width="1"/>'+
+      '<text x="'+CX+'" y="'+(CY-4)+'" text-anchor="middle" font-family="EB Garamond,Georgia,serif" font-size="12" font-style="italic" fill="#1F1D1A">Resilienz</text>'+
+      '<text x="'+CX+'" y="'+(CY+10)+'" text-anchor="middle" font-family="EB Garamond,Georgia,serif" font-size="12" font-style="italic" fill="#1F1D1A">Radar</text></g></svg>';
+  }
+  function init(){
+    var root=document.getElementById("lrke-svg"); if(!root) return;
+    root.innerHTML=build();
+    var paths=root.querySelectorAll("path[data-i]"), nameEl=document.getElementById("lrke-name"), noteEl=document.getElementById("lrke-note"), idx=0;
+    function paint(i){ var p=PROFILES[i]; nameEl.textContent=p.name; noteEl.textContent=p.note;
+      paths.forEach(function(path){ var pi=Number(path.getAttribute("data-i")), s=p.scores[pi]||0; path.setAttribute("d", s===0?"":wedge(pi,s)); }); }
+    paint(0);
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    setInterval(function(){ idx=(idx+1)%PROFILES.length; paint(idx); }, 3600);
+  }
+  if (document.readyState==="loading") document.addEventListener("DOMContentLoaded", init); else init();
+})();
+</script>
+<p><a href="projects/life-repair-kit/index.html">Read the full project write-up →</a> — including the animated radar, how it is built from the quiz, the tech stack, an architecture diagram, and how it aligns with our values.</p>
 </section>
 <section id="mapmind-part-i-mapping-the-mindfulness-movement" class="level1">
 <h1><a href="projects/mapmind/mapmind_mapping.html">MapMind (Part I): Mapping the Mindfulness Movement</a></h1>
