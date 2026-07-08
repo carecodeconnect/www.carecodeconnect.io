@@ -10,15 +10,181 @@ Welcome to the `carecodeconnect` home page 🤗
 
 ![](images/carecodeconnect.jpeg)
 
-To learn about us, explore our:
+To learn about us, use the menu above — or type a section below and press <kbd>Enter</kbd>:
 
-- [About](about.qmd): who we are and what we do
+```{=html}
+<style>
+  #ccc-terminal {
+    max-width: 46rem;
+    margin: 1.25rem 0 1.5rem;
+    border: 1px solid var(--ccc-term-border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    background: var(--ccc-term-bg);
+    color: var(--ccc-term-fg);
+  }
+  #ccc-terminal .ccc-term-titlebar {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.45rem 0.7rem;
+    background: var(--ccc-term-titlebar);
+    border-bottom: 1px solid var(--ccc-term-border);
+    font-size: 0.8rem;
+    color: var(--ccc-term-muted);
+  }
+  #ccc-terminal .ccc-dot { width: 0.72rem; height: 0.72rem; border-radius: 50%; display: inline-block; }
+  #ccc-terminal .ccc-dot-r { background: var(--ccc-term-dot-r); }
+  #ccc-terminal .ccc-dot-y { background: var(--ccc-term-dot-y); }
+  #ccc-terminal .ccc-dot-g { background: var(--ccc-term-dot-g); }
+  #ccc-terminal .ccc-term-title { margin-left: 0.4rem; }
+  #ccc-terminal .ccc-term-body { padding: 0.7rem 0.85rem; min-height: 8.5rem; }
+  #ccc-terminal .ccc-term-line { white-space: pre-wrap; word-break: break-word; }
+  #ccc-terminal .ccc-term-prompt { color: var(--ccc-term-prompt); font-weight: 500; }
+  #ccc-terminal .ccc-term-muted { color: var(--ccc-term-muted); }
+  #ccc-terminal .ccc-term-ok { color: var(--ccc-term-ok); }
+  #ccc-terminal .ccc-term-err { color: var(--ccc-term-err); }
+  #ccc-terminal a { color: var(--ccc-term-link); text-decoration: none; }
+  #ccc-terminal a:hover { text-decoration: underline; }
+  #ccc-terminal .ccc-term-inputline { display: flex; align-items: baseline; gap: 0.5ch; padding: 0.1rem 0.85rem 0.8rem; }
+  #ccc-terminal input.ccc-term-input {
+    flex: 1 1 auto;
+    background: transparent; border: none; outline: none;
+    color: var(--ccc-term-fg);
+    caret-color: var(--ccc-term-accent);
+    font: inherit;
+    padding: 0;
+  }
+</style>
 
-- [Blog](blog.qmd): revisioning data science for the age of AI
+<div id="ccc-terminal" role="group" aria-label="Terminal navigation">
+  <div class="ccc-term-titlebar">
+    <span class="ccc-dot ccc-dot-r"></span>
+    <span class="ccc-dot ccc-dot-y"></span>
+    <span class="ccc-dot ccc-dot-g"></span>
+    <span class="ccc-term-title">carecodeconnect — bash</span>
+  </div>
+  <div class="ccc-term-body" id="ccc-term-output"></div>
+  <div class="ccc-term-inputline">
+    <label for="ccc-term-input" class="ccc-term-prompt">carecodeconnect ~ $</label>
+    <input id="ccc-term-input" class="ccc-term-input" type="text"
+           autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+           aria-label="Type a section name and press Enter to navigate">
+  </div>
+</div>
 
-- [Projects](projects.qmd): building solutions to complex social problems
+<noscript>
+  <ul>
+    <li><a href="about.html">About</a>: who we are and what we do</li>
+    <li><a href="blog.html">Blog</a>: revisioning data science for the age of AI</li>
+    <li><a href="projects.html">Projects</a>: building solutions to complex social problems</li>
+    <li><a href="testimonials.html">Testimonials</a>: what our collaborators say about us</li>
+  </ul>
+</noscript>
 
-- [Testimonials](testimonials.qmd): what our collaborators say about us
+<script>
+(function () {
+  var sections = {
+    about:        { url: "about.html",        desc: "who we are and what we do" },
+    blog:         { url: "blog.html",         desc: "revisioning data science for the age of AI" },
+    projects:     { url: "projects.html",     desc: "building solutions to complex social problems" },
+    testimonials: { url: "testimonials.html", desc: "what our collaborators say about us" },
+    home:         { url: "index.html",        desc: "return to the home page" }
+  };
+  var output = document.getElementById("ccc-term-output");
+  var input  = document.getElementById("ccc-term-input");
+  var term   = document.getElementById("ccc-terminal");
+  if (!output || !input) return;
+  var history = [], histIdx = 0;
+
+  function esc(s){ return s.replace(/[&<>]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c]; }); }
+  function print(html, cls){
+    var line = document.createElement("div");
+    line.className = "ccc-term-line" + (cls ? " " + cls : "");
+    line.innerHTML = html;
+    output.appendChild(line);
+    output.scrollTop = output.scrollHeight;
+  }
+  function echo(cmd){ print('<span class="ccc-term-prompt">carecodeconnect ~ $</span> ' + esc(cmd)); }
+
+  var builtins = {
+    help: function(){
+      print("Available commands:");
+      print("  <b>ls</b>                          list sections");
+      print("  <b>about | blog | projects | testimonials</b>   open that page");
+      print("  <b>open</b> &lt;section&gt;              open a section (e.g. open blog)");
+      print("  <b>home</b>                        back to this page");
+      print("  <b>clear</b>                       clear the screen");
+      print("  <b>help</b>                        show this help");
+      print('Tip: <b>Tab</b> autocompletes, <b>&uarr;/&darr;</b> recall history.', "ccc-term-muted");
+    },
+    ls: function(){
+      ["about","blog","projects","testimonials"].forEach(function(k){
+        print('<a href="'+sections[k].url+'">'+k+'</a>  <span class="ccc-term-muted">— '+sections[k].desc+'</span>');
+      });
+    },
+    clear: function(){ output.innerHTML = ""; }
+  };
+
+  function go(section){
+    print('opening <b>'+section+'</b>…', "ccc-term-ok");
+    setTimeout(function(){ window.location.href = sections[section].url; }, 220);
+  }
+
+  function run(raw){
+    var cmd = raw.trim();
+    if (!cmd) return;
+    echo(cmd);
+    var parts = cmd.split(/\s+/);
+    var head = parts[0].toLowerCase();
+    var arg  = (parts[1] || "").toLowerCase();
+
+    if (builtins[head]) { builtins[head](); return; }
+    if (head === "open" || head === "cd" || head === "go") {
+      if (sections[arg]) return go(arg);
+      print("no such section: " + esc(arg || "(none)") + " — try <b>ls</b>", "ccc-term-err");
+      return;
+    }
+    if (sections[head]) return go(head);
+
+    var keys = Object.keys(sections).concat(Object.keys(builtins));
+    var guess = keys.filter(function(k){ return k.indexOf(head) === 0; })[0];
+    print("command not found: " + esc(head) +
+          (guess ? " — did you mean <b>"+guess+"</b>?" : " — type <b>help</b> or use the menu above"),
+          "ccc-term-err");
+  }
+
+  input.addEventListener("keydown", function(e){
+    if (e.key === "Enter") {
+      var v = input.value;
+      if (v.trim()) { history.push(v); histIdx = history.length; }
+      run(v);
+      input.value = "";
+    } else if (e.key === "Tab") {
+      e.preventDefault();
+      var v = input.value.trim().toLowerCase();
+      if (!v) return;
+      var keys = Object.keys(sections).concat(Object.keys(builtins));
+      var m = keys.filter(function(k){ return k.indexOf(v) === 0; });
+      if (m.length === 1) input.value = m[0];
+      else if (m.length > 1) { echo(v); print(m.join("  ")); }
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (histIdx > 0) { histIdx--; input.value = history[histIdx] || ""; }
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (histIdx < history.length - 1) { histIdx++; input.value = history[histIdx] || ""; }
+      else { histIdx = history.length; input.value = ""; }
+    }
+  });
+
+  term.addEventListener("click", function(){ input.focus(); });
+  print('Type a section and press <b>Enter</b> (e.g. <b>blog</b>), or <b>help</b> for commands.', "ccc-term-muted");
+})();
+</script>
+```
 
 This home page was made with ❤️ using [Python](https://www.python.org/), [Quarto](https://quarto.org/), and deployed with [GitHub Actions](https://docs.github.com/en/actions).
 

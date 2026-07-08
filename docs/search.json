@@ -242,7 +242,7 @@
     "href": "index.html",
     "title": "carecodeconnect",
     "section": "",
-    "text": "Welcome to the carecodeconnect home page 🤗\n“Building persuasive technologies with AI and Machine Learning for health, well-being & sustainability”\n\nTo learn about us, explore our:\n\nAbout: who we are and what we do\nBlog: revisioning data science for the age of AI\nProjects: building solutions to complex social problems\nTestimonials: what our collaborators say about us\n\nThis home page was made with ❤️ using Python, Quarto, and deployed with GitHub Actions.\n Source on GitHub"
+    "text": "Welcome to the carecodeconnect home page 🤗\n“Building persuasive technologies with AI and Machine Learning for health, well-being & sustainability”\n\nTo learn about us, use the menu above — or type a section below and press Enter:\n\n\n\n  \n    \n    \n    \n    carecodeconnect — bash\n  \n  \n  \n    carecodeconnect ~ $\n    \n  \n\n\n\n  \n    About: who we are and what we do\n    Blog: revisioning data science for the age of AI\n    Projects: building solutions to complex social problems\n    Testimonials: what our collaborators say about us\n  \n\n\n\nThis home page was made with ❤️ using Python, Quarto, and deployed with GitHub Actions.\n Source on GitHub"
   },
   {
     "objectID": "projects/mapmind/mapmind_demographics.html",

@@ -115,3 +115,21 @@ hr { border-top: 1px solid $border-color; opacity: 1; }
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.8rem;
 }
+
+// --- Landing-page terminal palette (gruvbox light) -------------------------
+:root {
+  --ccc-term-bg:       #{$gb-bg0};
+  --ccc-term-panel:    #f2e5bc;
+  --ccc-term-titlebar: #{$gb-bg1};
+  --ccc-term-fg:       #{$gb-fg1};
+  --ccc-term-muted:    #{$gb-gray};
+  --ccc-term-border:   #{$gb-bg2};
+  --ccc-term-prompt:   #{$gb-green};
+  --ccc-term-accent:   #{$gb-orange};
+  --ccc-term-link:     #{$gb-blue};
+  --ccc-term-ok:       #{$gb-aqua};
+  --ccc-term-err:      #{$gb-red};
+  --ccc-term-dot-r:    #cc241d;
+  --ccc-term-dot-y:    #d79921;
+  --ccc-term-dot-g:    #98971a;
+}

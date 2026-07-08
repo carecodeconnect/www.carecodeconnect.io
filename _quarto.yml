@@ -2,6 +2,9 @@ project:
   type: website
   output-dir: docs
 
+execute:
+  freeze: auto   # re-run a page's code only when its source changes; serve cached output otherwise
+
 website:
   title: "carecodeconnect"
   site-url: https://www.carecodeconnect.io
