@@ -4,6 +4,10 @@ format: html
 toc: true
 ---
 
+# *Al Thomson*, Analytics Engineer
+
+>"As a new starter, Stephen ramped up exceptionally quickly, demonstrating strong ownership of complex systems, a clear understanding of the business, and confidence in the day-to-day analytical work. Stephen excels at designing repeatable, well-documented data products that directly address real business pain points. He doesn't just analyse problems but builds scalable solutions that others can easily understand, reuse, and extend. That combination of clarity, structure, and innovation genuinely sets him apart. On top of this, Stephen is a strong communicator, who can translate technical work into clear, actionable insight for non-technical stakeholders. Any organisation looking for someone who can both build robust data solutions and drive impact through them would be fortunate to have him."
+
 # *Bahar Rezaei*, Data Scientist
 
 > "I had the pleasure of collaborating with Stephen on a project to build a personalized conversational meditation app. Stephen's exceptional people skills, exemplified through strong communication, teamwork, and leadership in an agile environment, were instrumental in the project's success. He demonstrated a deep understanding of product development, skillfully bridging theoretical insights with practical implementation. Stephen not only excels in quick coding and efficient technicality but also brings a positive energy and generous spirit to teamwork, readily sharing his knowledge and ideas. I wholeheartedly recommend Stephen for any data science role."
@@ -23,6 +27,10 @@ toc: true
 # *Krzysztof Buzar*, Python Developer
 
 > "Stephen consistently impressed me with his sharp intellect, technical savvy, and enthusiastic approach to learning. In my opinion, during the courses I took, Stephen always showed remarkable technical proficiency, an aptitude for quickly understanding complicated ideas, and an eagerness to learn throughout the courses. Since I like to teach with the use of anecdotes, it was wonderful to experience the resonance with them! On multiple occasions, Stephen demonstrated the capacity to solve problems creatively and with optimism, which is all one can hope for as a teacher during his classes. In addition to his technical prowess, Stephen is an enthusiastic person who is passionate about SOTA technologies, and I personally see a great future in IT for him."
+
+# *Mayra Codo*, Data Analyst
+
+> "I had the pleasure of working with Stephen ... When I first started, Stephen was incredibly supportive. He took time to teach me new processes and was very patient every time I went to him with questions, which made all the difference in helping me to get up to speed. Stephen has a deep understanding of complex systems and an excellent ability to document his work with precision and clarity. It was a great pleasure working with Stephen, and I would highly recommend him to anyone looking for a talented, supportive, and driven team member!"
 
 # *Meg-John Barker*, writer, mentor and associate at *Centre for Transforming Sexuality and Gender*, University of Brighton
 
