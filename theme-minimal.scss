@@ -1,0 +1,97 @@
+/*-- scss:defaults --*/
+
+// ---------------------------------------------------------------------------
+// carecodeconnect — MINIMAL (light)
+// After kanjun.me / joshalbrecht.com: white ground, one sans (Inter), one
+// accent colour for links, a narrow reading column, almost no chrome.
+// Pairs with theme-minimal-dark.scss via the navbar toggle.
+// ---------------------------------------------------------------------------
+
+$web-font-path: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap";
+
+$body-bg:      #ffffff;
+$body-color:   #1f2328;   // near-black, not pure black
+$muted:        #6b7280;
+$accent:       #0b7a4b;   // the single accent: a calm green
+$border-color: #e5e7eb;
+
+$font-family-sans-serif: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-base:       #{$font-family-sans-serif};
+$font-family-monospace:  ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+$headings-font-family:   #{$font-family-sans-serif};
+$headings-font-weight:   700;
+$headings-color:         #111418;
+
+$font-size-root:   17px;
+$line-height-base: 1.65;
+$h1-font-size: 1.9rem;
+$h2-font-size: 1.35rem;
+$h3-font-size: 1.1rem;
+$headings-line-height: 1.25;
+
+$link-color:            $accent;
+$link-decoration:       none;
+$link-hover-color:      darken($accent, 10%);
+$link-hover-decoration: underline;
+
+// Narrow reading column; sidebars stay available for the TOC on long pages.
+$grid-body-width:    720px;
+$grid-sidebar-width: 220px;
+$grid-margin-width:  220px;
+
+$navbar-bg:     #ffffff;
+$navbar-fg:     $body-color;
+$navbar-hl:     $accent;
+$footer-bg:     #ffffff;
+$footer-fg:     $muted;
+
+$code-color:      #1f2328;
+$code-bg:         #f6f8fa;
+$pre-bg:          #f6f8fa;
+
+/*-- scss:rules --*/
+
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+// Header: name on the left, a few small links on the right, no bar.
+.navbar {
+  background-color: $body-bg !important;
+  border-bottom: none;
+  box-shadow: none;
+  padding-top: 1.25rem;
+  padding-bottom: 1rem;
+}
+.navbar-brand { font-weight: 700; font-size: 1.25rem; letter-spacing: -0.015em; color: $accent !important; }
+.navbar .nav-link { font-size: 0.95rem; color: $muted !important; padding-left: 0.9rem; padding-right: 0.9rem; }
+.navbar .nav-link:hover, .navbar .nav-link.active { color: $body-color !important; text-decoration: none; }
+.navbar .quarto-navbar-tools .quarto-navbar-tools-item { color: $muted; }
+
+h1, h2, h3, h4 { letter-spacing: -0.015em; }
+h1.title { margin-bottom: 0.4rem; }
+.quarto-title .subtitle, .quarto-title-meta, .quarto-title-meta-contents { color: $muted; }
+h2 { margin-top: 2.4rem; }
+h1.title, h1:not(.title), h2 { border-bottom: none; padding-bottom: 0; }
+
+p, li { max-width: 68ch; }
+a:hover { text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+img { border-radius: 4px; }
+figure figcaption, .figure-caption { color: $muted; font-size: 0.85rem; }
+
+// Callouts: quiet, one thin accent rule
+.callout { border-left: 3px solid $accent !important; border-radius: 4px; background: #f7faf8; }
+.callout .callout-header { background: transparent; }
+
+// Right-hand TOC: small, muted
+#TOC, .sidebar nav[role=doc-toc] { font-size: 0.85rem; }
+.sidebar nav[role=doc-toc] ul > li > a { color: $muted; }
+.sidebar nav[role=doc-toc] ul > li > a.active { color: $body-color; border-left-color: $accent; }
+
+// Listings (blog, projects) — plain, no cards
+.quarto-listing .listing-title { font-weight: 600; }
+.quarto-grid-item.card { border: 1px solid $border-color; box-shadow: none; }
+
+code:not(.sourceCode), p code, li code { font-size: 0.88em; padding: 0.1em 0.3em; border-radius: 4px; }
+pre.sourceCode, div.sourceCode { border: 1px solid $border-color; border-radius: 6px; }
+
+.nav-footer { border-top: 1px solid $border-color; font-size: 0.85rem; }

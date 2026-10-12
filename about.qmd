@@ -18,50 +18,58 @@ In short, we **care**, **code**, **connect**.
 
 Explore our [blog](blog.qmd) and [projects](projects.qmd) to find out more!
 
-# Recent Projects
+# Recent Work Experience
 
-- Building robust and reliable LLM/SLM AI assistant to help freelancers find high quality gigs @ [Shoutt International](https://shoutt.ai).
+- **Lead Data Scientist, [Shoutt International](https://shoutt.ai), London (2026).** Production LLM and agentic systems for a two-sided freelance job marketplace: role classification for thousands of inconsistent job posts, a CV-review engine with a multi-model router, an agent pipeline that turns one API call into a branded interview-prep PDF, and the evaluation harnesses and metrics dashboards that showed whether any of it worked.
 
-- Automated data analytics, causal inference, and predictive models for enhancing eco-driving behaviours @ [Lightfoot](https://www.lightfoot.co.uk/).
+- **Data Scientist, [Lightfoot](https://www.lightfoot.co.uk/), Exeter (2024–2025).** Automated analytics, causal inference and predictive models for eco-driving behaviour change.
 
-- Built interactive meditation assistant providing personalised guidance using voice and brain signals for enhanced well-being @ [Data Science Retreat](https://www.datascienceretreat.com/).
+- **Data Scientist, [Data Science Retreat](https://datascienceretreat.com/), Berlin (2023–2024).** Led a team of four to build [Jhāna.AI](projects.qmd#jh%C4%81na.ai-personal-meditation-guide), an interactive meditation assistant guided by real-time voice and brain signals; prompt engineering and fine-tuning of open-source LLMs.
+
+- **Data Scientist, Clinical Psychology, [Freie Universität Berlin](https://www.ewi-psy.fu-berlin.de/psychologie/arbeitsbereiche/klinische_psychotherapie/index.html) (2022–2023).** Led a research team building predictive models, data pipelines and interactive dashboards in Python and R, delivering insights to a stakeholder group of 60+ organisations.
+
+- **Data Consultant, [Institute for Applied Sustainability Studies](https://www.rifs-potsdam.de/en/institute), Potsdam (2017–2021).** Social network analysis and an interactive data-visualisation dashboard of the sustainability field, for a project funded by the German Federal Ministry of Education and Research.
 
 ## Skills
 
-- Expertise in scientific research, education, mentoring and project leadership. Skilled in research, model development, deployment, evaluation, and monitoring across the lifecycle of data products.
+- **Full-stack data science for production.** Research, model development, deployment, evaluation and monitoring across the lifecycle of a data product; software-engineering practice (testing, version control, CI/CD) applied to ML and AI pipelines at scale.
 
-- Advanced expertise building persuasive technologies to create behaviour change in the health, well-being, and sustainability domains. Deep expertise in causal inference and experimentation and building ML and AI systems for predictive analysis and generation of text, language, and talk-in-interaction, informed by cutting-edge human-computer interaction research on people's use of digital technologies.
+- **LLM and agentic systems that can be trusted.** Prompt and context engineering, structured outputs, multi-model routing, tool-using agents, RAG — and the part that makes them shippable: golden datasets, evaluation harnesses, regression tests, drift dashboards and cost/latency measurement. *Prompt for recall, deterministic code for precision.*
 
-- Applies best practices in software engineering - functional and object-oriented programming, testing, version control - to Machine Learning and AI production pipelines at scale. 
+- **Hybrid pipelines.** Classical ML and rule-based NLP alongside generative models, each used where it wins on accuracy, cost or determinism.
 
-- User and product sense with research-based skillset combining conceptual, critical thinking and communication skills with scientific, programming, and engineering skills. 
+- **Causal inference and experimentation.** Experimental and quasi-experimental design, A/B testing, forecasting, and twenty years of teaching research methods — quantitative, qualitative and mixed.
+
+- **Persuasive technology for behaviour change** in health, well-being and sustainability, informed by human-computer interaction research.
+
+- **Communication and leadership.** Translating technical work into decisions for non-technical stakeholders; mentoring; leading small cross-functional teams.
 
 # Tools
 
-## Programming Languages
+## Languages
 
-- Rust, Python, R, SQL, bash
+- Python (primary), C# / .NET 8, TypeScript / JavaScript, SQL (PostgreSQL, T-SQL, Cosmos DB), R, Bash, Rust
 
-## Data Science & Analytics
+## LLM & AI engineering
 
-- pandas, polars, matplotlib, plotnine, tidyverse (dplyr, ggplot2)
+- Azure AI Foundry and OpenAI Service, Anthropic Claude (Claude Code, MCP servers), OpenAI API, LangChain, Hugging Face, Ollama; prompt engineering, fine-tuning, agentic workflows, evaluation harnesses
 
-## Machine Learning
+## Machine learning & statistics
 
-- NumPy, scikit-learn, TensorFlow, PyTorch
+- scikit-learn, XGBoost, statsmodels, prophet, PyTorch, TensorFlow, spaCy / NLTK; causal inference, experimental design, time-series forecasting
 
-## Software Engineering & DevOps
+## Data stack
 
-- Documentation (Jupyter, Quarto, Sphinx), version control (git/GitHub), testing (PyTest), CI/CD (GitHub Actions), containerisation (Docker)
+- pandas, polars, NumPy, PySpark, pydantic; PostgreSQL, Azure Cosmos DB
 
-## AI Engineering 
+## Cloud, MLOps & DevOps
 
-- OpenAI API, Codex, Cursor, Ollama, HuggingFace, LangChain, Weights&Biases
+- Azure (Cosmos DB, AI Foundry, OpenAI Service, Container Apps, Blob Storage, Application Insights, Azure DevOps Pipelines), AWS (S3, Lambda, EC2); Docker (multi-arch), GitHub Actions, CI/CD with production gates; self-hosted services on Raspberry Pi with Tailscale
 
-## Cloud Infrastructure
+## Visualisation & BI
 
-- AWS (EC2, S3), Microsoft Azure DevOps, Google Cloud Platform
+- plotnine, Plotly, Observable Plot, matplotlib, ggplot2; Power BI, Zoho Analytics, Streamlit
 
-## Business Intelligence Tools
+## Writing & documentation
 
-- Tableau, Power BI, Zoho Analytics, Excel
+- Quarto (reproducible reports, slides, this site), pandoc, LaTeX, Jupyter, Sphinx

@@ -1,6 +1,15 @@
 project:
   type: website
   output-dir: docs
+  render:
+    # Only .qmd is a page. Quarto's default sweeps up every .md in the project,
+    # which published the agent notes at /CLAUDE.html and an image-credits file
+    # at /projects/ai-data-job-skills/images/external/SOURCES.html. Negating
+    # those ("!CLAUDE.md") does not work in Quarto 1.8, so the list is positive.
+    # A new page must therefore be .qmd, or be added here.
+    - "*.qmd"
+    - "posts/**/*.qmd"
+    - "projects/**/*.qmd"
 
 execute:
   freeze: auto   # re-run a page's code only when its source changes; serve cached output otherwise
@@ -28,21 +37,21 @@ format:
   html:
     theme:
       light:
-        - litera
-        - theme.scss
+        - default
+        - theme-minimal.scss
       dark:
-        - darkly
-        - theme-dark.scss
+        - default
+        - theme-minimal-dark.scss
     highlight-style:
-      light: gruvbox-light
-      dark: gruvbox-dark
+      light: github
+      dark: github-dark
     css: css/styles.css
     toc: false
     include-in-header:
       - text: |
           <link rel="preconnect" href="https://fonts.googleapis.com">
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-          <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 
 
