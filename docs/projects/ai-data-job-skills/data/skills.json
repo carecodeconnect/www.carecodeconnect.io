@@ -1,0 +1,266 @@
+[
+ {
+  "id": "python",
+  "label": "Python",
+  "category": "language",
+  "area": "Programming languages"
+ },
+ {
+  "id": "sql",
+  "label": "SQL",
+  "category": "language",
+  "area": "Programming languages"
+ },
+ {
+  "id": "r",
+  "label": "R",
+  "category": "language",
+  "area": "Programming languages"
+ },
+ {
+  "id": "scala_java",
+  "label": "Scala / Java",
+  "category": "language",
+  "area": "Programming languages"
+ },
+ {
+  "id": "typescript",
+  "label": "TypeScript",
+  "category": "language",
+  "area": "Programming languages"
+ },
+ {
+  "id": "systems_lang",
+  "label": "Rust / C++ / Go",
+  "category": "language",
+  "area": "Programming languages"
+ },
+ {
+  "id": "classical_ml",
+  "label": "Classical ML",
+  "category": "ml",
+  "area": "Machine learning"
+ },
+ {
+  "id": "deep_learning",
+  "label": "Deep learning",
+  "category": "ml",
+  "area": "Machine learning"
+ },
+ {
+  "id": "recsys_ranking",
+  "label": "RecSys / ranking",
+  "category": "ml",
+  "area": "Machine learning"
+ },
+ {
+  "id": "nlp",
+  "label": "NLP",
+  "category": "ml",
+  "area": "Machine learning"
+ },
+ {
+  "id": "computer_vision",
+  "label": "Computer vision",
+  "category": "ml",
+  "area": "Machine learning"
+ },
+ {
+  "id": "time_series",
+  "label": "Time series",
+  "category": "ml",
+  "area": "Machine learning"
+ },
+ {
+  "id": "forecasting",
+  "label": "Forecasting",
+  "category": "ml",
+  "area": "Machine learning"
+ },
+ {
+  "id": "quant_research",
+  "label": "Quant finance research",
+  "category": "stats",
+  "area": "Statistics & experimentation"
+ },
+ {
+  "id": "llm_apps",
+  "label": "LLM applications",
+  "category": "genai",
+  "area": "GenAI / LLM engineering"
+ },
+ {
+  "id": "rag",
+  "label": "RAG",
+  "category": "genai",
+  "area": "GenAI / LLM engineering"
+ },
+ {
+  "id": "agents",
+  "label": "Agents",
+  "category": "genai",
+  "area": "GenAI / LLM engineering"
+ },
+ {
+  "id": "fine_tuning",
+  "label": "Fine-tuning",
+  "category": "genai",
+  "area": "GenAI / LLM engineering"
+ },
+ {
+  "id": "model_evaluation",
+  "label": "Model evaluation / evals",
+  "category": "genai",
+  "area": "GenAI / LLM engineering"
+ },
+ {
+  "id": "llm_observability",
+  "label": "LLM observability",
+  "category": "genai",
+  "area": "GenAI / LLM engineering"
+ },
+ {
+  "id": "statistics",
+  "label": "Statistics",
+  "category": "stats",
+  "area": "Statistics & experimentation"
+ },
+ {
+  "id": "experimentation",
+  "label": "A/B experimentation",
+  "category": "stats",
+  "area": "Statistics & experimentation"
+ },
+ {
+  "id": "causal_inference",
+  "label": "Causal inference",
+  "category": "stats",
+  "area": "Statistics & experimentation"
+ },
+ {
+  "id": "pipelines_etl",
+  "label": "Pipelines / ETL",
+  "category": "data_eng",
+  "area": "Data engineering"
+ },
+ {
+  "id": "orchestration",
+  "label": "Orchestration (Airflow…)",
+  "category": "data_eng",
+  "area": "Data engineering"
+ },
+ {
+  "id": "spark_distributed",
+  "label": "Spark / distributed",
+  "category": "data_eng",
+  "area": "Data engineering"
+ },
+ {
+  "id": "dbt_modelling",
+  "label": "dbt modelling",
+  "category": "data_eng",
+  "area": "Data engineering"
+ },
+ {
+  "id": "streaming",
+  "label": "Streaming",
+  "category": "data_eng",
+  "area": "Data engineering"
+ },
+ {
+  "id": "warehouse",
+  "label": "Data warehouse",
+  "category": "data_eng",
+  "area": "Data engineering"
+ },
+ {
+  "id": "bi_dashboards",
+  "label": "BI dashboards",
+  "category": "analytics",
+  "area": "Analytics & BI"
+ },
+ {
+  "id": "product_analytics",
+  "label": "Product analytics",
+  "category": "analytics",
+  "area": "Analytics & BI"
+ },
+ {
+  "id": "model_serving",
+  "label": "Model serving",
+  "category": "mlops",
+  "area": "MLOps & model serving"
+ },
+ {
+  "id": "mlops_tooling",
+  "label": "MLOps tooling",
+  "category": "mlops",
+  "area": "MLOps & model serving"
+ },
+ {
+  "id": "containers",
+  "label": "Containers / K8s",
+  "category": "mlops",
+  "area": "MLOps & model serving"
+ },
+ {
+  "id": "cicd_testing",
+  "label": "CI/CD & testing",
+  "category": "mlops",
+  "area": "MLOps & model serving"
+ },
+ {
+  "id": "cloud",
+  "label": "Cloud (AWS/GCP/Azure)",
+  "category": "cloud",
+  "area": "Cloud platforms"
+ },
+ {
+  "id": "stakeholder_comms",
+  "label": "Stakeholder communication",
+  "category": "soft",
+  "area": "Communication & leadership"
+ },
+ {
+  "id": "mentoring_leadership",
+  "label": "Mentoring / leadership",
+  "category": "soft",
+  "area": "Communication & leadership"
+ },
+ {
+  "id": "customer_facing",
+  "label": "Customer-facing",
+  "category": "soft",
+  "area": "Communication & leadership"
+ },
+ {
+  "id": "research",
+  "label": "Research",
+  "category": "soft",
+  "area": "Communication & leadership"
+ },
+ {
+  "id": "software_engineering",
+  "label": "Software engineering",
+  "category": "swe",
+  "area": "Software engineering"
+ },
+ {
+  "id": "apis_services",
+  "label": "APIs & integration",
+  "category": "swe",
+  "area": "Software engineering"
+ },
+ {
+  "id": "data_governance",
+  "label": "Data governance",
+  "category": "data_eng",
+  "area": "Data engineering"
+ },
+ {
+  "id": "responsible_ai",
+  "label": "Responsible AI",
+  "category": "genai",
+  "area": "GenAI / LLM engineering"
+ }
+]

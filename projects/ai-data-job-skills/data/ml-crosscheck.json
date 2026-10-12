@@ -1,0 +1,20 @@
+{
+  "_comment": "Cross-check of the machine-learning finding against the second (open-vocabulary Haiku) pass and against the 'ML is assumed, not stated' hypothesis. These figures come from the jobcrawler Postgres on the Pi, not from the published CSV, because the CSV exports only the binary required flag. Regenerate with sql/ml-crosscheck.sql.",
+  "_generated": "2026-10-08",
+  "ds_ads": 431,
+  "jev_required": 43,
+  "jev_required_or_nice": 49,
+  "jev_any_level": 65,
+  "haiku_named": 55,
+  "haiku_required": 50,
+  "kappa": "0.46",
+  "all_jev_required": 19,
+  "all_jev_mentioned": 33,
+  "all_haiku_named": 31,
+  "silent_ads": 196,
+  "silent_naming_tool": 47,
+  "silent_naming_tool_pct": 24,
+  "silent_nothing": 149,
+  "silent_nothing_pct": 35,
+  "implied_total_pct": 65
+}

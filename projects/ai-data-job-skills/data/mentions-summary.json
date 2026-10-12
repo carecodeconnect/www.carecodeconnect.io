@@ -1,0 +1,18 @@
+{
+  "_comment": "Open-vocabulary (Haiku) extraction totals quoted in the Method section. Not derivable from the published CSV, which carries only Jev's binary req_* flag. Regenerate the 'current' block with sql/mentions-summary.sql against the Pi; build_stats.py turns these into page variables so no figure is typed into index.qmd.",
+  "_generated": "2026-10-12",
+  "total": 60572,
+  "phrases": 12481,
+  "phrases_in_10_ads_or_more": 871,
+  "jobs_covered": 3111,
+  "pct_mapped": 62,
+  "_review_comment": "FROZEN. The evidence the 2026-10-08 vocabulary review actually saw, which is what the sentence about that review asserts. Recomputing these against today's pool would make the sentence false. A later review gets its own dated block.",
+  "review_date": "2026-10-08",
+  "accepted_software_engineering": 250,
+  "accepted_data_governance": 170,
+  "accepted_apis_services": 118,
+  "accepted_responsible_ai": 64,
+  "rejected_problem_solving": 266,
+  "rejected_languages": 434,
+  "rejected_data_science": 207
+}
