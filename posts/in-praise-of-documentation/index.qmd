@@ -31,7 +31,7 @@ Originally, the PDF for this talk was rendered with Typst using a Hayagriva-styl
 
 Along with this text, you can also explore the [slide deck for this talk](slides/presentation.html).
 
-This talk was made with ❤️ using [Quarto](https://quarto.org/), [Python](https://www.python.org/), and deployed with [GitHub Actions](https://docs.github.com/en/actions).
+This talk was made with ❤️ using [Quarto](https://quarto.org/), [Python](https://www.python.org/), and deployed with [GitHub Pages](https://docs.github.com/en/pages), straight from `docs/` on `main`.
 
 # How I Learned to Love Documentation
 
