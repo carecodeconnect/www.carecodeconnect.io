@@ -43,8 +43,17 @@ NICE = {"nlp": "NLP", "rag": "RAG", "sql": "SQL", "r": "R", "bi_dashboards": "BI
         "mentoring_leadership": "mentoring and leadership", "customer_facing": "customer-facing work",
         "recsys_ranking": "recommenders and ranking", "fine_tuning": "fine-tuning",
         "responsible_ai": "responsible AI"}
-ORDER = ["Quantitative Researcher", "Data Analyst", "Research Scientist", "Data Scientist",
-         "Data Engineer", "ML Engineer", "Analytics Engineer", "Forward Deployed", "AI Engineer"]
+# Canonical presentation order, then anything the data has that this list does
+# not. A hardcoded list silently skipped the AI Automation family when it was
+# added, leaving its section in the deep dive pointing at a figure that was
+# never drawn — so the list can order families but must not decide which exist.
+_CANON = ["Quantitative Researcher", "Data Analyst", "Research Scientist", "Data Scientist",
+          "Data Engineer", "ML Engineer", "Analytics Engineer", "Forward Deployed", "AI Engineer"]
+_present = list(df["family"].unique())
+ORDER = [f for f in _CANON if f in _present] + [f for f in _present if f not in _CANON]
+if [f for f in _present if f not in _CANON]:
+    print("   note: families not in the canonical order, appended: "
+          + ", ".join(f for f in _present if f not in _CANON))
 TRAIN = ["classical_ml", "deep_learning", "fine_tuning", "computer_vision", "recsys_ranking"]
 CALL = ["llm_apps", "agents", "rag", "llm_observability"]
 

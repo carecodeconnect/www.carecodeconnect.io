@@ -122,6 +122,11 @@ ORDER = [
      "The newest title in the sample and already the largest. It arrived with the production LLM "
      "stack — applications, retrieval, agents, evaluation — and it is the one title here defined by "
      "what it builds *with* rather than what it knows."),
+    ("AI Automation", "~2024",
+     "The newest family here, and the one the crawler began tracking last. The titles are AI, "
+     "agentic, intelligent or workflow automation — Engineer, Specialist, Lead or Consultant — and "
+     "they describe wiring an LLM into a business process rather than building a model. The QA, "
+     "industrial and robotic-process senses of the word are excluded; they are a different job."),
 ]
 
 # Short evidence fragments, chosen by hand from the stored evidence sentences.
@@ -199,7 +204,8 @@ add("")
 # Generated here rather than hand-written in the page because Quarto does not
 # expand `{{< var >}}` inside a mermaid block — the same reason the distance
 # diagram is generated.
-SHORT = {"Quantitative Researcher": ("Quantitative<br/>Researcher", "1980s–90s"),
+SHORT = {"AI Automation": ("AI<br/>Automation", "~2024"),
+         "Quantitative Researcher": ("Quantitative<br/>Researcher", "1980s–90s"),
          "Data Analyst": ("Data<br/>Analyst", "1990s–2000s"),
          "Research Scientist": ("Research<br/>Scientist", "~2012 in this form"),
          "Data Scientist": ("Data<br/>Scientist", "2008"),

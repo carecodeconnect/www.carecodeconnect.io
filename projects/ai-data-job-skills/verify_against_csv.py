@@ -22,7 +22,7 @@ chk("n_ads", f"{len(df):,}")
 chk("n_skills", sum(c.startswith("req_") for c in df.columns))
 for fam, var in [("AI Engineer","ai_engineer"),("Data Scientist","data_scientist"),
                  ("Data Engineer","data_engineer"),("Data Analyst","data_analyst"),
-                 ("ML Engineer","ml_engineer"),("Analytics Engineer","analytics_engineer")]:
+                 ("ML Engineer","ml_engineer"),("Analytics Engineer","analytics_engineer"),("AI Automation","ai_automation")]:
     g = df.family == fam
     chk(f"n_{var}", g.sum()); chk(f"pct_{var}", round(100*g.mean()))
     chk(f"{var}_statistics", round(100*df.req_statistics[g].mean()))

@@ -176,7 +176,7 @@ Each title's profile is the share of its ads requiring each skill; an edge is th
 
 {{< include _titles-diagram.qmd >}}
 
-Data Engineer and Analytics Engineer are the closest pair at {{< var jobskills.closest_pair_d >}}, reaching the rest of the market only through Data Analyst. Data Scientist, AI Engineer and ML Engineer share {{< var jobskills.n_core_shared >}} required skills — {{< var jobskills.core_shared >}} — and beyond those, Data Scientist and AI Engineer have nothing in common.
+The closest pair on the map is {{< var jobskills.closest_pair_a >}} and {{< var jobskills.closest_pair_b >}} at {{< var jobskills.closest_pair_d >}} — the automation titles ask for very nearly what AI Engineer ads ask for. Data Engineer and Analytics Engineer are next at {{< var jobskills.d_analytics_engineer__data_engineer >}}, and reach the rest of the market only through Data Analyst. Data Scientist, AI Engineer and ML Engineer share {{< var jobskills.n_core_shared >}} required skills — {{< var jobskills.core_shared >}} — and beyond those, Data Scientist and AI Engineer have nothing in common.
 
 ![](images/core-skills-venn.png){fig-alt="Grid of skills against three job titles, a filled dot where the skill is core to that title"}
 
