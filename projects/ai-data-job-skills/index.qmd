@@ -6,12 +6,11 @@ date-modified: 2026-10-13
 toc: true
 ---
 
-![](images/ds-venn-2010-vs-2026.png){fig-alt="Two data science Venn diagrams, one above the other: Drew Conway's 2010 version with hacking skills, maths and statistics and substantive expertise, and below it a 2026 version measured from job ads with software engineering and deployment, statistics and inference, and LLM and agent engineering"}
-
 ## Executive summary
 
 Is "AI Engineer" the new name for "Data Scientist", or a different job? {{< var jobskills.n_ads >}} job ads, each scored against a fixed vocabulary of {{< var jobskills.n_skills >}} skills.
 
+- **AI and data work has spread beyond the Data Scientist title.** Clustering the skills by what employers ask for together splits the market into three groups, and each region of that split is dominated by a different title. The centre — ads wanting all three — is {{< var jobskills.c26_pct_centre >}}% of ads, and {{< var jobskills.c26_centre_not_data_scientist >}}% of it carries a title other than Data Scientist.
 - "AI Engineer" is the most frequent title at {{< var jobskills.pct_ai_engineer >}}%, ahead of "Data Scientist" ({{< var jobskills.pct_data_scientist >}}%) and "Data Engineer" ({{< var jobskills.pct_data_engineer >}}%).
 - Stakeholder communication is the most-required skill at {{< var jobskills.all_stakeholder_comms >}}%, ahead of Python at {{< var jobskills.all_python >}}%. {{< var jobskills.ai_no_python >}}% of AI Engineer ads do not require Python.
 - Statistics is required in {{< var jobskills.data_scientist_statistics >}}% of Data Scientist ads and {{< var jobskills.ai_engineer_statistics >}}% of AI Engineer ads.
@@ -85,36 +84,50 @@ Charts use [plotnine](https://plotnine.org) for the static figures and [Plotly](
 Conway's diagram is reproduced with attribution from [drewconway.com](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram) (Drew Conway, *The Data Science Venn Diagram*, 2010). Only the measured figures and the 2026 circles are this page's own.
 :::
 
-## What the ads say: nine titles, three branches, one chain
+## What the field said data science was
 
-### AI Engineer is the most advertised title
+Three pictures the field has used to define itself. Only the first can be tested against a job ad: it says what a data scientist must *know*, and knowledge is what ads ask for. The other two describe a process, and no ad says "must be able to scrub".
+
+![© Drew Conway, 2010. Reproduced with attribution — [original](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram)](images/external/conway-data-science-vd.png){fig-alt="Drew Conway's data science Venn diagram: hacking skills, math and statistics knowledge, substantive expertise, with machine learning, danger zone, traditional research and data science in the overlaps"}
+
+![Redrawn for this page — [original](https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/) (archived)](images/osemn.png){fig-alt="The OSEMN pipeline: obtain, scrub, explore, model, interpret"}
+
+![© the authors, CC BY-NC-ND. Reproduced unchanged — [original](https://r4ds.hadley.nz/intro)](images/external/r4ds-data-science-cycle.png){fig-alt="The R for Data Science cycle: import, tidy, then a loop of transform, visualise and model, then communicate, with program surrounding all of it"}
+
+Conway's circles, sized by how many of these ads land in each region:
+
+![](images/conway-measured.png){fig-alt="Conway's three circles redrawn with region areas proportional to the share of job ads in each"}
+
+{{< var jobskills.conway_danger_zone >}}% of ads ask for code and domain engagement but no statistics — the region he marked "danger zone" and thought nearly empty, now second only to his centre ({{< var jobskills.conway_all_three >}}%). And {{< var jobskills.conway_outside_n >}} of the tracked skills fit none of his three circles at all; {{< var jobskills.conway_outside_pct >}}% of ads require at least one.
+
+## What AI / data roles require in 2026
+
+The circles below are not drawn by hand. The {{< var jobskills.n_skills >}} tracked skills were clustered by how often employers ask for them *in the same ad*, and four groups fall out — three that divide the market, and one required almost everywhere.
+
+![](images/circles-2026.png){fig-alt="Venn diagram of three skill groups found by clustering the job ads: engineering and AI, data platform, statistics and inference, with the share of ads in each region"}
+
+- **Engineering & AI**, {{< var jobskills.c26_n_skills_eng >}} skills, {{< var jobskills.c26_pct_eng >}}% of ads. Software engineering, APIs, cloud, CI/CD, serving *and* LLM applications, agents, RAG, evals. The clustering puts shipping software and building on LLMs in one group: ads that want an LLM application overwhelmingly want someone who can run it.
+- **Data platform**, {{< var jobskills.c26_n_skills_data >}} skills, {{< var jobskills.c26_pct_data >}}% of ads. SQL, dbt, pipelines, warehouse, BI, governance, streaming, Spark, orchestration.
+- **Statistics & inference**, {{< var jobskills.c26_n_skills_inference >}} skills, {{< var jobskills.c26_pct_inference >}}% of ads. Statistics, experimentation, causal inference, forecasting, time series, quant research — and classical ML, deep learning and computer vision, which cluster here rather than with LLM work.
+- **Communication**, {{< var jobskills.c26_n_skills_ground >}} skills, {{< var jobskills.c26_pct_ground >}}% of ads, required across every region. It is the ground the circles stand on, not a circle: something required almost everywhere separates nobody.
+
+Each region of the diagram is dominated by a different job title, and that is the finding:
+
+| Region | Share of ads | Most common title there |
+|---|---|---|
+| All three | {{< var jobskills.c26_pct_centre >}}% | {{< var jobskills.c26_centre_title >}} ({{< var jobskills.c26_centre_title_pct >}}% of the region) |
+| Engineering & AI + data platform | {{< var jobskills.c26_pct_eng_data >}}% | {{< var jobskills.c26_eng_data_title >}} ({{< var jobskills.c26_eng_data_title_pct >}}%) |
+| Engineering & AI alone | {{< var jobskills.c26_pct_eng_only >}}% | {{< var jobskills.c26_eng_only_title >}} ({{< var jobskills.c26_eng_only_title_pct >}}%) |
+| Engineering & AI + inference | {{< var jobskills.c26_pct_eng_inference >}}% | {{< var jobskills.c26_eng_inference_title >}} ({{< var jobskills.c26_eng_inference_title_pct >}}%) |
+| Data platform + inference | {{< var jobskills.c26_pct_data_inference >}}% | {{< var jobskills.c26_data_inference_title >}} ({{< var jobskills.c26_data_inference_title_pct >}}%) |
+
+**AI and data work has spread beyond the Data Scientist title.** The centre — ads requiring all three groups — is {{< var jobskills.c26_pct_centre >}}% of the market, and {{< var jobskills.c26_centre_not_data_scientist >}}% of it carries a title other than Data Scientist. Every other region belongs to someone else: data platform work to Data Engineers, engineering-and-AI without inference to AI Engineers, data-and-inference without engineering to Data Analysts. Note what this does *not* say: the sample is {{< var jobskills.months >}}, so it can show how the work is divided now, not when any of it moved.
+
+Three charts below show what the clustering is made of — which titles are being hired, whether ads want a model built or called, and how often each skill is required.
 
 ![](images/roles.png){fig-alt="Bar chart of the nine job-title families as a share of the ads"}
 
 AI Engineer is the most frequent title at {{< var jobskills.pct_ai_engineer >}}%, then Data Scientist ({{< var jobskills.pct_data_scientist >}}%) and Data Engineer ({{< var jobskills.pct_data_engineer >}}%). Analytics Engineer ({{< var jobskills.pct_analytics_engineer >}}%) and Quantitative Researcher ({{< var jobskills.pct_quantitative_researcher >}}%) are rarest.
-
-### Conway's danger zone is more than a quarter of the market
-
-Conway drew his freehand; the regions carried no numbers. Here they are sized by how many ads land in each — an ad joins a circle if it requires at least one skill mapped to it.
-
-![](images/conway-measured.png){fig-alt="Conway's three circles redrawn with region areas proportional to the share of job ads in each"}
-
-{{< var jobskills.conway_danger_zone >}}% of ads ask for code and domain engagement but no statistics: the second-largest region, behind the centre ({{< var jobskills.conway_all_three >}}%) and larger than his machine learning ({{< var jobskills.conway_ml_only >}}%) and traditional research ({{< var jobskills.conway_trad_research >}}%) lenses combined.
-
-{{< var jobskills.conway_outside_n >}} tracked skills — LLM applications, agents, RAG, evaluation, fine-tuning, observability, responsible AI — fit none of the three circles. **{{< var jobskills.conway_outside_pct >}}% of ads require at least one**, rising to {{< var jobskills.genai_ai_engineer >}}% of AI Engineer ads, and the share is flat across every month.
-
-### LLM and agent engineering is new since Data Scientist was popularised
-
-![](images/ds-venn-2026.png){fig-alt="A 2026 data science Venn diagram with three equal circles — software engineering and deployment, statistics and inference, LLM and agent engineering — with the overlaps named data science, analytics and forecasting, AI engineering and applied research"}
-
-Circles chosen to fit what the ads cluster into. Two are Conway's renamed; one is new.
-
-- **Software engineering & deployment** — his hacking skills, {{< var jobskills.v26_swe >}}% of ads, the largest circle. Model serving alone is required in {{< var jobskills.all_model_serving_pct >}}%. Building and shipping are not separate trades: {{< var jobskills.pct_build_and_deploy >}}% of ads require both, {{< var jobskills.pct_build_only >}}% building alone, {{< var jobskills.pct_deploy_only >}}% deployment alone.
-- **Statistics & inference** — his maths and statistics, {{< var jobskills.v26_inference >}}%, the one circle surviving intact. Deep learning and NLP have left it for the LLM circle; product analytics and BI have joined it.
-- **LLM & agent engineering** — new, {{< var jobskills.v26_llm >}}%.
-- **Substantive expertise is no longer a circle.** Stakeholder communication appears in {{< var jobskills.all_stakeholder_comms >}}% of ads, too universal to divide anyone.
-
-By region: data science, all three circles at once, is {{< var jobskills.v26_datascience >}}% of ads against {{< var jobskills.conway_all_three >}}% under Conway's. **That centre is a practice, not the job title of the same name.** Only {{< var jobskills.v26_data_scientist_in_centre >}}% of Data Scientist ads sit in it, and the region is mostly not theirs: {{< var jobskills.v26_centre_ai_engineer_titled >}}% of it is titled AI Engineer against {{< var jobskills.v26_centre_data_scientist_titled >}}% Data Scientist. {{< var jobskills.v26_data_scientist_in_llm >}}% of Data Scientist ads fall in the LLM circle at all. **AI engineering** — engineering and LLM work without inference, his danger zone — is the largest lens at {{< var jobskills.v26_aieng >}}%, {{< var jobskills.v26_aieng_titled >}}% of it titled AI Engineer. **Analytics & forecasting** is {{< var jobskills.v26_analytics >}}%, **applied research** {{< var jobskills.v26_research >}}%.
 
 ### More ads call a model than build one
 
@@ -134,7 +147,10 @@ Machine learning is not a circle on the redrawn diagram because it divides nothi
 
 {{< var jobskills.top1_skill >}} leads at {{< var jobskills.top1_pct >}}%, then {{< var jobskills.top2_skill >}} ({{< var jobskills.top2_pct >}}%), {{< var jobskills.top3_skill >}} ({{< var jobskills.top3_pct >}}%), {{< var jobskills.top4_skill >}} ({{< var jobskills.top4_pct >}}%), {{< var jobskills.top5_skill >}} ({{< var jobskills.top5_pct >}}%), {{< var jobskills.top6_skill >}} ({{< var jobskills.top6_pct >}}%) and {{< var jobskills.top7_skill >}} ({{< var jobskills.top7_pct >}}%). The tail is the specialist end: {{< var jobskills.tail_skills >}}.
 
-### The titles form a chain, and ML Engineer is the hinge
+
+## How the titles differ
+
+### They form a chain, and ML Engineer is the hinge
 
 Each title's profile is the share of its ads requiring each skill; an edge is the Euclidean distance between two profiles, so smaller means more alike. Beside it, the skills separating the pair.
 

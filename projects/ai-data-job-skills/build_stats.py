@@ -303,6 +303,7 @@ def carry(name: str, prefix: str) -> None:
         out[name] = f"{v:,}" if isinstance(v, int) and v >= 1_000 else v
 
 
+carry("circles-2026", "c26_")
 carry("judge", "judge_")
 carry("mentions-summary", "mentions_")
 carry("ml-crosscheck", "mlcheck_")
