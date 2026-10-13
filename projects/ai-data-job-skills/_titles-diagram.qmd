@@ -6,23 +6,23 @@
 %%{init: {"theme": "neutral", "fontSize": 15, "flowchart": {"curve": "basis", "nodeSpacing": 38, "rankSpacing": 55}}}%%
 flowchart TB
     QR["Quantitative Researcher<br/>n = 47"]
-    DS["Data Scientist<br/>n = 506"]
-    DA["Data Analyst<br/>n = 303"]
-    AE["Analytics Engineer<br/>n = 65"]
-    DE["Data Engineer<br/>n = 337"]
-    ML["ML Engineer<br/>n = 277"]
-    RS["Research Scientist<br/>n = 156"]
-    AI["AI Engineer<br/>n = 696"]
-    FD["Forward Deployed<br/>n = 430"]
+    DS["Data Scientist<br/>n = 518"]
+    DA["Data Analyst<br/>n = 309"]
+    AE["Analytics Engineer<br/>n = 72"]
+    DE["Data Engineer<br/>n = 341"]
+    ML["ML Engineer<br/>n = 284"]
+    RS["Research Scientist<br/>n = 160"]
+    AI["AI Engineer<br/>n = 707"]
+    FD["Forward Deployed<br/>n = 434"]
     QR ---|"1.41<br/>statistics, forecasting"| DS
-    DA ---|"1.28<br/>SQL, BI ↔ Python, classical ML"| DS
-    AE ---|"1.45<br/>dbt, pipelines ↔ BI, product analytics"| DA
-    DE ---|"0.98<br/>cloud, Spark ↔ SQL, dbt"| AE
-    DS ---|"1.12<br/>+ MLOps, serving, containers"| ML
+    DA ---|"1.29<br/>SQL, BI ↔ Python, classical ML"| DS
+    AE ---|"1.44<br/>dbt, pipelines ↔ BI, product analytics"| DA
+    DE ---|"0.96<br/>cloud, Spark ↔ SQL, dbt"| AE
+    DS ---|"1.10<br/>+ MLOps, serving, containers"| ML
     RS -. "0.99<br/>research, experimentation ↔<br/>MLOps, serving, CI/CD" .- ML
     ML ---|"1.10<br/>+ LLM apps, agents, NLP"| AI
-    DS -. "1.48 direct" .- AI
-    AI -. "1.38<br/>LLM apps, NLP ↔<br/>customer-facing, stakeholders" .- FD
+    DS -. "1.47 direct" .- AI
+    AI -. "1.39<br/>LLM apps, NLP ↔<br/>customer-facing, stakeholders" .- FD
     classDef inf fill:#dbe8f8,stroke:#0072B2,color:#0b0b0b;
     classDef eng fill:#fde3d8,stroke:#D55E00,color:#0b0b0b;
     classDef data fill:#e4dde9,stroke:#882255,color:#0b0b0b;

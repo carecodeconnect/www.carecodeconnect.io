@@ -249,15 +249,6 @@ for _f in df.family.unique():
     out[f"bc_{key(_f)}_train"] = f"{100 * _tr[_g].mean():.0f}"
     out[f"bc_{key(_f)}_call"] = f"{100 * _ca[_g].mean():.0f}"
 
-# ── the ML cross-check, from the Pi DB (see sql/ml-crosscheck.sql) ──────────
-# Not derivable from the published CSV, which carries only the binary required
-# flag; kept as a committed JSON so the page still has a single writer.
-import json as _json
-_x = _json.loads((HERE / "data" / "ml-crosscheck.json").read_text())
-for _k, _v in _x.items():
-    if not _k.startswith("_"):
-        out[f"mlx_{_k}"] = str(_v)
-
 # ── would "machine learning" earn a circle of its own? (owner, 2026-10-08) ──
 # Tested rather than asserted, because readers ask why Conway's ML lens is gone.
 MLSET = ["classical_ml", "deep_learning", "computer_vision", "recsys_ranking"]
@@ -304,10 +295,8 @@ def carry(name: str, prefix: str) -> None:
 
 
 carry("circles-2026", "c26_")
-carry("shipping", "ship2_")
-carry("judge", "judge_")
 carry("mentions-summary", "mentions_")
-carry("ml-crosscheck", "mlcheck_")
+carry("judge", "judge_")
 
 # ── is "shipping" a separate skill set from "building"? (owner, 2026-10-08) ──
 DEP = ["model_serving", "mlops_tooling", "containers", "cloud", "orchestration", "cicd_testing"]
@@ -421,6 +410,61 @@ for _out, _giv, _name in [("model_evaluation", "experimentation", "evals_ab"),
     out[f"p_{_name}"] = "<0.001" if _p < 0.001 else f"{_p:.2f}"
 out["pct_obs_base_eng"] = f"{100 * _eng.req_llm_observability.mean():.0f}"
 out["pct_obs_from_stats"] = f"{100 * _eng.req_llm_observability[_eng.req_statistics == 1].mean():.0f}"
+
+# ── figures that used to arrive in a JSON, now computed from the published data ──
+# scripts/eda-export.sh writes both files straight from the jobcrawler DB, so the
+# page has ONE source of truth. Carrying these in a hand-maintained JSON meant the
+# guard could not see them: it scans index.qmd and cannot check a number typed into
+# a carrier. Anything derivable from the CSVs is derived here.
+MENT = HERE / "data" / "skill-mentions.csv"
+if MENT.exists():
+    mp = pd.read_csv(MENT, keep_default_na=False)
+    out["mentions_total"] = f"{int(mp.n_mentions.sum()):,}"
+    out["mentions_phrases"] = f"{len(mp):,}"
+    out["mentions_phrases_in_10_ads_or_more"] = f"{int((mp.n_jobs >= 10).sum()):,}"
+    out["mentions_pct_mapped"] = f"{100 * mp.loc[mp.mapped_to != '', 'n_mentions'].sum() / mp.n_mentions.sum():.0f}"
+
+# The machine-learning cross-check, from the per-ad flags the second pass wrote.
+# Population note: selected on the judge's role_family, not the title regex, which
+# is why its n differs from n_data_scientist — the page says so.
+if "names_ml" in df.columns and str(df["names_ml"].iloc[0]) != "":
+    ds = df[df.role_family == "data_scientist"]
+    silent = ds[ds.names_ml == 0]
+    out["mlx_ds_ads"] = f"{len(ds):,}"
+    out["mlx_silent_ads"] = f"{len(silent):,}"
+    out["mlx_silent_naming_tool"] = f"{int(silent.names_ml_tool.sum()):,}"
+    out["mlx_silent_naming_tool_pct"] = f"{100 * silent.names_ml_tool.mean():.0f}"
+    out["mlx_silent_nothing"] = f"{int((silent.names_ml_tool == 0).sum()):,}"
+    out["mlx_silent_nothing_pct"] = f"{100 * (silent.names_ml_tool == 0).sum() / len(ds):.0f}"
+    out["mlx_haiku_named"] = f"{100 * ds.names_ml.mean():.0f}"
+    out["mlx_implied_total_pct"] = f"{100 * ((ds.names_ml == 1) | (ds.names_ml_tool == 1)).mean():.0f}"
+    out["mlx_jev_required"] = f"{100 * ds[[c for c in ('req_classical_ml', 'req_deep_learning') if c in ds]].max(axis=1).mean():.0f}"
+    # agreement between the two passes on machine learning, over the same ads
+    jev = ds[[c for c in ("req_classical_ml", "req_deep_learning") if c in ds]].max(axis=1)
+    hai = ds.names_ml_required
+    po = (jev == hai).mean()
+    pe = jev.mean() * hai.mean() + (1 - jev.mean()) * (1 - hai.mean())
+    out["mlx_kappa"] = f"{(po - pe) / (1 - pe):.2f}"
+    out["mlcheck_kappa"] = out["mlx_kappa"]
+    out["mlcheck_all_jev_mentioned"] = f"{100 * df[[c for c in ('req_classical_ml', 'req_deep_learning') if c in df]].max(axis=1).mean():.0f}"
+    out["mlcheck_all_haiku_named"] = f"{100 * df.names_ml.mean():.0f}"
+    out["mlx_haiku_required"] = f"{100 * ds.names_ml_required.mean():.0f}"
+    out["mlcheck_all_jev_required"] = out["mlcheck_all_jev_mentioned"]
+    # counted WITHIN the silent ads, not pool-wide: a pool-wide count answers a
+    # different question and would read as if it were this one.
+    _col = "n_jobs_ds_silent" if "n_jobs_ds_silent" in mp.columns else "n_jobs"
+    ex = mp[mp.phrase.str.contains("scikit|sklearn|pytorch|tensorflow|xgboost|lightgbm|keras|random forest|"
+                                   "gradient boost|clustering|classification|regression|predictive model|"
+                                   "supervised|feature engineering|model training|model development|mlflow",
+                                   case=False)].nlargest(10, _col)
+    PRETTY = {"predictive modeling": "predictive modelling", "mlflow": "MLflow", "pytorch": "PyTorch",
+              "tensorflow": "TensorFlow"}
+    out["mlx_silent_examples"] = ", ".join(f"{PRETTY.get(r.phrase, r.phrase)} ({getattr(r, _col)} ads)" if i == 0
+                                           else f"{PRETTY.get(r.phrase, r.phrase)} ({getattr(r, _col)})"
+                                           for i, r in enumerate(ex.itertuples()))
+    top_other = mp.nlargest(7, _col).phrase.tolist()
+    out["mlx_silent_other_asks"] = ", ".join({"sql": "SQL", "python": "Python", "r": "R",
+                                              "a/b testing": "A/B testing"}.get(x, x) for x in top_other)
 
 block = "jobskills:\n" + "".join(f"  {k}: \"{v}\"\n" for k, v in out.items())
 vp = WWW / "_variables.yml"
