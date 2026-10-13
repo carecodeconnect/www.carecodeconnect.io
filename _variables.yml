@@ -751,6 +751,8 @@ jobskills:
   judge_ads_judged: "3,404"
   judge_judged_through: "2026-10-13"
   judge_required_threshold: "0.6"
+  judge_second_model: "Claude Haiku 4.5"
+  judge_second_model_id: "claude-haiku-4-5-20251001"
   mentions_total: "60,572"
   mentions_phrases: "12,481"
   mentions_phrases_in_10_ads_or_more: "871"

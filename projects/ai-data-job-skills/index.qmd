@@ -80,7 +80,7 @@ The centre — ads needing all three groups — is {{< var jobskills.c26_pct_cen
 ::: {.callout-note collapse="true" appearance="simple"}
 ## The titles by distance, the shared core, and the map {.unnumbered}
 
-Each title's profile is the share of its ads requiring each skill; an edge is the Euclidean distance between two profiles.
+Each title's profile is the share of its ads requiring each skill; an edge is the [Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance) between two profiles.
 
 {{< include _titles-diagram.qmd >}}
 
@@ -89,6 +89,8 @@ Data Engineer and Analytics Engineer are the closest pair at {{< var jobskills.c
 ![](images/core-skills-venn.png){fig-alt="Venn diagram of the core skills of Data Scientist, AI Engineer and ML Engineer ads"}
 
 Where AI Engineer comes from: its nearest neighbour is ML Engineer ({{< var jobskills.d_ai_engineer__ml_engineer >}}), and Data Engineer is {{< var jobskills.d_ai_engineer__data_engineer >}} away — further than Data Scientist. One skill crosses the divide: model evaluation is required in {{< var jobskills.ai_engineer_model_evaluation >}}% of AI Engineer ads and {{< var jobskills.data_scientist_model_evaluation >}}% of Data Scientist ads, against {{< var jobskills.data_engineer_model_evaluation >}}% of Data Engineer ads. Within the {{< var jobskills.n_eng_ads >}} engineering ads, evals run at {{< var jobskills.pct_evals_base_eng >}}% overall but {{< var jobskills.pct_evals_from_ab >}}% where A/B experimentation is also required (odds ratio {{< var jobskills.or_evals_ab >}}, p {{< var jobskills.p_evals_ab >}}). LLM observability shows no such link (odds ratio {{< var jobskills.or_obs_stats >}}, p {{< var jobskills.p_obs_stats >}}).
+
+Each dot is one ad, placed by the {{< var jobskills.n_skills >}} skills it requires ([t-SNE](https://www.jmlr.org/papers/v9/vandermaaten08a.html): nearby dots have similar requirements, and distances across the map carry no scale). Click a title in the legend to hide it.
 
 <iframe src="cluster.html" title="Interactive skills map" width="100%" height="620" style="border:0;" loading="lazy"></iframe>
 :::
@@ -103,7 +105,7 @@ Where AI Engineer comes from: its nearest neighbour is ML Engineer ({{< var jobs
 
 The work has not been renamed; it has been divided. Three skill groups, {{< var jobskills.n_titles >}} titles, and one title dominant in each region of the map. The centre still exists at {{< var jobskills.c26_pct_centre >}}% of ads, but most of it is not called Data Scientist.
 
-Three limits. These are ads, not jobs: they record what employers asked for, not what the work became. The window is {{< var jobskills.months >}}, so this shows how the work is divided now, not when any of it moved. The scores are model judgements, never checked against human labels, with agreement on the required call at Cohen's κ ≈ {{< var jobskills.mlcheck_kappa >}}.
+Three limits. These are ads, not jobs: they record what employers asked for, not what the work became. The window is {{< var jobskills.months >}}, so this shows how the work is divided now, not when any of it moved. The scores are model judgements, never checked against human labels, with agreement on the required call at [Cohen's κ](https://en.wikipedia.org/wiki/Cohen%27s_kappa) ≈ {{< var jobskills.mlcheck_kappa >}}.
 
 ## How this was measured
 
@@ -120,14 +122,14 @@ Three limits. These are ads, not jobs: they record what employers asked for, not
 ::: {.callout-note collapse="true" appearance="simple"}
 ## How the skills were scored {.unnumbered}
 
-Scores come from the production pipeline of **jobcrawler**, a personal job-board crawler that scrapes employer ATS boards, filters by title and location with deterministic rules, and stores each ad. After storage every ad is read once by **Jev** (TypeSafe's System One model, version {{< var jobskills.judge_version >}}), which answers typed questions and returns probabilities rather than text.
+Scores come from the production pipeline of **jobcrawler**, a personal job-board crawler that scrapes employer ATS boards, filters by title and location with deterministic rules, and stores each ad. After storage every ad is read once by **[Jev](https://typesafe.ai)** ([TypeSafe](https://typesafe.ai)'s [System One](https://typesafe.ai/blog/introducing-system-one-models-and-jev) model, version {{< var jobskills.judge_version >}}), which answers typed questions and returns probabilities rather than text.
 
 - For each of **{{< var jobskills.n_skills >}} tracked skills** Jev answers one four-level question: does the ad *not involve* the skill, *mention it in passing*, list it as *nice to have*, or *require* it. One question per skill, so an answer cannot contradict itself, and the same question is answered for every ad — which is the only reason the percentages compare across titles.
 - An ad requires the skill when "required" reaches probability {{< var jobskills.judge_required_threshold >}}. Most judgements come back "not involved"; roughly one in six reaches "required".
 - Jev has no part in choosing the ads: the pool is gathered and filtered by rules.
 - Cost: about 6k input tokens per ad, under a cent.
 
-The scores are model judgements, consistent across titles but never checked against human labels: read the percentages as what a careful reader of the ad would conclude, with a few points of noise. **"Required" is a high bar** — every percentage counts ads where the skill reaches *required*, not ads that mention it. Across all ads, {{< var jobskills.mlcheck_all_jev_mentioned >}}% mention machine learning on Jev's reading and {{< var jobskills.mlcheck_all_haiku_named >}}% on a second model's, against {{< var jobskills.mlcheck_all_jev_required >}}% requiring it. Agreement on the required call is moderate (Cohen's κ ≈ {{< var jobskills.mlcheck_kappa >}}), so treat a single figure as approximate and the direction as solid.
+The scores are model judgements, consistent across titles but never checked against human labels: read the percentages as what a careful reader of the ad would conclude, with a few points of noise. **"Required" is a high bar** — every percentage counts ads where the skill reaches *required*, not ads that mention it. Across all ads, Jev reads machine learning as mentioned in {{< var jobskills.mlcheck_all_jev_mentioned >}}% and the second pass by [{{< var jobskills.judge_second_model >}}](https://www.anthropic.com/claude/haiku) names it in {{< var jobskills.mlcheck_all_haiku_named >}}%, against {{< var jobskills.mlcheck_all_jev_required >}}% requiring it. Agreement on the required call is moderate ([Cohen's κ](https://en.wikipedia.org/wiki/Cohen%27s_kappa) ≈ {{< var jobskills.mlcheck_kappa >}}), so treat a single figure as approximate and the direction as solid.
 :::
 
 ::: {.callout-note collapse="true" appearance="simple"}
@@ -135,7 +137,7 @@ The scores are model judgements, consistent across titles but never checked agai
 
 The {{< var jobskills.n_skills >}} skills are a *fixed vocabulary*, not everything an ad might mention. A free-for-all count of whatever words appear cannot compare titles, because no two employers use the same words.
 
-The list is curated but not frozen, and **two passes read every ad**. Pass one is Jev, above. Pass two is an open-vocabulary extraction: a small, cheap model (Claude Haiku) reads each ad with one instruction — list every skill, tool or method it asks for, **in the ad's own words**, say whether it is required or nice to have, and quote the sentence showing it. Nothing is matched against the vocabulary at this stage; the model does not know it exists.
+The list is curated but not frozen, and **two passes read every ad**. Pass one is Jev, above. Pass two is an open-vocabulary extraction: a small, cheap model ([{{< var jobskills.judge_second_model >}}](https://www.anthropic.com/claude/haiku)) reads each ad with one instruction — list every skill, tool or method it asks for, **in the ad's own words**, say whether it is required or nice to have, and quote the sentence showing it. Nothing is matched against the vocabulary at this stage; the model does not know it exists.
 
 That covers the whole pool: **{{< var jobskills.mentions_total >}} mentions** across **{{< var jobskills.mentions_phrases >}} distinct phrases**, {{< var jobskills.mentions_phrases_in_10_ads_or_more >}} of them in ten ads or more. An alias table maps a phrase onto a vocabulary skill where the mapping is obvious — "PostgreSQL" to SQL, "Kubernetes" to containers, "RLHF" to deep learning — and {{< var jobskills.mentions_pct_mapped >}}% of mentions map. **The rest are the point**: what ads keep asking for that the vocabulary has no question for, ranked by how many jobs require it.
 
@@ -157,7 +159,7 @@ The remaining {{< var jobskills.mlx_silent_nothing >}} ads ({{< var jobskills.ml
 
 The underlying data is published with this page: [**download it here**](data/ai-data-job-skills.csv), with a [**companion list of the skills**](data/skills.json) and their areas. One row per ad — title, title family, hiring region, month, position on the map, and a yes/no flag for each of the {{< var jobskills.n_skills >}} skills. Deliberately absent: employer names, links, and any ad text. Enough to redraw every chart and check any number, without republishing anyone's postings.
 
-Charts use [plotnine](https://plotnine.org) for the static figures and [Plotly](https://plotly.com/python/), styled to match, for the interactive map. Colours come from the Okabe-Ito colour-blind-safe palette, and wherever more than three categories share a plot, marker shape carries identity as well as colour.
+Charts use [plotnine](https://plotnine.org) for the static figures and [Plotly](https://plotly.com/python/), styled to match, for the interactive map. Colours come from the [Okabe-Ito colour-blind-safe palette](https://jfly.uni-koeln.de/color/), and wherever more than three categories share a plot, marker shape carries identity as well as colour.
 
 Conway's diagram is reproduced with attribution from [drewconway.com](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram) (Drew Conway, *The Data Science Venn Diagram*, 2010). Only the measured figures and the 2026 circles are this page's own.
 :::

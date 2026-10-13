@@ -1,10 +1,12 @@
 {
-  "_comment": "Which judge produced the scores and how it was asked, from jobcrawler's job_insights on the Pi and its config/config.json. The page names the model, its version and the threshold in the method section; those are facts about the data, so they are carried here rather than typed into index.qmd. Regenerate the query part with sql/judge.sql; required_threshold mirrors typesafe.status_cut.",
+  "_comment": "Which judge produced the scores and how it was asked, from jobcrawler's job_insights on the Pi and its config/config.json. The page names the model, its version and the threshold in the method section; those are facts about the data, so they are carried here rather than typed into index.qmd. second_model is the open-vocabulary pass (config.json model.skills). Regenerate the query part with sql/judge.sql; required_threshold mirrors typesafe.status_cut.",
   "_generated": "2026-10-13",
   "model": "jev-1.13.0",
   "version": "jev-1.13",
   "questions_version": "291fa580de87beac",
   "ads_judged": 3404,
   "judged_through": "2026-10-13",
-  "required_threshold": 0.6
+  "required_threshold": 0.6,
+  "second_model": "Claude Haiku 4.5",
+  "second_model_id": "claude-haiku-4-5-20251001"
 }
