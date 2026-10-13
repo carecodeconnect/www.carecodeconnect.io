@@ -313,6 +313,9 @@ out["all_model_serving_pct"] = f"{100 * df['req_model_serving'].mean():.0f}"
 # Quarto does NOT expand `{{< var >}}` inside a ```{mermaid}``` block, so the
 # numbers there cannot come from _variables.yml like the rest of the page. The
 # whole block is generated here instead and spliced in with `{{< include >}}`,
+# and every edge uses the ---|"text"| form: Mermaid 11 rejects quoted text in
+# the dotted `-. "text" .-` form, which broke the whole diagram. The three
+# nearest-neighbour edges are dashed with linkStyle instead.
 # which keeps the rule intact: no figure in the page is typed by hand.
 def nd(a: str, b: str) -> str:
     return out[f"d_{key(a)}__{key(b)}"]
@@ -342,10 +345,11 @@ flowchart TB
     AE ---|"{nd("Analytics Engineer", "Data Analyst")}<br/>dbt, pipelines ↔ BI, product analytics"| DA
     DE ---|"{nd("Analytics Engineer", "Data Engineer")}<br/>cloud, Spark ↔ SQL, dbt"| AE
     DS ---|"{nd("Data Scientist", "ML Engineer")}<br/>+ MLOps, serving, containers"| ML
-    RS -. "{nd("ML Engineer", "Research Scientist")}<br/>research, experimentation ↔<br/>MLOps, serving, CI/CD" .- ML
+    RS ---|"{nd("ML Engineer", "Research Scientist")}<br/>research, experimentation ↔<br/>MLOps, serving, CI/CD"| ML
     ML ---|"{nd("AI Engineer", "ML Engineer")}<br/>+ LLM apps, agents, NLP"| AI
-    DS -. "{nd("AI Engineer", "Data Scientist")} direct" .- AI
-    AI -. "{nd("AI Engineer", "Forward Deployed")}<br/>LLM apps, NLP ↔<br/>customer-facing, stakeholders" .- FD
+    DS ---|"{nd("AI Engineer", "Data Scientist")} direct"| AI
+    AI ---|"{nd("AI Engineer", "Forward Deployed")}<br/>LLM apps, NLP ↔<br/>customer-facing, stakeholders"| FD
+    linkStyle 5,7,8 stroke-dasharray: 6 5;
     classDef inf fill:#dbe8f8,stroke:#0072B2,color:#0b0b0b;
     classDef eng fill:#fde3d8,stroke:#D55E00,color:#0b0b0b;
     classDef data fill:#e4dde9,stroke:#882255,color:#0b0b0b;

@@ -306,6 +306,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary">Executive summary</a></li>
+  <li><a href="#the-sample" id="toc-the-sample" class="nav-link" data-scroll-target="#the-sample">The sample</a></li>
   <li><a href="#rq1-the-2010-circles-no-longer-fit" id="toc-rq1-the-2010-circles-no-longer-fit" class="nav-link" data-scroll-target="#rq1-the-2010-circles-no-longer-fit">RQ1 · The 2010 circles no longer fit</a></li>
   <li><a href="#rq2-three-groups-of-skills-and-one-asked-for-everywhere" id="toc-rq2-three-groups-of-skills-and-one-asked-for-everywhere" class="nav-link" data-scroll-target="#rq2-three-groups-of-skills-and-one-asked-for-everywhere">RQ2 · Three groups of skills, and one asked for everywhere</a></li>
   <li><a href="#rq3-each-region-belongs-to-a-different-title" id="toc-rq3-each-region-belongs-to-a-different-title" class="nav-link" data-scroll-target="#rq3-each-region-belongs-to-a-different-title">RQ3 · Each region belongs to a different title</a></li>
@@ -382,6 +383,33 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p>Three results behind those answers: a Data Scientist ad asks for the model <strong>and</strong> for running it (49% need both); stakeholder communication is the most-required skill at 71%, ahead of Python at 57%; statistics is what separates the two headline titles, 73% against 11%.</p>
 </section>
+<section id="the-sample" class="level2">
+<h2 class="anchored" data-anchor-id="the-sample">The sample</h2>
+<p><img src="images/roles.png" class="img-fluid" alt="Bar chart of the nine job-title families as a share of the job ads"></p>
+<p>“AI Engineer” is the most advertised title at 25%, then Data Scientist (18%) and Data Engineer (12%); Analytics Engineer (3%) and Quantitative Researcher (2%) are the rarest. Titles come from the job ad itself, by regular expression over its title.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Where the job ads come from
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>2,872 job ads</strong>, de-duplicated, with a data / AI title: AI Engineer 707, Data Scientist 518, Data Engineer 341, Forward Deployed 434, Data Analyst 309, ML Engineer 284, Research Scientist 160, Analytics Engineer 72, Quantitative Researcher 47.</li>
+<li><strong>Where they hire:</strong> Germany, EU-wide remote, worldwide remote, or the UK. Live 2026-04 to 2026-10.</li>
+<li><strong>Where they come from:</strong> employers’ own boards and careers pages, aggregators, and a curated feed. The published data carries no source or employer, and the same opening reached by two routes counts once (matched on URL and on company + title).</li>
+<li><strong>Titles come from the ad</strong>, by regular expression over the job title; “AI Engineer” includes variants such as “Senior Software Engineer – AI”.</li>
+<li><strong>Not a random sample.</strong> These are the ads a personal crawler targets, so they describe what the titles ask for, not how many of each exist.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
 <section id="rq1-the-2010-circles-no-longer-fit" class="level2">
 <h2 class="anchored" data-anchor-id="rq1-the-2010-circles-no-longer-fit">RQ1 · The 2010 circles no longer fit</h2>
 <p>Conway’s 2010 diagram put data science where hacking skills, maths and statistics, and substantive expertise meet, with a “danger zone” where code met domain knowledge without statistics.</p>
@@ -395,7 +423,7 @@ ul.task-list li input[type="checkbox"] {
 <p>28% of ads want code and domain engagement but no statistics — the region he marked “danger zone” and thought nearly empty. 7 tracked skills fit none of his circles at all, and 51% of ads require at least one.</p>
 <p><strong>What is missing from his picture is deployment.</strong> His three circles are knowledge — code, maths, domain. 67% of ads require a production skill, and model serving alone appears in 60% of Data Scientist ads, more than any single modelling skill.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -404,7 +432,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In October 2012 <em>Harvard Business Review</em> called data scientist <a href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century">the sexiest job of the 21st century</a>, describing a hybrid of hacker, analyst, communicator and trusted adviser. The field has drawn that hybrid three ways.</p>
 <p><strong>1. Conway, 2010 — what you must <em>know</em>.</strong> Three circles of knowledge with data science in the middle, shown above. The only one of the three that can be tested against a job ad, because employers advertise for knowledge.</p>
@@ -430,7 +458,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="rq2-three-groups-of-skills-and-one-asked-for-everywhere" class="level2">
 <h2 class="anchored" data-anchor-id="rq2-three-groups-of-skills-and-one-asked-for-everywhere">RQ2 · Three groups of skills, and one asked for everywhere</h2>
 <p>The 44 skills were clustered by how often employers ask for them <em>in the same ad</em>. Four groups fall out — three that divide the market, one required almost everywhere.</p>
-<p><img src="images/circles-2026.png" class="img-fluid" alt="UpSet plot of the three skill groups: each combination and the share of job ads requiring it"></p>
 <ul>
 <li><strong>Engineering, deployment &amp; AI</strong> — 20 skills, 89% of ads. Shipping software and building on LLMs fall in one group.</li>
 <li><strong>Data platform</strong> — 9 skills, 60%.</li>
@@ -438,7 +465,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Communication</strong> — 3 skills, 79%, in every region. The ground, not a circle.</li>
 </ul>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -447,7 +474,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Most required in each: engineering, deployment &amp; AI — Software engineering, Python, Model serving, Agents, LLM applications, NLP. Data platform — Pipelines / ETL, SQL, Data governance, Data warehouse, Spark / distributed, BI dashboards. Statistics &amp; inference — Statistics, Product analytics, A/B experimentation, Classical ML, Deep learning, Forecasting. Communication — Stakeholder communication, Mentoring / leadership, Customer-facing.</p>
 <p><img src="images/skills-by-demand.png" class="img-fluid" alt="Bar chart of every tracked skill by the share of ads requiring them"></p>
@@ -458,13 +485,15 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="rq3-each-region-belongs-to-a-different-title" class="level2">
 <h2 class="anchored" data-anchor-id="rq3-each-region-belongs-to-a-different-title">RQ3 · Each region belongs to a different title</h2>
-<p><img src="images/circles-2026-titles.png" class="img-fluid" alt="UpSet plot: each combination of skill groups, its share of job ads, and the job title most common in it"></p>
 <p>The centre — ads needing all three groups — is 30% of the market, and 61% of it carries a title other than Data Scientist. Data-platform work belongs to Data Engineers, engineering without inference to AI Engineers, data-and-inference without engineering to Data Analysts (77% of that region).</p>
+<p>Each dot is one job ad, placed by the 44 skills it requires (<a href="https://www.jmlr.org/papers/v9/vandermaaten08a.html">t-SNE</a>: nearby dots have similar requirements, and distances across the map carry no scale). Click a title in the legend to hide it.</p>
+<iframe src="cluster.html" title="Interactive skills map" width="100%" height="620" style="border:0;" loading="lazy">
+</iframe>
 <p><strong>A Data Scientist ad asks for the model and for running it.</strong> 49% require both modelling and deployment, and of those requiring modelling, 74% require deployment too. The ad wanting a model but not its deployment is 17%.</p>
-<p><img src="images/model-and-ship.png" class="img-fluid" alt="Stacked bars per job title showing the share of ads requiring both a model and its deployment, a model only, deployment only, or neither"></p>
+<p><img src="images/ds-vs-ai-engineer.png" class="img-fluid" alt="Dumbbell chart of ten skill areas: share of Data Scientist versus AI Engineer job ads requiring at least one skill in each"></p>
 <p><strong>Statistics separates the two headline titles</strong>: 73% of Data Scientist ads against 11% of AI Engineer ads. On full requirement profiles they are 1.47 apart — further than Data Scientist is from Data Analyst (1.29) — with ML Engineer the shortest link between them (1.10 and 1.10).</p>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -473,7 +502,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Each title’s profile is the share of its ads requiring each skill; an edge is the <a href="https://en.wikipedia.org/wiki/Euclidean_distance">Euclidean distance</a> between two profiles.</p>
 <!-- GENERATED by build_stats.py — do not edit; Quarto cannot expand vars inside a mermaid block. -->
@@ -498,10 +527,11 @@ flowchart TB
     AE ---|"1.44&lt;br/&gt;dbt, pipelines ↔ BI, product analytics"| DA
     DE ---|"0.96&lt;br/&gt;cloud, Spark ↔ SQL, dbt"| AE
     DS ---|"1.10&lt;br/&gt;+ MLOps, serving, containers"| ML
-    RS -. "0.99&lt;br/&gt;research, experimentation ↔&lt;br/&gt;MLOps, serving, CI/CD" .- ML
+    RS ---|"0.99&lt;br/&gt;research, experimentation ↔&lt;br/&gt;MLOps, serving, CI/CD"| ML
     ML ---|"1.10&lt;br/&gt;+ LLM apps, agents, NLP"| AI
-    DS -. "1.47 direct" .- AI
-    AI -. "1.39&lt;br/&gt;LLM apps, NLP ↔&lt;br/&gt;customer-facing, stakeholders" .- FD
+    DS ---|"1.47 direct"| AI
+    AI ---|"1.39&lt;br/&gt;LLM apps, NLP ↔&lt;br/&gt;customer-facing, stakeholders"| FD
+    linkStyle 5,7,8 stroke-dasharray: 6 5;
     classDef inf fill:#dbe8f8,stroke:#0072B2,color:#0b0b0b;
     classDef eng fill:#fde3d8,stroke:#D55E00,color:#0b0b0b;
     classDef data fill:#e4dde9,stroke:#882255,color:#0b0b0b;
@@ -518,19 +548,14 @@ flowchart TB
 </div>
 <p>Data Engineer and Analytics Engineer are the closest pair at 0.96, reaching the rest of the market only through Data Analyst. Data Scientist, AI Engineer and ML Engineer share 5 required skills — Python, mentoring / leadership, model serving, software engineering, stakeholder communication — and beyond those, Data Scientist and AI Engineer have nothing in common.</p>
 <p><img src="images/core-skills-venn.png" class="img-fluid" alt="Grid of skills against three job titles, a filled dot where the skill is core to that title"></p>
-<p><img src="images/roles.png" class="img-fluid" alt="Bar chart of the nine job-title families as a share of the job ads"></p>
 <p>“AI Engineer” is the most advertised title at 25%, then Data Scientist (18%) and Data Engineer (12%); Analytics Engineer (3%) and Quantitative Researcher (2%) are the rarest.</p>
-<p><img src="images/ds-vs-ai-engineer.png" class="img-fluid" alt="Dumbbell chart of ten skill areas: share of Data Scientist versus AI Engineer job ads requiring at least one skill in each"></p>
 <p>By skill area, statistics and experimentation is the widest split (75% against 15%) and GenAI / LLM engineering its mirror (47% against 87%); machine learning itself is nearly even (71% against 75%).</p>
 <p>Where AI Engineer comes from: its nearest neighbour is ML Engineer (1.10), and Data Engineer is 1.92 away — further than Data Scientist. One skill crosses the divide: model evaluation is required in 43% of AI Engineer ads and 24% of Data Scientist ads, against 2% of Data Engineer ads. Within the 991 engineering ads, evals run at 42% overall but 75% where A/B experimentation is also required (odds ratio 5.0, p &lt;0.001). LLM observability shows no such link (odds ratio 0.8, p 0.55).</p>
-<p>Each dot is one ad, placed by the 44 skills it requires (<a href="https://www.jmlr.org/papers/v9/vandermaaten08a.html">t-SNE</a>: nearby dots have similar requirements, and distances across the map carry no scale). Click a title in the legend to hide it.</p>
-<iframe src="cluster.html" title="Interactive skills map" width="100%" height="620" style="border:0;" loading="lazy">
-</iframe>
 </div>
 </div>
 </div>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -539,7 +564,7 @@ flowchart TB
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <!-- GENERATED by build_titles.py — do not edit; edit the script. -->
 <p>Nine titles, in the approximate order each entered data and AI hiring. The dates are background — this sample runs 2026-04 to 2026-10 and can say nothing about when a title appeared — but everything after them is measured from the ads.</p>
@@ -552,40 +577,27 @@ flowchart TB
 <div>
 <pre class="mermaid mermaid-js">%%{init: {"theme": "neutral", "fontSize": 17, "flowchart": {"curve": "basis", "nodeSpacing": 26, "rankSpacing": 34}}}%%
 flowchart TB
-  subgraph r0[" "]
-    direction LR
-    n0["Quantitative&lt;br/&gt;Researcher&lt;br/&gt;1980s–90s&lt;br/&gt;2% of ads"]
-    n1["Data&lt;br/&gt;Analyst&lt;br/&gt;1990s–2000s&lt;br/&gt;11% of ads"]
-    n0 --&gt; n1
-  end
-  subgraph r1[" "]
-    direction LR
-    n2["Research&lt;br/&gt;Scientist&lt;br/&gt;~2012 in this form&lt;br/&gt;6% of ads"]
-    n3["Data&lt;br/&gt;Scientist&lt;br/&gt;2008&lt;br/&gt;18% of ads"]
-    n2 --&gt; n3
-  end
-  subgraph r2[" "]
-    direction LR
-    n4["Data&lt;br/&gt;Engineer&lt;br/&gt;~2011–14&lt;br/&gt;12% of ads"]
-    n5["ML&lt;br/&gt;Engineer&lt;br/&gt;~2015–16&lt;br/&gt;10% of ads"]
-    n4 --&gt; n5
-  end
-  subgraph r3[" "]
-    direction LR
-    n6["Analytics&lt;br/&gt;Engineer&lt;br/&gt;~2018–19&lt;br/&gt;3% of ads"]
-    n7["Forward&lt;br/&gt;Deployed&lt;br/&gt;~2023&lt;br/&gt;15% of ads"]
-    n6 --&gt; n7
-  end
-  subgraph r4[" "]
-    direction LR
-    n8["AI&lt;br/&gt;Engineer&lt;br/&gt;~2023&lt;br/&gt;25% of ads"]
-  end
-  r0 --&gt; r1
-  r1 --&gt; r2
-  r2 --&gt; r3
-  r3 --&gt; r4
-  classDef row fill:none,stroke:none;
-  class r0,r1,r2,r3,r4 row;
+  n0["Quantitative&lt;br/&gt;Researcher&lt;br/&gt;1980s–90s&lt;br/&gt;2% of job ads"]
+  n1["Data&lt;br/&gt;Analyst&lt;br/&gt;1990s–2000s&lt;br/&gt;11% of job ads"]
+  n2["Research&lt;br/&gt;Scientist&lt;br/&gt;~2012 in this form&lt;br/&gt;6% of job ads"]
+  n3["Data&lt;br/&gt;Scientist&lt;br/&gt;2008&lt;br/&gt;18% of job ads"]
+  n4["Data&lt;br/&gt;Engineer&lt;br/&gt;~2011–14&lt;br/&gt;12% of job ads"]
+  n5["ML&lt;br/&gt;Engineer&lt;br/&gt;~2015–16&lt;br/&gt;10% of job ads"]
+  n6["Analytics&lt;br/&gt;Engineer&lt;br/&gt;~2018–19&lt;br/&gt;3% of job ads"]
+  n7["Forward&lt;br/&gt;Deployed&lt;br/&gt;~2023&lt;br/&gt;15% of job ads"]
+  n8["AI&lt;br/&gt;Engineer&lt;br/&gt;~2023&lt;br/&gt;25% of job ads"]
+  n0 ~~~ n1
+  n2 ~~~ n3
+  n4 ~~~ n5
+  n6 ~~~ n7
+  n0 --&gt; n1
+  n1 --&gt; n2
+  n2 --&gt; n3
+  n3 --&gt; n4
+  n4 --&gt; n5
+  n5 --&gt; n6
+  n6 --&gt; n7
+  n7 --&gt; n8
 </pre>
 </div>
 <p></p><figcaption> The nine titles in the approximate order each entered data and AI hiring, with the share of this sample each holds. The dates are background, not measured.</figcaption> </figure><p></p>
@@ -767,28 +779,6 @@ flowchart TB
 </section>
 <section id="how-this-was-measured" class="level2">
 <h2 class="anchored" data-anchor-id="how-this-was-measured">How this was measured</h2>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Which ads, and where they came from
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li><strong>2,872 job ads</strong>, de-duplicated, with a data / AI title: AI Engineer 707, Data Scientist 518, Data Engineer 341, Forward Deployed 434, Data Analyst 309, ML Engineer 284, Research Scientist 160, Analytics Engineer 72, Quantitative Researcher 47.</li>
-<li><strong>Where they hire:</strong> Germany, EU-wide remote, worldwide remote, or the UK. Live 2026-04 to 2026-10.</li>
-<li><strong>Where they come from:</strong> employers’ own boards and careers pages, aggregators, and a curated feed. The published data carries no source or employer, and the same opening reached by two routes counts once (matched on URL and on company + title).</li>
-<li><strong>Titles come from the ad</strong>, by regular expression over the job title; “AI Engineer” includes variants such as “Senior Software Engineer – AI”.</li>
-<li><strong>Not a random sample.</strong> These are the ads a personal crawler targets, so they describe what the titles ask for, not how many of each exist.</li>
-</ul>
-</div>
-</div>
-</div>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">

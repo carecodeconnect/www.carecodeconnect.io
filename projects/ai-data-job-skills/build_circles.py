@@ -77,36 +77,6 @@ for _k, _name in [("eng", "Engineering, deployment & AI"), ("data", "Data platfo
 
 (HERE / "data" / "circles-2026.json").write_text(json.dumps(out, indent=2) + "\n")
 
-# ── the figures: UpSet, not Venn (see upset.py for why) ─────────────────────
-import upset
-
-SETS = {"Engineering & AI": E, "Data platform": D, "Inference": I}
-SOURCE = (f"n = {N:,} de-duplicated job ads with a data / AI title, hiring in Germany, EU-wide, "
-          f"worldwide-remote or the UK, Apr-Oct 2026, collected by a personal job-board crawler "
-          f"and scored by a model judge.   www.carecodeconnect.io")
-CAP = SOURCE
-SUB = ("Skills grouped by how often employers ask for them in the same ad, not by hand. Engineering & AI covers software, deployment and LLM work; Inference is statistics and classical ML. "
-       f"Communication is required by {out['pct_ground']}% of ads in every row, so it is not a group here.")
-
-upset.draw(SETS, title="What AI / data job ads ask for together, 2026", subtitle=SUB, caption=CAP,
-           outfile=HERE / "images" / "circles-2026.png")
-
-ANNOT = {}
-for key_, mask in [(("Engineering & AI", "Data platform", "Inference"), REGIONS["111"]),
-                   (("Engineering & AI", "Data platform"), REGIONS["110"]),
-                   (("Engineering & AI",), REGIONS["100"]),
-                   (("Engineering & AI", "Inference"), REGIONS["101"]),
-                   (("Data platform", "Inference"), REGIONS["011"]),
-                   (("Data platform",), REGIONS["010"]),
-                   (("Inference",), REGIONS["001"])]:
-    if mask.sum() > 20:
-        ANNOT[key_] = f"mostly {dominant(mask)} ({dom_pct(mask)}%)"
-
-upset.draw(SETS, title="Each part of the work belongs to a different title",
-           subtitle="Skills grouped by what employers ask for together; each row names the job title most common in it.",
-           caption=CAP, annot=ANNOT, outfile=HERE / "images" / "circles-2026-titles.png")
-
-print("wrote images/circles-2026.png and data/circles-2026.json")
-for k, val in out.items():
-    if not k.startswith("_"):
-        print(f"  {k:26}{val}")
+# No figure is written here any more: RQ2 and RQ3 make their points in prose
+# (owner, 2026-10-13). The numbers this script computes are still the source
+# for those sections, via data/circles-2026.json.

@@ -12,40 +12,27 @@ Across the whole sample, **30%** of ads require building or training a model of 
 %%| fig-cap: "The nine titles in the approximate order each entered data and AI hiring, with the share of this sample each holds. The dates are background, not measured."
 %%{init: {"theme": "neutral", "fontSize": 17, "flowchart": {"curve": "basis", "nodeSpacing": 26, "rankSpacing": 34}}}%%
 flowchart TB
-  subgraph r0[" "]
-    direction LR
-    n0["Quantitative<br/>Researcher<br/>1980s–90s<br/>2% of ads"]
-    n1["Data<br/>Analyst<br/>1990s–2000s<br/>11% of ads"]
-    n0 --> n1
-  end
-  subgraph r1[" "]
-    direction LR
-    n2["Research<br/>Scientist<br/>~2012 in this form<br/>6% of ads"]
-    n3["Data<br/>Scientist<br/>2008<br/>18% of ads"]
-    n2 --> n3
-  end
-  subgraph r2[" "]
-    direction LR
-    n4["Data<br/>Engineer<br/>~2011–14<br/>12% of ads"]
-    n5["ML<br/>Engineer<br/>~2015–16<br/>10% of ads"]
-    n4 --> n5
-  end
-  subgraph r3[" "]
-    direction LR
-    n6["Analytics<br/>Engineer<br/>~2018–19<br/>3% of ads"]
-    n7["Forward<br/>Deployed<br/>~2023<br/>15% of ads"]
-    n6 --> n7
-  end
-  subgraph r4[" "]
-    direction LR
-    n8["AI<br/>Engineer<br/>~2023<br/>25% of ads"]
-  end
-  r0 --> r1
-  r1 --> r2
-  r2 --> r3
-  r3 --> r4
-  classDef row fill:none,stroke:none;
-  class r0,r1,r2,r3,r4 row;
+  n0["Quantitative<br/>Researcher<br/>1980s–90s<br/>2% of job ads"]
+  n1["Data<br/>Analyst<br/>1990s–2000s<br/>11% of job ads"]
+  n2["Research<br/>Scientist<br/>~2012 in this form<br/>6% of job ads"]
+  n3["Data<br/>Scientist<br/>2008<br/>18% of job ads"]
+  n4["Data<br/>Engineer<br/>~2011–14<br/>12% of job ads"]
+  n5["ML<br/>Engineer<br/>~2015–16<br/>10% of job ads"]
+  n6["Analytics<br/>Engineer<br/>~2018–19<br/>3% of job ads"]
+  n7["Forward<br/>Deployed<br/>~2023<br/>15% of job ads"]
+  n8["AI<br/>Engineer<br/>~2023<br/>25% of job ads"]
+  n0 ~~~ n1
+  n2 ~~~ n3
+  n4 ~~~ n5
+  n6 ~~~ n7
+  n0 --> n1
+  n1 --> n2
+  n2 --> n3
+  n3 --> n4
+  n4 --> n5
+  n5 --> n6
+  n6 --> n7
+  n7 --> n8
 ```
 
 ### 1. Quantitative Researcher — finance, 1980s–1990s {#sec-title-quantitative-researcher}

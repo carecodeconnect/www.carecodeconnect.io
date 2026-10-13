@@ -19,10 +19,11 @@ flowchart TB
     AE ---|"1.44<br/>dbt, pipelines ↔ BI, product analytics"| DA
     DE ---|"0.96<br/>cloud, Spark ↔ SQL, dbt"| AE
     DS ---|"1.10<br/>+ MLOps, serving, containers"| ML
-    RS -. "0.99<br/>research, experimentation ↔<br/>MLOps, serving, CI/CD" .- ML
+    RS ---|"0.99<br/>research, experimentation ↔<br/>MLOps, serving, CI/CD"| ML
     ML ---|"1.10<br/>+ LLM apps, agents, NLP"| AI
-    DS -. "1.47 direct" .- AI
-    AI -. "1.39<br/>LLM apps, NLP ↔<br/>customer-facing, stakeholders" .- FD
+    DS ---|"1.47 direct"| AI
+    AI ---|"1.39<br/>LLM apps, NLP ↔<br/>customer-facing, stakeholders"| FD
+    linkStyle 5,7,8 stroke-dasharray: 6 5;
     classDef inf fill:#dbe8f8,stroke:#0072B2,color:#0b0b0b;
     classDef eng fill:#fde3d8,stroke:#D55E00,color:#0b0b0b;
     classDef data fill:#e4dde9,stroke:#882255,color:#0b0b0b;

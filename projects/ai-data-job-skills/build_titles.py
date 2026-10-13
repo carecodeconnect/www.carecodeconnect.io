@@ -213,25 +213,24 @@ add("%%| fig-width: 6.5")
 add("%%| fig-align: center")
 add('%%| fig-cap: "The nine titles in the approximate order each entered data and AI hiring, with the share of this sample each holds. The dates are background, not measured."')
 add('%%{init: {"theme": "neutral", "fontSize": 17, "flowchart": {"curve": "basis", "nodeSpacing": 26, "rankSpacing": 34}}}%%')
-add("flowchart TB")   # outer TB stacks the rows; each row is LR inside
-# Two per row rather than nine across: a single rank of nine shrinks the text to
-# nothing at page width (owner, 2026-10-08). Rows are invisible subgraphs.
-PAIRS = [ORDER[k:k + 2] for k in range(0, len(ORDER), 2)]
+add("flowchart TB")
+# Two per rank rather than nine in a line: nine across shrinks the text to
+# nothing at page width. This used to be done with invisible subgraphs, each
+# with `direction LR`, joined by edges between the subgraphs — which Mermaid 11
+# cannot lay out, and the whole diagram failed with "Syntax error in text".
+# Plain nodes and edges only now: a --> b down the pairs, and an invisible link
+# (`~~~`) across each pair to hold the two side by side.
 idx = {fam: j for j, (fam, _, _) in enumerate(ORDER)}
-for r, pair in enumerate(PAIRS):
-    add(f'  subgraph r{r}[" "]')
-    add("    direction LR")
-    for fam, _, _ in pair:
-        label, when = SHORT[fam]
-        share = pct(len(df[df.family == fam]) / N)
-        add(f'    n{idx[fam]}["{label}<br/>{when}<br/>{share}% of ads"]')
+PAIRS = [ORDER[k:k + 2] for k in range(0, len(ORDER), 2)]
+for fam, _, _ in ORDER:
+    label, when = SHORT[fam]
+    share = pct(len(df[df.family == fam]) / N)
+    add(f'  n{idx[fam]}["{label}<br/>{when}<br/>{share}% of job ads"]')
+for pair in PAIRS:
     if len(pair) == 2:
-        add(f"    n{idx[pair[0][0]]} --> n{idx[pair[1][0]]}")
-    add("  end")
-for r in range(len(PAIRS) - 1):
-    add(f"  r{r} --> r{r + 1}")
-add("  classDef row fill:none,stroke:none;")
-add(f"  class {','.join('r%d' % r for r in range(len(PAIRS)))} row;")
+        add(f"  n{idx[pair[0][0]]} ~~~ n{idx[pair[1][0]]}")
+for a, b in zip(ORDER, ORDER[1:]):
+    add(f"  n{idx[a[0]]} --> n{idx[b[0]]}")
 add("```")
 add("")
 
