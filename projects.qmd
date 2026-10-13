@@ -5,7 +5,7 @@ toc: true
 
 # [AI / Data Job Skills](projects/ai-data-job-skills/index.html)
 
-![Where each data and AI job title sits on the skills map](projects/ai-data-job-skills/images/skills-map.png)
+![Each region of the skill map belongs to a different job title](projects/ai-data-job-skills/images/circles-2026-titles.png)
 
 AI and data work has spread beyond the Data Scientist title. From {{< var jobskills.n_ads >}} job ads scored against a fixed vocabulary of {{< var jobskills.n_skills >}} skills by a **typed model judge** (TypeSafe's Jev, which returns probabilities rather than text) inside my job-board crawler. The skills cluster into engineering-and-deployment, data platform and inference, and each region belongs to a different title. An interactive **t-SNE skills map** with a hover card for every ad, a distance diagram between the titles, and what separates a "Data Scientist" job from an "AI Engineer" one.
 
