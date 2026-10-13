@@ -14,9 +14,9 @@ toc: true
 
 | | Answer |
 |---|---|
-| **RQ1** · Do Conway's 2010 circles still fit? | **No.** {{< var jobskills.conway_danger_zone >}}% of ads sit in his "danger zone"; {{< var jobskills.conway_outside_pct >}}% need a skill none of his circles covers; {{< var jobskills.pct_ship_all >}}% need deployment, which none of them contains. |
-| **RQ2** · Which skills are asked for together? | **Three groups.** Engineering, deployment & AI ({{< var jobskills.c26_pct_eng >}}% of ads), data platform ({{< var jobskills.c26_pct_data >}}%), statistics & inference ({{< var jobskills.c26_pct_inference >}}%) — plus communication at {{< var jobskills.c26_pct_ground >}}%, required everywhere. |
-| **RQ3** · How do the titles divide that work? | **One title per region.** The centre is {{< var jobskills.c26_pct_centre >}}% of ads and {{< var jobskills.c26_centre_not_data_scientist >}}% of it is *not* Data Scientist. "AI Engineer" is the most advertised title at {{< var jobskills.pct_ai_engineer >}}%. |
+| **RQ1** · Do Conway's 2010 circles still describe what is advertised? | **No.** {{< var jobskills.conway_danger_zone >}}% of ads sit in his "danger zone"; {{< var jobskills.conway_outside_pct >}}% need a skill none of his circles covers; {{< var jobskills.pct_ship_all >}}% need deployment, which none of them contains. |
+| **RQ2** · Which skills do employers ask for together? | **Three groups.** Engineering, deployment & AI ({{< var jobskills.c26_pct_eng >}}% of ads), data platform ({{< var jobskills.c26_pct_data >}}%), statistics & inference ({{< var jobskills.c26_pct_inference >}}%) — plus communication at {{< var jobskills.c26_pct_ground >}}%, required everywhere. |
+| **RQ3** · How do the {{< var jobskills.n_titles >}} titles divide that work between them? | **One title per region.** The centre is {{< var jobskills.c26_pct_centre >}}% of ads and {{< var jobskills.c26_centre_not_data_scientist >}}% of it is *not* Data Scientist. "AI Engineer" is the most advertised title at {{< var jobskills.pct_ai_engineer >}}%. |
 
 Three results behind those answers: a Data Scientist ad asks for the model **and** for running it ({{< var jobskills.both_data_scientist >}}% need both); stakeholder communication is the most-required skill at {{< var jobskills.all_stakeholder_comms >}}%, ahead of Python at {{< var jobskills.all_python >}}%; statistics is what separates the two headline titles, {{< var jobskills.data_scientist_statistics >}}% against {{< var jobskills.ai_engineer_statistics >}}%.
 
@@ -37,6 +37,8 @@ Three results behind those answers: a Data Scientist ad asks for the model **and
 :::
 
 ## RQ1 · The 2010 circles no longer fit
+
+*Do Conway's 2010 circles still describe what is advertised?*
 
 Conway's 2010 diagram put data science where hacking skills, maths and statistics, and substantive expertise meet, with a "danger zone" where code met domain knowledge without statistics.
 
@@ -69,6 +71,8 @@ Only the first can be tested here: the other two describe steps, and no ad says 
 
 ## RQ2 · Three groups of skills, and one asked for everywhere
 
+*Which skills do employers ask for together?*
+
 The {{< var jobskills.n_skills >}} skills were clustered by how often employers ask for them *in the same ad*. Four groups fall out — three that divide the market, one required almost everywhere.
 
 - **Engineering, deployment & AI** — {{< var jobskills.c26_n_skills_eng >}} skills, {{< var jobskills.c26_pct_eng >}}% of ads. Shipping software and building on LLMs fall in one group.
@@ -87,6 +91,8 @@ Most required in each: engineering, deployment & AI — {{< var jobskills.c26_me
 :::
 
 ## RQ3 · Each region belongs to a different title
+
+*How do the {{< var jobskills.n_titles >}} titles divide that work between them?*
 
 The centre — ads needing all three groups — is {{< var jobskills.c26_pct_centre >}}% of the market, and {{< var jobskills.c26_centre_not_data_scientist >}}% of it carries a title other than Data Scientist. Data-platform work belongs to Data Engineers, engineering without inference to AI Engineers, data-and-inference without engineering to Data Analysts ({{< var jobskills.c26_data_inference_title_pct >}}% of that region).
 
