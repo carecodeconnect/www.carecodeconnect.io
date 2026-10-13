@@ -128,8 +128,11 @@ def ds_vs_ai() -> None:
                               breaks=range(0, 101, 20), expand=(0, 0))
          # Take-home, not a description of the axes. Derived: the area that splits
          # the two titles most, named by the data rather than typed.
-         + labs(title=f"{w.loc[w['gap'].abs().idxmax(), 'area']} is what most separates "
-                      "a Data Scientist job from an AI Engineer job",
+         # Short enough not to clip at this figure width: the derived area name can
+         # be long ("Statistics & experimentation"), and the first draft ran off
+         # the right edge mid-word on the rendered page.
+         + labs(title=f"{w.loc[w['gap'].abs().idxmax(), 'area']}: the widest gap "
+                      "between the two headline titles",
                 subtitle=f"{len(AREA)} skill areas, each covering several of the {N_SKILLS} skills tracked. Label = the title that asks for the area more often.",
                 caption=CAPTION, tag=SOURCE, x="% of jobs that require at least one skill in the area", y="")
          + BASE + theme(figure_size=(9, 5.4), legend_position="top") + src_at("bottomright"))

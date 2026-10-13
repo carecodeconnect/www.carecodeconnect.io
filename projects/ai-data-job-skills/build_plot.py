@@ -70,13 +70,18 @@ fig.update_layout(
     font=dict(family="Helvetica, Arial, sans-serif", color="#4d4d4d", size=12),
     xaxis=dict(showgrid=True, gridcolor="white", zeroline=False, showticklabels=False, title=""),
     yaxis=dict(showgrid=True, gridcolor="white", zeroline=False, showticklabels=False, title="", scaleanchor="x"),
-    legend=dict(orientation="h", yanchor="bottom", y=-0.08, x=0, title=dict(text="")),
+    # yanchor="top", not "bottom": with ten families the horizontal legend wraps
+    # to two rows, and anchored at its bottom it grew UPWARD into the panel and
+    # collided with the source credit at y=0.01 (owner, 2026-10-13). Anchored at
+    # its top it grows downward into the margin, which is sized for it below.
+    legend=dict(orientation="h", yanchor="top", y=-0.02, x=0, title=dict(text="")),
     updatemenus=[dict(type="dropdown", buttons=buttons, x=1.0, xanchor="right", y=1.12, yanchor="bottom",
                       bgcolor="white", bordercolor="#c8c8c8", font=dict(size=12))],
-    margin=dict(l=20, r=20, t=130, b=70), height=680, hoverlabel=dict(bgcolor="white", font_size=12),
+    # b=140 leaves room for the two legend rows plus the caption beneath them.
+    margin=dict(l=20, r=20, t=130, b=140), height=760, hoverlabel=dict(bgcolor="white", font_size=12),
 )
 fig.add_annotation(text=f"n = {len(df):,} de-duplicated job ads with a data / AI title, hiring in Germany, EU-wide, "
-                        "worldwide-remote or the UK, Apr–Oct 2026.", xref="paper", yref="paper", x=0, y=-0.14,
+                        "worldwide-remote or the UK, Apr–Oct 2026.", xref="paper", yref="paper", x=0, y=-0.21,
                    showarrow=False, font=dict(size=11, color=INK_MUTED), xanchor="left")
 fig.add_annotation(text="www.carecodeconnect.io", xref="paper", yref="paper", x=0.995, y=0.01,
                    showarrow=False, font=dict(size=11, color=INK_MUTED), xanchor="right", yanchor="bottom")
