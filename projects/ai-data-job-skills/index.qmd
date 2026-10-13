@@ -141,7 +141,7 @@ What has changed since the field's own 2010 definition is not the modelling. It 
 - **Not a random sample.** These are the ads one crawler targets, so they describe what these titles ask for, not how many of each exist.
 - **So:** read every percentage as approximate. A gap as wide as statistics — {{< var jobskills.data_scientist_statistics >}}% against {{< var jobskills.ai_engineer_statistics >}}% — is unlikely to be an artefact of a few points of noise; a gap of a few points may well be.
 
-## How this was measured
+## Appendix: how this was measured
 
 
 ::: {.callout-note collapse="true" appearance="simple"}
