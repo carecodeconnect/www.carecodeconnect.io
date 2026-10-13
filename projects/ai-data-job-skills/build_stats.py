@@ -197,6 +197,15 @@ for label, mask in [("swe", A), ("inference", B), ("llm", C),
                     ("datascience", A & B & C), ("aieng", A & ~B & C),
                     ("analytics", A & B & ~C), ("research", ~A & B & C)]:
     out[f"v26_{label}"] = f"{100 * mask.mean():.0f}"
+# The centre region is a PRACTICE, not the job title of the same name — a
+# reader seeing "data science" in the middle will otherwise take it to mean
+# Data Scientist ads require all three circles, and most of them do not.
+# These three say who is actually in there.
+out["v26_centre_data_scientist_titled"] = f"{100 * (df.family[A & B & C] == 'Data Scientist').mean():.0f}"
+out["v26_centre_ai_engineer_titled"] = f"{100 * (df.family[A & B & C] == 'AI Engineer').mean():.0f}"
+out["v26_data_scientist_in_centre"] = f"{100 * (A & B & C)[df.family == 'Data Scientist'].mean():.0f}"
+out["v26_data_scientist_in_llm"] = f"{100 * C[df.family == 'Data Scientist'].mean():.0f}"
+
 # AI Engineering is the heir to Conway's danger zone: shipping without inference.
 out["v26_aieng_titled"] = f"{100 * (df.family[A & ~B & C] == 'AI Engineer').mean():.0f}"
 

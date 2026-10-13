@@ -19,7 +19,8 @@ Is "AI Engineer" the new name for "Data Scientist", or a different job? {{< var 
 - ML Engineer sits {{< var jobskills.d_data_scientist__ml_engineer >}} from Data Scientist and {{< var jobskills.d_ai_engineer__ml_engineer >}} from AI Engineer, the shortest link between the two.
 - Data Scientist, AI Engineer and ML Engineer share {{< var jobskills.n_core_shared >}} required skills: {{< var jobskills.core_shared >}}.
 - Data Engineer and Analytics Engineer are {{< var jobskills.closest_pair_d >}} apart, the shortest distance on the map. Data governance is required in {{< var jobskills.analytics_engineer_data_governance >}}% and {{< var jobskills.data_engineer_data_governance >}}% of their ads, against {{< var jobskills.data_governance_elsewhere >}}% elsewhere.
-- {{< var jobskills.conway_danger_zone >}}% of ads fall in Conway's "danger zone" — code and domain, no statistics — and {{< var jobskills.conway_outside_pct >}}% require a skill none of his circles covers.
+- {{< var jobskills.conway_danger_zone >}}% of ads fall in Conway's "danger zone" — code and domain, no statistics.
+- LLM and agent engineering is new since "Data Scientist" was popularised: {{< var jobskills.conway_outside_n >}} of the tracked skills fit none of Conway's 2010 circles. {{< var jobskills.conway_outside_pct >}}% of ads require at least one — {{< var jobskills.area_genai_llm_engineering_ai_engineer >}}% of AI Engineer ads but {{< var jobskills.area_genai_llm_engineering_data_scientist >}}% of Data Scientist ads, so the new skillset has not been absorbed into the older title.
 
 ## The question: is AI Engineer the new Data Scientist?
 
@@ -102,7 +103,7 @@ Conway drew his freehand; the regions carried no numbers. Here they are sized by
 
 {{< var jobskills.conway_outside_n >}} tracked skills — LLM applications, agents, RAG, evaluation, fine-tuning, observability, responsible AI — fit none of the three circles. **{{< var jobskills.conway_outside_pct >}}% of ads require at least one**, rising to {{< var jobskills.genai_ai_engineer >}}% of AI Engineer ads, and the share is flat across every month.
 
-### Half the market asks for a skill his circles cannot see
+### LLM and agent engineering is new since Data Scientist was popularised
 
 ![](images/ds-venn-2026.png){fig-alt="A 2026 data science Venn diagram with three equal circles — software engineering and deployment, statistics and inference, LLM and agent engineering — with the overlaps named data science, analytics and forecasting, AI engineering and applied research"}
 
@@ -113,7 +114,7 @@ Circles chosen to fit what the ads cluster into. Two are Conway's renamed; one i
 - **LLM & agent engineering** — new, {{< var jobskills.v26_llm >}}%.
 - **Substantive expertise is no longer a circle.** Stakeholder communication appears in {{< var jobskills.all_stakeholder_comms >}}% of ads, too universal to divide anyone.
 
-By region: data science, all three circles at once, is {{< var jobskills.v26_datascience >}}% of ads against {{< var jobskills.conway_all_three >}}% under Conway's. **AI engineering** — engineering and LLM work without inference, his danger zone — is the largest lens at {{< var jobskills.v26_aieng >}}%, {{< var jobskills.v26_aieng_titled >}}% of it titled AI Engineer. **Analytics & forecasting** is {{< var jobskills.v26_analytics >}}%, **applied research** {{< var jobskills.v26_research >}}%.
+By region: data science, all three circles at once, is {{< var jobskills.v26_datascience >}}% of ads against {{< var jobskills.conway_all_three >}}% under Conway's. **That centre is a practice, not the job title of the same name.** Only {{< var jobskills.v26_data_scientist_in_centre >}}% of Data Scientist ads sit in it, and the region is mostly not theirs: {{< var jobskills.v26_centre_ai_engineer_titled >}}% of it is titled AI Engineer against {{< var jobskills.v26_centre_data_scientist_titled >}}% Data Scientist. {{< var jobskills.v26_data_scientist_in_llm >}}% of Data Scientist ads fall in the LLM circle at all. **AI engineering** — engineering and LLM work without inference, his danger zone — is the largest lens at {{< var jobskills.v26_aieng >}}%, {{< var jobskills.v26_aieng_titled >}}% of it titled AI Engineer. **Analytics & forecasting** is {{< var jobskills.v26_analytics >}}%, **applied research** {{< var jobskills.v26_research >}}%.
 
 ### More ads call a model than build one
 
