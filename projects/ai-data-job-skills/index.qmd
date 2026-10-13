@@ -18,8 +18,8 @@ toc: true
 
 Three results behind those answers:
 
-- A Data Scientist ad asks for the model **and** for running it — {{< var jobskills.both_data_scientist >}}% need both.
 - Stakeholder communication is the most-required skill at {{< var jobskills.all_stakeholder_comms >}}%, ahead of Python at {{< var jobskills.all_python >}}%.
+- A Data Scientist ad asks for the model **and** for running it — {{< var jobskills.both_data_scientist >}}% need both.
 - Statistics is what separates the two headline titles: {{< var jobskills.data_scientist_statistics >}}% against {{< var jobskills.ai_engineer_statistics >}}%.
 
 ## The sample
