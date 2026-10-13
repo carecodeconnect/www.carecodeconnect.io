@@ -93,7 +93,21 @@ The classic data science definition is a 2010 diagram by **Drew Conway**: three 
 
 ![© Drew Conway, 2010. Reproduced with attribution — [original](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram)](images/external/conway-data-science-vd.png){fig-alt="Drew Conway's data science Venn diagram"}
 
-Measured against these job ads, the shape does not hold. A job ad counts inside a circle when it requires at least one skill mapped to that circle.
+### Where the classic data science definition comes from
+
+In October 2012 *Harvard Business Review* called data scientist [the sexiest job of the 21st century](https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century), describing a hybrid of hacker, analyst, communicator and trusted adviser. The field has drawn that hybrid three ways.
+
+**1. Conway, 2010 — what you must *know*.** Three circles of knowledge with data science in the middle, shown above. The only one of the three that can be tested against a job ad, because employers advertise for knowledge.
+
+**2. Mason & Wiggins, 2010 — what you *do*, as five steps.** Published the same month as Conway, and a description of a process rather than a person; they coined **OSEMN** in the same post. Their line on the least glamorous step has outlasted the rest — scrubbing data is "the least sexy part of the analysis process".
+
+![Redrawn for this page; the post carried no figure of its own — [original](https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/) (archived) · [PDF](https://introdatasci.dlilab.com/pdf/A_Taxonomy_of_Data_Science.pdf)](images/osemn.png){fig-alt="The OSEMN pipeline: obtain, scrub, explore, model, interpret"}
+
+**3. Wickham, Çetinkaya-Rundel & Grolemund — what you *do*, as a loop.** The *R for Data Science* cycle: import and tidy once, then loop through transform, visualise and model, then communicate, with programming underneath. [Jeroen Janssens](https://datascienceatthecommandline.com/2e/chapter-1-introduction) adopts Mason and Wiggins's steps as the spine of *Data Science at the Command Line*.
+
+![© the authors, [CC BY-NC-ND 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/us/). Reproduced unchanged — [original](https://r4ds.hadley.nz/intro)](images/external/r4ds-data-science-cycle.png){fig-alt="The R for Data Science cycle: import, tidy, then a loop of transform, visualise and model, then communicate, with program surrounding all of it"}
+
+All three are definitions of the same job from the same era, and the first is the one with a testable shape. Measured against these job ads, **Conway's three circles do not hold.** A job ad counts inside a circle when it requires at least one skill mapped to that circle.
 
 {{< var jobskills.conway_danger_zone >}}% of job ads want coding and subject expertise but no statistics — the region Conway marked "danger zone" and thought nearly empty. {{< var jobskills.conway_outside_n >}} tracked skills fit none of his circles at all, and {{< var jobskills.conway_outside_pct >}}% of ads require at least one.
 
@@ -108,19 +122,6 @@ Measured against these job ads, the shape does not hold. A job ad counts inside 
 **Statistics separates the two headline titles**: {{< var jobskills.data_scientist_statistics >}}% of Data Scientist ads against {{< var jobskills.ai_engineer_statistics >}}% of AI Engineer ads. **It is the title, not the level**: compared within each seniority level the gap is {{< var jobskills.sen_stats_gap_mid >}} points at mid, {{< var jobskills.sen_stats_gap_senior >}} at senior and {{< var jobskills.sen_stats_gap_staff_principal >}} at staff or principal — so it is not that one title is advertised more senior than the other. On full requirement profiles they are {{< var jobskills.d_ai_engineer__data_scientist >}} apart — further than Data Scientist is from Data Analyst ({{< var jobskills.d_data_analyst__data_scientist >}}) — with ML Engineer the shortest link between them ({{< var jobskills.d_data_scientist__ml_engineer >}} and {{< var jobskills.d_ai_engineer__ml_engineer >}}).
 
 
-### Where the classic data science definition comes from
-
-In October 2012 *Harvard Business Review* called data scientist [the sexiest job of the 21st century](https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century), describing a hybrid of hacker, analyst, communicator and trusted adviser. The field has drawn that hybrid three ways.
-
-**1. Conway, 2010 — what you must *know*.** Three circles of knowledge with data science in the middle, shown above. The only one of the three that can be tested against a job ad, because employers advertise for knowledge.
-
-**2. Mason & Wiggins, 2010 — what you *do*, as five steps.** Published the same month as Conway, and a description of a process rather than a person; they coined **OSEMN** in the same post. Their line on the least glamorous step has outlasted the rest — scrubbing data is "the least sexy part of the analysis process".
-
-![Redrawn for this page; the post carried no figure of its own — [original](https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/) (archived) · [PDF](https://introdatasci.dlilab.com/pdf/A_Taxonomy_of_Data_Science.pdf)](images/osemn.png){fig-alt="The OSEMN pipeline: obtain, scrub, explore, model, interpret"}
-
-**3. Wickham, Çetinkaya-Rundel & Grolemund — what you *do*, as a loop.** The *R for Data Science* cycle: import and tidy once, then loop through transform, visualise and model, then communicate, with programming underneath. [Jeroen Janssens](https://datascienceatthecommandline.com/2e/chapter-1-introduction) adopts Mason and Wiggins's steps as the spine of *Data Science at the Command Line*.
-
-![© the authors, [CC BY-NC-ND 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/us/). Reproduced unchanged — [original](https://r4ds.hadley.nz/intro)](images/external/r4ds-data-science-cycle.png){fig-alt="The R for Data Science cycle: import, tidy, then a loop of transform, visualise and model, then communicate, with program surrounding all of it"}
 
 ## RQ2 · Three groups of skills, and one asked for everywhere
 
