@@ -82,7 +82,7 @@ The classic data science definition is a 2010 diagram by **Drew Conway**: three 
 
 ![© Drew Conway, 2010. Reproduced with attribution — [original](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram)](images/external/conway-data-science-vd.png){fig-alt="Drew Conway's data science Venn diagram"}
 
-Measured against these job ads, the shape does not hold.
+Measured against these job ads, the shape does not hold. A job ad counts inside a circle when it requires at least one skill mapped to that circle.
 
 {{< var jobskills.conway_danger_zone >}}% of job ads want coding and subject expertise but no statistics — the region Conway marked "danger zone" and thought nearly empty. {{< var jobskills.conway_outside_n >}} tracked skills fit none of his circles at all, and {{< var jobskills.conway_outside_pct >}}% of ads require at least one.
 
@@ -102,8 +102,6 @@ In October 2012 *Harvard Business Review* called data scientist [the sexiest job
 **3. Wickham, Çetinkaya-Rundel & Grolemund — what you *do*, as a loop.** The *R for Data Science* cycle: import and tidy once, then loop through transform, visualise and model, then communicate, with programming underneath. [Jeroen Janssens](https://datascienceatthecommandline.com/2e/chapter-1-introduction) adopts Mason and Wiggins's steps as the spine of *Data Science at the Command Line*.
 
 ![© the authors, [CC BY-NC-ND 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/us/). Reproduced unchanged — [original](https://r4ds.hadley.nz/intro)](images/external/r4ds-data-science-cycle.png){fig-alt="The R for Data Science cycle: import, tidy, then a loop of transform, visualise and model, then communicate, with program surrounding all of it"}
-
-Only the first can be tested here: the other two describe steps, and no ad says "must be able to scrub". A job ad joins one of Conway's circles if it requires at least one skill mapped to it. Only the measured figures and the 2026 groups are this page's own.
 
 ## RQ2 · Three groups of skills, and one asked for everywhere
 
