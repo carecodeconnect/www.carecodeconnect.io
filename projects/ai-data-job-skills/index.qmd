@@ -192,11 +192,9 @@ The remaining {{< var jobskills.mlx_silent_nothing >}} ads name neither the conc
 
 :::
 
-::: {.callout-note collapse="true" appearance="simple"}
-## Each of the {{< var jobskills.n_titles >}} titles, one at a time {.unnumbered}
+## Deep dive into skills by role title
 
 {{< include _titles-deepdive.qmd >}}
-:::
 
 ## Conclusions
 
