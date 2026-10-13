@@ -2,7 +2,7 @@
 
 Nine titles, in the approximate order each entered data and AI hiring. The dates are background — this sample runs {{< var jobskills.months >}} and can say nothing about when a title appeared — but everything after them is measured from the ads.
 
-Across the whole sample, **29%** of ads require building or training a model of some kind and **42%** require calling a model someone else trained. That split is the thread running through these sections, and it moves with the chronology: the older the title, the likelier it is to build.
+Across the whole sample, **30%** of ads require building or training a model of some kind and **42%** require calling a model someone else trained. That split is the thread running through these sections, and it moves with the chronology: the older the title, the likelier it is to build.
 
 ![](images/build-vs-call.png){fig-alt="Grouped bar chart of the nine job titles showing the share of each title's ads that require building or training a model versus calling one over an API"}
 
@@ -26,14 +26,14 @@ flowchart TB
   end
   subgraph r2[" "]
     direction LR
-    n4["Data<br/>Engineer<br/>~2011–14<br/>11% of ads"]
+    n4["Data<br/>Engineer<br/>~2011–14<br/>12% of ads"]
     n5["ML<br/>Engineer<br/>~2015–16<br/>10% of ads"]
     n4 --> n5
   end
   subgraph r3[" "]
     direction LR
     n6["Analytics<br/>Engineer<br/>~2018–19<br/>2% of ads"]
-    n7["Forward<br/>Deployed<br/>~2023<br/>16% of ads"]
+    n7["Forward<br/>Deployed<br/>~2023<br/>15% of ads"]
     n6 --> n7
   end
   subgraph r4[" "]
@@ -50,13 +50,13 @@ flowchart TB
 
 ### 1. Quantitative Researcher — finance, 1980s–1990s {#sec-title-quantitative-researcher}
 
-*46 ads, 2% of the sample*
+*47 ads, 2% of the sample*
 
 The oldest title here, and the one that got there first. Investment banks and hedge funds were hiring mathematicians and physicists to price derivatives and find trading signals two decades before anyone said “data scientist”. Everything the later titles claim as novel — statistics on large datasets, models in production, money riding on the output — was already the job.
 
 ![](images/title-quantitative-researcher.png){fig-alt="Bar chart of the skills Quantitative Researcher ads require most often and the skills most over-represented in them, each against the share across all ads"}
 
-**Nearest neighbour.** Data Scientist (1.42 apart on the skills map), then Research Scientist (1.53). Furthest: Analytics Engineer (2.45).
+**Nearest neighbour.** Data Scientist (1.41 apart on the skills map), then Research Scientist (1.51). Furthest: Analytics Engineer (2.43).
 
 **Build or call.** 26% build or train a model, 9% call one over an API, and 2% want the API work with no model-building at all.
 
@@ -72,13 +72,13 @@ The oldest title here, and the one that got there first. Investment banks and he
 
 ### 2. Data Analyst — business intelligence, 1990s–2000s {#sec-title-data-analyst}
 
-*286 ads, 11% of the sample*
+*303 ads, 11% of the sample*
 
 Grew out of business intelligence and reporting. The job was to turn a company’s own operational data into numbers a manager could act on, and the tooling was the warehouse and the dashboard rather than the notebook.
 
 ![](images/title-data-analyst.png){fig-alt="Bar chart of the skills Data Analyst ads require most often and the skills most over-represented in them, each against the share across all ads"}
 
-**Nearest neighbour.** Data Scientist (1.27 apart on the skills map), then Analytics Engineer (1.46). Furthest: AI Engineer (2.10).
+**Nearest neighbour.** Data Scientist (1.28 apart on the skills map), then Analytics Engineer (1.45). Furthest: AI Engineer (2.11).
 
 **Build or call.** 8% build or train a model, 16% call one over an API, and 15% want the API work with no model-building at all.
 
@@ -94,7 +94,7 @@ Grew out of business intelligence and reporting. The job was to turn a company�
 
 ### 3. Research Scientist — industrial labs, long-standing; current AI form from ~2012 {#sec-title-research-scientist}
 
-*155 ads, 6% of the sample*
+*156 ads, 6% of the sample*
 
 The title is far older than data science — industrial research labs have used it for most of a century — but the version that shows up in this sample is the deep-learning lab role that followed the 2012 ImageNet result: publish, train large models, push the state of the art.
 
@@ -102,7 +102,7 @@ The title is far older than data science — industrial research labs have used 
 
 **Nearest neighbour.** ML Engineer (0.99 apart on the skills map), then Data Scientist (1.19). Furthest: Analytics Engineer (2.08).
 
-**Build or call.** 59% build or train a model, 26% call one over an API, and 8% want the API work with no model-building at all.
+**Build or call.** 60% build or train a model, 29% call one over an API, and 8% want the API work with no model-building at all.
 
 **In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “diffusion models” (9%), “jax” (14%), “reinforcement learning” (19%), “cuda” (9%), “experimental design” (10%).
 
@@ -116,13 +116,13 @@ The title is far older than data science — industrial research labs have used 
 
 ### 4. Data Scientist — coined 2008, mainstream from ~2012 {#sec-title-data-scientist}
 
-*469 ads, 18% of the sample*
+*506 ads, 18% of the sample*
 
 Coined in 2008 by D.J. Patil and Jeff Hammerbacher, then leading data at LinkedIn and Facebook, and made famous by the 2012 *Harvard Business Review* piece that opens this page. The pitch was a hybrid: enough statistics to be rigorous, enough code to be self-sufficient, enough business sense to be listened to.
 
 ![](images/title-data-scientist.png){fig-alt="Bar chart of the skills Data Scientist ads require most often and the skills most over-represented in them, each against the share across all ads"}
 
-**Nearest neighbour.** ML Engineer (1.14 apart on the skills map), then Research Scientist (1.19). Furthest: Analytics Engineer (1.83).
+**Nearest neighbour.** ML Engineer (1.12 apart on the skills map), then Research Scientist (1.19). Furthest: Analytics Engineer (1.82).
 
 **Build or call.** 55% build or train a model, 35% call one over an API, and 12% want the API work with no model-building at all.
 
@@ -138,15 +138,15 @@ Coined in 2008 by D.J. Patil and Jeff Hammerbacher, then leading data at LinkedI
 
 ### 5. Data Engineer — ~2011–2014 {#sec-title-data-engineer}
 
-*303 ads, 11% of the sample*
+*337 ads, 12% of the sample*
 
 Split off from the data scientist once companies discovered that most of the work was moving and shaping data rather than modelling it. Hadoop, then Spark, then the cloud warehouse made the pipeline a full-time job.
 
 ![](images/title-data-engineer.png){fig-alt="Bar chart of the skills Data Engineer ads require most often and the skills most over-represented in them, each against the share across all ads"}
 
-**Nearest neighbour.** Analytics Engineer (0.98 apart on the skills map), then Data Analyst (1.65). Furthest: Quantitative Researcher (2.23).
+**Nearest neighbour.** Analytics Engineer (0.98 apart on the skills map), then Data Analyst (1.67). Furthest: Quantitative Researcher (2.24).
 
-**Build or call.** 3% build or train a model, 22% call one over an API, and 21% want the API work with no model-building at all.
+**Build or call.** 4% build or train a model, 23% call one over an API, and 22% want the API work with no model-building at all.
 
 **In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “azure data factory” (8%), “medallion architecture” (7%), “apache airflow” (6%), “delta lake” (7%), “etl/elt” (12%).
 
@@ -156,15 +156,15 @@ Split off from the data scientist once companies discovered that most of the wor
 
 ### 6. ML Engineer — ~2015–2016 {#sec-title-ml-engineer}
 
-*260 ads, 10% of the sample*
+*277 ads, 10% of the sample*
 
 Split off from the other side of the data scientist: the half concerned with getting a trained model to run reliably for real users. The title tracks the arrival of model serving, feature stores and the tooling that became MLOps.
 
 ![](images/title-ml-engineer.png){fig-alt="Bar chart of the skills ML Engineer ads require most often and the skills most over-represented in them, each against the share across all ads"}
 
-**Nearest neighbour.** Research Scientist (0.99 apart on the skills map), then AI Engineer (1.09). Furthest: Analytics Engineer (2.04).
+**Nearest neighbour.** Research Scientist (0.99 apart on the skills map), then AI Engineer (1.10). Furthest: Analytics Engineer (2.02).
 
-**Build or call.** 63% build or train a model, 34% call one over an API, and 9% want the API work with no model-building at all.
+**Build or call.** 64% build or train a model, 34% call one over an API, and 8% want the API work with no model-building at all.
 
 **In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “kubeflow” (7%), “model serving” (13%), “distributed training” (8%), “vllm” (6%), “model training” (10%).
 
@@ -178,15 +178,15 @@ Split off from the other side of the data scientist: the half concerned with get
 
 ### 7. Analytics Engineer — ~2018–2019 {#sec-title-analytics-engineer}
 
-*66 ads, 2% of the sample*
+*65 ads, 2% of the sample*
 
 The newest of the analytics titles, and essentially a dbt-era invention: apply software engineering practice — version control, tests, modular transformations — to the modelling layer between the warehouse and the dashboard.
 
 ![](images/title-analytics-engineer.png){fig-alt="Bar chart of the skills Analytics Engineer ads require most often and the skills most over-represented in them, each against the share across all ads"}
 
-**Nearest neighbour.** Data Engineer (0.98 apart on the skills map), then Data Analyst (1.46). Furthest: Quantitative Researcher (2.45).
+**Nearest neighbour.** Data Engineer (0.98 apart on the skills map), then Data Analyst (1.45). Furthest: Quantitative Researcher (2.43).
 
-**Build or call.** 0% build or train a model, 36% call one over an API, and 36% want the API work with no model-building at all.
+**Build or call.** 0% build or train a model, 35% call one over an API, and 35% want the API work with no model-building at all.
 
 **In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “semantic layer” (10%), “ai-assisted workflows” (6%), “cdc” (6%), “double-entry bookkeeping” (6%), “lightdash” (6%).
 
@@ -196,15 +196,15 @@ The newest of the analytics titles, and essentially a dbt-era invention: apply s
 
 ### 8. Forward Deployed — Palantir-era term, mainstream from ~2023 {#sec-title-forward-deployed}
 
-*416 ads, 16% of the sample*
+*430 ads, 15% of the sample*
 
 A solutions-engineering lineage with a newer name. The engineer is embedded with the customer, building and adapting the product in front of them. The term escaped Palantir and spread as AI vendors discovered their product needed fitting to each buyer.
 
 ![](images/title-forward-deployed.png){fig-alt="Bar chart of the skills Forward Deployed ads require most often and the skills most over-represented in them, each against the share across all ads"}
 
-**Nearest neighbour.** Research Scientist (1.36 apart on the skills map), then AI Engineer (1.37). Furthest: Analytics Engineer (1.96).
+**Nearest neighbour.** Research Scientist (1.36 apart on the skills map), then AI Engineer (1.38). Furthest: Analytics Engineer (1.94).
 
-**Build or call.** 6% build or train a model, 38% call one over an API, and 34% want the API work with no model-building at all.
+**Build or call.** 6% build or train a model, 37% call one over an API, and 33% want the API work with no model-building at all.
 
 **In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “solutions engineering” (13%), “solution architecture” (9%), “customer communication” (6%), “technical documentation” (7%), “project management” (6%).
 
@@ -214,15 +214,15 @@ A solutions-engineering lineage with a newer name. The engineer is embedded with
 
 ### 9. AI Engineer — ~2023 {#sec-title-ai-engineer}
 
-*660 ads, 25% of the sample*
+*696 ads, 25% of the sample*
 
 The newest title in the sample and already the largest. It arrived with the production LLM stack — applications, retrieval, agents, evaluation — and it is the one title here defined by what it builds *with* rather than what it knows.
 
 ![](images/title-ai-engineer.png){fig-alt="Bar chart of the skills AI Engineer ads require most often and the skills most over-represented in them, each against the share across all ads"}
 
-**Nearest neighbour.** ML Engineer (1.09 apart on the skills map), then Forward Deployed (1.37). Furthest: Quantitative Researcher (2.16).
+**Nearest neighbour.** ML Engineer (1.10 apart on the skills map), then Forward Deployed (1.38). Furthest: Quantitative Researcher (2.16).
 
-**Build or call.** 31% build or train a model, 80% call one over an API, and 55% want the API work with no model-building at all.
+**Build or call.** 31% build or train a model, 81% call one over an API, and 55% want the API work with no model-building at all.
 
 **In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “langgraph” (16%), “tool use” (8%), “mcp” (9%), “langchain” (16%), “vector databases” (14%).
 
