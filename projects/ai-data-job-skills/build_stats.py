@@ -16,6 +16,7 @@ Owns the whole `jobskills:` block, so it is the single writer of _variables.yml.
 Run it after scripts/skill-clusters.py has refreshed the CSV."""
 from __future__ import annotations
 
+import datetime as dt
 import itertools
 import json
 import re
@@ -366,12 +367,28 @@ vp.write_text("\n".join([l for l in keep if l.strip()] + [block.rstrip()]) + "\n
 print(f"wrote {vp.relative_to(WWW)} — {len(out)} variables, {len(df):,} ads, {len(REQ)} skills, {len(counts)} titles")
 print("  closest pair:", out["closest_pair_a"], "/", out["closest_pair_b"], out["closest_pair_d"])
 
+# ── the page's "updated" date ────────────────────────────────────────────────
+# Quarto cannot expand `{{< var >}}` in YAML front matter, so the one date on
+# the page could not come from _variables.yml like every other figure, and went
+# stale four days running. This script already owns everything generated here,
+# so it owns this too: `date` stays the publication date, `date-modified` is
+# rewritten on every run, which is every time the figures are regenerated.
+ip = HERE / "index.qmd"
+src = ip.read_text()
+today = dt.date.today().isoformat()
+if re.search(r"(?m)^date-modified:", src):
+    src = re.sub(r"(?m)^date-modified:.*$", f"date-modified: {today}", src, count=1)
+else:
+    src = re.sub(r"(?m)^(date:.*)$", rf"\1\ndate-modified: {today}", src, count=1)
+ip.write_text(src)
+print(f"  index.qmd date-modified: {today}")
+
 # ── the guard: no figure may be typed into the page ──────────────────────────
 # The rule in this file's docstring used to be enforced by remembering it, and
 # it was quietly broken four times. Scan the page for numerals that are not
 # inside a `{{< var >}}`, outside the places a number is not a measurement:
 # YAML front matter, the iframe's CSS, years, and licence names.
-SKIP = re.compile(r"^(date:|<iframe|\s*(title|subtitle):)")
+SKIP = re.compile(r"^(date:|date-modified:|<iframe|\s*(title|subtitle):)")
 BARE = re.compile(r"\d[\d,.]*\s*%|\b\d{2,}(?:,\d{3})*\b|κ ≈ [\d.]+|\b[01]\.\d\d\b")
 strays = []
 for n, line in enumerate((HERE / "index.qmd").read_text().splitlines(), 1):

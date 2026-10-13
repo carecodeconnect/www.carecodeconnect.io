@@ -2,6 +2,7 @@
 title: "AI / Data Job Skills"
 subtitle: "What does a data scientist do now — and how does that differ from an AI engineer, a data analyst or an analytics engineer? Measured from ~3,000 job ads European employers posted in 2026."  # YAML front matter cannot expand {{< var >}}, so the count here is deliberately rounded; the exact n comes from jobskills.n_ads in the body
 date: 2026-10-08
+date-modified: 2026-10-13
 toc: true
 ---
 
