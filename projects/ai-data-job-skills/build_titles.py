@@ -11,8 +11,7 @@ dive cannot drift from the data the page ships. Two things are NOT from the CSV
 and are marked as such:
 
   * the distinctive literal phrases, which come from the open-vocabulary (Haiku)
-    pass over the full crawler pool — `data/title-phrases.json`, regenerate with
-    `sql/title-phrases.sql`;
+    pass over the pool — published in `data/skill-mentions.csv`;
   * the short evidence quotes in QUOTES below, selected by hand from the
     evidence sentences that pass stores with each mention (`sql/title-quotes.sql`).
     Fragments only, no employer named — the published CSV deliberately carries no
@@ -23,6 +22,7 @@ Apr–Oct 2026 only and can say nothing about when a title appeared.
 """
 from pathlib import Path
 import json
+import re
 
 import numpy as np
 import pandas as pd
@@ -31,7 +31,46 @@ HERE = Path(__file__).resolve().parent
 df = pd.read_csv(HERE / "data" / "ai-data-job-skills.csv")
 N = len(df)
 REQ = [c for c in df.columns if c.startswith("req_")]
-PH = json.loads((HERE / "data" / "title-phrases.json").read_text())
+# The open-vocabulary phrases now come from the published skill-mentions.csv, not
+# from a separate JSON: one source of truth, and the JSON had gone stale within a
+# week of being written. "Over-represented" = the title's share of ads using the
+# phrase, against the share across all ads.
+_MP = pd.read_csv(HERE / "data" / "skill-mentions.csv", keep_default_na=False)
+_FCOL = {f: "n_jobs_" + re.sub(r"[^a-z0-9]+", "_", f.lower()).strip("_")
+         for f in df["family"].unique()}
+
+
+def phrases_for(fam, n_fam, limit=5):
+    col = _FCOL.get(fam)
+    if col not in _MP.columns:
+        return []
+    m = _MP[_MP[col] > 0].copy()
+    m["share"] = 100 * m[col] / n_fam
+    m["base"] = 100 * m["n_jobs"] / N
+    # Rank by over-representation, not raw count: the commonest phrases in a title
+    # are the commonest everywhere ("statistics", "machine learning") and say
+    # nothing about what makes the title different.
+    # Both conditions matter. Rank by over-representation alone and you get
+    # phrases in 1% of the title's ads; rank by raw count and you get the ones
+    # common everywhere. So: present in at least 5% of this title's ads AND at
+    # least 1.5x its share across all ads.
+    m = m[(m[col] >= 3) & (m["base"] > 0) & (m["share"] >= 5)]
+    m["lift"] = m["share"] / m["base"]
+    m = m[m["lift"] >= 1.5]
+    out = []
+    for r in m.nlargest(limit * 5, "lift").itertuples():
+        if r.phrase in STOP:
+            continue
+        out.append({"phrase": r.phrase, "n": int(getattr(r, col)), "share": round(r.share)})
+        if len(out) == limit:
+            break
+    return out
+
+
+def phrase_count(fam, phrase):
+    col = _FCOL.get(fam)
+    row = _MP[_MP.phrase == phrase]
+    return int(row[col].iloc[0]) if len(row) and col in _MP.columns else None
 
 # "Building or training a model" vs "calling someone else's over an API" — the
 # distinction the page needs to make explicit (owner, 2026-10-08).
@@ -238,7 +277,7 @@ for i, (fam, era, blurb) in enumerate(ORDER, start=1):
         f"an API, and {pct((ca & ~tr).mean())}% want the API work with no model-building at all.")
     add("")
 
-    ph = [p for p in PH["families"].get(fam, []) if p["phrase"] not in STOP][:5]
+    ph = phrases_for(fam, n)
     if ph:
         words = ", ".join(f"“{p['phrase']}” ({p['share']}%)" for p in ph)
         add(f"**In the ads' own words.** The phrases most over-represented in this title, read out of "
@@ -246,12 +285,12 @@ for i, (fam, era, blurb) in enumerate(ORDER, start=1):
             f"title's ads using each: {words}.")
         add("")
     for phrase, quote in QUOTES.get(fam, []):
-        c = PH["counts"].get(fam, {}).get(phrase)
+        c = phrase_count(fam, phrase)   # job count within this title
         if c is None:
-            raise SystemExit(f"no phrase count for {fam} / {phrase!r} — check title-phrases.json")
+            raise SystemExit(f"no phrase count for {fam} / {phrase!r} — check skill-mentions.csv")
         add(f"> {quote}")
         add(">")
-        add(f"> <small>— one of **{c['n']}** {fam} ads ({c['share']}% of the title) that ask for "
+        add(f"> <small>— one of **{c}** {fam} job ads ({round(100 * c / n)}% of the title) that ask for "
             f"“{phrase}”</small>")
         add("")
 

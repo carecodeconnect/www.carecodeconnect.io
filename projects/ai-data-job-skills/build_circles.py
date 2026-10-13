@@ -77,98 +77,35 @@ for _k, _name in [("eng", "Engineering, deployment & AI"), ("data", "Data platfo
 
 (HERE / "data" / "circles-2026.json").write_text(json.dumps(out, indent=2) + "\n")
 
-fig, ax = plt.subplots(figsize=(9.2, 6.4))
-v = venn3([set(df.index[E]), set(df.index[D]), set(df.index[I])],
-          set_labels=("", "", ""), ax=ax,
-          set_colors=(BLUE, GREEN, VERMILLION), alpha=0.42)
-venn3_circles([set(df.index[E]), set(df.index[D]), set(df.index[I])],
-              ax=ax, lw=0.9, color="white")
-for key in REGIONS:
-    lab = v.get_label_by_id(key)
-    if lab:
-        lab.set_text(f"{pct(REGIONS[key])}%")
-        lab.set_fontsize(11); lab.set_color(INK)
-ax.text(-0.62, 0.50, f"Engineering, deployment & AI\n{out['pct_eng']}%", color=BLUE, fontsize=12,
-        fontweight="bold", ha="center")
-ax.text(0.62, 0.50, f"Data platform\n{out['pct_data']}%", color=GREEN, fontsize=12,
-        fontweight="bold", ha="center")
-ax.text(0.0, -0.68, f"Statistics & inference\n{out['pct_inference']}%", color=VERMILLION,
-        fontsize=12, fontweight="bold", ha="center")
-ax.set_axis_off()
-fig.suptitle("What AI / data job ads ask for together, 2026", fontsize=15, fontweight="bold",
-             color=INK, x=0.02, ha="left", y=0.99)
-fig.text(0.02, 0.925,
-         "Skills grouped by how often employers ask for them in the same ad, not by hand.\n"
-         f"Communication is required by {out['pct_ground']}% of ads in every region, so it is the ground, not a circle.",
-         fontsize=9.5, color=INK_MUTED, ha="left", va="top")
-ax.text(1.0, -0.06, f"n = {N:,} ads · www.carecodeconnect.io", transform=ax.transAxes,
-        fontsize=8.5, color=INK_MUTED, ha="right")
-fig.subplots_adjust(top=0.84, bottom=0.06)
-fig.savefig(HERE / "images" / "circles-2026.png", dpi=200, facecolor="white")
+# ── the figures: UpSet, not Venn (see upset.py for why) ─────────────────────
+import upset
 
-# ── candidate A: the same circles, each region labelled by the title that owns it
-REG_ORDER = [("111", "centre"), ("110", "eng_data"), ("100", "eng_only"),
-             ("101", "eng_inference"), ("011", "data_inference")]
-figA, axA = plt.subplots(figsize=(9.6, 6.6))
-vA = venn3([set(df.index[E]), set(df.index[D]), set(df.index[I])], set_labels=("", "", ""), ax=axA,
-           set_colors=(BLUE, GREEN, VERMILLION), alpha=0.42)
-venn3_circles([set(df.index[E]), set(df.index[D]), set(df.index[I])], ax=axA, lw=0.9, color="white")
-for k in REGIONS:
-    lab = vA.get_label_by_id(k)
-    if not lab:
-        continue
-    pc = pct(REGIONS[k])
-    who = dominant(REGIONS[k]) if REGIONS[k].sum() > 40 else ""
-    lab.set_text(f"{pc}%\n{who}" if who else f"{pc}%")
-    lab.set_fontsize(10.5 if who else 9.5); lab.set_color(INK)
-    lab.set_linespacing(1.45)
-axA.set_axis_off()
-axA.text(-0.62, 0.52, f"Engineering,\ndeployment & AI", color=BLUE, fontsize=11.5,
-         fontweight="bold", ha="center")
-axA.text(0.63, 0.52, "Data platform", color=GREEN, fontsize=11.5, fontweight="bold", ha="center")
-axA.text(0.0, -0.70, "Statistics & inference", color=VERMILLION, fontsize=11.5,
-         fontweight="bold", ha="center")
-figA.suptitle("Each part of the work belongs to a different title", fontsize=15.5,
-              fontweight="bold", color=INK, x=0.02, ha="left", y=0.99)
-figA.text(0.02, 0.925, "Skills grouped by how often employers ask for them in the same ad. Each region "
-                       "shows its share of ads\nand the title most common in it. Communication is required "
-                       f"by {out['pct_ground']}% of ads everywhere, so it is not a circle.",
-          fontsize=9.5, color=INK_MUTED, ha="left", va="top")
-figA.text(0.985, 0.015, f"n = {N:,} ads · www.carecodeconnect.io", fontsize=8.5, color=INK_MUTED, ha="right")
-figA.subplots_adjust(top=0.82, bottom=0.05)
-figA.savefig(HERE / "images" / "circles-2026-titles.png", dpi=200, facecolor="white")
+SETS = {"Engineering & AI": E, "Data platform": D, "Inference": I}
+SOURCE = (f"n = {N:,} de-duplicated job ads with a data / AI title, hiring in Germany, EU-wide, "
+          f"worldwide-remote or the UK, Apr-Oct 2026, collected by a personal job-board crawler "
+          f"and scored by a model judge.   www.carecodeconnect.io")
+CAP = SOURCE
+SUB = ("Skills grouped by how often employers ask for them in the same ad, not by hand. Engineering & AI covers software, deployment and LLM work; Inference is statistics and classical ML. "
+       f"Communication is required by {out['pct_ground']}% of ads in every row, so it is not a group here.")
 
-# ── candidate B: title composition of each region, stacked
-from palette import FAMILY_COLOUR
-figB, axB = plt.subplots(figsize=(9.6, 4.6))
-names = {"centre": "All three", "eng_data": "Engineering + data", "eng_only": "Engineering only",
-         "eng_inference": "Engineering + inference", "data_inference": "Data + inference"}
-ys = [names[n] for _, n in REG_ORDER][::-1]
-mats = [REGIONS[k] for k, _ in REG_ORDER][::-1]
-fams = list(df.family.value_counts().index)
-left = [0.0] * len(ys)
-for fam in fams:
-    vals = [100 * (df.family[m] == fam).mean() for m in mats]
-    axB.barh(ys, vals, left=left, height=0.66, color=FAMILY_COLOUR.get(fam, "#999"), label=fam)
-    for y, (v, l) in enumerate(zip(vals, left)):
-        if v >= 9:
-            axB.text(l + v / 2, y, f"{v:.0f}", ha="center", va="center", fontsize=8.5, color="white")
-    left = [a + b for a, b in zip(left, vals)]
-axB.set_xlim(0, 100); axB.set_xlabel("% of the region's ads", color=INK_MUTED, fontsize=10)
-axB.tick_params(colors=INK_MUTED, labelsize=10)
-for sp in ("top", "right", "left"):
-    axB.spines[sp].set_visible(False)
-axB.spines["bottom"].set_color("#d8d8d4")
-axB.legend(loc="upper center", bbox_to_anchor=(0.5, -0.22), ncol=5, frameon=False, fontsize=8.5,
-           labelcolor=INK_MUTED)
-figB.suptitle("Who holds each part of the work", fontsize=15.5, fontweight="bold", color=INK,
-              x=0.015, ha="left", y=0.99)
-figB.text(0.015, 0.90, "Title mix within each region of the skill map.", fontsize=9.5,
-          color=INK_MUTED, ha="left", va="top")
-figB.text(0.985, 0.015, f"n = {N:,} ads · www.carecodeconnect.io", fontsize=8.5, color=INK_MUTED, ha="right")
-figB.subplots_adjust(top=0.78, bottom=0.30, left=0.20, right=0.98)
-figB.savefig(HERE / "images" / "region-titles.png", dpi=200, facecolor="white")
-print("wrote images/circles-2026-titles.png and images/region-titles.png")
+upset.draw(SETS, title="What AI / data job ads ask for together, 2026", subtitle=SUB, caption=CAP,
+           outfile=HERE / "images" / "circles-2026.png")
+
+ANNOT = {}
+for key_, mask in [(("Engineering & AI", "Data platform", "Inference"), REGIONS["111"]),
+                   (("Engineering & AI", "Data platform"), REGIONS["110"]),
+                   (("Engineering & AI",), REGIONS["100"]),
+                   (("Engineering & AI", "Inference"), REGIONS["101"]),
+                   (("Data platform", "Inference"), REGIONS["011"]),
+                   (("Data platform",), REGIONS["010"]),
+                   (("Inference",), REGIONS["001"])]:
+    if mask.sum() > 20:
+        ANNOT[key_] = f"mostly {dominant(mask)} ({dom_pct(mask)}%)"
+
+upset.draw(SETS, title="Each part of the work belongs to a different title",
+           subtitle="Skills grouped by what employers ask for together; each row names the job title most common in it.",
+           caption=CAP, annot=ANNOT, outfile=HERE / "images" / "circles-2026-titles.png")
+
 print("wrote images/circles-2026.png and data/circles-2026.json")
 for k, val in out.items():
     if not k.startswith("_"):

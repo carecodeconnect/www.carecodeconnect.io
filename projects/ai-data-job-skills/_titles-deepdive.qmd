@@ -62,15 +62,15 @@ The oldest title here, and the one that got there first. Investment banks and he
 
 **Build or call.** 26% build or train a model, 9% call one over an API, and 2% want the API work with no model-building at all.
 
-**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “finance” (10%), “large dataset analysis” (10%), “applied mathematics” (8%), “market microstructure” (8%), “portfolio construction” (8%).
+**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “portfolio construction” (9%), “high-frequency trading” (6%), “derivatives pricing” (6%), “large dataset analysis” (11%), “quantitative modeling” (9%).
 
 > 5+ years of experience with quantitative modeling and pricing
 >
-> <small>— one of **3** Quantitative Researcher ads (6% of the title) that ask for “quantitative modeling”</small>
+> <small>— one of **4** Quantitative Researcher job ads (9% of the title) that ask for “quantitative modeling”</small>
 
 > Strong understanding of market mechanics and microstructure invariants
 >
-> <small>— one of **4** Quantitative Researcher ads (8% of the title) that ask for “market microstructure”</small>
+> <small>— one of **4** Quantitative Researcher job ads (9% of the title) that ask for “market microstructure”</small>
 
 ### 2. Data Analyst — business intelligence, 1990s–2000s {#sec-title-data-analyst}
 
@@ -86,15 +86,15 @@ Grew out of business intelligence and reporting. The job was to turn a company�
 
 **Build or call.** 8% build or train a model, 16% call one over an API, and 14% want the API work with no model-building at all.
 
-**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “excel” (19%), “power bi” (32%), “tableau” (29%), “data analytics” (8%), “looker” (17%).
+**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “dashboard design” (8%), “excel” (19%), “tableau” (28%), “power bi” (32%), “business intelligence” (6%).
 
 > data visualisation tools such as Power BI
 >
-> <small>— one of **88** Data Analyst ads (32% of the title) that ask for “power bi”</small>
+> <small>— one of **100** Data Analyst job ads (32% of the title) that ask for “power bi”</small>
 
 > A/B testing that directly influence product improvements
 >
-> <small>— one of **51** Data Analyst ads (18% of the title) that ask for “a/b testing”</small>
+> <small>— one of **49** Data Analyst job ads (16% of the title) that ask for “a/b testing”</small>
 
 ### 3. Research Scientist — industrial labs, long-standing; current AI form from ~2012 {#sec-title-research-scientist}
 
@@ -110,15 +110,15 @@ The title is far older than data science — industrial research labs have used 
 
 **Build or call.** 59% build or train a model, 29% call one over an API, and 8% want the API work with no model-building at all.
 
-**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “diffusion models” (9%), “jax” (14%), “reinforcement learning” (19%), “cuda” (9%), “experimental design” (10%).
+**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “chemistry” (5%), “jax” (14%), “sglang” (6%), “reinforcement learning” (18%), “experimental design” (11%).
 
 > Strong empirical research skills in Reinforcement Learning
 >
-> <small>— one of **28** Research Scientist ads (19% of the title) that ask for “reinforcement learning”</small>
+> <small>— one of **29** Research Scientist job ads (18% of the title) that ask for “reinforcement learning”</small>
 
 > state-of-the-art Deep Learning and Reinforcement Learning models
 >
-> <small>— one of **31** Research Scientist ads (21% of the title) that ask for “deep learning”</small>
+> <small>— one of **27** Research Scientist job ads (17% of the title) that ask for “deep learning”</small>
 
 ### 4. Data Scientist — coined 2008, mainstream from ~2012 {#sec-title-data-scientist}
 
@@ -136,15 +136,15 @@ Coined in 2008 by D.J. Patil and Jeff Hammerbacher, then leading data at LinkedI
 
 **Build or call.** 55% build or train a model, 35% call one over an API, and 12% want the API work with no model-building at all.
 
-**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “regression” (6%), “clustering” (7%), “statistical modeling” (10%), “data science” (31%), “causal inference” (15%).
+**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “regression” (6%), “statistical modeling” (9%), “data science” (28%), “clustering” (6%), “causal inference” (14%).
 
 > experimental design, causal inference and quasi-experimental methods
 >
-> <small>— one of **71** Data Scientist ads (15% of the title) that ask for “causal inference”</small>
+> <small>— one of **73** Data Scientist job ads (14% of the title) that ask for “causal inference”</small>
 
 > Expertise in machine learning and predictive modelling
 >
-> <small>— one of **35** Data Scientist ads (7% of the title) that ask for “predictive modeling”</small>
+> <small>— one of **41** Data Scientist job ads (8% of the title) that ask for “predictive modeling”</small>
 
 ### 5. Data Engineer — ~2011–2014 {#sec-title-data-engineer}
 
@@ -160,11 +160,11 @@ Split off from the data scientist once companies discovered that most of the wor
 
 **Build or call.** 4% build or train a model, 23% call one over an API, and 22% want the API work with no model-building at all.
 
-**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “azure data factory” (8%), “medallion architecture” (7%), “apache airflow” (6%), “delta lake” (7%), “etl/elt” (12%).
+**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “apache iceberg” (5%), “azure data factory” (7%), “apache airflow” (7%), “data security” (8%), “etl/elt” (8%).
 
 > Own the design of scalable ETL/ELT pipelines
 >
-> <small>— one of **26** Data Engineer ads (12% of the title) that ask for “etl/elt”</small>
+> <small>— one of **28** Data Engineer job ads (8% of the title) that ask for “etl/elt”</small>
 
 ### 6. ML Engineer — ~2015–2016 {#sec-title-ml-engineer}
 
@@ -180,15 +180,15 @@ Split off from the other side of the data scientist: the half concerned with get
 
 **Build or call.** 63% build or train a model, 35% call one over an API, and 8% want the API work with no model-building at all.
 
-**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “kubeflow” (7%), “model serving” (13%), “distributed training” (8%), “vllm” (6%), “model training” (10%).
+**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “kubeflow” (7%), “model serving” (14%), “tensorrt” (5%), “quantization” (5%), “recommendation systems” (7%).
 
 > training and iterating on deep learning models
 >
-> <small>— one of **25** ML Engineer ads (10% of the title) that ask for “model training”</small>
+> <small>— one of **26** ML Engineer job ads (9% of the title) that ask for “model training”</small>
 
 > transition of machine learning models into production
 >
-> <small>— one of **44** ML Engineer ads (17% of the title) that ask for “model deployment”</small>
+> <small>— one of **49** ML Engineer job ads (17% of the title) that ask for “model deployment”</small>
 
 ### 7. Analytics Engineer — ~2018–2019 {#sec-title-analytics-engineer}
 
@@ -204,11 +204,11 @@ The newest of the analytics titles, and essentially a dbt-era invention: apply s
 
 **Build or call.** 0% build or train a model, 33% call one over an API, and 33% want the API work with no model-building at all.
 
-**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “semantic layer” (10%), “ai-assisted workflows” (6%), “cdc” (6%), “double-entry bookkeeping” (6%), “lightdash” (6%).
+**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “lightdash” (6%), “semantic layer” (7%), “analytics engineering” (25%), “dimensional modeling” (15%), “data quality testing” (6%).
 
 > modeled in dbt and orchestrated by Airflow
 >
-> <small>— one of **38** Analytics Engineer ads (79% of the title) that ask for “dbt”</small>
+> <small>— one of **48** Analytics Engineer job ads (67% of the title) that ask for “dbt”</small>
 
 ### 8. Forward Deployed — Palantir-era term, mainstream from ~2023 {#sec-title-forward-deployed}
 
@@ -224,11 +224,11 @@ A solutions-engineering lineage with a newer name. The engineer is embedded with
 
 **Build or call.** 6% build or train a model, 37% call one over an API, and 33% want the API work with no model-building at all.
 
-**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “solutions engineering” (13%), “solution architecture” (9%), “customer communication” (6%), “technical documentation” (7%), “project management” (6%).
+**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “solutions engineering” (12%), “solution architecture” (8%), “customer communication” (7%), “presentation skills” (5%), “troubleshooting” (6%).
 
 > 8+ years experience in Solution Engineering role
 >
-> <small>— one of **49** Forward Deployed ads (13% of the title) that ask for “solutions engineering”</small>
+> <small>— one of **53** Forward Deployed job ads (12% of the title) that ask for “solutions engineering”</small>
 
 ### 9. AI Engineer — ~2023 {#sec-title-ai-engineer}
 
@@ -244,17 +244,17 @@ The newest title in the sample and already the largest. It arrived with the prod
 
 **Build or call.** 31% build or train a model, 81% call one over an API, and 55% want the API work with no model-building at all.
 
-**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “langgraph” (16%), “tool use” (8%), “mcp” (9%), “langchain” (16%), “vector databases” (14%).
+**In the ads' own words.** The phrases most over-represented in this title, read out of the ads by a second model that was never shown our skill list, with the share of the title's ads using each: “langgraph” (14%), “tool use” (7%), “llm apis” (5%), “vector search” (5%), “prompt engineering” (23%).
 
 > using large language models, RAG, vector search
 >
-> <small>— one of **157** AI Engineer ads (25% of the title) that ask for “rag”</small>
+> <small>— one of **164** AI Engineer job ads (23% of the title) that ask for “rag”</small>
 
 > AI application patterns (RAG, agents, tool use)
 >
-> <small>— one of **11** AI Engineer ads (2% of the title) that ask for “agents”</small>
+> <small>— one of **13** AI Engineer job ads (2% of the title) that ask for “agents”</small>
 
 > Exposure to fine-tuning or continuous learning techniques
 >
-> <small>— one of **35** AI Engineer ads (6% of the title) that ask for “fine-tuning”</small>
+> <small>— one of **39** AI Engineer job ads (6% of the title) that ask for “fine-tuning”</small>
 

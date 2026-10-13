@@ -203,7 +203,7 @@ ax.set_title("Each job ad placed in the circles it requires at least one skill f
              loc="left", fontsize=9.5, color=INK_MUTED, pad=10)
 fig.text(0.02, 0.012, CAPTION, fontsize=8, color=INK_MUTED, va="bottom")
 fig.subplots_adjust(left=0.03, right=0.97, top=0.9, bottom=0.09)
-save(fig, "conway-measured.png")
+pass  # the measured Venn is superseded by the UpSet below
 for k, c in r.items():
     print(f"   conway {k} {NAME.get(k,''):22s} {100*c/N:5.1f}%")
 
@@ -308,3 +308,16 @@ for ax_, label in ((axT, "2010 — Drew Conway's answer"),
     fig.text(0.03, ax_.get_position().y1 + 0.006, label, ha="left", va="bottom",
              fontsize=14, fontweight="bold", color=INK)
 save(fig, "ds-venn-2010-vs-2026.png")
+
+
+# ── conway-measured, as an UpSet (see upset.py: a Venn labels regions with bare
+# percentages and makes the reader decode the geometry to learn what they count)
+import upset as _upset
+
+_m = masks(CONWAY)
+_sets = {"Hacking skills": _m[0], "Maths & statistics": _m[1], "Substantive expertise": _m[2]}
+_upset.draw(_sets, title="Conway's 2010 circles, measured against 2026 job ads",
+            subtitle="A job ad joins a circle if it requires at least one skill mapped to it.",
+            caption=CAPTION + "  www.carecodeconnect.io",
+            outfile=IMG / "conway-measured.png")
+print("  wrote images/conway-measured.png (upset)")
