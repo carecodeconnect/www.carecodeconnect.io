@@ -320,6 +320,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#five-shared-skills-and-beyond-them-nothing-in-common" id="toc-five-shared-skills-and-beyond-them-nothing-in-common" class="nav-link" data-scroll-target="#five-shared-skills-and-beyond-them-nothing-in-common">Five shared skills, and beyond them nothing in common</a></li>
   <li><a href="#the-titles-form-islands-not-a-continuum" id="toc-the-titles-form-islands-not-a-continuum" class="nav-link" data-scroll-target="#the-titles-form-islands-not-a-continuum">The titles form islands, not a continuum</a></li>
   <li><a href="#statistics-is-what-divides-the-two-titles" id="toc-statistics-is-what-divides-the-two-titles" class="nav-link" data-scroll-target="#statistics-is-what-divides-the-two-titles">Statistics is what divides the two titles</a></li>
+  <li><a href="#where-ai-engineer-comes-from-and-where-it-meets-data-scientist" id="toc-where-ai-engineer-comes-from-and-where-it-meets-data-scientist" class="nav-link" data-scroll-target="#where-ai-engineer-comes-from-and-where-it-meets-data-scientist">Where AI Engineer comes from, and where it meets Data Scientist</a></li>
   <li><a href="#each-title-in-its-own-words" id="toc-each-title-in-its-own-words" class="nav-link" data-scroll-target="#each-title-in-its-own-words">Each title in its own words</a></li>
   <li><a href="#sec-title-quantitative-researcher" id="toc-sec-title-quantitative-researcher" class="nav-link" data-scroll-target="#sec-title-quantitative-researcher">1. Quantitative Researcher — finance, 1980s–1990s</a></li>
   <li><a href="#sec-title-data-analyst" id="toc-sec-title-data-analyst" class="nav-link" data-scroll-target="#sec-title-data-analyst">2. Data Analyst — business intelligence, 1990s–2000s</a></li>
@@ -373,7 +374,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="executive-summary" class="level2">
 <h2 class="anchored" data-anchor-id="executive-summary">Executive summary</h2>
-<p>Is “AI Engineer” the new name for “Data Scientist”, or a different job? 2,817 job ads, each scored against a fixed vocabulary of 44 skills.</p>
+<p>Is “AI Engineer” the new name for “Data Scientist”, or a different job? A model judge read each of 2,817 job ads in full and answered the same 44 questions of every one — does this ad require this skill — and the titles are then compared on what they require.</p>
 <ul>
 <li><strong>AI and data work has spread beyond the Data Scientist title.</strong> Clustering the skills by what employers ask for together splits the market into three groups, and each region of that split is dominated by a different title. The centre — ads wanting all three — is 30% of ads, and 61% of it carries a title other than Data Scientist.</li>
 <li>“AI Engineer” is the most frequent title at 25%, ahead of “Data Scientist” (18%) and “Data Engineer” (12%).</li>
@@ -519,6 +520,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Conway’s circles, sized by how many of these ads land in each region:</p>
 <p><img src="images/conway-measured.png" class="img-fluid" alt="Conway's three circles redrawn with region areas proportional to the share of job ads in each"></p>
 <p>28% of ads ask for code and domain engagement but no statistics — the region he marked “danger zone” and thought nearly empty, now second only to his centre (49%). And 7 of the tracked skills fit none of his three circles at all; 51% of ads require at least one.</p>
+<p>Conway’s hacking-skills circle meant manipulating data with code. Today’s ads also ask for running the result: 67% require at least one production skill — serving, MLOps, containers, CI/CD, cloud or orchestration — including 67% of Data Scientist ads. Model serving alone appears in 60% of them, more often than any single modelling skill (classical ML 41%, LLM applications 25%, deep learning 12%).</p>
+<p>It has not displaced the modelling, though: 65% of Data Scientist ads require an AI or ML skill too, so a Data Scientist ad today is about as likely to ask for shipping as for modelling. And the sample is 2026-04 to 2026-10 — it can show that both are asked for now, not when either arrived.</p>
 </section>
 <section id="what-ai-data-roles-require-in-2026" class="level2">
 <h2 class="anchored" data-anchor-id="what-ai-data-roles-require-in-2026">What AI / data roles require in 2026</h2>
@@ -656,6 +659,13 @@ flowchart TB
 <h3 class="anchored" data-anchor-id="statistics-is-what-divides-the-two-titles">Statistics is what divides the two titles</h3>
 <p><img src="images/ds-vs-ai-engineer.png" class="img-fluid" alt="Dumbbell chart of ten skill areas: share of Data Scientist vs AI Engineer jobs requiring at least one skill in each area"></p>
 <p>Each row is a skill area and the two dots are each title’s share requiring at least one skill in it, so the bar between them is the disagreement. Statistics &amp; experimentation is the widest split (75% against 15%), GenAI / LLM engineering its mirror (46% against 88%). Machine learning itself is nearly even (70% against 75%).</p>
+</section>
+<section id="where-ai-engineer-comes-from-and-where-it-meets-data-scientist" class="level3">
+<h3 class="anchored" data-anchor-id="where-ai-engineer-comes-from-and-where-it-meets-data-scientist">Where AI Engineer comes from, and where it meets Data Scientist</h3>
+<p>On requirement profiles, AI Engineer’s nearest neighbour is ML Engineer (1.10), then Forward Deployed (1.38) and Research Scientist (1.41). Data Engineer is 1.91 away — further than Data Scientist at 1.48. So it descends from the model-building engineering titles, not from data engineering.</p>
+<p>One skill crosses the divide. Model evaluation is required in 43% of AI Engineer ads and 41% of ML Engineer ads, but also 23% of Data Scientist ads — against 2% of Data Engineer ads.</p>
+<p>Within the 973 AI Engineer and ML Engineer ads, evals are required in 43% overall, rising to 75% of those that also require A/B experimentation (odds ratio 4.9, p &lt;0.001) and 58% of those requiring statistics (odds ratio 2.0, p &lt;0.001). LLM observability — the operations half of the same job — does not behave that way: 16% overall and 14% among ads requiring statistics (odds ratio 0.8, p 0.55).</p>
+<p>Evaluation is the part of AI engineering that an inference background transfers into; running the system in production is not.</p>
 </section>
 <section id="each-title-in-its-own-words" class="level3">
 <h3 class="anchored" data-anchor-id="each-title-in-its-own-words">Each title in its own words</h3>
