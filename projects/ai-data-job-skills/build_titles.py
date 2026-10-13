@@ -211,44 +211,19 @@ add('![](images/build-vs-call.png){fig-alt="Grouped bar chart of the job titles 
     'of each title\'s ads that require building or training a model versus calling one over an API"}')
 add("")
 
-# A horizontal chain of the nine titles in the same order (owner, 2026-10-08).
-# Generated here rather than hand-written in the page because Quarto does not
-# expand `{{< var >}}` inside a mermaid block — the same reason the distance
-# diagram is generated.
-SHORT = {"AI Automation": ("AI<br/>Automation", "~2024"),
-         "Quantitative Researcher": ("Quantitative<br/>Researcher", "1980s–90s"),
-         "Data Analyst": ("Data<br/>Analyst", "1990s–2000s"),
-         "Research Scientist": ("Research<br/>Scientist", "~2012 in this form"),
-         "Data Scientist": ("Data<br/>Scientist", "2008"),
-         "Data Engineer": ("Data<br/>Engineer", "~2011–14"),
-         "ML Engineer": ("ML<br/>Engineer", "~2015–16"),
-         "Analytics Engineer": ("Analytics<br/>Engineer", "~2018–19"),
-         "Forward Deployed": ("Forward<br/>Deployed", "~2023"),
-         "AI Engineer": ("AI<br/>Engineer", "~2023")}
-add("```{mermaid}")
-add("%%| fig-width: 6.5")
-add("%%| fig-align: center")
-add('%%| fig-cap: "The nine titles in the approximate order each entered data and AI hiring, with the share of this sample each holds. The dates are background, not measured."')
-add('%%{init: {"theme": "neutral", "fontSize": 17, "flowchart": {"curve": "basis", "nodeSpacing": 26, "rankSpacing": 34}}}%%')
-add("flowchart TB")
-# Two per rank rather than nine in a line: nine across shrinks the text to
-# nothing at page width. This used to be done with invisible subgraphs, each
-# with `direction LR`, joined by edges between the subgraphs — which Mermaid 11
-# cannot lay out, and the whole diagram failed with "Syntax error in text".
-# Plain nodes and edges only now: a --> b down the pairs, and an invisible link
-# (`~~~`) across each pair to hold the two side by side.
-idx = {fam: j for j, (fam, _, _) in enumerate(ORDER)}
-PAIRS = [ORDER[k:k + 2] for k in range(0, len(ORDER), 2)]
-for fam, _, _ in ORDER:
-    label, when = SHORT[fam]
-    share = pct(len(df[df.family == fam]) / N)
-    add(f'  n{idx[fam]}["{label}<br/>{when}<br/>{share}% of job ads"]')
-for pair in PAIRS:
-    if len(pair) == 2:
-        add(f"  n{idx[pair[0][0]]} ~~~ n{idx[pair[1][0]]}")
-for a, b in zip(ORDER, ORDER[1:]):
-    add(f"  n{idx[a[0]]} --> n{idx[b[0]]}")
-add("```")
+# The chronology mermaid chain was removed 2026-10-13 (owner): the expanders
+# below already carry each title in the same order, each with its era, so the
+# diagram repeated the list immediately above the list.
+add("")
+# An introduction to the expanders below, so a reader meets the ordering rule
+# before the list rather than inferring it (owner, 2026-10-13). The count and
+# the window are computed; the dates are not measured and the sentence says so.
+add(f"Each of the {len(ORDER)} titles is below, in broadly chronological order — "
+    "approximately when each title began appearing in data and AI hiring, oldest first. "
+    "**The dates are background, not measured**: this sample runs {{< var jobskills.months >}} and can say nothing "
+    "about when a title appeared. Everything inside each title is measured from the ads. "
+    "Open a title to see what its ads require, the phrases they use, and its nearest neighbours "
+    f"on the skills map.")
 add("")
 
 for i, (fam, era, blurb) in enumerate(ORDER, start=1):
@@ -268,9 +243,17 @@ for i, (fam, era, blurb) in enumerate(ORDER, start=1):
     tr = g[[f"req_{s}" for s in TRAIN]].sum(axis=1) > 0
     ca = g[[f"req_{s}" for s in CALL]].sum(axis=1) > 0
 
-    add(f"### {i}. {fam} — {era} {{#sec-title-{fam.lower().replace(' ', '-')}}}")
+    # One collapsible per title, the role title as the clickable header (owner,
+    # 2026-10-13): ten titles x two figures each is a lot to scroll past when a
+    # reader wants one of them. The heading stays a real heading inside the
+    # callout, so the anchor still works for cross-links from the diagram.
+    add('::: {.callout-note collapse="true" appearance="simple"}')
+    add(f"### {i}. {fam} {{#sec-title-{fam.lower().replace(' ', '-')} .unnumbered}}")
     add("")
-    add(f"*{n:,} ads, {pct(n / N)}% of the sample*")
+    # The era is background, so it reads inside the expander rather than in the
+    # clickable header (owner, 2026-10-13: "just include the role titles in the
+    # clickable headers, not the explainers/dates").
+    add(f"*{era} · {n:,} ads, {pct(n / N)}% of the sample*")
     add("")
     add(blurb)
     add("")
@@ -333,6 +316,29 @@ for i, (fam, era, blurb) in enumerate(ORDER, start=1):
         add(f"> <small>— one of **{c}** {fam} job ads ({round(100 * c / n)}% of the title) that ask for "
             f"“{phrase}”</small>")
         add("")
+    add(":::")
+    add("")
+
+# ── the guard: no figure may be TYPED into the generated page ───────────────
+# index.qmd has build_stats.py's guard; this file is generated, so the same rule
+# has to be enforced on the GENERATOR. A number is legitimate here only if it
+# came out of an f-string expression; a literal in emitted prose is a figure
+# that will not move when the data does. Mermaid styling (fontSize, spacing) is
+# config, not data, so init blocks are exempt.
+_NUM = re.compile(r"(?<![\w.])\d[\d,.]*\s*%|(?<![\w.])\b\d{2,}(?:,\d{3})*\b")
+_typed = []
+for _n, _line in enumerate(Path(__file__).read_text().split("\n"), 1):
+    _st = _line.strip()
+    if _st.startswith("#") or "add(" not in _line or "%%{init:" in _line or "fig-" in _line:
+        continue
+    _t = re.sub(r"\{[^{}]*\}", "§", _line)          # f-string expressions are computed
+    _t = re.sub(r"\b(19|20)\d\d\b", "", _t)        # years are context
+    _t = re.sub(r"\b\d{3,4}s\b", "", _t)           # decades: 1980s
+    if _NUM.search(_t):
+        _typed.append(f"    build_titles.py:{_n}  {_st[:88]}")
+if _typed:
+    raise SystemExit("  TYPED FIGURE(S) in the deep-dive generator — compute them instead:\n"
+                     + "\n".join(_typed))
 
 out = HERE / "_titles-deepdive.qmd"
 out.write_text("\n".join(lines) + "\n")
