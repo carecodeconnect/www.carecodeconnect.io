@@ -28,7 +28,7 @@ Three results behind those answers:
 
 ![](images/roles.png){fig-alt="Bar chart of the nine job-title families as a share of the job ads"}
 
-"AI Engineer" is the most advertised title at {{< var jobskills.pct_ai_engineer >}}%, then Data Scientist ({{< var jobskills.pct_data_scientist >}}%) and Data Engineer ({{< var jobskills.pct_data_engineer >}}%). The rarest are Analytics Engineer ({{< var jobskills.pct_analytics_engineer >}}%) and Quantitative Researcher ({{< var jobskills.pct_quantitative_researcher >}}%). Titles come from the job ad itself, by regular expression over its title.
+The rarest titles are Analytics Engineer ({{< var jobskills.pct_analytics_engineer >}}%) and Quantitative Researcher ({{< var jobskills.pct_quantitative_researcher >}}%); "AI Engineer" includes variants such as "Senior Software Engineer – AI".
 
 ::: {.callout-note collapse="true" appearance="simple"}
 

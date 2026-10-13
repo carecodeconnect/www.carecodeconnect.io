@@ -58,11 +58,20 @@ def roles() -> None:
     c["pct"] = 100 * c["n"] / N
     c["lab"] = [f"{p:.0f}%  ({n:,})" for p, n in zip(c["pct"], c["n"])]
     c["family"] = pd.Categorical(c["family"], categories=list(c["family"]))
+    _rank = c.sort_values("n", ascending=False).reset_index(drop=True)
+    (_t1, _p1), (_t2, _p2), (_t3, _p3) = [(_rank.family[i], _rank.pct[i]) for i in range(3)]
     p = (ggplot(c, aes("family", "pct")) + geom_col(width=0.65, fill=BLUE)
          + geom_text(aes(label="lab"), ha="left", nudge_y=0.6, size=8.5, color=INK)
          + coord_flip() + scale_y_continuous(labels=lambda v: [f"{x:.0f}%" for x in v], expand=(0, 0, 0.25, 0))
-         + labs(title="Which titles are in the sample", subtitle=f"Share of the {N:,} job ads by job-title family (from the ad's own title)",
-                caption=CAPTION, tag=SOURCE, x="", y="% of job ads") + BASE + theme(figure_size=(9, 4)) + src_at("bottomright"))
+         # The headline is the finding, not the axis: a reader meeting this chart
+         # on its own should learn which title dominates, not just that titles were
+         # counted. Computed, so it follows the data if the ranking ever changes.
+         + labs(title=f'"{_t1}" is the most advertised data / AI title',
+                subtitle=f"{_p1:.0f}% of {N:,} job ads, ahead of {_t2} ({_p2:.0f}%) and {_t3} ({_p3:.0f}%)",
+                caption="n = {:,} de-duplicated job ads with a data / AI title, hiring in Germany, EU-wide, "
+                        "worldwide-remote or the UK, Apr-Oct 2026.\nTitles are the employer's own, matched by "
+                        "regular expression over the job title.".format(N),
+                tag=SOURCE, x="", y="% of job ads") + BASE + theme(figure_size=(9, 4)) + src_at("bottomright"))
     p.save(IMG / "roles.png", dpi=200, verbose=False)
 
 
