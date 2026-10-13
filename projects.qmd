@@ -7,7 +7,7 @@ toc: true
 
 ![Where each data and AI job title sits on the skills map](projects/ai-data-job-skills/images/skills-map.png)
 
-Role specialisation in the data/AI job market, from 2,376 job ads scored by a production **LLM judge** (TypeSafe's Jev) inside my job-board crawler. Software engineers specialise into AI; quants and data scientists specialise in inference. An interactive **t-SNE skills map** with a hover card for every ad, a distance diagram between the titles, and the gap between what a "Data Scientist" job and an "AI Engineer" job require.
+AI and data work has spread beyond the Data Scientist title. From {{< var jobskills.n_ads >}} job ads scored against a fixed vocabulary of {{< var jobskills.n_skills >}} skills by a **typed model judge** (TypeSafe's Jev, which returns probabilities rather than text) inside my job-board crawler. The skills cluster into engineering-and-deployment, data platform and inference, and each region belongs to a different title. An interactive **t-SNE skills map** with a hover card for every ad, a distance diagram between the titles, and what separates a "Data Scientist" job from an "AI Engineer" one.
 
 # A Mindset for the Anthropocene
 
