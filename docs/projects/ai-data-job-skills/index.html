@@ -487,29 +487,13 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images/skills-by-demand.png" class="img-fluid" alt="Bar chart of every tracked skill by the share of ads requiring them"></p>
 <p>That ranking is the whole market at once, and it hides the structure: a skill near the top may be near the top <em>everywhere</em>, or it may be near the top only because one large title demands it. So the 44 skills were also clustered by how often employers ask for them <em>in the same ad</em>. Four groups fall out — three that divide the market, one required almost everywhere.</p>
 <ul>
-<li><strong>Engineering, deployment &amp; AI</strong> — 19 skills, 89% of ads. Shipping software and building on LLMs fall in one group.</li>
-<li><strong>Data platform</strong> — 9 skills, 62%.</li>
-<li><strong>Statistics &amp; inference</strong> — 13 skills, 51%. Classical ML, deep learning and computer vision cluster here, not with LLM work.</li>
-<li><strong>Communication</strong> — 3 skills, 79%, in every region. The ground, not a circle.</li>
+<li><strong>Engineering, deployment &amp; AI</strong> — 19 skills, 89% of ads. Shipping software and building on LLMs fall in one group. Most required: Software engineering, Python, Model serving, Agents, LLM applications, Cloud (AWS/GCP/Azure).</li>
+<li><strong>Data platform</strong> — 9 skills, 62%. Most required: Pipelines / ETL, SQL, Data governance, Data warehouse, Spark / distributed, BI dashboards.</li>
+<li><strong>Statistics &amp; inference</strong> — 13 skills, 51%. Classical ML, deep learning and computer vision cluster here, not with LLM work. Most required: Statistics, Product analytics, A/B experimentation, Classical ML, Deep learning, Forecasting.</li>
+<li><strong>Communication</strong> — 3 skills, 79%, in every region. The ground, not a circle. Most required: Stakeholder communication, Mentoring / leadership, Customer-facing.</li>
 </ul>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>What is in each group
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Most required in each: engineering, deployment &amp; AI — Software engineering, Python, Model serving, Agents, LLM applications, Cloud (AWS/GCP/Azure). Data platform — Pipelines / ETL, SQL, Data governance, Data warehouse, Spark / distributed, BI dashboards. Statistics &amp; inference — Statistics, Product analytics, A/B experimentation, Classical ML, Deep learning, Forecasting. Communication — Stakeholder communication, Mentoring / leadership, Customer-facing.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -518,7 +502,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The 44 skills are a <em>fixed vocabulary</em>, not everything an ad might mention. A free-for-all count of whatever words appear cannot compare titles, because no two employers use the same words.</p>
 <p>The list is curated but not frozen, and <strong>two passes read every ad</strong>. Pass one is Jev, above. Pass two is an open-vocabulary extraction: a small, cheap model (<a href="https://www.anthropic.com/claude/haiku">Claude Haiku 4.5</a>) reads each ad with one instruction — list every skill, tool or method it asks for, <strong>in the ad’s own words</strong>, say whether it is required or nice to have, and quote the sentence showing it. Nothing is matched against the vocabulary at this stage; the model does not know it exists.</p>
@@ -620,7 +604,6 @@ flowchart TB
 </div>
 </div>
 <p>The closest pair on the map is AI Automation and AI Engineer at 0.69 — the automation titles ask for very nearly what AI Engineer ads ask for. Data Engineer and Analytics Engineer are next at 0.95, and reach the rest of the market only through Data Analyst. Data Scientist, AI Engineer and ML Engineer share 5 required skills — Python, mentoring / leadership, model serving, software engineering, stakeholder communication — and beyond those, Data Scientist and AI Engineer have nothing in common.</p>
-<p><img src="images/core-skills-venn.png" class="img-fluid" alt="Grid of skills against three job titles, a filled dot where the skill is core to that title"></p>
 <p>By skill area:</p>
 <ul>
 <li><strong>Statistics and experimentation</strong> is the widest split — 77% of Data Scientist ads against 15% of AI Engineer ads.</li>
@@ -632,7 +615,7 @@ flowchart TB
 <iframe src="cluster.html" title="Interactive skills map" width="100%" height="780" style="border:0;" loading="lazy">
 </iframe>
 <div class="callout callout-style-simple callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -641,7 +624,7 @@ flowchart TB
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Partly. Of the 490 ads the judge classes as data science, 260 never write machine learning, deep learning or neural network — but 15% of those (40 ads) name a technique or tool that unmistakably is one: predictive modelling (12 ads), regression (11), classification (9), PyTorch (7), MLflow (7), clustering (7), regression analysis (7), scikit-learn (6), feature engineering (5), TensorFlow (4). For those, the skill is implied rather than stated, and counting the literal phrase understates it. Counting those as machine learning raises the second pass’s figure from 47% to 55%, against the 49% that Jev scores as <em>required</em> — the gap between naming a thing and requiring it.</p>
 <p>The remaining 220 ads name neither the concept nor any of its tools. They ask instead for Python, SQL, data science, causal inference, A/B testing, communication, R — an experimentation and analytics profile rather than a modelling one.</p>
@@ -650,7 +633,7 @@ flowchart TB
 </div>
 </div>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -659,7 +642,7 @@ flowchart TB
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <!-- GENERATED by build_titles.py — do not edit; edit the script. -->
 <p>10 titles, in the approximate order each entered data and AI hiring. The dates are background — this sample runs 2026-04 to 2026-10 and can say nothing about when a title appeared — but everything after them is measured from the ads.</p>

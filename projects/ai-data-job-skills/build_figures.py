@@ -88,7 +88,11 @@ def demand() -> None:
     # rather than typed: the figure is regenerated whenever the vocabulary or the
     # pool moves, and a typed pair of names goes stale silently.
     lead = list(g["label"])[::-1][:2]
-    head = f"{lead[0]} and {lead[1]} lead; the specialist skills trail far behind"
+    # Two derived skill names plus a clause overran the right margin
+    # ("Stakeholder communication and Software engineering lead; the specialist
+    # skills trail far behind"). One name and a short clause fits at this width
+    # whatever the ranking does, and the second name is in the subtitle anyway.
+    head = f"{lead[0]} is the most-required skill across every title"
     p = (ggplot(g, aes("label", "pct")) + geom_col(width=0.7, fill=BLUE)
          + geom_text(aes(label="lab"), ha="left", nudge_y=0.8, size=7.5, color=INK)
          + coord_flip() + scale_y_continuous(labels=lambda v: [f"{x:.0f}%" for x in v], expand=(0, 0, 0.1, 0))
@@ -186,7 +190,11 @@ def skill_scatter(core_pct: float = 30.0) -> None:
          + scale_y_continuous(labels=lambda v: [f"{x:.0f}%" for x in v], limits=(-11, 103), breaks=range(0, 101, 20), expand=(0, 0))
          # Take-home: most skills sit off the diagonal, which is the point of the plot.
          + labs(title="The two titles agree on the common tools and diverge on nearly everything else",
-                subtitle=f"One dot per skill. Dashed lines = the {core_pct:.0f}% core threshold used in the Venn diagram; "
+                # The membership grid this threshold used to be shared with was
+                # dropped on 2026-10-13 (three titles only, and redundant once
+                # every title had its own demand chart), so name the threshold
+                # here rather than point at a figure that no longer exists.
+                subtitle=f"One dot per skill. Dashed lines = the {core_pct:.0f}% mark at which a skill counts as core to a title; "
                          "the grey diagonal = required equally often by both titles.",
                 caption=CAPTION, tag=SOURCE, x=f"% of Data Scientist ads requiring it (n = {n[a]:,})",
                 y=f"% of AI Engineer ads requiring it (n = {n[b]:,})")

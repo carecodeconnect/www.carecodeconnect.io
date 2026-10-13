@@ -95,18 +95,10 @@ Conway's diagram is reproduced with attribution from [drewconway.com](http://dre
 
 That ranking is the whole market at once, and it hides the structure: a skill near the top may be near the top *everywhere*, or it may be near the top only because one large title demands it. So the {{< var jobskills.n_skills >}} skills were also clustered by how often employers ask for them *in the same ad*. Four groups fall out — three that divide the market, one required almost everywhere.
 
-- **Engineering, deployment & AI** — {{< var jobskills.c26_n_skills_eng >}} skills, {{< var jobskills.c26_pct_eng >}}% of ads. Shipping software and building on LLMs fall in one group.
-- **Data platform** — {{< var jobskills.c26_n_skills_data >}} skills, {{< var jobskills.c26_pct_data >}}%.
-- **Statistics & inference** — {{< var jobskills.c26_n_skills_inference >}} skills, {{< var jobskills.c26_pct_inference >}}%. Classical ML, deep learning and computer vision cluster here, not with LLM work.
-- **Communication** — {{< var jobskills.c26_n_skills_ground >}} skills, {{< var jobskills.c26_pct_ground >}}%, in every region. The ground, not a circle.
-
-::: {.callout-note collapse="true" appearance="simple"}
-
-## What is in each group {.unnumbered}
-
-Most required in each: engineering, deployment & AI — {{< var jobskills.c26_members_eng >}}. Data platform — {{< var jobskills.c26_members_data >}}. Statistics & inference — {{< var jobskills.c26_members_inference >}}. Communication — {{< var jobskills.c26_members_ground >}}.
-
-:::
+- **Engineering, deployment & AI** — {{< var jobskills.c26_n_skills_eng >}} skills, {{< var jobskills.c26_pct_eng >}}% of ads. Shipping software and building on LLMs fall in one group. Most required: {{< var jobskills.c26_members_eng >}}.
+- **Data platform** — {{< var jobskills.c26_n_skills_data >}} skills, {{< var jobskills.c26_pct_data >}}%. Most required: {{< var jobskills.c26_members_data >}}.
+- **Statistics & inference** — {{< var jobskills.c26_n_skills_inference >}} skills, {{< var jobskills.c26_pct_inference >}}%. Classical ML, deep learning and computer vision cluster here, not with LLM work. Most required: {{< var jobskills.c26_members_inference >}}.
+- **Communication** — {{< var jobskills.c26_n_skills_ground >}} skills, {{< var jobskills.c26_pct_ground >}}%, in every region. The ground, not a circle. Most required: {{< var jobskills.c26_members_ground >}}.
 
 ::: {.callout-note collapse="true" appearance="simple"}
 ## Where the skill list comes from, and how it grows {.unnumbered}
@@ -176,8 +168,6 @@ Each title's profile is the share of its ads requiring each skill; an edge is th
 {{< include _titles-diagram.qmd >}}
 
 The closest pair on the map is {{< var jobskills.closest_pair_a >}} and {{< var jobskills.closest_pair_b >}} at {{< var jobskills.closest_pair_d >}} — the automation titles ask for very nearly what AI Engineer ads ask for. Data Engineer and Analytics Engineer are next at {{< var jobskills.d_analytics_engineer__data_engineer >}}, and reach the rest of the market only through Data Analyst. Data Scientist, AI Engineer and ML Engineer share {{< var jobskills.n_core_shared >}} required skills — {{< var jobskills.core_shared >}} — and beyond those, Data Scientist and AI Engineer have nothing in common.
-
-![](images/core-skills-venn.png){fig-alt="Grid of skills against three job titles, a filled dot where the skill is core to that title"}
 
 By skill area:
 
