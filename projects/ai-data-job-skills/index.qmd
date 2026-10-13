@@ -198,7 +198,7 @@ The remaining {{< var jobskills.mlx_silent_nothing >}} ads name neither the conc
 
 ## Conclusions
 
-**AI and data work has stopped being one job.** Three questions, answered in the same order the summary asks them.
+**AI and data work has stopped being one job.**
 
 **Which skills employers ask for together: three bundles, and one asked for everywhere.** Building and running software including LLM work ({{< var jobskills.c26_pct_eng >}}% of job ads), the data platform underneath it ({{< var jobskills.c26_pct_data >}}%), and statistics and inference ({{< var jobskills.c26_pct_inference >}}%). Communication is not a fourth bundle but the ground all three stand on, required in {{< var jobskills.c26_pct_ground >}}% of job ads. Stakeholder communication alone is the single most-required skill in the sample, at {{< var jobskills.all_stakeholder_comms >}}%, ahead of Python at {{< var jobskills.all_python >}}%.
 
