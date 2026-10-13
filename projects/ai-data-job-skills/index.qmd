@@ -103,6 +103,10 @@ Measured against these job ads, the shape does not hold. A job ad counts inside 
 
 ![](images/model-and-ship.png){fig-alt="Stacked bars per job title: the share of job ads requiring both a model and its deployment, a model only, deployment only, or neither"}
 
+![](images/ds-vs-ai-engineer.png){fig-alt="Dumbbell chart of ten skill areas: share of Data Scientist versus AI Engineer job ads requiring at least one skill in each"}
+
+**Statistics separates the two headline titles**: {{< var jobskills.data_scientist_statistics >}}% of Data Scientist ads against {{< var jobskills.ai_engineer_statistics >}}% of AI Engineer ads. **It is the title, not the level**: compared within each seniority level the gap is {{< var jobskills.sen_stats_gap_mid >}} points at mid, {{< var jobskills.sen_stats_gap_senior >}} at senior and {{< var jobskills.sen_stats_gap_staff_principal >}} at staff or principal — so it is not that one title is advertised more senior than the other. On full requirement profiles they are {{< var jobskills.d_ai_engineer__data_scientist >}} apart — further than Data Scientist is from Data Analyst ({{< var jobskills.d_data_analyst__data_scientist >}}) — with ML Engineer the shortest link between them ({{< var jobskills.d_data_scientist__ml_engineer >}} and {{< var jobskills.d_ai_engineer__ml_engineer >}}).
+
 
 ### Where the classic data science definition comes from
 
@@ -167,10 +171,6 @@ The centre — ads needing all three groups — is {{< var jobskills.c26_pct_cen
 Each dot is one job ad, placed by the {{< var jobskills.n_skills >}} skills it requires ([t-SNE](https://www.jmlr.org/papers/v9/vandermaaten08a.html): nearby dots have similar requirements, and distances across the map carry no scale). Click a title in the legend to hide it.
 
 <iframe src="cluster.html" title="Interactive skills map" width="100%" height="780" style="border:0;" loading="lazy"></iframe>
-
-![](images/ds-vs-ai-engineer.png){fig-alt="Dumbbell chart of ten skill areas: share of Data Scientist versus AI Engineer job ads requiring at least one skill in each"}
-
-**Statistics separates the two headline titles**: {{< var jobskills.data_scientist_statistics >}}% of Data Scientist ads against {{< var jobskills.ai_engineer_statistics >}}% of AI Engineer ads. **It is the title, not the level**: compared within each seniority level the gap is {{< var jobskills.sen_stats_gap_mid >}} points at mid, {{< var jobskills.sen_stats_gap_senior >}} at senior and {{< var jobskills.sen_stats_gap_staff_principal >}} at staff or principal — so it is not that one title is advertised more senior than the other. On full requirement profiles they are {{< var jobskills.d_ai_engineer__data_scientist >}} apart — further than Data Scientist is from Data Analyst ({{< var jobskills.d_data_analyst__data_scientist >}}) — with ML Engineer the shortest link between them ({{< var jobskills.d_data_scientist__ml_engineer >}} and {{< var jobskills.d_ai_engineer__ml_engineer >}}).
 
 ::: {.callout-note collapse="true" appearance="simple"}
 ::: {.callout-warning collapse="true" appearance="simple"}
