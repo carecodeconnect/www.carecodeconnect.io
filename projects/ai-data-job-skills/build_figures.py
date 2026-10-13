@@ -69,8 +69,11 @@ def roles() -> None:
          + labs(title=f'"{_t1}" is the most advertised data / AI title',
                 subtitle=f"{_p1:.0f}% of {N:,} job ads, ahead of {_t2} ({_p2:.0f}%) and {_t3} ({_p3:.0f}%)",
                 caption="n = {:,} de-duplicated job ads with a data / AI title, hiring in Germany, EU-wide, "
-                        "worldwide-remote or the UK, Apr-Oct 2026.\nTitles are the employer's own, matched by "
-                        "regular expression over the job title.".format(N),
+                        "worldwide-remote or the UK, Apr-Oct 2026. Titles are the employer's own, matched by "
+                        "regular expression over the job title.\nEach family groups the variants of a title: "
+                        "'AI Automation' covers AI, agentic, intelligent and workflow automation roles "
+                        "(Engineer, Specialist, Lead); 'Forward Deployed' includes Solutions Engineer."
+                        .format(N),
                 tag=SOURCE, x="", y="% of job ads") + BASE + theme(figure_size=(9, 4)) + src_at("bottomright"))
     p.save(IMG / "roles.png", dpi=200, verbose=False)
 
@@ -81,10 +84,16 @@ def demand() -> None:
     g = g.sort_values("pct")
     g["label"] = pd.Categorical(g["label"], categories=list(g["label"]))
     g["lab"] = [f"{x:.0f}%" for x in g["pct"]]
+    # The headline names the two leading skills, so it is read off the ranking
+    # rather than typed: the figure is regenerated whenever the vocabulary or the
+    # pool moves, and a typed pair of names goes stale silently.
+    lead = list(g["label"])[::-1][:2]
+    head = f"{lead[0]} and {lead[1]} lead; the specialist skills trail far behind"
     p = (ggplot(g, aes("label", "pct")) + geom_col(width=0.7, fill=BLUE)
          + geom_text(aes(label="lab"), ha="left", nudge_y=0.8, size=7.5, color=INK)
          + coord_flip() + scale_y_continuous(labels=lambda v: [f"{x:.0f}%" for x in v], expand=(0, 0, 0.1, 0))
-         + labs(title=f"The {N_SKILLS} skills, ranked by how many ads require them", subtitle="Share of all job ads that list the skill as a requirement",
+         + labs(title=head,
+                subtitle="Every tracked skill, ranked by the share of job ads that list it as a requirement",
                 caption=CAPTION, tag=SOURCE, x="", y="% of job ads") + BASE + theme(figure_size=(9, 10.5)) + src_at("bottomright"))
     p.save(IMG / "skills-by-demand.png", dpi=200, verbose=False)
 
@@ -117,7 +126,10 @@ def ds_vs_ai() -> None:
          # so the annotation runs past 100 and was being clipped.
          + scale_x_continuous(labels=lambda v: [f"{x:.0f}%" for x in v], limits=(0, 118),
                               breaks=range(0, 101, 20), expand=(0, 0))
-         + labs(title="What a “Data Scientist” job asks for vs an “AI Engineer” job",
+         # Take-home, not a description of the axes. Derived: the area that splits
+         # the two titles most, named by the data rather than typed.
+         + labs(title=f"{w.loc[w['gap'].abs().idxmax(), 'area']} is what most separates "
+                      "a Data Scientist job from an AI Engineer job",
                 subtitle=f"{len(AREA)} skill areas, each covering several of the {N_SKILLS} skills tracked. Label = the title that asks for the area more often.",
                 caption=CAPTION, tag=SOURCE, x="% of jobs that require at least one skill in the area", y="")
          + BASE + theme(figure_size=(9, 5.4), legend_position="top") + src_at("bottomright"))
@@ -169,7 +181,8 @@ def skill_scatter(core_pct: float = 30.0) -> None:
          + scale_color_manual(values=[PURPLE, BLUE, ORANGE, GREY])
          + scale_x_continuous(labels=lambda v: [f"{x:.0f}%" for x in v], limits=(-15, 104), breaks=range(0, 101, 20), expand=(0, 0))
          + scale_y_continuous(labels=lambda v: [f"{x:.0f}%" for x in v], limits=(-11, 103), breaks=range(0, 101, 20), expand=(0, 0))
-         + labs(title="Every skill, by how often each title requires it",
+         # Take-home: most skills sit off the diagonal, which is the point of the plot.
+         + labs(title="The two titles agree on the common tools and diverge on nearly everything else",
                 subtitle=f"One dot per skill. Dashed lines = the {core_pct:.0f}% core threshold used in the Venn diagram; "
                          "the grey diagonal = required equally often by both titles.",
                 caption=CAPTION, tag=SOURCE, x=f"% of Data Scientist ads requiring it (n = {n[a]:,})",
@@ -178,7 +191,52 @@ def skill_scatter(core_pct: float = 30.0) -> None:
     p.save(IMG / "skills-ds-vs-ai-scatter.png", dpi=200, verbose=False)
 
 
-roles(); demand(); ds_vs_ai(); skill_scatter()
+def demand_by_role() -> None:
+    """One chart per title family, in the SAME format as demand() — but with the
+    skills held in the OVERALL demand order rather than re-sorted per title.
+
+    The per-title figures in build_titleplots.py sort by what each title asks
+    for most, which is the right question per title and the wrong one across
+    titles: no two charts share an axis, so a reader cannot compare them. Here
+    a skill sits in the same row in every chart, so the panels can be read
+    against each other (owner, 2026-10-13).
+
+    Small families carry a caution line: their percentages rest on few ads, and
+    the families admitted late were collected for only part of the window, so a
+    difference may be WHEN they were collected rather than what they ask for.
+    """
+    CAUTION_MAX_N = 150
+    counts = df["family"].value_counts()
+    # THE shared order, identical to the one demand() draws.
+    order = df[REQ].mean().sort_values().index
+    labels = [LABEL.get(k[4:], k[4:].replace("_", " ")) for k in order]
+    for fam in counts.index:
+        g = df[df.family == fam]
+        d = pd.DataFrame({"label": labels, "pct": [100 * g[k].mean() for k in order]})
+        d["label"] = pd.Categorical(d["label"], categories=labels, ordered=True)
+        d["lab"] = [f"{x:.0f}%" for x in d["pct"]]
+        note = ""
+        if counts[fam] < CAUTION_MAX_N:
+            note = (f"\nTreat these percentages with caution: {counts[fam]} job ads is a small base, and this "
+                    "family entered the crawler's title rules late,\nso its ads come from a shorter stretch of "
+                    "the window than the other titles'.")
+        p = (ggplot(d, aes("label", "pct")) + geom_col(width=0.7, fill=BLUE)
+             + geom_text(aes(label="lab"), ha="left", nudge_y=0.8, size=7.5, color=INK)
+             + coord_flip()
+             + scale_y_continuous(labels=lambda v: [f"{x:.0f}%" for x in v], expand=(0, 0, 0.1, 0))
+             + labs(title=f"{fam}: every skill, in the overall demand order",
+                    subtitle=f"Share of the {counts[fam]:,} {fam} job ads requiring each skill. Skills are ranked "
+                             f"once across all {N:,} ads and\nheld in that order here, so this chart can be read "
+                             "against the same chart for any other title.",
+                    caption=CAPTION + note, tag=SOURCE, x="", y="% of this title's job ads")
+             + BASE + theme(figure_size=(9, 10.5)) + src_at("bottomright"))
+        out = IMG / f"demand-{fam.lower().replace(' ', '-')}.png"
+        p.save(out, dpi=200, verbose=False)
+    print(f"  wrote {len(counts)} per-title demand charts, shared order, "
+          f"caution on {sorted(counts[counts < CAUTION_MAX_N].index)}")
+
+
+roles(); demand(); demand_by_role(); ds_vs_ai(); skill_scatter()
 print("roles:", df["family"].value_counts().to_dict())
 print("python absent among AI Engineer ads: %.0f%%" % (100 * (df.loc[df.family == "AI Engineer", "req_python"] == 0).mean()))
 print("wrote", sorted(p.name for p in IMG.glob("*.png")))

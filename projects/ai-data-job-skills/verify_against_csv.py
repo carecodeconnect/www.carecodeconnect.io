@@ -50,4 +50,39 @@ for reg, key in [((E & ~D & ~I),"eng_only"), ((E & D & ~I),"eng_data"),
                  ((E & ~D & I),"eng_inference"), ((~E & D & I),"data_inference")]:
     v = df.family[reg].value_counts()
     chk(f"c26_{key}_title", v.index[0]); chk(f"c26_{key}_title_pct", round(100*v.iloc[0]/reg.sum()))
+# ── seniority (added 2026-10-13) ────────────────────────────────────────────
+# Recomputed here independently of build_stats.py, which is the whole point of
+# this file: two separate readings of the same column must agree.
+if "seniority" in df.columns:
+    SEN = ["entry", "mid", "senior", "staff_principal", "leadership"]
+    sen = df["seniority"].dropna()
+    for lv in SEN:
+        chk(f"sen_pct_{lv}", round(100 * (sen == lv).mean()))
+        chk(f"sen_n_{lv}", f"{int((sen == lv).sum()):,}")
+    chk("sen_n_judged", f"{len(sen):,}")
+    sp = sen.isin(["senior", "staff_principal", "leadership"])
+    chk("sen_pct_senior_plus", round(100 * sp.mean()))
+    chk("sen_pct_entry_mid", round(100 * sen.isin(["entry", "mid"]).mean()))
+    byfam = df.assign(sp=df["seniority"].isin(["senior", "staff_principal", "leadership"])) \
+              .groupby("family")["sp"].mean().mul(100).sort_values()
+    chk("sen_most_senior_family", byfam.index[-1])
+    chk("sen_most_senior_pct", round(byfam.iloc[-1]))
+    chk("sen_least_senior_family", byfam.index[0])
+    chk("sen_least_senior_pct", round(byfam.iloc[0]))
+    chk("sen_family_spread", round(byfam.iloc[-1] - byfam.iloc[0]))
+    ent = df.assign(e=df["seniority"].eq("entry")).groupby("family")["e"].mean().mul(100).sort_values()
+    chk("sen_most_entry_family", ent.index[-1])
+    chk("sen_most_entry_pct", round(ent.iloc[-1]))
+    # The confound check the page leans on in RQ3.
+    for lv in ["mid", "senior", "staff_principal"]:
+        d = df[df["seniority"] == lv]
+        a = 100 * d.req_statistics[d.family == "Data Scientist"].mean()
+        b = 100 * d.req_statistics[d.family == "AI Engineer"].mean()
+        chk(f"sen_stats_gap_{lv}", round(a - b))
+    # Which families are over-weighted to the final month (collected late).
+    base = (df["month"] == df["month"].max()).mean()
+    conc = df.assign(f=df["month"] == df["month"].max()).groupby("family")["f"].mean() / base
+    chk("n_late_families", len(conc[conc >= 1.4]))
+    chk("sample_final_month_pct", round(100 * base))
+
 print(f"\n{ok} figures verified against the CSV, {bad} mismatched")

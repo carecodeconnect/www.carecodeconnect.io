@@ -24,7 +24,7 @@ LABEL = {f"req_{v['id']}": v["label"] for v in VOCAB}
 AREA: dict[str, list[str]] = {}
 for v in VOCAB:
     AREA.setdefault(v["area"], []).append(v["id"])
-from palette import FAMILIES, FAMILY_COLOUR as COLOUR, FAMILY_SYMBOL, INK, INK_MUTED, PANEL   # Okabe-Ito + shapes
+from palette import FAMILIES as _CANON, FAMILY_COLOUR as COLOUR, FAMILY_SYMBOL, INK, INK_MUTED, PANEL   # Okabe-Ito + shapes
 
 def top_skills(row) -> str:
     on = [LABEL[c] for c in req_cols if row[c] == 1]
@@ -34,6 +34,10 @@ df["hover"] = [f"<b>{t}</b><br>{f} · {r} · {m}<br><i>requires:</i> {s}"
                for t, f, r, m, s in zip(df["title"], df["family"], df["region"], df["month"], df.apply(top_skills, axis=1))]
 
 fig = go.Figure()
+# Families present in the data, in the canonical order, plus any the palette does
+# not know — so a new family is drawn even before it is added to palette.py.
+_present = list(df["family"].unique())
+FAMILIES = [f for f in _CANON if f in _present] + [f for f in _present if f not in _CANON]
 for fam in FAMILIES:
     d = df[df["family"] == fam]
     fig.add_trace(go.Scattergl(

@@ -1,113 +1,113 @@
 phrase,n_mentions,n_jobs,n_required,mapped_to,n_jobs_ds_silent,n_jobs_ai_automation,n_jobs_ai_engineer,n_jobs_analytics_engineer,n_jobs_data_analyst,n_jobs_data_engineer,n_jobs_data_scientist,n_jobs_forward_deployed,n_jobs_ml_engineer,n_jobs_quantitative_researcher,n_jobs_research_scientist
-python,2030,2030,1843,python,137,23,420,32,145,240,396,169,202,40,90
-sql,1087,1087,1021,sql,111,4,95,53,220,211,273,62,34,9,10
+python,2030,2030,1843,python,123,25,416,32,147,240,396,169,202,40,90
+sql,1087,1087,1021,sql,102,4,93,53,222,211,273,62,34,9,10
 machine learning,754,754,687,classical_ml,0,1,114,2,15,20,281,25,135,20,53
-aws,630,630,471,cloud,6,2,153,8,10,106,85,75,79,1,8
-ci/cd,524,524,459,cicd_testing,3,11,146,18,4,100,44,42,71,0,4
-communication,501,501,499,stakeholder_comms,38,0,97,5,52,41,106,69,32,9,24
-kubernetes,435,435,303,containers,3,4,116,3,0,54,19,65,71,0,16
-pytorch,407,407,342,deep_learning,6,0,87,0,3,1,67,6,100,2,70
-stakeholder communication,398,398,395,stakeholder_comms,30,3,51,14,83,29,73,67,12,1,5
-azure,378,378,284,cloud,5,4,92,4,9,64,54,63,35,0,3
-docker,371,371,269,containers,4,6,101,2,2,46,37,38,65,0,6
-data pipelines,337,337,321,pipelines_etl,10,2,48,7,18,107,38,34,32,3,5
-software engineering,330,330,323,software_engineering,2,3,124,0,0,10,20,52,45,0,18
-gcp,330,330,243,cloud,9,1,68,8,4,47,53,52,47,0,6
-rag,298,298,243,rag,2,8,156,0,0,6,38,21,15,0,3
-dbt,298,298,200,dbt_modelling,24,0,9,48,54,105,38,9,9,0,0
-prompt engineering,286,286,261,llm_apps,3,8,154,0,3,2,30,30,10,0,2
-english language,277,277,276,,7,12,52,6,18,34,31,51,14,4,3
-mlops,271,271,196,mlops_tooling,2,0,62,0,0,15,64,10,75,0,5
-typescript,270,270,216,typescript,0,3,112,0,1,2,4,59,7,0,3
-problem-solving,269,269,266,,15,2,42,5,36,27,35,62,17,3,8
-data modeling,267,267,252,warehouse,11,2,19,33,41,107,17,9,1,0,0
+aws,630,630,471,cloud,8,2,153,8,10,106,85,75,79,1,8
+ci/cd,524,524,459,cicd_testing,5,11,146,18,4,100,44,42,71,0,4
+communication,501,501,499,stakeholder_comms,31,0,97,5,52,41,106,69,32,9,24
+kubernetes,435,435,303,containers,3,5,115,3,0,54,19,65,71,0,16
+pytorch,407,407,342,deep_learning,7,0,87,0,3,1,67,6,100,2,70
+stakeholder communication,398,398,395,stakeholder_comms,24,3,51,14,83,29,73,67,12,1,5
+azure,378,378,284,cloud,6,4,92,4,9,64,54,63,35,0,3
+docker,371,371,269,containers,5,7,100,2,2,46,37,38,65,0,6
+data pipelines,337,337,321,pipelines_etl,9,3,47,7,18,107,38,34,32,3,5
+software engineering,330,330,323,software_engineering,2,4,123,0,0,10,20,52,45,0,18
+gcp,330,330,243,cloud,11,1,68,8,4,47,53,52,47,0,6
+rag,298,298,243,rag,1,8,156,0,0,6,38,21,15,0,3
+dbt,298,298,200,dbt_modelling,23,0,9,48,54,105,38,9,9,0,0
+prompt engineering,286,286,261,llm_apps,3,9,153,0,3,2,30,30,10,0,2
+english language,277,277,276,,4,10,52,6,20,34,31,51,14,4,3
+mlops,271,271,196,mlops_tooling,5,0,62,0,0,15,64,10,75,0,5
+typescript,270,270,216,typescript,0,4,111,0,1,2,4,59,7,0,3
+problem-solving,269,269,266,,12,2,42,5,36,27,35,62,17,3,8
+data modeling,267,267,252,warehouse,7,3,18,33,41,107,17,9,1,0,0
 observability,266,266,239,llm_observability,2,4,95,4,1,31,6,22,25,0,2
 terraform,254,254,179,cloud,2,0,50,2,0,67,10,43,33,0,2
-databricks,248,248,163,spark_distributed,13,0,31,7,25,66,51,14,19,0,6
-data analysis,247,247,240,product_analytics,14,5,10,0,110,8,39,14,7,7,10
-git,239,239,202,cicd_testing,10,5,48,11,13,47,39,22,15,1,3
-generative ai,232,232,198,llm_apps,2,3,78,0,4,5,60,16,23,0,6
-mentoring,231,231,206,mentoring_leadership,15,4,33,5,11,35,52,12,24,1,7
+databricks,248,248,163,spark_distributed,14,0,31,7,25,66,51,14,19,0,6
+data analysis,247,247,240,product_analytics,10,3,10,0,112,8,39,14,7,7,10
+git,239,239,202,cicd_testing,8,5,48,11,13,47,39,22,15,1,3
+generative ai,232,232,198,llm_apps,3,3,78,0,4,5,60,16,23,0,6
+mentoring,231,231,206,mentoring_leadership,14,4,33,5,11,35,52,12,24,1,7
 data governance,229,229,201,data_governance,5,1,23,19,40,79,16,11,5,0,0
-a/b testing,225,225,189,experimentation,43,1,18,1,49,1,84,2,31,0,4
-snowflake,224,224,153,warehouse,8,0,19,23,32,77,28,19,11,2,1
-data science,221,221,200,,45,1,19,1,8,7,145,12,5,3,2
-data engineering,220,220,201,pipelines_etl,6,3,24,6,8,99,23,23,12,0,1
-data quality,219,219,216,pipelines_etl,13,0,18,19,40,93,20,2,5,0,1
-german language,210,210,141,,0,14,43,4,12,18,19,44,10,0,1
-model evaluation,200,200,191,model_evaluation,7,1,63,1,1,0,45,5,43,1,13
+a/b testing,225,225,189,experimentation,39,1,18,1,49,1,84,2,31,0,4
+snowflake,224,224,153,warehouse,8,1,18,23,32,77,28,19,11,2,1
+data science,221,221,200,,43,2,18,1,8,7,145,12,5,3,2
+data engineering,220,220,201,pipelines_etl,5,3,24,6,8,99,23,23,12,0,1
+data quality,219,219,216,pipelines_etl,12,0,18,19,40,93,20,2,5,0,1
+german language,210,210,141,,0,13,42,4,14,18,19,44,10,0,1
+model evaluation,200,200,191,model_evaluation,9,1,63,1,1,0,45,5,43,1,13
 airflow,198,198,129,orchestration,14,1,12,17,14,67,34,2,27,0,1
 deep learning,196,196,177,deep_learning,0,0,44,0,0,1,47,1,48,4,27
 tensorflow,193,193,159,deep_learning,4,0,38,0,1,1,56,2,52,0,15
-power bi,193,193,137,bi_dashboards,10,2,6,5,100,31,25,0,0,1,0
-statistics,191,191,166,statistics,28,0,12,2,24,3,78,5,21,23,13
-stakeholder management,191,191,190,stakeholder_comms,10,1,20,5,29,27,46,21,3,0,1
+power bi,193,193,137,bi_dashboards,9,0,6,5,102,31,25,0,0,1,0
+statistics,191,191,166,statistics,21,0,12,2,24,3,78,5,21,23,13
+stakeholder management,191,191,190,stakeholder_comms,11,1,20,5,29,27,46,21,3,0,1
 technical communication,190,190,185,stakeholder_comms,4,2,36,6,5,12,16,62,17,4,15
-data visualization,187,187,175,bi_dashboards,30,0,5,2,63,5,77,1,3,0,2
+data visualization,187,187,175,bi_dashboards,24,0,5,2,63,5,77,1,3,0,2
 distributed systems,186,186,156,spark_distributed,0,0,52,0,1,12,5,18,21,0,13
 langchain,181,181,120,llm_apps,0,5,92,0,2,4,20,11,8,0,1
-llms,174,174,131,llm_apps,3,1,73,2,1,2,28,20,18,1,6
-react,168,168,120,typescript,0,2,57,0,0,0,4,46,3,1,0
+llms,174,174,131,llm_apps,2,2,72,2,1,2,28,20,18,1,6
+react,168,168,120,typescript,0,3,56,0,0,0,4,46,3,1,0
 testing,168,168,163,cicd_testing,1,5,49,11,0,28,13,11,16,0,4
-bigquery,165,165,123,warehouse,8,1,13,20,26,51,22,6,7,0,1
-vector databases,164,164,102,rag,1,3,82,0,0,8,12,12,13,0,0
+bigquery,165,165,123,warehouse,6,1,13,20,26,51,22,6,7,0,1
+vector databases,164,164,102,rag,1,4,81,0,0,8,12,12,13,0,0
 java,162,162,115,scala_java,0,0,45,2,0,21,12,33,11,5,4
-agentic ai,160,160,131,agents,3,5,57,0,1,3,36,16,4,0,1
-tableau,158,158,102,bi_dashboards,22,0,5,9,87,9,32,1,0,0,0
+agentic ai,160,160,131,agents,4,5,57,0,1,3,36,16,4,0,1
+tableau,158,158,102,bi_dashboards,16,0,5,9,87,9,32,1,0,0,0
 pandas,152,152,140,python,11,1,13,1,7,10,73,4,16,4,3
 code review,149,149,146,cicd_testing,2,3,41,4,3,22,18,7,13,0,3
-scikit-learn,147,147,131,classical_ml,5,1,25,0,4,2,68,3,23,2,1
+scikit-learn,147,147,131,classical_ml,6,1,25,0,4,2,68,3,23,2,1
 model deployment,146,146,137,model_serving,5,0,20,0,0,1,43,4,49,1,8
 spark,145,145,106,spark_distributed,7,0,7,6,4,35,41,9,29,0,1
 technical leadership,144,144,138,mentoring_leadership,1,3,31,1,2,25,17,11,21,0,3
-team leadership,143,143,137,mentoring_leadership,7,0,21,1,7,19,35,4,7,0,3
+team leadership,143,143,137,mentoring_leadership,6,0,21,1,7,19,35,4,7,0,3
 langgraph,142,142,92,agents,0,3,94,1,0,1,8,6,1,0,2
-apis,140,140,135,apis_services,0,4,46,0,4,8,6,47,3,0,0
-r,139,139,101,r,35,0,4,2,45,1,65,0,0,5,2
-go,133,133,108,systems_lang,0,0,39,0,0,11,3,28,20,0,3
+apis,140,140,135,apis_services,0,5,45,0,4,8,6,47,3,0,0
+r,139,139,101,r,29,0,4,2,45,1,65,0,0,5,2
+go,133,133,108,systems_lang,1,0,39,0,0,11,3,28,20,0,3
 kafka,130,130,68,streaming,1,1,16,5,3,50,10,10,15,0,0
 cross-functional collaboration,129,129,128,stakeholder_comms,10,0,19,3,10,6,28,18,18,0,5
 ai agents,129,129,107,agents,1,8,61,0,2,7,4,13,4,0,4
 devops,129,129,94,cicd_testing,0,4,31,0,1,21,6,32,11,0,0
-c++,127,127,80,systems_lang,5,0,32,0,1,1,7,12,16,17,19
-statistical analysis,127,127,120,statistics,26,0,9,0,30,1,56,0,5,5,6
-postgresql,126,126,108,sql,0,3,33,2,4,27,3,11,4,0,0
+c++,127,127,80,systems_lang,3,0,32,0,1,1,7,12,16,17,19
+statistical analysis,127,127,120,statistics,21,0,9,0,30,1,56,0,5,5,6
+postgresql,126,126,108,sql,0,2,33,2,5,27,3,11,4,0,0
 llm evaluation,125,125,102,model_evaluation,2,1,50,0,0,1,16,11,5,0,9
-monitoring,124,124,118,llm_observability,0,3,41,3,0,22,8,9,16,0,0
+monitoring,124,124,118,llm_observability,0,4,40,3,0,22,8,9,16,0,0
 large language models,124,124,108,llm_apps,3,2,44,1,1,1,24,13,14,0,6
-javascript,124,124,99,typescript,0,6,28,1,5,4,4,39,2,2,0
+javascript,124,124,99,typescript,0,4,28,1,7,4,4,39,2,2,0
 model monitoring,124,124,114,llm_observability,3,0,25,0,1,0,45,1,35,0,6
-mlflow,124,124,68,mlops_tooling,6,0,34,0,0,4,17,3,45,0,6
+mlflow,124,124,68,mlops_tooling,7,0,34,0,0,4,17,3,45,0,6
 mcp,122,122,71,agents,0,6,61,1,1,2,4,16,2,0,1
 causal inference,120,120,96,causal_inference,43,0,3,0,13,0,73,0,13,1,4
-agentic systems,117,117,99,agents,1,0,62,0,0,1,13,11,6,0,4
+agentic systems,117,117,99,agents,0,0,62,0,0,1,13,11,6,0,4
 cloud platforms,117,117,99,cloud,3,0,24,0,3,7,20,28,20,0,2
 infrastructure as code,117,117,87,cloud,0,0,29,0,0,32,2,17,12,0,0
-feature engineering,115,115,109,classical_ml,7,0,21,1,1,3,43,0,30,6,2
-embeddings,115,115,95,rag,0,2,51,0,0,2,18,3,9,0,2
+feature engineering,115,115,109,classical_ml,5,0,21,1,1,3,43,0,30,6,2
+embeddings,115,115,95,rag,0,3,50,0,0,2,18,3,9,0,2
 api design,113,113,107,apis_services,0,2,51,1,0,1,2,14,9,0,1
-looker,108,108,78,bi_dashboards,19,0,4,11,52,13,17,2,0,0,0
-rest apis,108,108,96,apis_services,0,9,29,1,3,7,2,30,3,0,0
-experimentation,107,107,102,experimentation,26,0,8,1,9,1,60,1,15,0,2
-numpy,106,106,98,python,10,1,8,0,1,4,52,1,13,3,4
+looker,108,108,78,bi_dashboards,17,0,4,11,52,13,17,2,0,0,0
+rest apis,108,108,96,apis_services,0,8,28,1,5,7,2,30,3,0,0
+experimentation,107,107,102,experimentation,23,0,8,1,9,1,60,1,15,0,2
+numpy,106,106,98,python,11,1,8,0,1,4,52,1,13,3,4
 fastapi,105,105,78,python,0,0,47,0,0,1,3,8,14,0,1
-llm,104,104,85,llm_apps,1,2,35,0,3,6,22,7,11,0,4
-collaboration,102,102,101,stakeholder_comms,3,0,19,1,8,16,8,7,11,4,6
+llm,104,104,85,llm_apps,2,2,35,0,3,6,22,7,11,0,4
+collaboration,102,102,101,stakeholder_comms,2,0,19,1,8,16,8,7,11,4,6
 cloud infrastructure,102,102,82,cloud,1,1,24,0,0,10,3,24,15,0,3
-pyspark,102,102,79,spark_distributed,4,0,6,3,3,42,30,7,3,0,2
-nlp,101,101,71,nlp,1,0,25,0,0,1,31,3,19,3,7
+pyspark,102,102,79,spark_distributed,5,0,6,3,3,42,30,7,3,0,2
+nlp,101,101,71,nlp,2,0,25,0,0,1,31,3,19,3,7
 computer vision,101,101,83,computer_vision,0,0,18,0,1,1,14,1,33,0,13
 performance optimization,99,99,91,software_engineering,0,1,23,0,1,13,1,12,12,0,4
 agentic workflows,98,98,85,agents,0,0,46,0,2,3,13,10,4,0,2
-etl,98,98,87,pipelines_etl,4,0,8,7,13,36,11,9,4,0,0
+etl,98,98,87,pipelines_etl,3,0,8,7,13,36,11,9,4,0,0
 version control,97,97,85,cicd_testing,2,2,16,6,6,12,19,6,13,1,9
-node.js,97,97,79,typescript,0,2,32,0,0,4,0,25,2,0,1
+node.js,97,97,79,typescript,0,4,30,0,0,4,0,25,2,0,1
 claude code,96,96,73,llm_apps,4,3,35,5,4,10,9,12,4,0,0
-project management,94,94,87,,7,0,4,2,10,9,14,29,1,0,2
+project management,94,94,87,,5,0,4,2,10,9,14,29,1,0,2
 reinforcement learning,94,94,52,deep_learning,1,0,14,0,0,1,15,0,22,2,29
 communication skills,93,93,93,stakeholder_comms,5,0,6,0,7,7,15,22,7,5,3
-excel,91,91,86,bi_dashboards,5,3,0,1,57,3,11,2,0,0,2
-api integration,90,90,88,apis_services,0,8,24,0,1,7,4,30,5,0,0
+excel,91,91,86,bi_dashboards,4,1,0,1,59,3,11,2,0,0,2
+api integration,90,90,88,apis_services,0,10,22,0,1,7,4,30,5,0,0
 security,87,87,81,,0,2,44,0,0,7,3,8,4,0,0
 system design,86,86,85,software_engineering,0,0,30,1,0,4,2,15,5,0,2
 microservices,86,86,68,software_engineering,0,0,28,0,0,3,0,9,11,0,1
@@ -117,57 +117,57 @@ debugging,85,85,82,cicd_testing,0,0,32,0,0,5,5,19,5,0,3
 apache spark,84,84,62,spark_distributed,3,0,7,0,4,39,14,6,3,0,1
 tool use,77,77,67,agents,0,2,49,0,0,0,9,5,2,0,4
 github actions,76,76,51,cicd_testing,0,0,12,0,0,17,1,7,19,0,0
-data transformation,75,75,73,pipelines_etl,0,0,3,6,12,31,3,10,1,0,0
+data transformation,75,75,73,pipelines_etl,0,1,2,6,12,31,3,10,1,0,0
 agile,75,75,60,,1,1,18,0,6,24,10,3,1,0,1
 ci/cd pipelines,75,75,65,cicd_testing,0,1,15,1,0,13,1,13,7,0,1
 model training,74,74,71,classical_ml,1,0,18,0,0,2,12,4,26,0,3
 automated testing,74,74,71,cicd_testing,0,5,24,1,0,17,4,4,2,0,3
-ai tools,73,73,57,llm_apps,12,3,6,8,12,6,17,9,1,2,1
+ai tools,73,73,57,llm_apps,9,3,6,8,12,6,17,9,1,2,1
 responsible ai,72,72,59,responsible_ai,0,2,27,0,0,5,18,3,7,0,0
 fine-tuning,72,72,42,fine_tuning,0,0,39,0,0,1,6,1,9,1,5
-predictive modeling,71,71,66,classical_ml,15,0,4,0,7,0,41,0,7,5,1
+predictive modeling,71,71,66,classical_ml,12,0,4,0,7,0,41,0,7,5,1
 data modelling,70,70,69,warehouse,3,0,6,4,15,36,4,1,1,0,0
 data integration,70,70,66,pipelines_etl,3,2,5,1,12,33,4,7,0,0,0
-statistical modeling,70,70,65,statistics,17,0,4,1,6,0,49,0,0,4,2
-leadership,69,69,68,mentoring_leadership,11,0,12,0,4,7,24,4,6,0,0
+statistical modeling,70,70,65,statistics,16,0,4,1,6,0,49,0,0,4,2
+leadership,69,69,68,mentoring_leadership,12,0,12,0,4,7,24,4,6,0,0
 rust,69,69,33,systems_lang,1,0,22,0,1,2,7,12,5,1,7
 backend development,68,68,67,software_engineering,0,2,32,0,0,3,2,11,4,0,0
 agent orchestration,67,67,60,agents,0,1,33,0,0,1,3,6,5,0,1
 vector search,66,66,50,rag,0,0,38,0,0,4,8,3,4,0,0
 cuda,64,64,36,deep_learning,0,0,19,0,0,0,1,1,11,0,17
-experimental design,63,63,59,experimentation,7,0,4,0,3,0,22,1,6,2,18
+experimental design,63,63,59,experimentation,8,0,4,0,3,0,22,1,6,2,18
 distributed training,63,63,46,spark_distributed,0,0,12,0,0,0,1,0,21,1,13
-data architecture,63,63,59,pipelines_etl,1,0,3,5,3,26,4,11,1,0,0
-anomaly detection,62,62,48,classical_ml,6,0,4,0,11,6,28,1,5,0,0
-technical documentation,62,62,61,,1,4,7,0,0,7,3,29,1,0,4
-english,62,62,62,,3,0,12,5,6,11,5,6,1,0,2
+data architecture,63,63,59,pipelines_etl,0,0,3,5,3,26,4,11,1,0,0
+anomaly detection,62,62,48,classical_ml,8,0,4,0,11,6,28,1,5,0,0
+technical documentation,62,62,61,,0,4,7,0,0,7,3,29,1,0,4
+english,62,62,62,,2,0,12,5,6,11,5,6,1,0,2
 production systems,62,62,61,software_engineering,2,0,28,0,0,3,5,5,5,0,2
 jax,62,62,54,deep_learning,1,0,9,0,0,0,1,0,16,2,23
 retrieval-augmented generation,61,61,54,rag,1,0,30,0,0,0,13,8,4,0,0
 data warehousing,61,61,54,warehouse,1,0,5,5,5,33,1,3,3,0,0
-technical writing,61,61,46,,2,0,8,0,1,1,3,6,6,0,6
+technical writing,61,61,46,,1,0,8,0,1,1,3,6,6,0,6
 production deployment,60,60,59,model_serving,1,1,24,0,0,0,10,12,8,1,1
 linux,60,60,45,,0,1,8,1,1,5,3,12,11,1,3
 event-driven architecture,59,59,43,streaming,0,5,16,2,0,5,0,7,3,0,0
-evaluation frameworks,59,59,50,model_evaluation,3,1,25,0,0,0,8,5,6,0,4
+evaluation frameworks,59,59,50,model_evaluation,2,1,25,0,0,0,8,5,6,0,4
 solutions engineering,59,59,53,customer_facing,0,0,4,0,0,0,0,54,0,0,0
 vllm,59,59,25,,0,0,15,0,0,0,0,3,18,0,11
 incident response,59,59,51,,1,0,12,0,0,10,3,7,7,0,2
-github,59,59,54,cicd_testing,2,0,14,3,3,10,1,7,0,0,1
+github,59,59,54,cicd_testing,1,1,13,3,3,10,1,7,0,0,1
 troubleshooting,58,58,58,cicd_testing,0,4,11,1,1,5,0,28,0,0,1
 api development,58,58,51,apis_services,1,1,19,0,0,5,9,6,3,0,0
 llm apis,58,58,49,llm_apps,1,4,33,0,1,1,2,5,1,0,0
 platform engineering,58,58,48,,0,0,23,0,0,6,2,10,2,0,0
 recommendation systems,57,57,43,recsys_ranking,1,0,2,0,1,1,23,0,21,0,4
 financial services,57,57,12,,1,0,19,0,6,10,4,11,0,0,0
-knowledge graphs,56,56,21,,1,0,29,0,0,1,12,1,4,0,1
-salesforce,56,56,31,,2,3,13,1,10,6,2,17,0,0,0
-claude,56,56,46,llm_apps,3,2,20,2,3,3,9,7,2,0,0
+knowledge graphs,56,56,21,,0,0,29,0,0,1,12,1,4,0,1
+salesforce,56,56,31,,1,4,12,1,10,6,2,17,0,0,0
+claude,56,56,46,llm_apps,3,3,19,2,3,3,9,7,2,0,0
 documentation,55,55,55,,0,2,13,4,4,10,2,12,2,0,0
 system architecture,55,55,53,software_engineering,0,0,24,0,0,6,0,10,4,0,0
 full-stack development,54,54,53,typescript,0,0,22,0,0,0,0,13,2,0,0
 classification,54,54,47,classical_ml,9,0,7,0,4,0,31,0,11,0,0
-analytics,54,54,48,product_analytics,8,1,4,3,14,6,9,9,0,0,1
+analytics,54,54,48,product_analytics,6,1,4,3,14,6,9,9,0,0,1
 llm applications,54,54,48,llm_apps,0,1,27,0,1,3,5,6,6,0,1
 problem solving,52,52,51,,6,0,5,0,2,4,15,15,1,5,1
 transformers,52,52,42,nlp,0,0,10,0,0,0,14,0,13,1,7
@@ -175,18 +175,18 @@ llm integration,52,52,45,llm_apps,1,3,28,0,0,3,2,5,2,0,0
 networking,52,52,45,,0,1,12,0,1,3,0,19,2,0,0
 data validation,52,52,52,,2,0,1,1,14,16,9,2,2,0,0
 microsoft fabric,52,52,41,warehouse,0,0,8,2,6,29,0,1,1,0,0
-workflow automation,51,51,43,,0,12,19,1,1,3,0,7,1,0,0
+workflow automation,51,51,43,,0,10,19,1,3,3,0,7,1,0,0
 containerization,51,51,41,,0,0,17,0,0,3,3,6,9,0,1
-data analytics,51,51,48,product_analytics,5,0,0,1,23,1,7,7,0,0,1
+data analytics,51,51,48,product_analytics,4,0,0,1,23,1,7,7,0,0,1
 ray,50,50,25,,1,0,10,0,0,4,4,1,15,0,9
 azure devops,50,50,41,cicd_testing,1,2,10,0,2,17,3,3,3,0,0
 cursor,50,50,39,,2,1,18,1,2,2,5,9,1,0,0
 grafana,49,49,20,,1,0,9,1,3,8,1,10,12,0,0
-relational databases,49,49,49,sql,0,1,12,1,3,17,4,5,0,0,0
+relational databases,49,49,49,sql,0,0,12,1,4,17,4,5,0,0,0
 scala,49,49,31,scala_java,0,0,7,0,0,20,4,5,4,0,1
 cost optimization,49,49,41,,1,0,21,0,0,8,1,1,6,0,0
 ai governance,49,49,32,responsible_ai,0,5,24,0,0,0,6,3,1,0,0
-c#,49,49,33,systems_lang,3,0,23,1,0,4,1,7,0,5,0
+c#,49,49,33,systems_lang,0,0,23,1,0,4,1,7,0,5,0
 agent frameworks,49,49,29,agents,0,2,28,0,0,0,1,6,2,0,0
 vertex ai,48,48,34,mlops_tooling,1,0,15,0,2,4,9,4,6,0,0
 natural language processing,48,48,39,nlp,1,0,10,0,1,0,16,1,8,1,5
@@ -198,9 +198,9 @@ prototyping,47,47,46,,0,0,18,0,2,0,1,13,2,0,3
 clustering,47,47,40,classical_ml,7,0,4,1,6,1,29,0,2,0,0
 helm,47,47,40,containers,0,0,9,0,0,6,1,20,5,0,0
 llamaindex,46,46,24,llm_apps,0,1,26,0,0,1,1,2,3,0,0
-automation,46,46,41,,2,2,8,3,6,8,3,8,1,0,0
-n8n,46,46,30,,0,10,20,1,2,0,1,4,0,0,0
-optimization,46,46,37,,3,0,4,0,0,0,13,5,10,3,4
+automation,46,46,41,,1,2,8,3,6,8,3,8,1,0,0
+n8n,46,46,30,,0,11,17,1,4,0,1,4,0,0,0
+optimization,46,46,37,,2,0,4,0,0,0,13,5,10,3,4
 multi-agent systems,45,45,28,agents,0,0,25,0,0,0,4,2,4,0,2
 containers,45,45,36,containers,0,2,12,0,0,0,2,14,3,0,0
 retrieval systems,45,45,37,rag,0,0,16,0,0,0,3,3,14,0,1
@@ -214,29 +214,29 @@ workflow orchestration,43,43,31,orchestration,0,0,13,0,0,10,0,5,4,0,0
 software development,43,43,38,software_engineering,0,0,10,0,0,1,1,18,3,1,0
 kubeflow,43,43,20,mlops_tooling,0,0,8,0,0,4,2,1,21,0,2
 openai,43,43,39,llm_apps,0,0,23,0,0,1,3,8,1,0,0
-next.js,42,42,32,,0,1,16,0,0,0,0,7,0,0,0
+next.js,42,42,32,,0,2,15,0,0,0,0,7,0,0,0
 delta lake,42,42,31,,1,0,7,1,0,25,1,1,1,0,1
 hugging face,42,42,32,llm_apps,0,0,13,0,0,0,13,3,4,0,1
-fintech,42,42,6,,3,0,13,5,4,3,8,5,0,0,0
+fintech,42,42,6,,2,0,13,5,4,3,8,5,0,0,0
 solution architecture,42,42,41,software_engineering,0,1,3,0,0,0,1,37,0,0,0
 context engineering,41,41,40,llm_apps,0,0,25,0,0,1,1,7,1,0,2
 attention to detail,41,41,41,,0,0,1,2,17,4,7,2,0,2,1
-consulting,41,41,21,customer_facing,1,2,8,0,1,5,7,8,0,0,0
+consulting,41,41,21,customer_facing,2,2,8,0,1,5,7,8,0,0,0
 regression,41,41,37,statistics,11,0,0,0,4,0,29,0,3,1,0
 s3,41,41,36,cloud,0,0,6,0,2,21,2,2,3,0,0
-product analytics,41,41,34,product_analytics,13,0,0,5,14,2,12,1,1,0,0
+product analytics,41,41,34,product_analytics,12,0,0,5,14,2,12,1,1,0,0
 production ml systems,40,40,36,model_serving,0,0,10,0,0,0,6,3,13,1,3
 opentelemetry,40,40,23,,0,0,9,0,0,2,0,13,5,0,0
 software architecture,40,40,36,,0,1,12,0,0,1,3,7,4,0,2
 dagster,40,40,25,orchestration,1,0,2,9,0,16,3,0,1,0,2
 analytics engineering,40,40,38,product_analytics,3,0,1,18,9,8,2,0,0,0,0
 team management,40,40,37,,4,0,3,0,1,5,13,4,4,0,0
-genai,39,39,33,llm_apps,0,1,12,0,0,0,8,2,4,0,0
+genai,39,39,33,llm_apps,1,1,12,0,0,0,8,2,4,0,0
 frontend development,39,39,25,typescript,0,0,20,0,0,0,0,8,1,0,1
-experiment design,39,39,36,experimentation,11,0,3,0,9,0,9,0,6,1,8
-xgboost,39,39,34,classical_ml,0,0,4,0,0,0,22,0,10,0,0
+experiment design,39,39,36,experimentation,10,0,3,0,9,0,9,0,6,1,8
+xgboost,39,39,34,classical_ml,1,0,4,0,0,0,22,0,10,0,0
 redshift,38,38,32,warehouse,4,0,2,6,7,15,5,0,0,0,0
-risk management,38,38,33,,2,0,5,0,6,1,3,5,0,7,0
+risk management,38,38,33,,1,0,5,0,6,1,3,5,0,7,0
 apache airflow,38,38,25,orchestration,1,0,0,1,3,23,4,0,3,0,1
 customer communication,38,38,38,stakeholder_comms,0,3,3,0,0,0,0,30,1,0,0
 presentation skills,38,38,38,stakeholder_comms,0,0,3,0,2,1,4,22,0,0,1
@@ -246,22 +246,22 @@ benchmarking,38,38,37,model_evaluation,2,0,13,0,0,0,3,0,6,1,7
 business intelligence,37,37,32,bi_dashboards,0,0,1,3,18,3,3,3,0,0,0
 code quality,37,37,37,software_engineering,1,0,10,0,1,3,6,3,4,0,4
 startup experience,37,37,7,,0,0,10,0,0,0,4,7,3,0,3
-programming,37,37,35,,2,1,2,0,2,1,10,8,3,3,3
+programming,37,37,35,,0,0,2,0,3,1,10,8,3,3,3
 guardrails,37,37,27,responsible_ai,0,0,19,0,0,0,3,5,0,0,1
 azure data factory,37,37,29,cloud,0,0,3,0,2,24,0,1,0,0,0
 backend engineering,37,37,32,,0,0,16,0,0,2,0,3,0,0,0
 quantization,37,37,25,,0,0,10,0,0,0,0,0,15,0,6
 sagemaker,37,37,27,mlops_tooling,1,0,7,0,0,3,6,3,10,0,2
 prometheus,37,37,15,,0,0,10,0,0,3,0,8,12,0,0
-experiment tracking,36,36,30,experimentation,0,0,11,0,0,0,10,0,7,0,2
+experiment tracking,36,36,30,experimentation,1,0,11,0,0,0,10,0,7,0,2
 diffusion models,36,36,32,deep_learning,0,0,5,0,0,0,1,0,14,0,10
 ai evaluation,36,36,31,model_evaluation,1,2,20,0,0,0,4,3,0,0,2
 autogen,36,36,23,agents,0,1,23,0,0,0,2,4,1,0,0
 mcp servers,36,36,23,agents,0,0,19,0,0,2,0,7,3,0,0
 tensorrt,36,36,20,,0,0,11,0,0,0,1,2,15,0,4
-mentorship,36,36,32,mentoring_leadership,5,0,8,0,1,4,12,0,5,0,4
+mentorship,36,36,32,mentoring_leadership,6,0,8,0,1,4,12,0,5,0,4
 compliance,36,36,30,,0,0,16,0,1,2,5,6,0,0,0
-reporting,35,35,35,bi_dashboards,0,2,0,2,15,8,5,1,0,0,0
+reporting,35,35,35,bi_dashboards,0,0,0,2,17,8,5,1,0,0,0
 business acumen,35,35,33,,3,0,1,3,3,2,11,6,1,0,0
 scipy,35,35,33,,3,0,3,0,0,2,20,0,3,1,1
 langfuse,35,35,13,llm_observability,0,0,16,0,0,0,2,2,1,0,2
@@ -269,58 +269,58 @@ ai,35,35,26,,0,0,10,0,3,2,7,9,1,0,1
 jenkins,35,35,24,cicd_testing,0,0,7,0,0,13,1,2,7,0,0
 conversational ai,35,35,26,llm_apps,0,2,9,0,0,0,6,6,6,0,0
 datadog,35,35,15,,0,0,6,0,0,10,1,4,4,0,0
-mathematics,35,35,31,,5,0,4,0,1,0,10,0,4,11,4
+mathematics,35,35,31,,2,0,4,0,1,0,10,0,4,11,4
 fraud detection,34,34,17,,3,0,4,0,2,0,13,1,3,0,2
 hadoop,34,34,22,spark_distributed,2,0,1,1,0,10,18,1,0,0,0
 clickhouse,34,34,20,,1,0,4,1,2,13,0,0,5,0,1
-data cleaning,34,34,34,,5,2,0,0,10,4,11,1,1,2,0
-analytical skills,34,34,32,,1,1,4,0,10,5,1,6,0,2,0
-model validation,34,34,33,classical_ml,6,0,1,0,0,0,22,0,3,1,4
+data cleaning,34,34,34,,3,0,0,0,12,4,11,1,1,2,0
+analytical skills,34,34,32,,0,1,4,0,10,5,1,6,0,2,0
+model validation,34,34,33,classical_ml,5,0,1,0,0,0,22,0,3,1,4
 llm fine-tuning,33,33,28,fine_tuning,0,0,13,0,0,0,2,2,8,0,4
 data lineage,33,33,29,data_governance,0,0,2,4,2,17,2,0,0,0,0
-json,33,33,27,,0,4,4,1,2,2,0,16,0,0,0
+json,33,33,27,,0,2,4,1,4,2,0,16,0,0,0
 analytical thinking,33,33,33,,0,3,4,1,10,3,3,2,0,0,1
 query optimization,33,33,29,,0,0,5,3,1,18,0,1,0,0,0
-stakeholder engagement,33,33,32,stakeholder_comms,2,0,6,1,11,1,8,5,0,0,0
+stakeholder engagement,33,33,32,stakeholder_comms,3,0,6,1,11,1,8,5,0,0,0
 model context protocol,33,33,20,,0,2,21,0,0,0,0,1,2,0,0
 ansible,32,32,20,,0,0,8,0,0,8,1,8,3,0,0
 gdpr,32,32,23,data_governance,1,1,5,0,4,7,4,6,1,0,0
 open-source contributions,32,32,3,,0,0,10,0,0,1,1,0,2,0,6
-data pipeline development,32,32,32,pipelines_etl,5,0,3,1,3,7,13,0,2,0,1
+data pipeline development,32,32,32,pipelines_etl,6,0,3,1,3,7,13,0,2,0,1
 langsmith,32,32,13,llm_observability,0,1,16,0,0,0,0,0,6,0,0
 data contracts,31,31,25,,0,0,2,8,2,9,1,3,0,0,0
 cybersecurity,31,31,17,,0,0,5,1,1,2,3,13,2,0,3
-hubspot,31,31,11,,0,1,10,0,6,4,0,9,0,0,0
+hubspot,31,31,11,,0,4,7,0,6,4,0,9,0,0,0
 inference optimization,31,31,22,model_serving,0,0,11,0,0,0,0,2,7,0,5
 ai-assisted development,31,31,24,,0,0,12,3,4,2,0,2,1,0,0
-dashboard design,31,31,31,bi_dashboards,1,0,0,0,25,0,3,0,0,0,0
+dashboard design,31,31,31,bi_dashboards,0,0,0,0,25,0,3,0,0,0,0
 google cloud,31,31,21,cloud,0,0,9,0,0,6,2,7,2,0,0
 feature stores,31,31,21,mlops_tooling,0,0,2,1,0,1,6,0,13,0,0
 product thinking,31,31,30,,0,0,11,2,0,0,1,6,3,0,0
 foundation models,31,31,23,deep_learning,1,0,7,0,0,0,5,0,10,0,6
-systems thinking,31,31,31,,4,1,6,0,1,4,5,6,2,0,0
+systems thinking,31,31,31,,2,1,6,0,1,4,5,6,2,0,0
 llmops,31,31,26,,0,0,14,0,0,0,4,3,6,0,0
 data storytelling,31,31,30,stakeholder_comms,9,0,0,1,14,1,9,0,0,0,0
-statistical methods,30,30,26,statistics,7,0,1,1,5,0,17,0,2,0,1
+statistical methods,30,30,26,statistics,6,0,1,1,5,0,17,0,2,0,1
 bash,30,30,22,,0,1,7,0,1,4,0,5,4,0,0
-e-commerce,30,30,7,,2,2,3,1,3,2,9,8,2,0,0
-jira,30,30,16,,0,1,4,0,2,5,5,5,1,0,0
+e-commerce,30,30,7,,0,2,3,1,3,2,9,8,2,0,0
+jira,30,30,16,,0,2,3,0,2,5,5,5,1,0,0
 distributed computing,30,30,21,spark_distributed,1,0,6,0,0,5,6,1,7,0,3
 database design,30,30,29,,0,0,12,2,3,6,2,1,0,0,0
-dashboard development,30,30,28,bi_dashboards,4,0,1,1,14,1,5,1,0,0,0
+dashboard development,30,30,28,bi_dashboards,4,1,0,1,14,1,5,1,0,0,0
 executive communication,30,30,29,stakeholder_comms,6,0,6,0,3,0,6,10,1,1,0
 redis,30,30,19,,0,0,10,0,0,2,0,3,3,0,0
 data ingestion,30,30,27,pipelines_etl,0,0,6,0,0,15,0,3,3,0,0
-rag pipelines,30,30,27,rag,0,0,14,0,0,1,5,0,0,0,1
+rag pipelines,30,30,27,rag,0,1,13,0,0,1,5,0,0,0,1
 cloud security,30,30,28,cloud,0,0,8,0,0,4,1,12,0,0,1
-pinecone,29,29,17,rag,0,2,18,0,0,0,1,2,1,0,0
+pinecone,29,29,17,rag,0,3,17,0,0,0,1,2,1,0,0
 english communication,29,29,29,stakeholder_comms,0,2,6,1,2,4,4,3,1,0,1
 unit testing,29,29,26,cicd_testing,0,0,10,1,0,2,4,2,4,1,0
-hypothesis testing,29,29,29,statistics,10,0,2,1,5,0,14,0,0,4,1
+hypothesis testing,29,29,29,statistics,8,0,2,1,5,0,14,0,0,4,1
 postgres,29,29,22,sql,0,0,6,0,0,3,2,1,4,0,1
 cloud architecture,28,28,22,cloud,0,0,9,0,0,1,0,11,2,0,0
 supervised learning,28,28,25,classical_ml,2,0,2,0,1,0,20,0,4,0,0
-mysql,28,28,25,sql,0,1,4,1,3,7,3,2,1,0,0
+mysql,28,28,25,sql,0,0,4,1,4,7,3,2,1,0,0
 bi tools,28,28,23,bi_dashboards,1,0,1,4,8,5,4,0,0,0,0
 dimensional modeling,28,28,27,warehouse,0,0,1,11,2,11,0,0,0,0,0
 personalization,28,28,24,recsys_ranking,0,0,2,0,1,0,7,3,10,0,2
@@ -333,11 +333,11 @@ evaluation,28,28,28,,1,0,16,0,0,0,4,0,4,0,1
 saas,28,28,17,,1,0,2,0,3,0,1,20,0,0,0
 graphql,28,28,23,apis_services,0,3,3,0,0,0,1,9,0,0,0
 robotics,28,28,9,,0,0,6,0,0,1,1,5,5,0,8
-aws bedrock,28,28,15,cloud,0,1,18,0,1,1,2,1,0,0,0
+aws bedrock,28,28,15,cloud,0,2,17,0,1,1,2,1,0,0,0
 advanced analytics,28,28,27,product_analytics,1,0,2,0,6,1,16,1,0,0,0
 recommender systems,27,27,19,recsys_ranking,1,0,1,0,0,0,9,0,10,0,4
 prompt design,27,27,22,llm_apps,0,2,12,0,0,2,4,6,0,0,0
-quantitative analysis,27,27,25,,12,0,0,0,2,0,10,0,0,9,2
+quantitative analysis,27,27,25,,9,0,0,0,2,0,10,0,0,9,2
 mongodb,27,27,17,,0,0,6,0,0,4,1,5,0,0,0
 streamlit,27,27,9,,2,0,2,0,6,1,7,1,6,0,0
 model optimization,27,27,26,,1,0,7,0,0,0,5,0,6,1,3
@@ -346,18 +346,18 @@ customer engagement,27,27,27,customer_facing,0,0,5,0,0,0,3,16,1,0,1
 marketing analytics,27,27,20,product_analytics,6,0,0,2,13,1,5,1,0,0,1
 flink,27,27,13,spark_distributed,0,0,1,0,0,11,3,3,4,0,0
 latency optimization,26,26,22,,0,0,14,0,0,0,1,3,4,0,1
-requirements gathering,26,26,25,,1,2,1,3,7,2,2,7,0,0,0
+requirements gathering,26,26,25,,0,2,1,3,7,2,2,7,0,0,0
 rag systems,26,26,21,rag,0,0,11,0,1,1,0,0,3,0,0
 kotlin,26,26,18,scala_java,0,0,7,0,0,3,1,2,7,0,1
 unsupervised learning,26,26,23,,2,0,1,0,1,0,19,0,4,0,0
 information retrieval,26,26,21,rag,0,0,7,0,1,0,10,0,5,0,1
 data privacy,26,26,23,data_governance,1,2,11,0,1,2,2,1,1,0,0
 machine learning engineering,26,26,24,classical_ml,0,0,10,0,0,0,1,1,10,0,0
-marketing mix modeling,26,26,19,,11,0,0,1,2,0,16,0,0,0,0
-metabase,26,26,16,,2,2,2,1,10,4,2,1,0,0,0
+marketing mix modeling,26,26,19,,10,0,0,1,2,0,16,0,0,0,0
+metabase,26,26,16,,2,0,2,1,12,4,2,1,0,0,0
 microsoft azure,26,26,23,cloud,0,1,7,0,2,3,1,5,1,0,0
-logging,26,26,26,,0,1,15,0,0,1,0,2,2,0,0
-cohort analysis,26,26,25,classical_ml,12,0,0,0,15,0,9,0,0,0,0
+logging,26,26,26,,0,2,14,0,0,1,0,2,2,0,0
+cohort analysis,26,26,25,classical_ml,9,0,0,0,15,0,9,0,0,0,0
 data structures,26,26,24,,0,0,6,0,1,3,1,1,4,0,3
 data warehouse,26,26,21,warehouse,1,0,2,3,7,10,3,0,0,0,0
 gitlab,26,26,15,cicd_testing,0,1,6,0,1,6,4,0,1,0,0
@@ -371,24 +371,24 @@ streaming,25,25,21,streaming,0,0,7,0,0,8,2,2,0,0,0
 statistical modelling,25,25,22,statistics,3,0,1,0,1,0,21,0,0,1,0
 medallion architecture,25,25,19,,0,0,2,0,1,17,0,1,0,0,0
 flask,25,25,14,python,0,0,8,0,0,2,2,0,6,0,0
-weights & biases,25,25,11,,0,1,8,0,0,0,2,0,6,0,5
+weights & biases,25,25,11,,1,1,8,0,0,0,2,0,6,0,5
 batch processing,25,25,24,,0,0,3,0,0,12,1,0,6,0,0
 backend systems,25,25,25,,0,0,8,0,0,2,0,5,0,0,0
 sglang,25,25,13,,0,0,6,0,0,0,0,0,5,0,9
 data pipeline design,25,25,24,pipelines_etl,0,0,2,0,1,10,1,1,2,0,0
 nosql databases,25,25,18,,1,0,2,0,0,10,5,2,1,0,0
-neo4j,25,25,8,,0,1,11,0,0,2,5,4,0,0,0
+neo4j,25,25,8,,1,1,11,0,0,2,5,4,0,0,0
 agents,25,25,19,agents,0,0,13,0,0,0,1,5,1,0,1
 customer collaboration,24,24,23,stakeholder_comms,0,0,4,0,0,1,0,13,1,0,1
 powershell,24,24,15,,0,2,3,0,1,8,0,8,0,0,0
 evaluation design,24,24,24,,0,0,12,0,0,0,2,0,4,0,1
 llm deployment,24,24,19,llm_apps,0,1,12,0,0,0,4,2,4,0,0
-ai/ml,24,24,18,,0,0,9,0,0,3,1,5,0,0,0
+ai/ml,24,24,18,,1,0,9,0,0,3,1,5,0,0,0
 ranking,24,24,17,recsys_ranking,1,0,2,0,0,0,7,0,12,0,2
 nosql,24,24,22,,0,1,5,0,0,5,2,4,0,0,0
-data preparation,24,24,24,,2,0,3,0,4,1,7,0,4,0,2
+data preparation,24,24,24,,1,0,3,0,4,1,7,0,4,0,2
 sql server,24,24,21,sql,0,0,3,0,4,11,0,0,1,0,0
-graph databases,24,24,8,,1,0,11,0,0,3,7,1,2,0,0
+graph databases,24,24,8,,2,0,11,0,0,3,7,1,2,0,0
 predictive analytics,24,24,20,product_analytics,3,0,3,0,5,1,10,0,0,0,0
 attribution modeling,24,24,19,,9,0,0,1,5,0,12,1,2,0,0
 systems design,24,24,24,,0,0,3,0,0,0,1,7,5,0,1
@@ -399,7 +399,7 @@ cloud data platforms,23,23,17,cloud,0,0,1,0,3,11,2,4,0,0,0
 context management,23,23,22,,0,0,13,0,0,0,2,3,2,0,0
 polars,23,23,20,,1,0,0,0,0,4,15,0,1,0,1
 incrementality testing,23,23,13,experimentation,9,0,0,0,4,0,13,0,0,0,0
-webhooks,23,23,21,apis_services,0,3,7,0,0,1,0,10,0,0,0
+webhooks,23,23,21,apis_services,0,4,6,0,0,1,0,10,0,0,0
 team mentoring,23,23,20,mentoring_leadership,1,0,4,2,0,4,5,1,1,0,0
 gitops,23,23,17,,0,0,7,2,0,1,1,5,2,0,0
 function calling,23,23,21,agents,0,1,14,0,0,1,2,1,0,0,0
@@ -408,7 +408,7 @@ system integration,23,23,23,,0,3,5,0,0,0,0,13,1,0,0
 client communication,23,23,20,stakeholder_comms,2,0,4,1,1,1,8,7,1,0,0
 ml model deployment,23,23,20,classical_ml,1,0,6,0,0,2,4,0,9,0,1
 slurm,23,23,15,,0,0,7,0,0,1,0,1,6,0,4
-metrics definition,22,22,22,,6,0,1,2,9,1,6,0,1,0,1
+metrics definition,22,22,22,,4,0,1,2,9,1,6,0,1,0,1
 elasticsearch,22,22,11,,0,0,9,0,0,5,3,2,0,0,0
 azure ai foundry,22,22,13,cloud,0,4,11,0,1,0,2,0,1,0,0
 systems integration,22,22,22,,0,3,6,0,0,0,0,8,0,0,0
@@ -422,17 +422,17 @@ unity catalog,22,22,17,,0,0,3,0,1,11,0,2,3,0,1
 elt,22,22,21,pipelines_etl,0,0,1,3,1,13,0,1,1,0,0
 iam,22,22,19,,0,0,2,0,0,4,0,7,1,0,0
 scalability,22,22,22,,0,0,5,0,0,3,2,2,2,0,0
-weaviate,22,22,7,rag,0,2,13,0,0,0,2,1,1,0,0
+weaviate,22,22,7,rag,0,3,12,0,0,0,2,1,1,0,0
 regulated environments,22,22,7,,0,0,6,0,0,2,4,5,4,0,0
 algorithms,22,22,22,,0,0,4,0,0,1,1,0,4,0,3
-data preprocessing,22,22,22,,2,0,9,0,0,0,6,0,3,1,2
+data preprocessing,22,22,22,,1,0,9,0,0,0,6,0,3,1,2
 model development,22,22,21,,1,0,3,0,0,0,8,0,5,2,1
-process automation,22,22,21,,0,4,6,0,4,2,3,2,0,0,0
+process automation,22,22,21,,0,5,5,0,4,2,3,2,0,0,0
 lambda,21,21,16,cloud,0,0,5,0,0,8,2,1,0,0,0
 lakehouse architecture,21,21,18,warehouse,0,0,2,0,0,15,0,0,0,0,0
 governance,21,21,18,,0,0,11,0,0,1,3,2,0,0,0
 apache iceberg,21,21,15,,0,0,1,1,0,18,0,0,0,0,0
-aws lambda,21,21,14,cloud,0,0,8,1,0,5,1,1,0,0,1
+aws lambda,21,21,14,cloud,0,1,7,1,0,5,1,1,0,0,1
 aws glue,21,21,16,cloud,1,0,2,0,2,10,4,0,0,0,0
 ai safety,21,21,15,responsible_ai,1,0,6,0,0,0,3,0,0,0,6
 gpu optimization,21,21,15,deep_learning,0,0,8,0,0,1,3,0,1,0,3
@@ -448,20 +448,20 @@ ai coding assistants,20,20,18,llm_apps,0,0,8,0,1,1,3,0,2,0,1
 cloud technologies,20,20,18,cloud,0,1,1,1,0,4,3,6,2,0,0
 bayesian methods,20,20,7,statistics,5,0,1,0,1,0,12,0,3,1,1
 data platforms,20,20,19,,0,0,6,0,1,4,2,4,1,0,0
-zapier,20,20,14,,0,7,9,0,0,0,0,2,0,0,0
+zapier,20,20,14,,0,8,6,0,2,0,0,2,0,0,0
 reliability engineering,20,20,19,,0,0,8,0,0,1,0,2,3,0,1
 hiring,20,20,19,,1,0,3,0,0,2,4,0,0,0,0
 tensorrt-llm,20,20,10,llm_apps,0,0,4,0,0,0,0,0,5,0,5
 hive,20,20,11,,4,0,1,0,2,6,9,0,1,0,0
 cloud deployment,20,20,18,cloud,0,0,9,0,0,0,3,3,1,0,0
 prefect,20,20,9,orchestration,0,0,3,0,0,6,3,2,2,0,0
-time-series analysis,20,20,16,time_series,3,0,0,0,1,0,9,3,1,4,1
+time-series analysis,20,20,16,time_series,4,0,0,0,1,0,9,3,1,4,1
 prompting,20,20,17,,0,0,14,0,0,0,1,0,2,0,0
 servicenow,20,20,12,,0,4,7,0,1,0,1,6,1,0,0
 proof of concept,20,20,20,,0,0,0,0,0,0,0,20,0,0,0
 eks,20,20,18,,0,0,7,0,0,3,0,3,2,0,0
 apache kafka,20,20,9,streaming,0,0,3,0,0,11,0,1,1,0,0
-segmentation,20,20,20,,5,0,0,0,7,1,8,0,3,0,0
+segmentation,20,20,20,,4,0,0,0,7,1,8,0,3,0,0
 linear algebra,20,20,16,,0,0,6,0,0,0,5,0,2,1,3
 anthropic,20,20,19,llm_apps,0,0,12,0,0,0,0,3,0,0,0
 ai coding tools,20,20,20,,0,0,8,1,0,3,0,1,0,0,0
@@ -474,10 +474,10 @@ technical consulting,19,19,14,customer_facing,0,0,3,0,0,0,2,14,0,0,0
 authentication,19,19,19,,0,0,5,0,0,3,1,8,0,0,0
 data processing,19,19,16,,0,0,3,0,0,2,5,0,2,0,2
 performance tuning,19,19,18,,0,0,2,2,0,12,0,1,0,0,0
-team collaboration,19,19,18,stakeholder_comms,3,0,3,0,2,3,4,1,1,0,4
+team collaboration,19,19,18,stakeholder_comms,2,0,3,0,2,3,4,1,1,0,4
 probability,19,19,19,statistics,1,0,1,0,1,0,7,1,3,4,1
-artificial intelligence,19,19,17,,1,1,6,0,0,2,4,2,1,0,1
-google analytics,19,19,14,product_analytics,5,0,0,0,13,2,2,0,0,0,0
+artificial intelligence,19,19,17,,0,1,6,0,0,2,4,2,1,0,1
+google analytics,19,19,14,product_analytics,3,0,0,0,13,2,2,0,0,0,0
 entity resolution,19,19,13,,1,0,4,0,0,5,5,3,2,0,0
 .net,19,19,15,,0,0,13,0,1,1,0,2,0,0,0
 trino,19,19,9,,0,0,1,1,1,7,3,0,3,0,2
@@ -494,7 +494,7 @@ software testing,18,18,18,cicd_testing,0,1,8,1,0,3,1,1,1,0,0
 machine learning systems,18,18,18,classical_ml,0,0,3,0,0,0,2,0,9,0,0
 process improvement,18,18,16,,0,1,0,0,8,0,0,6,0,0,0
 scripting,18,18,13,,0,1,4,0,0,2,0,10,0,0,0
-confluence,18,18,8,,0,1,3,0,3,3,0,3,0,0,0
+confluence,18,18,8,,0,2,2,0,3,3,0,3,0,0,0
 agent development,18,18,17,agents,0,0,9,0,0,0,0,5,2,0,0
 coding agents,18,18,16,agents,0,1,4,0,0,1,0,0,3,0,0
 restful apis,18,18,17,apis_services,0,0,5,0,0,1,0,5,0,0,0
@@ -513,10 +513,10 @@ regression analysis,18,18,18,statistics,7,0,0,0,5,0,6,0,0,1,0
 systems architecture,18,18,18,,0,0,4,0,0,1,0,6,2,0,0
 data curation,18,18,17,,0,0,5,0,0,0,1,0,3,0,2
 rbac,18,18,17,,0,2,4,0,0,3,0,1,0,0,0
-physics,17,17,13,,4,0,0,0,0,0,3,0,2,7,4
+physics,17,17,13,,1,0,0,0,0,0,3,0,2,7,4
 schema design,17,17,14,,0,0,4,0,1,11,0,0,0,0,0
 unstructured data,17,17,14,,1,0,4,0,1,0,5,1,2,0,0
-amplitude,17,17,7,,4,0,0,2,8,2,4,0,0,0,0
+amplitude,17,17,7,,3,0,0,2,8,2,4,0,0,0,0
 stakeholder collaboration,17,17,17,stakeholder_comms,1,0,2,2,4,4,2,0,0,0,0
 code reviews,17,17,16,,0,0,2,0,0,7,2,0,2,0,0
 onnx,17,17,12,,0,0,2,0,0,0,1,1,10,0,1
@@ -525,9 +525,9 @@ workflow design,17,17,16,,0,4,7,0,1,0,0,3,0,0,0
 secrets management,17,17,17,,0,0,6,0,0,2,0,1,0,0,1
 azure ml,17,17,12,cloud,0,0,5,0,0,2,3,1,1,0,0
 ai security,17,17,11,,0,1,9,0,1,0,1,1,0,0,2
-semantic layers,17,17,8,,1,0,1,5,2,5,1,1,0,0,0
+semantic layers,17,17,8,,0,0,1,5,2,5,1,1,0,0,0
 open-source contribution,17,17,2,,0,0,2,0,0,0,0,2,5,0,3
-gdpr compliance,17,17,16,data_governance,0,0,6,0,1,5,1,1,0,0,0
+gdpr compliance,17,17,16,data_governance,0,1,5,0,1,5,1,1,0,0,0
 signal processing,17,17,9,,0,0,4,0,0,1,6,0,2,0,1
 codex,17,17,15,,0,0,12,0,1,1,1,0,0,0,0
 multimodal models,17,17,11,,0,0,10,0,0,0,0,0,0,0,4
@@ -536,16 +536,16 @@ llm orchestration,17,17,14,llm_apps,0,0,5,0,0,0,3,2,0,0,0
 retrieval,17,17,16,rag,0,0,10,0,0,0,2,0,4,0,1
 software engineering best practices,17,17,17,software_engineering,0,0,1,0,0,1,0,1,6,0,0
 django,17,17,14,python,0,0,8,0,0,1,1,2,1,0,0
-time series analysis,17,17,15,time_series,0,0,1,1,2,0,8,0,2,1,2
-customer segmentation,17,17,13,customer_facing,3,0,0,1,4,0,11,0,0,0,0
-error handling,17,17,17,,0,1,10,0,0,2,0,2,0,0,0
+time series analysis,17,17,15,time_series,1,0,1,1,2,0,8,0,2,1,2
+customer segmentation,17,17,13,customer_facing,2,0,0,1,4,0,11,0,0,0,0
+error handling,17,17,17,,0,2,9,0,0,2,0,2,0,0,0
 opensearch,17,17,12,,0,0,10,0,0,4,0,0,1,0,0
-lightgbm,17,17,16,classical_ml,0,0,0,0,0,0,13,0,3,0,1
+lightgbm,17,17,16,classical_ml,1,0,0,0,0,0,13,0,3,0,1
 ai engineering,17,17,17,,0,0,9,0,0,0,2,3,0,0,0
 jupyter,17,17,13,,3,0,0,0,3,2,5,0,5,1,0
-performance monitoring,17,17,17,llm_observability,2,0,2,0,3,0,3,1,3,2,0
+performance monitoring,17,17,17,llm_observability,0,0,2,0,3,0,3,1,3,2,0
 object detection,17,17,15,computer_vision,0,0,5,0,0,0,2,0,9,0,0
-teamwork,17,17,17,,1,0,6,0,1,1,5,0,0,0,2
+teamwork,17,17,17,,0,0,6,0,1,1,5,0,0,0,2
 azure ai,17,17,14,cloud,0,3,12,0,0,0,1,1,0,0,0
 data protection,17,17,16,,0,0,5,0,0,4,1,2,1,0,0
 data quality assessment,17,17,17,pipelines_etl,2,0,0,0,5,1,8,0,0,0,2
@@ -553,11 +553,11 @@ rlhf,17,17,8,fine_tuning,0,0,4,0,0,0,1,1,4,0,5
 data quality assurance,17,17,17,pipelines_etl,0,0,1,0,7,3,4,0,0,0,0
 model versioning,17,17,15,,0,0,4,0,0,0,2,0,7,0,0
 azure ai search,17,17,14,cloud,0,0,14,0,0,1,1,0,0,0,0
-operations research,17,17,13,research,2,0,1,0,0,0,8,0,1,3,2
+operations research,17,17,13,research,3,0,1,0,0,0,8,0,1,3,2
 oracle,17,17,10,,0,0,4,0,2,8,0,3,0,0,0
-mixpanel,17,17,10,,6,0,1,1,7,1,5,1,0,0,0
+mixpanel,17,17,10,,2,0,1,1,7,1,5,1,0,0,0
 high-performance computing,17,17,12,,1,0,1,0,0,0,6,0,3,0,6
-funnel analysis,16,16,16,product_analytics,10,0,0,0,9,0,6,0,0,0,0
+funnel analysis,16,16,16,product_analytics,8,0,0,0,9,0,6,0,0,0,0
 full-stack engineering,16,16,15,typescript,0,0,4,0,0,0,0,7,0,0,0
 gemini,16,16,13,llm_apps,0,0,7,0,0,1,3,2,1,0,0
 distillation,16,16,11,,0,0,6,0,0,0,1,0,4,0,4
@@ -569,28 +569,28 @@ huggingface,16,16,13,llm_apps,0,0,4,0,0,0,1,2,3,0,3
 data infrastructure,16,16,15,,1,0,3,0,0,6,1,0,2,0,0
 people management,16,16,15,mentoring_leadership,0,0,3,0,0,3,3,1,1,0,0
 data extraction,16,16,12,,0,0,8,0,2,2,2,0,2,0,0
-data cleansing,16,16,16,,2,0,0,0,8,3,3,0,0,0,0
+data cleansing,16,16,16,,1,0,0,0,8,3,3,0,0,0,0
 transformer models,16,16,11,nlp,0,0,5,0,0,0,3,0,4,0,2
 css,16,16,12,,0,0,3,1,0,0,0,5,1,0,0
 research,16,16,15,research,1,0,4,0,2,0,2,0,3,1,3
 production ml,16,16,13,model_serving,0,0,3,0,0,0,4,1,5,0,1
-bayesian statistics,16,16,13,statistics,7,0,0,0,1,0,10,0,1,0,1
+bayesian statistics,16,16,13,statistics,6,0,0,0,1,0,10,0,1,0,1
 qdrant,16,16,9,rag,0,2,8,0,0,0,0,1,1,0,0
 crm,16,16,10,,2,0,3,0,3,1,4,4,0,0,0
-backtesting,16,16,15,quant_research,1,0,1,0,0,2,3,0,0,9,0
+backtesting,16,16,15,quant_research,0,0,1,0,0,2,3,0,0,9,0
 agent architectures,16,16,15,agents,0,0,9,0,0,0,1,2,2,0,1
 llm-as-judge,16,16,14,llm_apps,2,0,7,0,0,1,3,0,0,0,1
-model lifecycle management,16,16,14,,0,0,3,0,0,1,6,0,3,0,0
-openai api,16,16,9,llm_apps,1,1,7,0,2,0,0,0,2,0,0
+model lifecycle management,16,16,14,,1,0,3,0,0,1,6,0,3,0,0
+openai api,16,16,9,llm_apps,0,2,6,0,2,0,0,0,2,0,0
 agent systems,16,16,15,agents,0,0,5,0,0,0,0,3,3,0,0
 chemistry,16,16,12,,0,0,0,0,0,1,3,0,1,0,8
 open source,16,16,2,,0,0,4,0,0,0,0,5,2,0,2
 golang,16,16,14,systems_lang,0,0,4,0,0,0,0,6,1,0,0
-google ads,16,16,10,,2,0,1,1,6,5,2,0,0,0,0
+google ads,16,16,10,,2,1,0,1,6,5,2,0,0,0,0
 data quality management,16,16,15,pipelines_etl,1,0,0,0,7,5,2,0,0,1,0
 project ownership,16,16,14,,0,0,1,0,3,2,4,3,1,0,2
 ml frameworks,16,16,15,,2,0,2,0,0,0,2,0,9,0,1
-root cause analysis,16,16,16,,1,1,2,0,3,2,1,0,1,1,0
+root cause analysis,16,16,16,,0,1,2,0,3,2,1,0,1,1,0
 athena,16,16,13,,0,0,1,0,2,7,3,0,0,0,1
 ml engineering,16,16,12,,0,0,3,0,0,1,2,1,7,0,0
 power query,15,15,13,,0,0,1,0,8,4,1,0,0,0,0
@@ -599,12 +599,12 @@ parquet,15,15,10,,0,0,1,0,0,10,3,0,0,0,0
 streaming data,15,15,11,streaming,0,0,3,2,0,8,0,1,0,0,0
 model routing,15,15,11,,0,0,9,0,0,0,2,1,1,0,1
 probability theory,15,15,14,statistics,0,0,1,0,1,0,6,0,0,5,2
-make,15,15,7,,0,8,4,0,0,1,0,1,0,0,0
+make,15,15,7,,0,8,2,0,2,1,0,1,0,0,0
 experimentation design,15,15,14,experimentation,10,0,0,0,2,0,12,0,0,0,0
 llm observability,15,15,6,llm_observability,0,0,9,0,0,0,1,0,0,0,0
 cloud environments,15,15,14,cloud,1,0,7,0,0,2,2,2,0,0,0
 event-driven systems,15,15,10,streaming,0,1,7,0,0,1,0,3,0,0,0
-quantitative research,15,15,12,quant_research,3,0,2,0,3,0,1,1,0,5,1
+quantitative research,15,15,12,quant_research,1,0,2,0,3,0,1,1,0,5,1
 azure databricks,15,15,10,cloud,2,0,1,0,2,6,4,1,0,0,0
 apache flink,15,15,8,spark_distributed,0,0,0,0,0,9,1,0,2,0,0
 customer analytics,15,15,11,customer_facing,1,0,0,1,4,2,6,0,0,0,0
@@ -614,12 +614,12 @@ amazon redshift,15,15,11,warehouse,0,0,0,3,3,7,0,0,0,0,0
 saml,15,15,10,,0,0,0,0,0,0,0,12,0,0,0
 applied ai,15,15,15,,0,0,11,0,0,0,1,1,1,0,0
 data warehouses,15,15,13,warehouse,0,0,2,0,1,7,0,1,0,0,0
-api integrations,15,15,14,apis_services,0,2,4,0,2,3,1,1,0,0,0
-ga4,15,15,7,,2,0,1,1,8,2,0,0,0,0,0
-pgvector,15,15,9,rag,0,1,7,0,0,0,0,2,1,0,0
+api integrations,15,15,14,apis_services,0,3,3,0,2,3,1,1,0,0,0
+ga4,15,15,7,,0,1,0,1,8,2,0,0,0,0,0
+pgvector,15,15,9,rag,0,2,6,0,0,0,0,2,1,0,0
 openshift,15,15,8,,0,0,7,0,0,0,0,4,1,0,0
 user research,15,15,14,research,0,0,5,0,0,0,0,2,0,0,0
-web development,15,15,13,,0,0,3,0,0,1,1,7,0,0,0
+web development,15,15,13,,0,1,2,0,0,1,1,7,0,0,0
 agile methodologies,15,15,10,,2,0,3,0,1,1,2,2,1,0,1
 vue,15,15,8,,0,0,3,0,0,0,0,4,0,0,0
 3d reconstruction,15,15,13,,0,0,1,0,0,1,1,0,4,0,3
@@ -627,17 +627,17 @@ product development,14,14,14,,1,0,2,0,0,0,2,2,0,0,0
 solution engineering,14,14,13,customer_facing,0,0,0,0,0,0,0,13,0,0,0
 llm inference,14,14,13,llm_apps,0,0,5,0,0,0,0,0,2,0,4
 demand forecasting,14,14,11,forecasting,1,0,0,0,2,0,8,0,1,1,1
-ai-assisted coding,14,14,14,,1,0,2,0,2,1,2,0,1,0,0
-storytelling,14,14,14,stakeholder_comms,5,0,0,0,5,0,3,5,0,0,0
+ai-assisted coding,14,14,14,,1,1,1,0,2,1,2,0,1,0,0
+storytelling,14,14,14,stakeholder_comms,3,0,0,0,5,0,3,5,0,0,0
 grpc,14,14,8,apis_services,0,0,8,0,0,0,0,1,1,0,0
 data pipeline,14,14,12,pipelines_etl,0,0,1,1,0,4,2,0,2,0,0
 llm application development,14,14,14,llm_apps,0,0,11,0,0,0,0,2,0,0,0
-performance management,14,14,12,,1,0,1,0,2,1,3,0,0,0,0
+performance management,14,14,12,,0,0,1,0,2,1,3,0,0,0,0
 rapid prototyping,14,14,10,,0,1,5,0,0,0,1,4,0,0,1
 statsmodels,14,14,13,,1,0,0,0,1,0,10,0,0,1,0
 iceberg,14,14,6,,0,0,2,0,0,7,3,0,1,0,0
 dynamodb,14,14,11,,0,0,7,0,0,1,0,1,3,0,0
-kpi definition,14,14,14,product_analytics,1,0,0,0,9,0,1,0,0,0,0
+kpi definition,14,14,14,product_analytics,0,0,0,0,9,0,1,0,0,0,0
 fsdp,14,14,9,spark_distributed,0,0,1,0,0,0,0,0,3,0,7
 argocd,14,14,12,,0,0,1,0,0,1,0,5,5,0,0
 monitoring and alerting,14,14,14,llm_observability,1,0,2,0,0,8,1,0,3,0,0
@@ -645,12 +645,12 @@ large-scale data processing,14,14,10,,0,0,0,0,0,2,3,0,5,0,1
 ruby,14,14,10,,0,0,0,0,0,1,0,9,0,0,0
 healthcare domain,14,14,1,,0,0,4,0,0,2,2,4,0,0,0
 product demonstrations,14,14,13,,0,0,0,0,0,0,0,14,0,0,0
-computer science,14,14,12,,2,0,3,0,1,0,0,1,1,4,2
+computer science,14,14,12,,0,0,3,0,1,0,0,1,1,4,2
 drift detection,14,14,14,llm_observability,1,0,7,0,0,0,3,0,3,0,0
-dashboard creation,14,14,13,bi_dashboards,0,2,0,1,8,1,2,0,0,0,0
+dashboard creation,14,14,13,bi_dashboards,0,0,0,1,10,1,2,0,0,0,0
 matplotlib,14,14,13,,1,0,0,0,2,1,7,0,2,0,0
 finops,14,14,8,,0,0,2,0,1,2,0,5,2,0,0
-crm systems,14,14,9,,1,0,6,0,3,1,0,2,0,0,0
+crm systems,14,14,9,,0,1,5,0,3,1,0,2,0,0,0
 pytest,14,14,12,,0,0,5,0,0,2,0,0,6,0,0
 hybrid search,14,14,12,,0,0,7,0,0,0,4,0,0,0,0
 devsecops,14,14,13,,1,0,5,0,0,0,1,5,1,0,0
@@ -665,7 +665,7 @@ html,14,14,11,,0,0,2,1,0,0,0,6,0,0,0
 backend services,14,14,14,,0,1,7,0,0,0,0,0,2,0,0
 lora,14,14,9,fine_tuning,0,0,7,0,0,0,1,0,2,0,0
 uplift modeling,14,14,13,experimentation,5,0,0,0,0,0,10,0,2,0,0
-propensity modeling,14,14,9,,3,0,1,0,2,0,10,0,0,0,1
+propensity modeling,14,14,9,,4,0,1,0,2,0,10,0,0,0,1
 speculative decoding,14,14,11,,0,0,6,0,0,0,0,0,2,0,2
 azure synapse,14,14,9,cloud,0,0,3,1,0,4,0,2,0,0,0
 metric definition,14,14,14,,5,0,0,3,4,1,5,0,0,0,0
@@ -679,7 +679,7 @@ end-to-end ownership,13,13,13,,1,2,4,0,0,0,1,2,1,0,0
 instrumentation,13,13,13,,0,0,3,0,0,0,0,9,0,0,0
 ai observability,13,13,5,llm_observability,0,0,10,0,0,0,0,0,0,0,0
 model distillation,13,13,9,,0,0,2,0,0,0,0,1,4,0,3
-powerpoint,13,13,12,bi_dashboards,3,0,0,0,4,0,3,1,0,0,2
+powerpoint,13,13,12,bi_dashboards,1,0,0,0,4,0,3,1,0,0,2
 microsoft 365,13,13,10,,0,2,4,0,0,0,0,7,0,0,0
 virtualization,13,13,12,,0,0,0,0,0,0,0,7,0,0,2
 google adk,13,13,10,,0,0,4,0,1,1,2,0,1,0,0
@@ -712,10 +712,10 @@ ai systems,13,13,11,,0,1,3,0,0,1,3,3,1,0,0
 travel,13,13,13,,0,0,1,1,1,0,0,9,0,0,0
 azure functions,13,13,12,cloud,0,4,6,0,0,1,0,0,0,0,0
 scrum,13,13,10,,0,0,2,0,1,3,4,0,1,0,0
-research methodology,13,13,13,research,3,0,1,0,0,0,3,0,0,3,5
+research methodology,13,13,13,research,1,0,1,0,0,0,3,0,0,3,5
 data warehouse architecture,13,13,12,warehouse,0,0,0,0,0,10,0,0,2,0,0
-xml,13,13,9,,0,2,2,1,0,2,0,5,0,0,0
-microsoft excel,13,13,13,bi_dashboards,2,0,0,0,8,0,2,0,0,0,1
+xml,13,13,9,,0,0,2,1,2,2,0,5,0,0,0
+microsoft excel,13,13,13,bi_dashboards,1,0,0,0,8,0,2,0,0,0,1
 product sense,13,13,13,,2,0,5,0,0,0,2,1,0,0,0
 opencv,13,13,8,computer_vision,0,0,2,0,0,1,3,1,4,0,1
 inference,13,13,11,model_serving,0,0,3,0,0,1,1,0,5,0,1
@@ -723,7 +723,7 @@ big data,13,13,9,,0,0,1,0,0,3,6,2,0,0,0
 technical presentations,13,13,13,stakeholder_comms,0,0,2,0,0,0,0,11,0,0,0
 orchestration tools,13,13,6,orchestration,0,0,0,0,0,4,2,4,1,0,1
 seo,12,12,5,,3,1,0,0,4,0,1,5,0,0,0
-anthropic api,12,12,7,llm_apps,1,0,7,0,2,0,0,0,2,0,0
+anthropic api,12,12,7,llm_apps,0,1,6,0,2,0,0,0,2,0,0
 rest api design,12,12,12,apis_services,0,0,3,0,0,0,0,4,1,0,0
 synthetic data generation,12,12,5,,0,0,5,0,0,0,0,0,4,0,1
 time series forecasting,12,12,11,forecasting,2,0,0,0,0,0,10,0,0,0,0
@@ -732,7 +732,7 @@ enterprise integrations,12,12,9,,0,0,2,0,0,0,0,7,0,0,0
 cloud services,12,12,10,cloud,0,0,2,0,0,2,0,2,4,0,0
 rest,12,12,8,,0,1,7,0,0,0,0,3,0,0,0
 semantic modeling,12,12,10,,0,0,3,2,2,3,1,0,0,0,0
-chatgpt,12,12,10,,0,1,4,0,1,2,0,1,1,0,0
+chatgpt,12,12,10,,0,2,3,0,1,2,0,1,1,0,0
 faiss,12,12,6,rag,0,0,7,0,0,0,0,0,4,0,0
 evals,12,12,12,model_evaluation,0,0,6,0,0,0,0,1,0,0,1
 erp systems,12,12,10,,0,0,1,0,2,3,0,4,1,0,0
@@ -745,7 +745,7 @@ tailwind css,12,12,9,,0,0,5,0,0,0,0,3,0,0,0
 reward modeling,12,12,10,,0,0,1,0,0,0,0,0,2,0,7
 spanish language,12,12,5,,0,0,1,0,1,1,0,8,0,0,0
 audio processing,12,12,10,,0,0,0,0,0,0,3,0,0,0,4
-payments,12,12,2,,1,0,4,0,1,0,3,3,1,0,0
+payments,12,12,2,,0,0,4,0,1,0,3,3,1,0,0
 vulnerability management,12,12,10,,0,0,3,0,0,0,1,7,0,0,0
 materials science,12,12,9,,0,0,1,0,0,1,1,0,1,1,4
 deep learning frameworks,12,12,10,deep_learning,0,0,4,0,0,0,2,0,4,0,1
@@ -753,7 +753,7 @@ event-driven architectures,12,12,7,streaming,0,0,3,0,0,4,0,0,1,0,0
 econometrics,12,12,9,,3,0,0,0,2,0,8,0,0,0,0
 infrastructure engineering,12,12,10,,0,0,3,0,0,0,0,4,0,0,0
 model compression,12,12,11,,0,0,3,0,0,0,0,0,4,0,4
-quantitative finance,12,12,7,quant_research,3,0,1,0,0,1,3,0,0,3,2
+quantitative finance,12,12,7,quant_research,2,0,1,0,0,1,3,0,0,3,2
 rds,12,12,12,,0,0,2,0,0,5,0,2,1,0,0
 metrics design,12,12,12,,3,0,2,0,1,0,4,0,2,0,0
 production ai systems,12,12,10,,0,0,6,0,0,0,1,3,0,0,0
@@ -765,16 +765,16 @@ infrastructure automation,12,12,10,,0,0,5,0,0,1,1,1,2,0,0
 ml deployment,12,12,11,,0,0,5,0,0,0,3,1,3,0,0
 data mapping,12,12,12,,1,0,1,0,3,4,1,2,0,0,0
 test automation,12,12,11,,0,3,2,0,0,1,1,2,0,0,0
-presentation,12,12,12,stakeholder_comms,0,0,1,0,2,0,4,3,0,0,0
+presentation,12,12,12,stakeholder_comms,1,0,1,0,2,0,4,3,0,0,0
 data platform architecture,12,12,12,,0,0,2,0,0,7,0,0,0,0,0
 supervised fine-tuning,12,12,9,fine_tuning,0,0,4,0,0,0,0,0,2,0,5
 vector stores,12,12,11,rag,0,0,8,0,0,0,0,0,0,0,0
-jupyter notebooks,12,12,6,,2,0,0,0,5,2,1,0,1,0,0
+jupyter notebooks,12,12,6,,1,0,0,0,5,2,1,0,1,0,0
 identity management,12,12,11,,0,2,5,0,0,0,0,4,0,0,0
 playwright,12,12,8,,0,0,4,0,0,0,0,0,0,0,1
 ml libraries,12,12,12,,0,0,2,0,0,0,2,0,8,0,0
 dashboard building,12,12,11,bi_dashboards,1,0,0,0,10,0,1,0,0,0,0
-data management,12,12,12,,2,1,0,0,4,2,2,0,0,0,0
+data management,12,12,12,,1,1,0,0,4,2,2,0,0,0,0
 gpu infrastructure,12,12,8,deep_learning,0,0,5,0,0,0,0,2,2,0,0
 video generation,12,12,10,,0,0,1,0,0,0,0,0,6,0,3
 business case development,12,12,12,,0,0,1,0,1,0,2,6,0,0,0
@@ -788,24 +788,24 @@ rabbitmq,11,11,4,,0,0,2,0,0,3,0,2,2,0,0
 competitive programming,11,11,2,,0,0,1,0,0,0,0,1,0,0,2
 orchestration frameworks,11,11,11,orchestration,0,0,4,0,0,0,0,3,0,0,0
 milvus,11,11,5,,0,1,6,0,0,0,1,0,3,0,0
-matlab,11,11,9,,1,0,0,1,1,0,4,0,0,3,2
-ontologies,11,11,3,,1,0,2,0,0,1,4,1,1,0,0
+matlab,11,11,9,,0,0,0,1,1,0,4,0,0,3,2
+ontologies,11,11,3,,0,0,2,0,0,1,4,1,1,0,0
 llm security,11,11,10,llm_apps,0,0,6,0,0,0,0,0,3,0,0
 production engineering,11,11,9,,0,0,7,0,0,0,0,1,1,0,0
 ai platforms,11,11,8,,0,0,5,0,0,1,1,2,1,0,0
 cloud data warehouse,11,11,11,cloud,1,0,1,1,2,6,0,0,0,0,0
-finance,11,11,10,,3,0,0,0,2,2,0,0,0,5,0
+finance,11,11,10,,0,0,0,0,2,2,0,0,0,5,0
 dvc,11,11,5,,0,0,3,0,0,0,3,1,2,0,0
-ml lifecycle,11,11,10,,0,0,0,0,0,0,2,2,3,0,0
+ml lifecycle,11,11,10,,1,0,0,0,0,0,2,2,3,0,0
 image processing,11,11,5,computer_vision,0,0,0,0,1,1,3,0,4,0,0
 bedrock,11,11,7,llm_apps,0,0,6,0,0,1,1,1,0,0,0
 semantic layer,11,11,8,,0,0,0,5,2,3,0,0,0,0,0
 data manipulation,11,11,10,,0,0,2,0,1,0,4,0,1,0,0
 ai research,11,11,8,research,0,0,7,0,0,0,1,0,0,0,3
-time-series forecasting,11,11,5,forecasting,2,0,0,0,0,0,8,0,3,0,0
+time-series forecasting,11,11,5,forecasting,3,0,0,0,0,0,8,0,3,0,0
 security architecture,11,11,10,,0,0,1,0,0,0,0,6,0,0,2
 independent work,11,11,11,,1,0,3,0,0,0,2,0,1,0,0
-financial markets,11,11,6,,3,0,1,0,0,0,3,0,0,3,2
+financial markets,11,11,6,,2,0,1,0,0,0,3,0,0,3,2
 production support,11,11,11,,0,0,4,0,0,3,0,0,0,0,0
 ai deployment,11,11,10,,0,0,7,0,0,0,1,3,0,0,0
 incident management,11,11,11,,0,0,2,1,1,2,0,0,0,0,0
@@ -821,7 +821,7 @@ infrastructure,11,11,11,,0,0,2,0,0,0,0,2,2,0,0
 gitlab ci,11,11,9,cicd_testing,0,0,5,0,0,0,0,1,2,0,0
 test-driven development,11,11,11,,1,0,0,0,0,2,2,0,1,0,0
 computer graphics,11,11,7,,0,0,0,0,0,0,0,0,5,0,3
-survival analysis,11,11,7,,5,0,0,0,1,0,8,0,0,0,0
+survival analysis,11,11,7,,4,0,0,0,1,0,8,0,0,0,0
 remote sensing,11,11,3,,0,0,2,0,1,0,3,0,3,0,1
 pre-sales,11,11,8,customer_facing,0,0,1,0,0,1,0,6,2,0,1
 dataops,11,11,9,,0,0,0,1,0,8,0,0,0,0,0
@@ -829,7 +829,7 @@ model explainability,11,11,9,responsible_ai,0,0,1,0,0,0,6,0,2,0,0
 dataform,11,11,9,,0,0,2,0,3,6,0,0,0,0,0
 performance profiling,11,11,7,,0,0,4,0,0,0,0,1,2,0,2
 cloud-native architectures,11,11,10,cloud,0,0,6,0,0,1,0,0,1,0,0
-web analytics,11,11,8,product_analytics,2,0,0,3,3,4,1,0,0,0,0
+web analytics,11,11,8,product_analytics,1,0,0,3,3,4,1,0,0,0,0
 encryption,11,11,10,,0,0,1,0,0,4,1,3,0,0,0
 caching,11,11,10,,0,0,5,0,0,0,0,0,0,0,1
 distributed tracing,11,11,11,llm_observability,0,0,0,0,0,0,0,8,0,0,0
@@ -848,12 +848,12 @@ red-teaming,10,10,7,,0,0,4,0,0,0,1,0,1,0,1
 clean code,10,10,10,,0,0,1,0,0,0,0,2,2,0,0
 difference-in-differences,10,10,5,,8,0,0,0,3,0,6,0,0,0,0
 aws cdk,10,10,6,cloud,0,0,1,0,0,1,0,3,1,0,0
-client management,10,10,10,customer_facing,3,0,1,0,1,0,2,5,0,0,1
+client management,10,10,10,customer_facing,2,0,1,0,1,0,2,5,0,0,1
 c/c++,10,10,10,systems_lang,0,0,2,1,0,0,0,5,1,0,0
 gpu architecture,10,10,4,deep_learning,0,0,3,0,0,0,0,0,0,0,0
-looker studio,10,10,4,bi_dashboards,1,2,0,0,5,0,0,0,0,0,0
+looker studio,10,10,4,bi_dashboards,0,0,0,0,7,0,0,0,0,0,0
 pydantic,10,10,9,,0,0,6,0,0,1,0,0,0,0,0
-trend analysis,10,10,9,,1,0,1,0,6,0,2,0,0,1,0
+trend analysis,10,10,9,,0,0,1,0,6,0,2,0,0,1,0
 explainability,10,10,9,responsible_ai,1,0,4,0,0,0,3,0,2,0,0
 agile delivery,10,10,8,,0,0,3,0,0,2,1,2,1,0,1
 evaluation metrics,10,10,10,,0,0,2,0,0,0,3,0,2,0,0
@@ -862,9 +862,9 @@ data lakehouse,10,10,9,warehouse,0,0,0,0,0,10,0,0,0,0,0
 business development,10,10,7,,0,1,3,0,0,0,0,1,0,0,2
 nestjs,10,10,6,,0,0,5,0,0,0,0,0,0,0,0
 sales support,10,10,10,,0,1,1,0,0,0,0,7,0,0,0
-quantitative degree,10,10,10,,3,0,0,0,1,0,4,0,1,3,1
+quantitative degree,10,10,10,,2,0,0,0,1,0,4,0,1,3,1
 object-oriented design,10,10,10,,0,0,2,0,0,2,0,0,0,2,1
-data annotation,10,10,7,,0,0,1,0,0,2,2,1,0,0,1
+data annotation,10,10,7,,1,0,1,0,0,2,2,1,0,0,1
 dask,10,10,6,,0,0,0,0,0,2,6,0,1,0,0
 research publications,10,10,5,research,0,0,3,0,0,0,1,0,2,0,4
 llama,10,10,9,llm_apps,0,0,5,0,0,0,1,0,1,0,0
@@ -905,7 +905,7 @@ edge deployment,10,10,4,,0,0,5,0,0,0,0,0,5,0,0
 message queues,10,10,7,,0,0,2,0,1,1,1,1,0,0,0
 structured data,10,10,9,,1,0,2,0,0,0,6,0,1,0,0
 dpo,10,10,6,fine_tuning,0,0,2,0,0,0,0,0,2,0,5
-engineering,10,10,9,,3,0,0,0,0,0,1,1,1,4,1
+engineering,10,10,9,,0,0,0,0,0,0,1,1,1,4,1
 synthetic control,10,10,5,,7,0,0,0,1,0,8,0,0,0,0
 superset,10,10,6,,3,0,0,0,4,2,3,0,0,0,0
 entra id,10,10,8,,0,0,3,0,0,1,0,4,0,0,1
@@ -922,27 +922,27 @@ data observability,9,9,5,llm_observability,0,0,1,2,1,2,1,0,0,0,0
 real-time inference,9,9,7,model_serving,0,0,0,0,0,0,4,0,3,0,0
 developer tooling,9,9,8,,0,0,3,0,0,0,0,2,0,0,0
 system integrations,9,9,8,,0,0,4,0,0,1,0,3,0,0,0
-financial modeling,9,9,7,,3,0,0,0,4,0,4,0,0,0,0
+financial modeling,9,9,7,,2,0,0,0,4,0,4,0,0,0,0
 production software,9,9,9,,0,0,5,0,0,0,0,0,1,0,0
-marketing automation,9,9,5,,0,1,4,0,1,0,0,2,0,0,0
+marketing automation,9,9,5,,0,2,3,0,1,0,0,2,0,0,0
 customer success,9,9,8,customer_facing,0,0,0,0,0,0,1,6,0,0,0
 data models,9,9,9,,0,1,1,1,1,3,0,2,0,0,0
 llm tools,9,9,7,llm_apps,1,0,1,0,1,0,3,1,0,0,0
 sas,9,9,8,,1,0,0,0,2,0,2,0,0,0,0
 data orchestration,9,9,9,orchestration,0,0,1,0,0,4,2,0,0,0,0
 linux administration,9,9,8,,0,0,3,0,0,1,0,4,0,0,0
-dashboarding,9,9,5,bi_dashboards,2,0,1,0,4,0,2,1,0,0,0
+dashboarding,9,9,5,bi_dashboards,2,1,0,0,4,0,2,1,0,0,0
 gpu programming,9,9,6,deep_learning,0,0,3,0,0,0,0,0,2,0,3
 azure ai services,9,9,7,cloud,0,2,7,0,0,0,0,0,0,0,0
 iso 27001,9,9,3,,0,0,2,0,1,0,0,3,0,0,0
 regulatory reporting,9,9,5,bi_dashboards,0,0,0,0,5,0,0,2,0,0,0
 open-weight models,9,9,5,,1,0,3,0,0,0,1,1,0,0,2
 xla,9,9,5,,0,0,5,0,0,0,0,0,0,0,4
-microsoft copilot studio,9,9,5,llm_apps,0,3,1,0,1,0,3,0,0,0,0
+microsoft copilot studio,9,9,5,llm_apps,1,3,1,0,1,0,3,0,0,0,0
 t-sql,9,9,9,sql,0,0,1,0,1,6,0,0,0,0,0
 coaching,9,9,8,mentoring_leadership,1,0,0,1,1,1,0,0,0,0,0
 front-end development,9,9,3,typescript,0,0,5,0,0,0,0,4,0,0,0
-marketing attribution,9,9,6,,5,0,0,0,5,1,3,0,0,0,0
+marketing attribution,9,9,6,,4,0,0,0,5,1,3,0,0,0,0
 transfer learning,9,9,8,,0,0,1,0,0,0,3,0,2,1,1
 predictive modelling,9,9,8,classical_ml,0,0,0,0,1,0,7,0,0,0,0
 ai agent development,9,9,9,agents,0,0,5,0,0,0,1,0,0,0,0
@@ -958,14 +958,14 @@ design patterns,9,9,9,,0,0,3,0,0,2,0,0,3,0,0
 people leadership,9,9,9,mentoring_leadership,0,0,1,0,0,1,0,1,2,0,0
 performance marketing,9,9,6,,4,0,0,0,3,0,5,0,0,0,0
 cloud storage,9,9,8,cloud,0,0,0,0,0,5,3,1,0,0,0
-ai technologies,9,9,7,,1,0,0,0,0,1,1,2,1,3,0
+ai technologies,9,9,7,,0,0,0,0,0,1,1,2,1,3,0
 enterprise integration,9,9,9,,0,0,6,0,0,0,0,2,0,0,0
 llm post-training,9,9,7,llm_apps,0,0,0,0,0,0,2,0,2,0,3
 data interpretation,9,9,9,,1,0,0,0,5,0,0,0,0,0,1
 dynamics 365,9,9,4,,0,0,2,1,1,1,0,3,0,0,0
 cloud-native systems,9,9,9,cloud,0,0,5,0,0,1,0,2,1,0,0
 public speaking,9,9,4,,0,0,1,0,0,0,1,5,1,0,0
-large-scale data,9,9,8,,1,0,1,0,0,3,1,0,1,2,1
+large-scale data,9,9,8,,0,0,1,0,0,3,1,0,1,2,1
 database management,9,9,9,,0,0,0,0,2,3,2,0,0,0,0
 privacy,9,9,7,,0,0,6,0,0,1,1,0,0,0,0
 asynchronous programming,9,9,9,,1,0,3,0,0,0,1,0,0,0,0
@@ -993,12 +993,12 @@ lakehouse,9,9,5,warehouse,0,0,0,0,0,5,0,1,1,0,0
 airbyte,9,9,7,,0,0,0,2,2,5,0,0,0,0,0
 evaluation pipelines,9,9,9,model_evaluation,0,0,4,0,0,0,0,0,2,0,2
 biostatistics,9,9,9,,0,0,0,0,0,0,0,0,0,0,0
-adaptability,9,9,9,,0,0,1,0,1,0,2,4,0,0,0
+adaptability,9,9,9,,0,1,0,0,1,0,2,4,0,0,0
 spark streaming,9,9,3,spark_distributed,0,0,1,0,0,7,1,0,0,0,0
 technical strategy,9,9,8,,1,0,4,0,0,0,1,0,2,0,0
 ai applications,9,9,7,,0,1,4,0,0,0,0,3,1,0,0
 ai tooling,9,9,8,,0,0,3,0,0,3,0,1,0,0,0
-kpi development,9,9,9,product_analytics,1,0,0,0,8,0,0,1,0,0,0
+kpi development,9,9,9,product_analytics,0,0,0,0,8,0,0,1,0,0,0
 hallucination mitigation,9,9,7,,0,0,5,0,0,0,0,0,1,0,1
 machine learning pipelines,9,9,8,classical_ml,0,0,1,0,0,2,2,0,4,0,0
 customer lifetime value,8,8,8,customer_facing,4,0,0,0,3,0,5,0,0,0,0
@@ -1013,14 +1013,14 @@ integration testing,8,8,7,cicd_testing,0,0,2,0,0,2,1,0,1,0,0
 code generation,8,8,5,,0,0,6,0,0,0,0,0,0,0,1
 customer support,8,8,8,customer_facing,0,0,1,0,1,0,0,5,0,0,0
 pricing models,8,8,5,,1,0,1,0,0,1,3,0,1,2,0
-applied mathematics,8,8,8,,3,0,0,0,0,0,2,0,2,4,0
+applied mathematics,8,8,8,,1,0,0,0,0,0,2,0,2,4,0
 integrations,8,8,8,,0,0,1,0,0,0,0,6,0,0,0
 growth analytics,8,8,4,product_analytics,4,0,0,0,1,1,4,0,0,0,0
 functional programming,8,8,5,,0,0,4,0,0,0,1,1,0,0,0
 agent architecture,8,8,7,agents,0,0,4,0,0,0,0,0,0,0,0
 cloud-native technologies,8,8,8,cloud,0,0,4,0,0,0,0,4,0,0,0
 ai orchestration,8,8,6,orchestration,0,1,5,0,0,0,1,1,0,0,0
-algorithm design,8,8,7,,2,0,2,0,0,1,2,0,0,2,1
+algorithm design,8,8,7,,0,0,2,0,0,1,2,0,0,2,1
 retrieval augmented generation,8,8,8,rag,0,0,4,0,0,0,2,0,1,0,0
 audit logging,8,8,8,,0,1,5,0,0,0,0,0,0,0,0
 model tuning,8,8,8,,0,0,1,0,0,0,3,2,1,0,0
@@ -1031,7 +1031,7 @@ spacy,8,8,5,,0,0,3,0,0,0,3,0,1,0,0
 generative modeling,8,8,8,,0,0,0,0,0,0,0,0,2,0,5
 capacity planning,8,8,5,,0,0,2,0,2,1,0,1,1,0,0
 cross-functional leadership,8,8,7,stakeholder_comms,1,0,3,0,0,0,2,0,0,0,0
-pattern recognition,8,8,8,,1,1,0,0,2,0,1,0,0,1,0
+pattern recognition,8,8,8,,0,1,0,0,2,0,1,0,0,1,0
 lakehouse architectures,8,8,6,warehouse,0,0,1,1,0,5,0,0,0,0,0
 gans,8,8,4,deep_learning,0,0,1,0,0,0,1,0,4,0,0
 document parsing,8,8,8,,0,0,5,0,0,0,1,0,1,0,0
@@ -1065,7 +1065,7 @@ infiniband,8,8,4,,0,0,3,0,0,0,0,2,2,0,0
 product engineering,8,8,5,,0,0,4,0,0,0,1,1,0,0,0
 bayesian inference,8,8,7,model_serving,0,0,0,0,1,0,3,0,1,0,2
 threat intelligence,8,8,5,,0,0,1,0,1,1,3,1,0,0,1
-time management,8,8,8,,1,0,1,0,0,0,1,4,0,1,1
+time management,8,8,8,,0,0,1,0,0,0,1,4,0,1,1
 security best practices,8,8,7,,0,0,3,0,0,2,0,1,0,0,0
 workato,8,8,6,,0,0,3,0,0,0,0,4,0,0,0
 container orchestration,8,8,5,orchestration,0,0,3,0,0,1,0,1,1,0,0
@@ -1073,7 +1073,7 @@ sequence models,8,8,4,,0,0,0,0,0,0,5,0,2,1,0
 shell scripting,8,8,7,,0,0,0,0,0,1,0,4,0,0,1
 tracking,8,8,6,,0,0,2,0,0,1,1,0,4,0,0
 hpc,8,8,2,,0,0,3,0,0,0,0,0,0,0,2
-window functions,8,8,8,,1,0,0,2,3,3,0,0,0,0,0
+window functions,8,8,8,,0,0,0,2,3,3,0,0,0,0,0
 pydantic ai,8,8,3,agents,0,0,4,0,0,0,1,0,0,0,0
 storage systems,8,8,7,,0,0,1,0,0,1,0,3,0,0,1
 llm tooling,8,8,3,llm_apps,1,0,3,0,1,2,1,1,0,0,0
@@ -1100,36 +1100,36 @@ agentic development,8,8,6,agents,0,0,2,0,0,0,2,2,0,0,0
 time series,8,8,4,time_series,0,0,1,0,0,0,4,0,2,0,0
 deployment automation,8,8,5,cicd_testing,0,0,1,0,0,1,0,2,0,0,0
 workshop facilitation,8,8,7,,0,0,2,0,3,0,0,2,0,0,0
-event tracking,8,8,6,,2,0,1,0,5,1,1,0,0,0,0
+event tracking,8,8,6,,1,0,1,0,5,1,1,0,0,0,0
 financial crime,8,8,3,,1,0,2,0,1,0,2,1,1,0,0
 multi-task learning,8,8,6,,0,0,2,0,0,0,3,0,2,0,1
 cloud,8,8,6,cloud,0,0,0,0,0,0,1,7,0,0,0
 hybrid retrieval,8,8,8,rag,0,0,6,0,0,0,2,0,0,0,0
 hybrid cloud,8,8,8,cloud,0,0,1,0,0,0,0,5,0,0,0
-vba,8,8,6,,3,0,0,0,1,0,0,1,0,1,2
+vba,8,8,6,,0,0,0,0,1,0,0,1,0,1,2
 mcp server development,8,8,5,agents,0,0,4,0,0,2,1,0,0,0,0
 technical mentorship,8,8,8,mentoring_leadership,0,0,2,0,0,1,1,0,0,0,0
 systems engineering,8,8,5,,1,0,1,0,0,0,1,3,0,0,3
 aws step functions,8,8,3,cloud,0,0,2,1,0,2,0,0,0,0,1
 process mapping,8,8,7,,0,1,1,0,1,0,2,1,0,0,0
-biology,8,8,4,,1,0,1,0,0,0,1,0,0,1,3
+biology,8,8,4,,0,0,1,0,0,0,1,0,0,1,3
 microsoft copilot,8,8,7,llm_apps,0,5,2,0,1,0,0,0,0,0,0
 model architecture,8,8,8,,0,0,1,0,0,0,0,0,5,0,2
 adobe analytics,8,8,6,product_analytics,0,0,0,0,6,0,0,1,0,0,0
 agentic coding,8,8,8,agents,2,0,0,0,1,1,1,1,1,0,0
-churn prediction,8,8,6,,2,0,0,1,1,0,6,0,0,0,0
+churn prediction,8,8,6,,3,0,0,1,1,0,6,0,0,0,0
 data-driven decision making,7,7,7,,2,0,0,0,1,0,3,1,0,0,0
 document intelligence,7,7,7,,0,0,5,0,0,0,1,0,0,0,0
 streaming systems,7,7,6,streaming,0,0,0,0,0,2,0,1,1,1,1
 vector database,7,7,3,rag,0,0,4,0,0,0,1,0,0,0,0
 cloudwatch,7,7,6,,0,0,3,0,0,0,0,1,0,0,0
-zendesk,7,7,4,,0,2,2,0,0,0,0,1,0,0,0
+zendesk,7,7,4,,0,3,1,0,0,0,0,1,0,0,0
 ai system design,7,7,6,software_engineering,0,0,5,0,0,0,0,0,0,0,1
 microservices architecture,7,7,5,software_engineering,0,0,1,0,0,0,0,4,0,0,0
 medical imaging,7,7,4,,0,0,1,0,0,0,3,0,0,0,2
 batch pipelines,7,7,7,pipelines_etl,0,0,2,0,0,4,1,0,0,0,0
 dataflow,7,7,6,,0,0,0,0,0,4,0,0,1,0,0
-mcps,7,7,7,,0,0,4,0,0,1,0,2,0,0,0
+mcps,7,7,7,,0,1,3,0,0,1,0,2,0,0,0
 technical troubleshooting,7,7,7,cicd_testing,0,1,0,0,0,0,0,5,0,0,1
 dynatrace,7,7,3,,0,0,6,0,0,0,0,0,1,0,0
 hyperparameter tuning,7,7,7,,0,0,0,0,0,0,2,0,0,1,0
@@ -1140,7 +1140,7 @@ kyc,7,7,4,,0,0,1,0,1,0,0,0,2,0,0
 ml evaluation,7,7,7,,0,0,3,0,0,0,0,0,3,0,0
 batching,7,7,4,,0,0,2,0,0,0,0,0,2,0,1
 human-in-the-loop,7,7,4,,0,0,1,0,0,0,1,3,0,0,0
-risk analysis,7,7,7,,3,0,0,0,2,0,0,0,0,4,0
+risk analysis,7,7,7,,1,0,0,0,2,0,0,0,0,4,0
 ai automation,7,7,6,,0,1,2,1,0,0,0,3,0,0,0
 gis,7,7,3,,1,2,0,0,0,0,3,0,2,0,0
 source control,7,7,7,,0,0,0,0,0,3,0,2,0,1,0
@@ -1244,7 +1244,7 @@ ai products,7,7,5,,0,0,1,0,1,0,0,2,0,0,0
 fraud prevention,7,7,4,,0,0,0,0,0,1,4,2,0,0,0
 lookml,7,7,7,,1,0,0,2,2,2,0,0,0,0,0
 explainable ai,7,7,6,responsible_ai,0,0,1,0,0,0,3,0,1,0,0
-market microstructure,7,7,7,,1,0,0,0,1,0,1,0,0,4,1
+market microstructure,7,7,7,,0,0,0,0,1,0,1,0,0,4,1
 security engineering,7,7,6,,0,0,3,0,0,0,0,2,0,0,0
 large-scale model training,7,7,6,classical_ml,0,0,0,0,0,0,0,0,2,0,1
 agent memory,7,7,7,agents,0,0,3,0,0,0,0,0,0,0,0
@@ -1260,7 +1260,7 @@ open-source llms,7,7,5,llm_apps,0,0,4,0,0,0,0,0,1,0,0
 schema management,7,7,7,,0,0,0,2,1,4,0,0,0,0,0
 monitoring and observability,7,7,7,llm_observability,0,0,1,0,0,3,0,0,1,0,0
 dataset versioning,7,7,7,,1,0,3,0,0,1,1,0,0,0,0
-make.com,7,7,6,,0,2,3,0,0,1,0,1,0,0,0
+make.com,7,7,6,,0,3,2,0,0,1,0,1,0,0,0
 cloud engineering,7,7,7,cloud,0,0,1,0,0,0,0,5,0,0,0
 multimodal ai,7,7,6,,0,0,4,0,0,0,0,1,1,0,1
 llm prompting,7,7,7,llm_apps,0,0,1,0,0,0,1,2,2,0,0
@@ -1285,7 +1285,7 @@ summarization,6,6,5,,0,0,4,0,0,0,2,0,0,0,0
 agentic orchestration,6,6,5,agents,0,0,4,0,0,0,0,0,0,0,1
 agentic patterns,6,6,5,agents,0,0,3,0,0,0,0,3,0,0,0
 cypress,6,6,5,,0,0,2,0,0,0,0,1,0,0,0
-statistical inference,6,6,6,model_serving,3,0,1,0,2,0,2,0,0,0,0
+statistical inference,6,6,6,model_serving,2,0,1,0,2,0,2,0,0,0,0
 ocr,6,6,2,,0,0,5,0,0,0,1,0,0,0,0
 firestore,6,6,5,,0,0,0,0,0,1,1,0,0,0,0
 on-call support,6,6,6,,0,0,2,0,0,0,1,1,0,0,0
@@ -1325,7 +1325,7 @@ pulumi,6,6,4,,0,0,2,0,0,1,0,1,1,0,0
 experimentation frameworks,6,6,3,experimentation,1,0,0,0,0,0,3,0,2,0,0
 ai architecture,6,6,6,,0,0,4,0,0,0,0,0,0,0,0
 data integrity,6,6,6,,0,0,0,1,1,1,0,0,0,0,0
-ai assistants,6,6,5,,0,0,3,0,0,0,1,0,0,0,0
+ai assistants,6,6,5,,0,1,2,0,0,0,1,0,0,0,0
 system monitoring,6,6,6,llm_observability,0,0,2,0,0,0,0,2,0,0,0
 sharepoint online,6,6,5,,0,2,2,0,1,0,0,1,0,0,0
 threat modelling,6,6,3,,0,0,3,0,0,0,0,1,0,0,2
@@ -1347,7 +1347,7 @@ pydanticai,6,6,4,,0,1,3,0,0,0,0,0,0,0,2
 duckdb,6,6,1,,0,0,0,0,0,1,1,0,1,0,0
 profiling,6,6,4,,0,0,2,0,0,0,0,0,1,0,0
 machine learning models,6,6,5,classical_ml,0,0,1,0,0,0,3,0,0,0,0
-r programming,6,6,5,r,1,0,0,0,0,0,0,0,0,0,1
+r programming,6,6,5,r,0,0,0,0,0,0,0,0,0,0,1
 security governance,6,6,6,,0,2,2,0,0,0,0,2,0,0,0
 storage,6,6,5,,0,0,2,0,0,0,0,1,1,0,0
 bias detection,6,6,6,responsible_ai,0,0,0,0,0,0,3,0,1,0,0
@@ -1369,7 +1369,7 @@ production software engineering,6,6,6,software_engineering,0,0,3,0,0,0,0,1,1,0,0
 market research,6,6,6,research,0,0,0,0,4,0,0,2,0,0,0
 neural rendering,6,6,5,,0,0,0,0,0,0,0,0,4,0,2
 qlora,6,6,3,,0,0,3,0,0,0,1,0,1,0,0
-trading,6,6,1,,1,0,1,0,0,0,2,1,0,1,0
+trading,6,6,1,,0,0,1,0,0,0,2,1,0,1,0
 streaming architectures,6,6,5,streaming,0,0,0,0,0,2,0,1,0,0,0
 multi-touch attribution,6,6,4,,2,0,0,1,0,0,4,0,0,0,0
 qgis,6,6,4,,1,0,0,0,1,0,4,0,0,0,0
@@ -1379,11 +1379,11 @@ machine learning frameworks,6,6,6,classical_ml,0,0,0,0,0,1,2,0,2,0,1
 pricing optimization,6,6,3,,1,0,0,0,0,1,3,0,0,0,0
 attention mechanisms,6,6,5,,0,0,2,0,0,0,0,0,1,0,2
 data versioning,6,6,6,,0,0,0,0,0,0,2,0,1,0,1
-google tag manager,6,6,5,,1,0,0,0,6,0,0,0,0,0,0
+google tag manager,6,6,5,,0,0,0,0,6,0,0,0,0,0,0
 learning agility,6,6,6,,0,1,1,0,0,0,0,4,0,0,0
 kdb,6,6,0,,0,0,4,0,0,0,0,0,0,2,0
 planning,6,6,5,,0,0,1,0,0,0,0,1,0,0,2
-google workspace,6,6,5,,0,0,2,0,0,0,0,4,0,0,0
+google workspace,6,6,5,,0,1,1,0,0,0,0,4,0,0,0
 organizational skills,6,6,6,,0,0,1,0,2,0,0,2,0,0,0
 government/defence experience,6,6,0,,0,0,0,0,0,0,0,0,6,0,0
 decision science,6,6,4,,0,0,0,0,0,0,3,0,0,0,0
@@ -1415,7 +1415,7 @@ distributed inference,6,6,5,model_serving,0,0,2,0,0,0,0,0,1,0,2
 underwriting,6,6,1,,0,0,0,0,0,0,2,1,0,0,0
 datahub,6,6,1,,0,0,0,0,0,3,0,0,0,0,0
 cloud-native development,6,6,5,cloud,0,0,1,0,0,1,0,0,0,0,0
-large dataset analysis,6,6,4,,3,0,0,0,1,0,0,0,0,5,0
+large dataset analysis,6,6,4,,0,0,0,0,1,0,0,0,0,5,0
 camera calibration,6,6,5,,0,0,2,0,0,1,0,0,1,0,1
 roce,6,6,1,,0,0,1,0,0,0,0,2,2,0,0
 penetration testing,6,6,2,cicd_testing,0,0,3,0,0,0,0,2,0,0,1
@@ -1429,7 +1429,7 @@ genai tools,6,6,5,llm_apps,0,0,2,0,1,0,2,0,0,0,0
 genai applications,6,6,6,llm_apps,0,0,3,0,0,0,1,0,0,0,0
 tokenization,6,6,6,,0,0,1,0,0,0,1,0,1,1,1
 tool integration,6,6,6,,0,0,4,0,0,0,0,0,0,0,0
-database administration,6,6,5,,0,2,1,0,1,2,0,0,0,0,0
+database administration,6,6,5,,0,0,1,0,3,2,0,0,0,0,0
 asset management,6,6,4,,0,0,1,0,3,0,0,2,0,0,0
 memory optimization,6,6,5,,0,0,3,0,0,0,0,1,0,0,1
 gdal,6,6,6,,0,0,0,0,0,1,2,0,1,0,0
@@ -1437,7 +1437,7 @@ retrieval evaluation,6,6,6,rag,0,0,4,0,0,0,2,0,0,0,0
 knowledge transfer,6,6,6,,0,0,1,0,0,1,0,4,0,0,0
 phd,6,6,2,research,0,0,3,0,0,0,0,0,0,0,3
 gaussian splatting,6,6,6,,0,0,0,0,0,0,0,0,0,0,3
-retention modeling,6,6,4,,3,0,0,0,1,0,5,0,0,0,0
+retention modeling,6,6,4,,2,0,0,0,1,0,5,0,0,0,0
 pii handling,6,6,5,,0,0,2,1,1,2,0,0,0,0,0
 transaction monitoring,6,6,5,llm_observability,0,0,0,0,0,0,1,0,0,0,0
 retention analysis,6,6,6,,3,0,0,0,4,0,2,0,0,0,0
@@ -1449,7 +1449,7 @@ flashattention,6,6,1,,0,0,0,0,0,0,0,0,1,0,5
 customer relationship management,6,6,5,customer_facing,0,0,0,0,0,0,1,5,0,0,0
 appsflyer,6,6,4,,0,0,0,0,3,2,0,0,0,0,0
 preference optimization,6,6,3,,0,0,3,0,0,0,1,0,0,0,1
-autonomy,6,6,5,,2,0,1,0,0,0,1,2,0,1,0
+autonomy,6,6,5,,1,0,1,0,0,0,1,2,0,1,0
 presales,6,6,6,customer_facing,0,0,0,0,0,0,0,6,0,0,0
 ppo,6,6,3,,0,0,0,0,0,0,0,0,2,0,2
 sqs,6,6,6,,0,0,2,0,1,2,0,1,0,0,0
@@ -1461,7 +1461,7 @@ graphrag,6,6,3,,0,0,4,0,0,0,1,0,0,0,0
 braze,6,6,4,,2,0,0,0,3,2,1,0,0,0,0
 scientific communication,6,6,6,stakeholder_comms,3,0,0,0,0,0,3,0,1,0,1
 data reliability,6,6,6,,0,1,0,1,0,2,0,0,0,0,0
-confidence intervals,6,6,6,,4,0,1,0,2,0,3,0,0,0,0
+confidence intervals,6,6,6,,3,0,1,0,2,0,3,0,0,0,0
 prediction,6,6,5,,0,0,0,0,1,0,3,0,2,0,0
 cost analysis,6,6,6,,0,0,1,0,4,0,1,0,0,0,0
 scalable systems,6,6,6,,0,0,2,0,0,0,0,1,2,0,0
@@ -1479,7 +1479,7 @@ model testing,5,5,5,cicd_testing,0,0,1,0,0,0,1,0,3,0,0
 megatron,5,5,3,,0,0,0,0,0,0,0,0,1,0,2
 data collection,5,5,5,,1,0,0,0,0,2,3,0,0,0,0
 cassandra,5,5,3,,0,0,0,0,0,2,0,1,1,0,0
-lead scoring,5,5,2,,1,0,1,0,1,0,3,0,0,0,0
+lead scoring,5,5,2,,2,0,1,0,1,0,3,0,0,0,0
 customer-facing communication,5,5,5,stakeholder_comms,0,0,0,0,0,0,0,5,0,0,0
 ml monitoring,5,5,5,llm_observability,0,0,0,0,0,1,0,0,3,0,0
 ml pipeline development,5,5,4,mlops_tooling,0,0,2,0,0,0,1,0,2,0,0
@@ -1518,7 +1518,7 @@ chatbots,5,5,2,,0,1,3,0,0,0,0,0,1,0,0
 integration,5,5,5,,0,0,1,0,0,0,0,3,0,0,0
 tecton,5,5,3,,0,0,0,0,0,0,1,0,3,0,0
 performance benchmarking,5,5,4,model_evaluation,1,0,2,0,1,0,0,0,2,0,0
-performance analysis,5,5,4,,1,0,2,0,1,0,0,0,0,1,0
+performance analysis,5,5,4,,0,0,2,0,1,0,0,0,0,1,0
 monitoring systems,5,5,5,llm_observability,0,0,1,0,0,2,0,0,1,0,1
 data drift detection,5,5,5,llm_observability,0,0,0,0,0,2,1,0,2,0,0
 multi-gpu training,5,5,5,deep_learning,0,0,0,0,0,0,0,0,4,0,1
@@ -1542,7 +1542,7 @@ llm-based applications,5,5,3,llm_apps,0,0,2,0,0,1,1,0,0,0,0
 agent-to-agent communication,5,5,2,agents,0,0,2,0,0,0,0,2,0,0,0
 microsoft graph api,5,5,5,apis_services,0,2,2,0,1,0,0,0,0,0,0
 model calibration,5,5,5,,1,0,0,0,0,0,3,0,2,0,0
-numerical methods,5,5,5,,1,0,0,0,0,0,1,0,0,2,0
+numerical methods,5,5,5,,0,0,0,0,0,0,1,0,0,2,0
 creative thinking,5,5,5,,3,0,0,0,0,0,4,1,0,0,0
 variance reduction,5,5,4,,4,0,0,0,1,0,4,0,0,0,0
 mlir,5,5,3,,0,0,3,0,0,0,0,0,1,0,0
@@ -1564,7 +1564,7 @@ opentofu,5,5,2,,0,0,0,0,0,1,1,2,1,0,0
 code testing,5,5,4,cicd_testing,0,0,0,0,0,0,1,1,1,0,1
 product design,5,5,5,,0,0,0,0,0,0,0,1,0,0,0
 classical machine learning,5,5,4,classical_ml,0,0,1,0,0,0,1,0,1,0,0
-meta,5,5,4,,0,0,1,0,1,2,1,0,0,0,0
+meta,5,5,4,,0,1,0,0,1,2,1,0,0,0,0
 modbus,5,5,3,,0,0,0,0,2,0,0,3,0,0,0
 ui design,5,5,5,,0,0,2,0,0,0,0,0,0,0,0
 agile methodology,5,5,5,,0,0,1,0,0,0,0,1,0,0,0
@@ -1594,7 +1594,7 @@ ai agent,5,5,5,agents,0,0,3,0,0,0,0,0,0,0,0
 checkpointing,5,5,5,,0,0,0,0,0,2,0,0,0,1,0
 log analysis,5,5,4,,0,0,1,0,0,1,0,1,0,0,2
 openai apis,5,5,4,llm_apps,0,0,3,0,1,0,0,1,0,0,0
-uipath,5,5,3,,0,2,0,0,0,0,3,0,0,0,0
+uipath,5,5,3,,1,2,0,0,0,0,3,0,0,0,0
 mitre att&ck,5,5,2,,0,0,1,0,1,0,2,0,0,0,1
 training pipelines,5,5,5,pipelines_etl,0,0,0,0,0,0,1,0,3,0,0
 linear regression,5,5,5,statistics,0,0,2,0,0,0,2,0,0,1,0
@@ -1615,7 +1615,7 @@ workflow optimization,5,5,4,,0,0,3,0,0,0,1,0,1,0,0
 3d vision,5,5,3,,0,0,0,0,0,1,0,0,2,0,2
 digital analytics,5,5,4,product_analytics,0,0,0,0,3,0,0,0,0,0,0
 grpo,5,5,4,,0,0,0,0,0,0,0,0,0,0,3
-analytical reasoning,5,5,5,,3,0,1,0,0,0,2,0,0,0,2
+analytical reasoning,5,5,5,,0,0,1,0,0,0,2,0,0,0,2
 serverless architecture,5,5,4,,1,0,0,0,0,1,1,2,0,0,0
 ai guardrails,5,5,5,responsible_ai,0,0,2,0,0,0,0,2,0,0,0
 sensor data,5,5,2,,0,0,2,0,0,1,1,0,0,0,0
@@ -1624,7 +1624,7 @@ android,5,5,2,,0,0,0,0,0,0,0,1,0,0,1
 regulated environment,5,5,1,,0,0,3,0,0,1,0,0,1,0,0
 expo,5,5,3,,0,0,2,0,0,0,0,0,0,0,0
 semantic modelling,5,5,4,,0,0,1,0,2,2,0,0,0,0,0
-systematic trading,5,5,4,quant_research,1,0,0,0,0,0,0,0,0,2,0
+systematic trading,5,5,4,quant_research,0,0,0,0,0,0,0,0,0,2,0
 failure mode analysis,5,5,5,,0,0,3,0,0,0,0,0,0,0,0
 gpus,5,5,3,deep_learning,0,0,0,0,0,0,1,1,0,0,2
 data sourcing,5,5,5,,0,0,0,0,3,1,1,0,0,0,0
@@ -1706,7 +1706,7 @@ data visualisation,5,5,5,bi_dashboards,2,0,0,0,3,0,2,0,0,0,0
 automated reporting,5,5,5,bi_dashboards,0,0,0,0,3,1,0,0,0,0,0
 google vertex ai,5,5,5,mlops_tooling,0,0,4,0,0,0,0,1,0,0,0
 technical content creation,5,5,0,,0,0,0,0,0,0,0,5,0,0,0
-firebase,5,5,4,,2,0,2,0,2,0,0,0,0,0,0
+firebase,5,5,4,,0,0,2,0,2,0,0,0,0,0,0
 autoencoders,5,5,4,,0,0,2,0,0,0,1,0,1,0,1
 firewalls,5,5,4,,0,0,0,0,0,0,0,4,0,0,0
 google search console,5,5,4,,1,0,0,0,2,0,1,0,0,0,0
@@ -1738,7 +1738,7 @@ quality metrics,5,5,5,,1,0,1,0,1,0,2,0,0,0,0
 published research,5,5,0,research,0,0,0,0,0,0,1,0,0,0,3
 ad tech,5,5,1,,0,0,0,0,0,0,0,2,0,0,0
 quantitative reasoning,5,5,5,,0,0,0,0,0,0,1,0,2,0,1
-ai/llm,5,5,2,llm_apps,1,0,1,0,0,1,0,1,0,1,0
+ai/llm,5,5,2,llm_apps,0,0,1,0,0,1,0,1,0,1,0
 quantitative modeling,5,5,5,,0,0,0,0,0,0,1,0,0,4,0
 azure monitor,5,5,5,cloud,0,0,1,0,0,1,0,2,0,0,0
 streaming data pipelines,5,5,3,streaming,0,0,0,0,0,3,0,0,1,0,0
@@ -1747,14 +1747,14 @@ technical scoping,5,5,5,,0,0,0,0,0,0,0,5,0,0,0
 embedded systems,5,5,3,,0,0,0,0,0,0,0,1,2,0,1
 proof of concept management,5,5,5,,0,0,0,0,0,0,0,2,0,0,0
 proposal writing,5,5,5,,0,1,1,0,0,1,0,2,0,0,0
-e-commerce analytics,5,5,3,product_analytics,1,0,0,0,3,1,1,0,0,0,0
+e-commerce analytics,5,5,3,product_analytics,0,0,0,0,3,1,1,0,0,0,0
 structural biology,5,5,5,,0,0,0,0,0,0,0,0,2,0,2
 static analysis,5,5,5,,0,0,1,0,0,1,0,0,0,0,0
 ai data training,5,5,0,,0,0,0,0,0,0,0,0,0,0,0
 high availability,5,5,5,,0,0,0,0,0,1,0,3,0,0,0
-r shiny,5,5,3,r,2,0,0,0,1,0,1,0,0,0,1
+r shiny,5,5,3,r,1,0,0,0,1,0,1,0,0,0,1
 drift monitoring,5,5,5,llm_observability,0,0,0,0,0,0,0,1,3,0,0
-spatial analysis,5,5,5,,0,0,0,0,1,0,4,0,0,0,0
+spatial analysis,5,5,5,,1,0,0,0,1,0,4,0,0,0,0
 engineering leadership,5,5,5,mentoring_leadership,0,0,2,0,0,0,0,0,0,0,0
 document extraction,5,5,5,,0,0,3,0,0,1,0,0,0,0,0
 engineering standards,5,5,5,,0,1,2,0,0,2,0,0,0,0,0
@@ -1768,12 +1768,12 @@ threat hunting,4,4,3,,0,0,0,0,0,0,1,1,0,0,2
 llm optimization,4,4,3,llm_apps,0,0,2,0,0,0,1,0,0,0,0
 api security,4,4,4,apis_services,0,0,1,0,0,0,0,1,0,0,0
 open source development,4,4,4,,0,0,0,0,0,0,0,1,0,0,0
-fixed income,4,4,2,,1,0,0,0,1,0,0,1,0,2,0
+fixed income,4,4,2,,0,0,0,0,1,0,0,1,0,2,0
 object tracking,4,4,4,,0,0,1,0,0,0,0,0,2,0,0
 financial analysis,4,4,4,,1,0,0,0,2,0,1,0,0,0,0
 ablation studies,4,4,4,,0,0,0,0,0,0,1,0,2,0,0
 open source contribution,4,4,0,,0,0,3,0,0,0,1,0,0,0,0
-financial data analysis,4,4,4,product_analytics,1,0,0,0,1,0,1,0,0,2,0
+financial data analysis,4,4,4,product_analytics,0,0,0,0,1,0,1,0,0,2,0
 commercial judgment,4,4,4,,1,0,0,0,1,0,1,2,0,0,0
 agent security,4,4,3,agents,0,0,3,0,0,0,0,0,0,0,0
 flash attention,4,4,3,,0,0,1,0,0,0,0,0,2,0,0
@@ -1793,7 +1793,7 @@ electrical engineering,4,4,3,,0,0,0,0,0,0,0,1,0,1,1
 search relevance,4,4,3,recsys_ranking,0,0,0,0,1,0,2,0,1,0,0
 deployment at scale,4,4,4,,0,0,4,0,0,0,0,0,0,0,0
 applied ml,4,4,4,,1,0,1,0,0,0,3,0,0,0,0
-microsoft word,4,4,4,,3,0,0,0,0,0,1,0,0,0,2
+microsoft word,4,4,4,,1,0,0,0,0,0,1,0,0,0,2
 statistical rigor,4,4,3,statistics,1,0,0,0,1,1,2,0,0,0,0
 offensive security,4,4,0,,0,0,3,0,0,0,0,0,0,0,0
 secure development,4,4,4,,0,0,1,0,0,2,0,0,0,0,0
@@ -1819,7 +1819,7 @@ ml model evaluation,4,4,4,classical_ml,3,0,0,0,1,0,3,0,0,0,0
 decision trees,4,4,4,,0,0,0,0,0,0,3,0,0,0,0
 web services,4,4,3,,0,0,0,0,0,0,0,3,1,0,0
 credit scoring,4,4,0,,0,0,0,0,0,0,1,0,0,0,0
-ml model development,4,4,4,classical_ml,0,0,0,0,0,0,3,0,1,0,0
+ml model development,4,4,4,classical_ml,1,0,0,0,0,0,3,0,1,0,0
 lifecycle analytics,4,4,1,product_analytics,2,0,0,0,0,0,2,0,0,0,0
 salesforce commerce cloud,4,4,0,cloud,0,0,0,0,0,0,0,4,0,0,0
 fx,4,4,3,,0,0,1,0,1,0,0,0,0,0,0
@@ -1888,13 +1888,13 @@ configuration management,4,4,4,,0,1,2,0,0,0,0,1,0,0,0
 marketplaces,4,4,0,,0,0,0,0,1,0,2,0,1,0,0
 marketplace economics,4,4,3,,1,0,0,0,1,0,3,0,0,0,0
 agentic applications,4,4,4,agents,0,0,2,0,0,0,0,2,0,0,0
-marketplace dynamics,4,4,2,,3,0,0,0,0,0,4,0,0,0,0
+marketplace dynamics,4,4,2,,2,0,0,0,0,0,4,0,0,0,0
 marketing operations,4,4,4,,0,1,2,0,1,0,0,0,0,0,0
 writing,4,4,4,,0,0,1,0,0,1,0,0,0,0,1
 multi-objective optimization,4,4,4,,0,0,0,0,0,0,1,0,1,0,2
 endpoint management,4,4,4,,0,2,0,0,0,0,0,2,0,0,0
 discovery,4,4,4,,0,0,0,0,0,0,0,4,0,0,0
-slack,4,4,4,,0,0,3,0,0,0,0,1,0,0,0
+slack,4,4,4,,0,1,2,0,0,0,0,1,0,0,0
 marketing measurement,4,4,3,,3,0,0,0,0,0,4,0,0,0,0
 sip,4,4,1,,0,0,0,0,0,0,0,4,0,0,0
 dimensionality reduction,4,4,3,warehouse,1,0,0,0,0,0,4,0,0,0,0
@@ -1970,7 +1970,7 @@ statistical evaluation,4,4,4,statistics,0,0,0,0,1,1,0,0,0,0,2
 classical ml,4,4,4,classical_ml,0,0,0,0,0,0,1,0,3,0,0
 api management,4,4,4,apis_services,0,0,1,0,0,0,0,1,0,0,0
 finance domain,4,4,0,,0,0,3,0,0,1,0,0,0,0,0
-oauth2,4,4,3,,0,0,1,0,0,0,0,2,0,0,0
+oauth2,4,4,3,,0,1,0,0,0,0,0,2,0,0,0
 tool/function calling,4,4,4,agents,0,0,4,0,0,0,0,0,0,0,0
 seldon,4,4,2,,0,0,0,0,0,0,0,0,4,0,0
 mapreduce,4,4,2,,0,0,0,0,0,0,3,0,0,0,0
@@ -1978,7 +1978,7 @@ fallback behavior,4,4,4,,0,0,4,0,0,0,0,0,0,0,0
 domain knowledge,4,4,3,,1,0,0,0,0,0,1,3,0,0,0
 metrics,4,4,4,,2,0,2,0,0,0,2,0,0,0,0
 magento,4,4,0,,0,0,0,0,0,0,0,4,0,0,0
-multitasking,4,4,4,,1,0,0,0,0,0,0,0,0,3,0
+multitasking,4,4,4,,0,0,0,0,0,0,0,0,0,3,0
 machine translation,4,4,4,,0,0,2,0,0,0,1,0,1,0,0
 clinical trials,4,4,4,,1,0,0,0,0,0,1,0,0,0,0
 workflow integration,4,4,4,,0,0,2,0,0,0,0,2,0,0,0
@@ -2034,7 +2034,7 @@ istio,4,4,3,,0,0,2,0,0,0,0,0,1,0,0
 ai alignment,4,4,1,,0,0,1,0,0,0,0,0,1,0,2
 video diffusion,4,4,3,deep_learning,0,0,0,0,0,0,0,0,0,0,1
 relationship building,4,4,4,,0,1,0,0,0,0,0,3,0,0,0
-portfolio construction,4,4,4,,3,0,0,0,0,0,0,0,0,4,0
+portfolio construction,4,4,4,,0,0,0,0,0,0,0,0,0,4,0
 technical decision-making,4,4,4,,0,0,0,0,0,0,0,0,0,0,0
 data architecture design,4,4,3,pipelines_etl,0,0,0,0,1,2,1,0,0,0,0
 query understanding,4,4,3,,0,0,1,0,1,0,1,0,1,0,0
@@ -2046,7 +2046,7 @@ voice workflows,4,4,0,,0,0,3,0,0,0,0,0,0,0,0
 research to production,4,4,3,research,0,0,0,0,0,0,0,0,2,0,2
 automated retraining,4,4,1,,0,0,0,0,0,0,3,0,1,0,0
 jvm,4,4,1,scala_java,0,0,1,0,0,1,0,0,0,0,1
-research leadership,4,4,4,mentoring_leadership,1,0,0,0,0,0,0,0,0,2,2
+research leadership,4,4,4,mentoring_leadership,0,0,0,0,0,0,0,0,0,2,2
 high-throughput inference,4,4,3,model_serving,0,0,0,0,0,0,1,0,2,0,1
 technical selling,4,4,4,,0,0,0,0,0,0,0,4,0,0,0
 azure ml studio,4,4,3,cloud,0,0,1,0,0,0,1,0,0,0,0
@@ -2122,7 +2122,7 @@ presentations,4,4,4,stakeholder_comms,2,0,0,0,0,1,2,1,0,0,0
 vaes,4,4,3,,0,0,1,0,0,0,1,0,1,0,0
 rdf,4,4,1,,0,0,1,0,0,2,0,1,0,0,0
 generative ai tools,4,4,3,llm_apps,1,0,2,0,1,0,1,0,0,0,0
-qlikview,4,4,3,,2,0,0,0,4,0,0,0,0,0,0
+qlikview,4,4,3,,0,0,0,0,4,0,0,0,0,0,0
 data transformations,4,4,4,,0,0,0,1,1,1,0,0,0,0,0
 image editing,4,4,3,computer_vision,0,1,0,0,0,0,0,0,2,0,1
 go-to-market strategy,4,4,3,systems_lang,0,0,0,0,0,0,0,2,0,0,0
@@ -2139,7 +2139,7 @@ kv cache optimization,4,4,3,,0,0,0,0,0,0,0,0,2,0,1
 rfp management,4,4,4,,0,0,0,0,0,0,0,4,0,0,0
 rf systems,4,4,0,,0,0,0,0,0,0,0,4,0,0,0
 vulnerability analysis,4,4,3,,0,0,0,0,0,0,0,2,0,0,1
-csv,4,4,4,,0,2,0,0,0,2,0,0,0,0,0
+csv,4,4,4,,0,0,0,0,2,2,0,0,0,0,0
 progress openedge,4,4,4,,0,0,0,0,0,0,0,4,0,0,0
 purview,4,4,0,,0,0,0,0,0,2,0,2,0,0,0
 image segmentation,4,4,3,computer_vision,0,0,2,0,0,0,1,0,1,0,0
@@ -2165,7 +2165,7 @@ robyn,4,4,3,,3,0,0,0,0,0,4,0,0,0,0
 ai monitoring,4,4,4,llm_observability,0,0,3,0,0,0,0,1,0,0,0
 partitioning,4,4,4,,0,0,0,1,0,3,0,0,0,0,0
 partner enablement,4,4,4,,0,0,1,0,0,0,0,3,0,0,0
-geo-lift testing,4,4,0,cicd_testing,3,0,0,0,1,0,3,0,0,0,0
+geo-lift testing,4,4,0,cicd_testing,2,0,0,0,1,0,3,0,0,0,0
 roi analysis,4,4,4,,0,0,0,0,1,0,0,3,0,0,0
 adk,4,4,4,,0,0,3,0,0,0,0,0,0,0,0
 rocm,4,4,1,,0,0,0,0,0,0,0,1,0,0,2
@@ -2195,7 +2195,7 @@ hardware acceleration,3,3,2,,0,0,0,0,0,0,0,0,1,1,1
 distributed ml frameworks,3,3,2,,0,0,0,0,0,1,1,0,1,0,0
 data catalog,3,3,1,data_governance,0,0,0,0,0,2,0,0,0,0,0
 video understanding,3,3,2,,0,0,0,0,0,0,0,0,0,0,2
-health economics,3,3,3,,2,0,0,0,0,0,0,0,0,0,2
+health economics,3,3,3,,0,0,0,0,0,0,0,0,0,0,2
 mathematical statistics,3,3,3,statistics,0,0,0,0,2,0,0,0,0,0,1
 dutch language,3,3,2,,0,0,0,0,0,0,0,1,1,0,0
 entity matching,3,3,0,,0,0,0,0,0,0,1,0,2,0,0
@@ -2215,7 +2215,7 @@ embedding systems,3,3,0,rag,0,0,0,0,0,0,0,0,3,0,0
 information extraction,3,3,3,,0,0,1,0,0,0,1,0,0,0,0
 economics,3,3,3,,0,0,0,0,0,0,2,0,0,0,0
 computer science fundamentals,3,3,3,,0,0,2,0,0,0,1,0,0,0,0
-adept ai,3,3,1,,0,0,0,0,0,0,3,0,0,0,0
+adept ai,3,3,1,,1,0,0,0,0,0,3,0,0,0,0
 computer science degree,3,3,2,,0,0,2,0,0,0,0,1,0,0,0
 data documentation,3,3,3,,0,0,0,0,2,0,0,0,0,0,0
 hudi,3,3,1,,0,0,0,0,0,2,0,0,0,0,0
@@ -2238,13 +2238,13 @@ markets operations,3,3,0,,0,0,3,0,0,0,0,0,0,0,0
 master's degree in quantitative field,3,3,3,,1,0,0,0,0,0,1,0,0,0,1
 hightouch,3,3,2,,0,0,0,0,1,2,0,0,0,0,0
 conference presentations,3,3,0,stakeholder_comms,0,0,0,0,0,0,0,0,1,0,1
-mathematical modeling,3,3,2,,1,0,0,0,1,0,0,0,0,1,0
+mathematical modeling,3,3,2,,0,0,0,0,1,0,0,0,0,1,0
 domain randomization,3,3,2,,0,0,1,0,0,0,0,0,0,0,2
 domain modeling,3,3,3,,0,0,0,0,0,0,0,0,0,0,0
 data catalogues,3,3,2,,0,0,0,1,0,1,0,0,0,0,0
 conda,3,3,3,,0,0,1,0,0,0,0,0,1,0,0
 data product development,3,3,3,,0,0,0,0,1,0,1,0,0,0,0
-zuora,3,3,2,,0,0,1,0,2,0,0,0,0,0,0
+zuora,3,3,2,,0,1,0,0,2,0,0,0,0,0,0
 dv security clearance,3,3,1,,0,0,0,0,0,0,1,2,0,0,0
 ml architecture,3,3,3,,0,0,0,0,0,0,1,0,2,0,0
 data processing pipelines,3,3,1,pipelines_etl,0,0,0,0,0,0,0,1,1,0,0
@@ -2254,8 +2254,8 @@ data engineering best practices,3,3,3,pipelines_etl,0,0,0,0,0,3,0,0,0,0,0
 versioning,3,3,3,,0,0,1,0,0,0,0,0,0,0,0
 hl7,3,3,0,,0,0,1,0,0,0,0,2,0,0,0
 distribution shift,3,3,3,,0,0,1,0,0,0,1,0,0,1,0
-igaming,3,3,0,,1,0,1,0,1,0,0,1,0,0,0
-commodities,3,3,2,,1,0,0,0,1,0,1,0,0,1,0
+igaming,3,3,0,,0,0,1,0,1,0,0,1,0,0,0
+commodities,3,3,2,,0,0,0,0,1,0,1,0,0,1,0
 data connectors,3,3,3,,0,0,0,0,0,0,0,2,0,0,0
 agent planning,3,3,2,agents,0,0,2,0,0,0,0,0,0,0,0
 variance analysis,3,3,3,,0,0,1,0,1,0,1,0,0,0,0
@@ -2340,7 +2340,7 @@ coreml,3,3,0,,0,0,0,0,0,0,0,0,3,0,0
 uplift modelling,3,3,2,experimentation,2,0,0,0,0,0,2,0,1,0,0
 llm platforms,3,3,2,llm_apps,0,0,1,0,0,0,0,1,0,0,0
 llm pipelines,3,3,3,llm_apps,0,0,3,0,0,0,0,0,0,0,0
-volatility modeling,3,3,2,,1,0,0,0,0,0,1,0,0,2,0
+volatility modeling,3,3,2,,0,0,0,0,0,0,1,0,0,2,0
 llm integrations,3,3,3,llm_apps,0,0,1,0,0,0,0,0,0,0,0
 cosmos db,3,3,2,,0,0,1,0,0,0,0,0,0,0,0
 google analytics 4,3,3,2,product_analytics,0,0,0,0,1,0,0,1,0,0,0
@@ -2363,12 +2363,12 @@ json schema,3,3,3,,0,0,1,1,0,1,0,0,0,0,0
 conversational agents,3,3,1,agents,0,0,0,0,0,0,0,2,0,0,0
 agent deployment,3,3,2,agents,0,0,1,0,0,0,0,0,1,0,0
 gpu clusters,3,3,2,deep_learning,0,0,2,0,0,0,0,0,0,0,1
-conversational analytics,3,3,0,product_analytics,1,0,1,0,0,0,1,0,0,0,0
+conversational analytics,3,3,0,product_analytics,0,0,1,0,0,0,1,0,0,0,0
 user acquisition,3,3,3,,0,0,0,0,2,0,1,0,0,0,0
 conversational interfaces,3,3,3,,0,0,2,0,0,0,1,0,0,0,0
 financial services knowledge,3,3,1,,0,0,1,0,1,0,0,0,0,0,0
 key management,3,3,2,,0,0,0,0,0,0,0,2,0,0,0
-customer behavior analysis,3,3,2,customer_facing,1,0,0,0,1,0,1,0,0,0,0
+customer behavior analysis,3,3,2,customer_facing,0,0,0,0,1,0,1,0,0,0,0
 advanced quantitative degree,3,3,3,,0,0,2,0,0,0,1,0,0,0,0
 trl,3,3,1,,0,0,0,0,0,0,0,0,0,0,3
 gpu cluster management,3,3,3,deep_learning,0,0,1,0,0,0,0,0,0,0,1
@@ -2379,12 +2379,12 @@ weights and biases,3,3,1,,0,0,2,0,0,0,0,0,1,0,0
 demo presentation,3,3,3,stakeholder_comms,0,0,0,0,0,0,0,3,0,0,0
 demo development,3,3,3,,0,0,0,0,0,0,0,2,0,0,0
 cubejs,3,3,1,,0,0,0,0,0,3,0,0,0,0,0
-ctes,3,3,3,,1,0,0,0,3,0,0,0,0,0,0
+ctes,3,3,3,,0,0,0,0,3,0,0,0,0,0,0
 cost modeling,3,3,3,,1,0,0,0,1,0,1,0,1,0,0
 uk security clearance (dv),3,3,3,,0,0,0,0,0,0,0,0,3,0,0
 line management,3,3,2,,1,0,0,0,0,0,3,0,0,0,0
 geospatial data engineering,3,3,3,pipelines_etl,0,0,0,0,0,1,2,0,0,0,0
-geospatial data analysis,3,3,3,product_analytics,0,0,0,0,0,0,3,0,0,0,0
+geospatial data analysis,3,3,3,product_analytics,1,0,0,0,0,0,3,0,0,0,0
 lakehouse patterns,3,3,3,warehouse,0,0,1,1,0,1,0,0,0,0,0
 lakehouses,3,3,3,warehouse,0,0,1,0,0,2,0,0,0,0,0
 lifetime value,3,3,2,,0,0,0,0,0,0,2,0,1,0,0
@@ -2470,7 +2470,7 @@ cute dsl,3,3,3,,0,0,3,0,0,0,0,0,0,0,0
 european language,3,3,0,,0,0,1,0,0,0,0,2,0,0,0
 customer-facing work,3,3,2,customer_facing,0,0,0,0,1,0,0,2,0,0,0
 insurance operations,3,3,3,,1,0,1,0,0,0,1,1,0,0,0
-vision models,3,3,3,,0,0,1,0,0,0,1,0,0,0,0
+vision models,3,3,3,,1,0,1,0,0,0,1,0,0,0,0
 evaluation engineering,3,3,3,,0,0,3,0,0,0,0,0,0,0,0
 intelligent automation,3,3,3,,0,0,2,0,0,0,0,0,0,0,0
 gurobi,3,3,3,,0,0,0,0,0,0,1,0,0,0,1
@@ -2526,7 +2526,7 @@ customer journey analysis,3,3,3,customer_facing,0,0,0,0,2,0,0,0,0,0,0
 long-running workflows,3,3,3,,0,0,2,0,0,0,0,0,0,0,0
 gpu scheduling,3,3,3,deep_learning,0,0,2,0,0,0,0,0,1,0,0
 long-horizon prediction,3,3,2,,0,0,0,0,0,0,0,0,2,0,1
-logistics optimization,3,3,2,,0,0,0,0,1,0,0,0,1,0,1
+logistics optimization,3,3,2,,1,0,0,0,1,0,0,0,1,0,1
 customer intelligence,3,3,3,customer_facing,0,0,0,0,0,0,0,2,1,0,0
 feast,3,3,2,,0,0,0,0,0,0,1,0,2,0,0
 feature development,3,3,3,,0,0,2,0,0,0,0,0,0,0,0
@@ -2552,7 +2552,7 @@ progress 4gl/abl,3,3,3,,0,0,0,0,0,0,0,3,0,0,0
 system performance,3,3,3,,0,0,0,0,1,0,0,0,0,0,1
 chilled water systems,3,3,3,,0,0,0,0,0,0,0,3,0,0,0
 chiller plant fundamentals,3,3,3,,0,0,0,0,0,0,0,3,0,0,0
-beam ai,3,3,1,,0,0,0,0,0,0,3,0,0,0,0
+beam ai,3,3,1,,1,0,0,0,0,0,3,0,0,0,0
 project coordination,3,3,3,,0,0,2,0,1,0,0,0,0,0,0
 ontology design,3,3,3,,0,0,1,0,0,1,1,0,0,0,0
 augmented reality,3,3,3,,0,0,0,0,0,0,0,0,2,0,1
@@ -2632,7 +2632,7 @@ shapely,3,3,3,,0,0,0,0,0,1,2,0,0,0,0
 offline reinforcement learning,3,3,2,deep_learning,0,0,0,0,0,0,0,0,1,0,2
 retail analytics,3,3,0,product_analytics,2,0,0,0,0,0,3,0,0,0,0
 circleci,3,3,2,,0,0,0,0,0,3,0,0,0,0,0
-shiny,3,3,1,r,1,0,0,0,0,0,1,0,0,0,1
+shiny,3,3,1,r,0,0,0,0,0,0,1,0,0,0,1
 autocad,3,3,2,,0,0,0,0,1,0,0,2,0,0,0
 oci,3,3,1,,0,0,1,0,0,1,1,0,0,0,0
 ambiguity navigation,3,3,3,,1,0,0,0,0,0,1,1,1,0,0
@@ -2661,7 +2661,7 @@ business requirements translation,3,3,3,,0,1,0,0,0,0,0,0,0,0,0
 safety-critical systems,3,3,0,,0,0,1,0,0,0,1,0,1,0,0
 pipeline development,3,3,3,pipelines_etl,0,0,0,0,0,0,0,0,1,0,1
 scalable systems design,3,3,3,,0,0,2,0,0,0,0,0,0,0,0
-business translation,3,3,3,,2,0,0,0,0,0,2,1,0,0,0
+business translation,3,3,3,,1,0,0,0,0,0,2,1,0,0,0
 phoenix,3,3,2,,0,0,0,0,0,0,0,0,2,0,0
 scenario analysis,3,3,3,,2,0,0,0,1,0,2,0,0,0,0
 phd in quantitative field,3,3,0,research,1,0,0,0,0,0,1,0,0,0,1
@@ -2731,7 +2731,7 @@ api gateway,3,3,3,apis_services,0,0,2,0,0,0,1,0,0,0,0
 security controls,3,3,2,,0,0,1,0,0,1,0,1,0,0,0
 systems security,3,3,2,,0,0,0,0,0,0,0,0,0,0,2
 organizational development,3,3,3,,0,0,0,0,0,0,0,1,0,0,0
-orby ai,3,3,1,,0,0,0,0,0,0,3,0,0,0,0
+orby ai,3,3,1,,1,0,0,0,0,0,3,0,0,0,0
 orbital mechanics,3,3,0,,0,0,0,0,0,0,0,3,0,0,0
 security guardrails,3,3,3,responsible_ai,0,0,2,0,0,0,0,0,0,0,1
 security hardening,3,3,3,,0,0,1,0,0,1,0,0,0,0,0
@@ -2910,7 +2910,7 @@ pytorch profiler,3,3,2,deep_learning,0,0,1,0,0,0,0,0,1,0,0
 solr,3,3,2,,0,0,3,0,0,0,0,0,0,0,0
 multilingual nlp,3,3,2,nlp,0,0,0,0,0,0,2,0,0,0,1
 multidisciplinary collaboration,3,3,3,stakeholder_comms,0,0,0,0,0,0,0,0,1,0,1
-report development,3,3,3,,1,0,0,0,2,0,0,0,0,1,0
+report development,3,3,3,,0,0,0,0,2,0,0,0,0,1,0
 air-side cooling,3,3,3,,0,0,0,0,0,0,0,3,0,0,0
 software implementation,3,3,3,,0,0,0,0,0,0,0,3,0,0,0
 background jobs,3,3,3,,0,0,0,0,0,0,0,0,0,0,0
@@ -2971,7 +2971,7 @@ voice tuning,2,2,2,,0,0,0,0,0,0,0,1,0,0,0
 salesforce agentforce,2,2,2,,0,0,2,0,0,0,0,0,0,0,0
 gwi,2,2,1,,0,0,0,0,2,0,0,0,0,0,0
 saas architecture,2,2,2,,0,0,0,0,0,0,0,2,0,0,0
-research engineering,2,2,2,research,1,0,0,0,0,0,1,0,0,0,1
+research engineering,2,2,2,research,0,0,0,0,0,0,1,0,0,0,1
 sales analytics,2,2,1,product_analytics,0,0,0,1,0,0,0,0,0,0,0
 fx options,2,2,2,,0,0,0,0,0,0,0,0,0,2,0
 reproducible reporting,2,2,2,bi_dashboards,0,0,0,0,0,0,0,0,0,0,0
@@ -2985,7 +2985,7 @@ gainsight,2,2,0,,0,0,0,0,2,0,0,0,0,0,0
 sales consulting,2,2,2,customer_facing,0,1,0,0,0,0,0,1,0,0,0
 web search and crawling,2,2,2,,0,0,0,0,0,2,0,0,0,0,0
 sales forecasting,2,2,2,forecasting,1,0,0,0,0,0,2,0,0,0,0
-sales funnel analysis,2,2,2,product_analytics,2,0,0,0,1,0,1,0,0,0,0
+sales funnel analysis,2,2,2,product_analytics,1,0,0,0,1,0,1,0,0,0,0
 gaming domain knowledge,2,2,1,,0,0,0,0,0,1,1,0,0,0,0
 gaming analytics,2,2,1,product_analytics,0,0,0,0,1,0,0,0,0,0,0
 sales presentations,2,2,2,stakeholder_comms,0,0,0,0,0,0,0,2,0,0,0
@@ -3002,7 +3002,7 @@ recall,2,2,2,,0,0,0,0,1,0,0,1,0,0,0
 gemini cli,2,2,2,llm_apps,0,0,0,0,0,0,1,0,0,0,0
 technical debt management,2,2,2,,0,0,0,0,0,0,0,0,1,0,0
 fx markets,2,2,2,,0,0,2,0,0,0,0,0,0,0,0
-gemini api,2,2,1,llm_apps,1,0,0,0,1,0,0,0,0,0,0
+gemini api,2,2,1,llm_apps,0,0,0,0,1,0,0,0,0,0,0
 web browsing,2,2,2,,0,0,1,0,0,0,0,0,0,0,0
 gpu architectures,2,2,1,deep_learning,0,0,0,0,0,0,0,0,0,0,1
 safety,2,2,2,,0,0,1,0,0,0,0,0,0,0,0
@@ -3035,7 +3035,7 @@ graph retrieval,2,2,1,rag,0,0,2,0,0,0,0,0,0,0,0
 risk decisioning,2,2,2,,0,0,0,0,0,0,2,0,0,0,0
 team mentorship,2,2,2,mentoring_leadership,0,0,0,0,0,0,2,0,0,0,0
 graph technology,2,2,1,,0,0,0,0,0,0,0,0,1,0,0
-graph-based reasoning,2,2,0,,1,0,1,0,0,0,1,0,0,0,0
+graph-based reasoning,2,2,0,,0,0,1,0,0,0,1,0,0,0,0
 ggplot,2,2,2,,0,0,0,0,0,0,1,0,0,0,0
 warehouse management,2,2,1,,0,0,0,0,0,1,0,1,0,0,0
 wcag,2,2,1,,0,0,0,0,0,0,0,1,0,0,0
@@ -3065,10 +3065,10 @@ regulated finance,2,2,0,,0,0,1,0,0,0,0,0,1,0,0
 rfc2544,2,2,2,,0,0,0,0,0,0,0,2,0,0,0
 gradient boosted trees,2,2,2,,0,0,0,0,0,0,1,0,0,0,1
 google agent development kit,2,2,2,agents,0,0,2,0,0,0,0,0,0,0,0
-retrieval methods,2,2,2,rag,1,0,0,0,0,0,1,0,0,0,0
+retrieval methods,2,2,2,rag,0,0,0,0,0,0,1,0,0,0,0
 rfc6349,2,2,2,,0,0,0,0,0,0,0,2,0,0,0
 gitlab apis,2,2,2,apis_services,0,0,0,0,0,0,0,2,0,0,0
-risk scoring,2,2,2,,1,0,0,0,1,0,0,0,1,0,0
+risk scoring,2,2,2,,0,0,0,0,1,0,0,0,1,0,0
 teams,2,2,2,,0,0,0,0,0,0,0,2,0,0,0
 voip,2,2,2,,0,0,0,0,0,0,0,2,0,0,0
 robotics software,2,2,0,,0,0,0,0,0,0,0,2,0,0,0
@@ -3098,7 +3098,7 @@ technical evangelism,2,2,1,,0,0,1,0,0,0,0,0,0,0,0
 geometric computer vision,2,2,2,computer_vision,0,0,1,0,0,0,0,0,1,0,0
 team hiring and development,2,2,2,,0,0,1,0,0,0,0,0,0,0,0
 rl,2,2,2,deep_learning,0,0,0,0,0,0,0,0,1,0,0
-roas,2,2,1,,1,0,0,0,1,0,0,0,0,0,0
+roas,2,2,1,,0,0,0,0,1,0,0,0,0,0,0
 geotiff,2,2,2,,0,0,0,0,0,0,2,0,0,0,0
 geostatistics,2,2,0,,0,0,0,0,0,0,2,0,0,0,0
 rl environments,2,2,2,deep_learning,0,0,0,0,0,0,0,0,0,0,2
@@ -3220,7 +3220,7 @@ electronics,2,2,2,,0,0,0,0,0,0,0,2,0,0,0
 statistical principles,2,2,2,statistics,0,0,0,0,0,0,1,0,0,0,0
 zero trust architecture,2,2,1,,0,0,0,0,0,0,1,0,0,0,0
 statistical leadership,2,2,2,statistics,0,0,0,0,0,0,0,0,0,0,0
-statistical knowledge,2,2,1,statistics,1,0,0,0,2,0,0,0,0,0,0
+statistical knowledge,2,2,1,statistics,0,0,0,0,2,0,0,0,0,0,0
 statistical hypothesis testing,2,2,1,statistics,1,0,0,0,1,0,1,0,0,0,0
 static site generators,2,2,2,,0,0,0,0,0,0,0,2,0,0,0
 embedded analytics,2,2,0,product_analytics,0,0,0,0,2,0,0,0,0,0,0
@@ -3275,7 +3275,7 @@ embedding model optimization,2,2,2,rag,0,0,1,0,0,0,0,0,0,0,0
 embedding pipelines,2,2,2,rag,0,0,1,0,0,1,0,0,0,0,0
 startup scaling,2,2,1,,0,0,1,0,0,0,0,1,0,0,0
 supply chain domain knowledge,2,2,0,,0,0,0,1,0,1,0,0,0,0,0
-emerging markets,2,2,0,,1,0,0,0,0,0,0,1,0,1,0
+emerging markets,2,2,0,,0,0,0,0,0,0,0,1,0,1,0
 supply chain optimization,2,2,2,,0,0,0,0,0,0,2,0,0,0,0
 empirical judgement,2,2,2,,0,0,0,0,0,0,0,0,0,0,2
 stackit,2,2,1,,0,0,0,0,0,0,2,0,0,0,0
@@ -3320,7 +3320,7 @@ secret management,2,2,2,,0,0,1,0,0,0,0,0,0,0,0
 whiteboarding,2,2,2,,0,0,0,0,0,0,0,2,0,0,0
 secops,2,2,1,,0,0,1,0,0,0,0,1,0,0,0
 financial services engineering,2,2,0,,0,0,2,0,0,0,0,0,0,0,0
-search strategies,2,2,2,,1,0,0,0,0,0,1,0,0,0,0
+search strategies,2,2,2,,0,0,0,0,0,0,1,0,0,0,0
 reasoning strategies,2,2,2,,0,0,0,0,0,0,2,0,0,0,0
 fine tuning,2,2,2,fine_tuning,0,0,1,0,0,0,1,0,0,0,0
 search industry,2,2,0,,0,0,0,0,0,0,0,2,0,0,0
@@ -3335,7 +3335,7 @@ flow-matching,2,2,2,,0,0,0,0,0,0,0,0,1,0,1
 flutter,2,2,1,,0,0,0,0,0,0,0,1,0,0,0
 sca,2,2,2,,0,0,0,0,0,0,0,2,0,0,0
 frontend architecture,2,2,2,typescript,0,0,1,0,0,0,0,0,0,0,0
-webhook integration,2,2,2,apis_services,0,0,1,0,0,0,0,0,0,0,0
+webhook integration,2,2,2,apis_services,0,1,0,0,0,0,0,0,0,0,0
 frontend engineering,2,2,2,typescript,0,0,1,0,0,0,0,0,0,0,0
 frontend security,2,2,2,typescript,0,0,0,0,0,0,0,0,0,0,0
 frontier llms,2,2,2,llm_apps,0,0,0,0,0,0,0,1,0,0,1
@@ -3431,7 +3431,7 @@ tabular models,2,2,2,,0,0,1,0,1,0,0,0,0,0,0
 secure sdlc,2,2,1,,0,0,0,0,0,0,0,1,0,0,0
 financial forecasting,2,2,2,forecasting,0,0,0,0,0,0,1,0,0,0,0
 secure key storage,2,2,0,,0,0,0,0,0,0,0,2,0,0,0
-financial industry experience,2,2,2,,1,0,0,0,0,0,0,0,0,2,0
+financial industry experience,2,2,2,,0,0,0,0,0,0,0,0,0,2,0
 feed-forward models,2,2,2,,0,0,0,0,0,0,0,0,0,0,2
 wi-fi,2,2,0,,0,0,0,0,0,0,0,2,0,0,0
 security mindset,2,2,2,,0,0,1,0,0,0,0,0,0,0,0
@@ -3442,7 +3442,7 @@ fairness,2,2,1,responsible_ai,0,0,1,0,0,0,1,0,0,0,0
 fairness in ml,2,2,2,responsible_ai,0,0,0,0,0,0,0,0,2,0,0
 self-hosted models,2,2,2,,0,0,2,0,0,0,0,0,0,0,0
 self-hosted llms,2,2,2,llm_apps,0,0,2,0,0,0,0,0,0,0,0
-self-directed research,2,2,2,research,1,0,0,0,0,0,0,0,0,1,1
+self-directed research,2,2,2,research,0,0,0,0,0,0,0,0,0,1,1
 fast-paced execution,2,2,2,,0,0,0,0,0,0,0,2,0,0,0
 feature preparation,2,2,2,,0,0,0,0,0,2,0,0,0,0,0
 security+,2,2,0,,0,0,0,0,0,0,1,1,0,0,0
@@ -3508,7 +3508,7 @@ logging and telemetry,2,2,1,,0,0,0,0,0,0,0,1,1,0,0
 tiktok,2,2,2,,0,0,0,0,1,1,0,0,0,0,0
 tiktok ads,2,2,2,,0,0,0,0,0,1,0,0,0,0,0
 logistics experience,2,2,0,,0,0,0,0,2,0,0,0,0,0,0
-nl2sql,2,2,0,,1,0,0,0,0,0,1,0,0,0,0
+nl2sql,2,2,0,,0,0,0,0,0,0,1,0,0,0,0
 non-relational databases,2,2,2,sql,0,0,0,1,0,1,0,0,0,0,0
 nist controls,2,2,2,,0,0,2,0,0,0,0,0,0,0,0
 trend identification,2,2,2,,0,0,0,0,2,0,0,0,0,0,0
@@ -3575,7 +3575,7 @@ paid search advertising,2,2,2,,1,0,0,0,2,0,0,0,0,0,0
 paid search,2,2,2,,1,0,0,0,1,0,1,0,0,0,0
 paid media,2,2,1,,0,0,1,0,1,0,0,0,0,0,0
 packaging,2,2,2,,0,0,1,0,0,0,0,0,0,0,0
-learning and development,2,2,2,,1,0,0,0,0,0,1,0,0,0,1
+learning and development,2,2,2,,0,0,0,0,0,0,1,0,0,0,1
 launch planning,2,2,2,,0,0,2,0,0,0,0,0,0,0,0
 owasp top 10 llm,2,2,2,llm_apps,0,0,2,0,0,0,0,0,0,0,0
 outside plant cabling,2,2,2,,0,0,0,0,0,0,0,2,0,0,0
@@ -3633,7 +3633,7 @@ ltv forecasting,2,2,2,forecasting,0,0,0,0,1,0,0,0,0,0,1
 metadata standards,2,2,0,,0,0,0,0,0,0,2,0,0,0,0
 tool scoping,2,2,2,,0,0,0,0,0,1,0,0,0,0,0
 message brokers,2,2,2,,0,0,1,0,0,0,0,0,0,0,0
-model programming,2,2,2,,2,0,0,0,0,0,0,0,0,0,2
+model programming,2,2,2,,0,0,0,0,0,0,0,0,0,0,2
 model pipelines,2,2,2,pipelines_etl,0,0,0,0,0,0,1,0,0,0,0
 messaging queues,2,2,1,,0,0,1,0,0,0,0,0,0,0,0
 model performance monitoring,2,2,2,llm_observability,0,0,0,0,0,0,0,0,0,2,0
@@ -3780,7 +3780,7 @@ monetization,2,2,1,,0,0,0,0,0,0,0,0,0,0,0
 mcp tools,2,2,2,agents,0,0,1,0,0,0,0,0,0,0,0
 molecular simulation,2,2,1,,0,0,0,0,0,0,0,0,0,0,2
 modular design,2,2,2,,0,0,2,0,0,0,0,0,0,0,0
-ms sql,2,2,1,sql,0,1,0,0,0,1,0,0,0,0,0
+ms sql,2,2,1,sql,0,0,0,0,1,1,0,0,0,0,0
 msk,2,2,2,,0,0,0,0,0,2,0,0,0,0,0
 mssql,2,2,0,,0,0,0,0,0,1,0,1,0,0,0
 mathematical finance,2,2,2,,0,0,0,0,0,0,0,0,0,2,0
@@ -3849,7 +3849,7 @@ image quality evaluation,2,2,0,computer_vision,0,0,0,0,0,0,0,0,2,0,0
 programming languages,2,2,1,,0,0,1,0,0,0,0,0,0,0,0
 profiling tools,2,2,2,,0,0,1,0,0,0,0,0,0,0,1
 inference acceleration,2,2,0,model_serving,0,0,1,0,0,0,0,0,0,0,0
-independent research,2,2,2,research,1,0,0,0,0,0,0,0,0,1,1
+independent research,2,2,2,research,0,0,0,0,0,0,0,0,0,1,1
 production backend systems,2,2,2,,0,0,2,0,0,0,0,0,0,0,0
 production applications,2,2,2,,0,0,2,0,0,0,0,0,0,0,0
 production ai/ml systems,2,2,2,,0,0,1,0,0,0,0,0,1,0,0
@@ -3891,7 +3891,7 @@ incremental processing,2,2,2,,0,0,0,0,0,2,0,0,0,0,0
 protobuf,2,2,2,,0,0,0,1,0,1,0,0,0,0,0
 human-in-the-loop evaluation,2,2,1,,0,0,1,0,0,0,0,0,0,0,1
 influencer marketing,2,2,1,,0,0,0,0,1,0,0,0,0,0,0
-quickbooks,2,2,0,,0,0,2,0,0,0,0,0,0,0,0
+quickbooks,2,2,0,,0,1,1,0,0,0,0,0,0,0,0
 healthcare operations,2,2,2,,0,0,1,0,0,0,1,0,0,0,0
 radical polymerisation,2,2,0,,0,0,0,0,0,0,0,0,0,0,2
 healthcare software,2,2,0,,0,0,1,0,0,0,0,0,0,0,0
@@ -3900,7 +3900,7 @@ radar,2,2,1,,0,0,0,0,0,1,0,0,1,0,0
 hedge fund experience,2,2,1,,0,0,0,0,0,1,0,0,0,1,0
 video data,2,2,1,,0,0,1,0,0,0,0,0,0,0,0
 r package development,2,2,0,,0,0,0,0,0,0,0,0,0,0,0
-technical reporting,2,2,2,bi_dashboards,1,0,0,0,0,0,0,0,0,0,2
+technical reporting,2,2,2,bi_dashboards,0,0,0,0,0,0,0,0,0,0,2
 rails,2,2,0,,0,0,0,0,0,0,0,0,0,0,0
 high-dimensional data,2,2,1,warehouse,0,0,0,0,0,0,1,0,0,0,0
 high-dimensional data analysis,2,2,2,warehouse,0,0,0,0,0,0,1,0,0,0,0
@@ -3989,14 +3989,14 @@ physics models,2,2,2,,0,0,0,0,0,0,0,1,0,0,1
 knowledge bases,2,2,2,,0,0,0,0,0,0,0,0,0,0,0
 phi handling,2,2,2,,0,0,2,0,0,0,0,0,0,0,0
 kdb+,2,2,1,,0,0,1,0,0,0,0,0,0,1,0
-knowledge representation,2,2,0,,1,0,0,0,0,0,1,0,0,0,0
+knowledge representation,2,2,0,,0,0,0,0,0,0,1,0,0,0,0
 phd degree,2,2,0,research,0,0,0,0,0,0,0,0,1,0,0
 knowledge systems,2,2,2,,0,0,0,0,0,0,0,1,1,0,0
 phd computer science,2,2,2,research,0,0,0,0,0,0,0,0,0,0,2
 pharmacy benefit management,2,2,1,,0,0,0,0,0,1,1,0,0,0,0
 kong,2,2,2,,0,0,2,0,0,0,0,0,0,0,0
 kong api gateway,2,2,0,apis_services,0,0,0,0,0,0,0,0,0,0,0
-pharmaceutical industry knowledge,2,2,2,,2,0,0,0,0,0,0,0,0,0,2
+pharmaceutical industry knowledge,2,2,2,,0,0,0,0,0,0,0,0,0,0,2
 usability testing,2,2,2,cicd_testing,0,0,0,0,0,0,0,0,0,0,0
 plan-and-execute,2,2,2,,0,0,0,0,0,0,0,2,0,0,0
 polybase,2,2,2,,0,0,0,0,0,2,0,0,0,0,0
@@ -4013,7 +4013,7 @@ julia,2,2,1,,1,0,0,0,0,0,2,0,0,0,0
 kafka streams,2,2,2,streaming,0,0,1,0,0,1,0,0,0,0,0
 plc,2,2,1,,0,0,0,0,0,0,0,1,0,0,0
 junit,2,2,2,,0,0,1,0,0,0,0,0,0,0,0
-player behavior analysis,2,2,2,,2,0,0,0,2,0,0,0,0,0,0
+player behavior analysis,2,2,2,,1,0,0,0,2,0,0,0,0,0,0
 user acceptance testing,2,2,1,cicd_testing,0,0,0,0,2,0,0,0,0,0,0
 platform deployment,2,2,2,,0,0,1,0,0,0,0,1,0,0,0
 jvm languages,2,2,1,scala_java,0,0,1,0,0,0,1,0,0,0,0
@@ -4021,7 +4021,7 @@ use case identification,2,2,2,,0,1,0,0,0,0,0,1,0,0,0
 kafka connect,2,2,2,streaming,0,0,0,0,0,2,0,0,0,0,0
 testing strategies,2,2,2,cicd_testing,0,0,0,0,0,1,0,0,0,0,0
 perturbational data,2,2,0,,0,0,0,0,0,0,0,0,2,0,0
-kpi design,2,2,2,product_analytics,1,0,0,0,2,0,0,0,0,0,0
+kpi design,2,2,2,product_analytics,0,0,0,0,2,0,0,0,0,0,0
 payments industry,2,2,0,,0,0,1,0,0,0,0,0,0,0,0
 pdal,2,2,2,,0,0,0,0,0,0,0,0,0,0,0
 pcie,2,2,1,,0,0,0,0,0,0,0,0,0,0,2
@@ -4101,7 +4101,7 @@ insight communication,2,2,2,stakeholder_comms,1,0,0,0,1,0,1,0,0,0,0
 infosec,2,2,2,,0,0,0,0,0,0,0,2,0,0,0
 problem reframing,2,2,0,,0,0,0,0,0,0,2,0,0,0,0
 infrastructure management,2,2,2,,0,0,0,0,0,0,0,1,0,0,0
-teradata,2,2,2,,1,0,0,0,0,0,1,0,0,0,0
+teradata,2,2,2,,0,0,0,0,0,0,1,0,0,0,0
 infrastructure monitoring,2,2,1,llm_observability,0,0,0,0,0,0,0,2,0,0,0
 probabilistic reasoning,2,2,2,statistics,0,0,0,0,0,0,0,0,0,0,0
 uv,2,2,2,,0,0,0,0,0,0,0,0,2,0,0
@@ -4130,7 +4130,7 @@ itsm,2,2,1,,0,0,0,0,0,0,0,2,0,0,0
 japanese language,2,2,0,,0,0,0,0,0,1,1,0,0,0,0
 investment banking,2,2,2,,0,0,0,0,0,1,0,0,0,0,0
 pre-sales engineering,2,2,1,customer_facing,0,0,0,0,0,0,0,1,1,0,0
-inventory optimization,2,2,1,,0,0,0,0,0,0,2,0,0,0,0
+inventory optimization,2,2,1,,1,0,0,0,0,0,2,0,0,0,0
 inventory management,2,2,0,,0,0,0,0,2,0,0,0,0,0,0
 pricing analytics,2,2,0,product_analytics,1,0,0,0,1,0,0,0,0,1,0
 inter-annotator agreement,2,2,2,,0,0,2,0,0,0,0,0,0,0,0
@@ -4143,7 +4143,7 @@ internal platforms,2,2,0,,0,0,2,0,0,0,0,0,0,0,0
 internal tooling,2,2,1,,0,0,0,0,0,1,0,0,0,0,0
 preprocessing,2,2,2,,0,0,0,0,0,0,1,0,0,0,0
 preference learning,2,2,0,,0,0,0,0,0,0,0,0,2,0,0
-predictive signals,2,2,2,,1,0,0,0,0,0,0,0,0,2,0
+predictive signals,2,2,2,,0,0,0,0,0,0,0,0,0,2,0
 predictive signal generation,2,2,2,,0,0,0,0,0,0,0,0,0,2,0
 international analytics,2,2,0,product_analytics,0,0,0,0,0,0,0,0,0,0,0
 terratest,2,2,0,,0,0,1,0,0,0,1,0,0,0,0
@@ -4200,7 +4200,7 @@ aviation domain knowledge,2,2,2,,0,0,0,0,1,0,0,1,0,0,0
 debugging ml systems,2,2,2,cicd_testing,0,0,0,0,0,0,0,0,1,0,1
 aviation,2,2,0,,0,0,0,0,0,0,0,0,0,0,2
 audio understanding,2,2,2,,0,0,0,0,0,0,0,0,0,0,1
-data monitoring,2,2,2,llm_observability,1,0,0,0,1,1,0,0,0,0,0
+data monitoring,2,2,2,llm_observability,0,0,0,0,1,1,0,0,0,0,0
 avatar generation,2,2,2,,0,0,0,0,0,0,0,0,0,0,1
 decision intelligence platforms,2,2,0,,0,0,1,0,0,1,0,0,0,0,0
 dast,2,2,2,,0,0,0,0,0,0,0,1,0,0,0
@@ -4254,7 +4254,7 @@ distributed execution,2,2,2,,0,0,0,0,0,0,0,0,0,0,2
 customer modeling,2,2,2,customer_facing,1,0,0,0,0,0,1,0,1,0,0
 cost-sensitive learning,2,2,2,,0,0,0,0,0,0,0,0,2,0,0
 ai gateway,2,2,2,,0,0,0,0,0,0,0,2,0,0,0
-cost-effectiveness analysis,2,2,2,,2,0,0,0,0,0,0,0,0,0,2
+cost-effectiveness analysis,2,2,2,,0,0,0,0,0,0,0,0,0,0,2
 business process analysis,2,2,2,,0,1,0,0,0,0,0,0,0,0,0
 classical statistical methods,2,2,2,statistics,0,0,0,0,0,0,2,0,0,0,0
 ai for finance,2,2,2,,0,0,0,0,0,0,0,1,0,0,0
@@ -4268,7 +4268,7 @@ ai integrations,2,2,2,,0,0,1,0,0,0,0,0,0,0,0
 clarisights,2,2,2,,0,0,0,0,0,2,0,0,0,0,0
 ai-assisted tools,2,2,2,,0,0,1,0,0,0,1,0,0,0,0
 business process understanding,2,2,2,,0,1,1,0,0,0,0,0,0,0,0
-analytics tools,2,2,2,product_analytics,2,0,0,0,2,0,0,0,0,0,0
+analytics tools,2,2,2,product_analytics,1,0,0,0,2,0,0,0,0,0,0
 business process modelling,2,2,0,,0,0,0,0,0,0,0,0,0,0,0
 banking operations,2,2,1,,1,0,0,1,1,0,0,0,0,0,0
 business process mapping,2,2,2,,0,1,0,0,0,0,0,0,0,0,0
@@ -4330,7 +4330,7 @@ cloud-native platforms,2,2,2,cloud,0,0,1,0,0,1,0,0,0,0,0
 airtable,2,2,1,,0,1,0,0,0,0,0,0,0,0,0
 cloud ml platforms,2,2,1,mlops_tooling,0,0,0,0,0,0,1,0,0,0,0
 automated evaluation,2,2,0,,0,0,2,0,0,0,0,0,0,0,0
-biomarker discovery,2,2,2,,2,0,0,0,0,0,1,0,0,0,1
+biomarker discovery,2,2,2,,1,0,0,0,0,0,1,0,0,0,1
 brokerage domain,2,2,0,,1,0,0,1,0,0,1,0,0,0,0
 content filtering,2,2,2,,0,0,0,0,0,0,0,1,0,0,0
 cloud monitoring,2,2,0,cloud,0,0,0,0,0,1,0,0,1,0,0
@@ -4422,12 +4422,12 @@ coaching and mentoring,2,2,2,mentoring_leadership,0,0,1,0,0,0,0,0,0,0,0
 devops engineering,2,2,2,cicd_testing,0,0,0,0,0,0,0,0,0,0,0
 boomi,2,2,1,,0,0,1,0,0,0,0,1,0,0,0
 co-folding,2,2,2,,0,0,0,0,0,0,0,0,1,0,1
-alpha research,2,2,2,quant_research,1,0,0,0,0,1,0,0,0,1,0
+alpha research,2,2,2,quant_research,0,0,0,0,0,1,0,0,0,1,0
 cloud certifications,2,2,0,cloud,0,0,0,0,0,1,0,1,0,0,0
 continual learning,2,2,0,,0,0,1,0,0,0,0,0,0,1,0
 ai/llm integration,2,2,2,llm_apps,0,1,0,0,0,0,1,0,0,0,0
 agile analysis,2,2,2,,0,0,0,0,2,0,0,0,0,0,0
-alternative datasets,2,2,2,,2,0,0,0,0,0,1,0,0,1,0
+alternative datasets,2,2,2,,1,0,0,0,0,0,1,0,0,1,0
 continuous monitoring,2,2,2,llm_observability,0,0,2,0,0,0,0,0,0,0,0
 decision-making under pressure,2,2,2,,0,0,0,0,0,0,0,1,0,0,0
 behavioral analysis,2,2,2,,1,0,0,0,1,0,0,0,0,0,0
@@ -4606,12 +4606,12 @@ chartered engineer status,2,2,0,,0,0,0,0,0,0,0,2,0,0,0
 custom cuda kernels,2,2,2,deep_learning,0,0,0,0,0,0,0,0,0,0,0
 argo cd,2,2,2,,0,0,0,0,0,2,0,0,0,0,0
 ai tool adoption,2,2,2,,0,0,1,0,0,0,0,1,0,0,0
-academic writing,2,2,2,,0,0,1,0,0,0,1,0,0,0,0
+academic writing,2,2,2,,1,0,1,0,0,0,1,0,0,0,0
 census,2,2,1,,0,0,0,0,2,0,0,0,0,0,0
 calibration,2,2,2,,0,0,0,0,0,0,2,0,0,0,0
 customer data platforms,2,2,0,customer_facing,0,0,1,0,0,0,0,1,0,0,0
 data science competitions,2,2,0,,0,0,0,0,0,0,1,0,0,0,0
-commodities trading,2,2,0,,1,0,0,0,1,0,0,0,0,1,0
+commodities trading,2,2,0,,0,0,0,0,1,0,0,0,0,1,0
 data quality analysis,2,2,2,pipelines_etl,0,0,0,0,1,0,1,0,0,0,0
 crypto knowledge,2,2,0,,0,0,0,0,0,0,0,1,0,1,0
 ai mentoring,2,2,2,mentoring_leadership,0,0,0,0,0,0,1,0,1,0,0
@@ -4662,7 +4662,7 @@ cpu architecture,2,2,2,,0,0,0,0,0,0,0,0,0,0,0
 data security and privacy,2,2,2,,0,0,1,0,0,0,0,0,0,0,0
 customer experience,2,2,1,customer_facing,0,0,1,0,0,0,0,1,0,0,0
 android development,2,2,1,,0,0,1,0,0,0,0,0,0,0,0
-applied science,2,2,2,,0,0,0,0,0,0,0,0,0,0,2
+applied science,2,2,2,,1,0,0,0,0,0,0,0,0,0,2
 azure ecosystem,2,2,1,cloud,0,0,0,0,0,1,0,0,0,0,0
 database querying,2,2,1,,0,0,0,0,1,0,0,0,0,0,0
 cism,2,2,0,,0,0,1,0,0,0,0,1,0,0,0
@@ -4741,7 +4741,7 @@ rapid problem-solving,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 rag implementation,1,1,0,rag,0,0,0,0,0,0,0,0,0,0,0
 azure api management,1,1,0,cloud,0,0,1,0,0,0,0,0,0,0,0
 azure bicep,1,1,1,cloud,0,0,0,0,0,0,0,1,0,0,0
-radar detection models,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
+radar detection models,1,1,0,,1,0,0,0,0,0,1,0,0,0,0
 rag pipeline design,1,1,1,rag,0,0,0,0,0,0,0,0,0,0,0
 radar detection,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
 reporting frameworks,1,1,1,bi_dashboards,0,0,0,0,1,0,0,0,0,0,0
@@ -4769,7 +4769,7 @@ rag applications,1,1,1,rag,0,0,0,0,0,0,0,1,0,0,0
 azure associate,1,1,0,cloud,0,0,0,0,0,0,0,1,0,0,0
 radio access network,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
 autonomous agent architecture,1,1,1,agents,0,0,1,0,0,0,0,0,0,0,0
-replit,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
+replit,1,1,1,,0,1,0,0,0,0,0,0,0,0,0
 rent roll analysis,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 rendering systems,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 request flows,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
@@ -4797,7 +4797,7 @@ autonomous monitoring,1,1,1,llm_observability,0,0,1,0,0,0,0,0,0,0,0
 azure cloud services,1,1,1,cloud,0,0,0,0,1,0,0,0,0,0,0
 autonomous orchestration,1,1,0,orchestration,0,0,1,0,0,0,0,0,0,0,0
 r&d methodology,1,1,1,,0,1,0,0,0,0,0,0,0,0,0
-remote sensing imagery,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
+remote sensing imagery,1,1,0,,1,0,0,0,0,0,1,0,0,0,0
 autonomous ownership,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
 reproducible ml experiments,1,1,1,experimentation,0,0,0,0,0,0,0,0,1,0,0
 remote monitoring,1,1,1,llm_observability,0,0,0,0,0,0,0,1,0,0,0
@@ -4920,7 +4920,7 @@ aws/gcp/azure,1,1,1,cloud,0,0,0,0,0,0,0,0,0,0,0
 rca,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 regulated software development,1,1,0,software_engineering,0,0,1,0,0,0,0,0,0,0,0
 regulated software,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
-rcpp,1,1,0,,1,0,0,0,0,0,0,0,0,0,1
+rcpp,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
 aws services,1,1,0,cloud,0,0,0,0,0,1,0,0,0,0,0
 av solutions,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 real-time stream processing,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
@@ -5048,7 +5048,7 @@ sales methodology,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 sales messaging,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 sales mentoring,1,1,1,mentoring_leadership,0,0,0,0,0,0,0,1,0,0,0
 aspect extraction,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
-sales forecasting models,1,1,0,forecasting,1,0,0,0,1,0,0,0,0,0,0
+sales forecasting models,1,1,0,forecasting,0,0,0,0,1,0,0,0,0,0,0
 sagemaker training,1,1,1,mlops_tooling,0,0,0,0,0,0,0,0,1,0,0
 aspm,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 asr (automatic speech recognition),1,1,1,nlp,0,0,1,0,0,0,0,0,0,0,0
@@ -5396,7 +5396,7 @@ risk-based decision making,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 risk simulation,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 audatex,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 risk reporting,1,1,1,bi_dashboards,0,0,0,0,0,0,0,0,0,0,0
-risk modelling,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+risk modelling,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 audience adaptation,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 risk model governance,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
 risk mitigation,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
@@ -5442,7 +5442,7 @@ roadmap planning,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 roadmap ownership,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 attribution analysis,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 roadmap creation,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
-attribution models,1,1,1,,1,0,0,0,1,0,0,0,0,0,0
+attribution models,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 rna-seq,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 rna sequencing,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 rna analysis,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
@@ -5468,7 +5468,7 @@ audio-to-video generation,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 audio-visual synchronization,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 revenue attribution modeling,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
 reward design,1,1,0,,0,0,0,0,0,0,0,0,1,0,0
-revenue attribution,1,1,0,,1,0,0,0,1,0,0,0,0,0,0
+revenue attribution,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
 revenue assurance,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
 audio/speech/video modeling,1,1,1,nlp,0,0,0,0,0,0,0,0,0,0,1
 revenue analysis,1,1,1,,1,0,0,0,1,0,0,0,0,0,0
@@ -5529,7 +5529,7 @@ policy controls,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 policy as code,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 polaris,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 point-in-time datasets,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
-point-in-time data handling,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+point-in-time data handling,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 point-cloud neural networks,1,1,1,deep_learning,0,0,1,0,0,0,0,0,0,0,0
 business insight,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 post-training quantization,1,1,1,,0,0,0,0,0,0,0,0,1,0,0
@@ -5553,7 +5553,7 @@ policy-constrained systems,1,1,1,,0,0,0,0,0,0,0,0,1,0,0
 policycenter,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 post-training methods,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
 post-trade validation,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
-post-trade analysis,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+post-trade analysis,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 post-processing,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 post-market surveillance,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 post-launch monitoring,1,1,1,llm_observability,1,0,0,0,0,0,1,0,0,0,0
@@ -5568,7 +5568,7 @@ portfolio systems,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 portfolio risk assessment,1,1,1,,1,0,0,0,1,0,0,0,0,0,0
 business concept translation,1,1,1,,0,0,0,1,0,0,0,0,0,0,0
 portfolio monitoring,1,1,0,llm_observability,0,0,0,0,0,0,0,1,0,0,0
-portfolio management,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+portfolio management,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 portfolio governance,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 business consulting,1,1,1,customer_facing,0,0,0,0,0,0,1,0,0,0,0
 portfolio analytics,1,1,0,product_analytics,1,0,0,0,1,0,0,0,0,0,0
@@ -5611,7 +5611,7 @@ business stakeholder communication,1,1,1,stakeholder_comms,0,0,0,0,0,0,0,1,0,0,0
 business stakeholder engagement,1,1,1,stakeholder_comms,0,0,0,0,0,0,0,1,0,0,0
 pipeline automation,1,1,1,pipelines_etl,0,0,0,0,0,0,1,0,0,0,0
 pipeline analytics,1,1,1,pipelines_etl,0,0,0,0,1,0,0,0,0,0,0
-pipeline analysis,1,1,1,pipelines_etl,1,0,0,0,1,0,0,0,0,0,0
+pipeline analysis,1,1,1,pipelines_etl,0,0,0,0,1,0,0,0,0,0,0
 pipecat,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
 plasmid design,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 platform automation,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
@@ -5746,7 +5746,7 @@ business adoption,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 postcode-level data,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
 postcode data handling,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
 post-training workflows,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
-budget impact analysis,1,1,1,,1,0,0,0,0,0,0,0,0,0,1
+budget impact analysis,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 budapest availability,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 prediction drift,1,1,1,,0,0,0,0,0,0,0,0,1,0,0
 powerapps,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
@@ -5799,7 +5799,7 @@ parsing,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 can bus,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 parent-child retrieval,1,1,1,rag,0,0,1,0,0,0,0,0,0,0,0
 pci-dss,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
-parametric survival analysis,1,1,1,,1,0,0,0,0,0,0,0,0,0,1
+parametric survival analysis,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 parametric and non-parametric tests,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 parameter-efficient tuning,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 parameter-efficient fine-tuning,1,1,1,fine_tuning,0,0,1,0,0,0,0,0,0,0,0
@@ -5988,7 +5988,7 @@ performance improvement,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 performance feedback,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
 ca-disk,1,1,1,,0,1,0,0,0,0,0,0,0,0,0
 ca-vantage,1,1,1,,0,1,0,0,0,0,0,0,0,0,0
-performance attribution,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+performance attribution,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 cac,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
 perforce,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 cac and roas analysis,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
@@ -6004,7 +6004,7 @@ calcination,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 pelatro,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 calendar integration,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 pega adaptive decision manager,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
-peer-reviewed publications,1,1,0,research,1,0,0,0,0,0,0,0,0,0,1
+peer-reviewed publications,1,1,0,research,0,0,0,0,0,0,0,0,0,0,1
 peer-reviewed publication,1,1,1,research,0,0,0,0,0,0,0,0,0,0,1
 pedagogy,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 pecr,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
@@ -6143,7 +6143,7 @@ bayesian knowledge tracing,1,1,1,llm_observability,0,0,1,0,0,0,0,0,0,0,0
 projection geometry,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
 project-based industries,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 bayesian neural networks,1,1,0,deep_learning,0,0,0,0,0,0,0,0,0,0,0
-project planning,1,1,1,,1,0,0,0,1,0,0,0,0,0,0
+project planning,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 bayesian non-parametrics,1,1,1,statistics,0,0,0,0,0,0,0,0,0,0,0
 batch scoring,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
 batch orchestration,1,1,1,orchestration,0,0,0,0,0,1,0,0,0,0,0
@@ -6189,7 +6189,7 @@ azure openai service,1,1,1,llm_apps,0,0,1,0,0,0,0,0,0,0,0
 quantitative academic background,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 azure openai services,1,1,1,llm_apps,0,1,0,0,0,0,0,0,0,0,0
 quantile regression,1,1,0,statistics,0,0,0,0,0,0,1,0,0,0,0
-quant equities,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+quant equities,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 quality-first approach,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
 quality systems,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 azure pipelines,1,1,0,cloud,0,0,0,0,0,0,0,0,1,0,0
@@ -6215,7 +6215,7 @@ azure services,1,1,0,cloud,0,0,0,0,0,1,0,0,0,0,0
 azure ml infrastructure,1,1,0,cloud,0,0,0,0,0,0,1,0,0,0,0
 quantitative field,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 azure migration,1,1,1,cloud,0,0,0,0,0,1,0,0,0,0,0
-quantitative investment,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+quantitative investment,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 queue priority,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 question answering,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 query writing,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
@@ -6228,7 +6228,7 @@ azure expressroute,1,1,1,cloud,0,0,0,0,0,0,0,1,0,0,0
 query language implementation,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
 azure fabric,1,1,1,cloud,0,0,0,0,0,0,0,0,0,0,0
 query analysis,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
-quasi-experimentation,1,1,1,experimentation,1,0,0,0,1,0,0,0,0,0,0
+quasi-experimentation,1,1,1,experimentation,0,0,0,0,1,0,0,0,0,0,0
 quasi-experimental design,1,1,1,experimentation,1,0,0,0,0,0,1,0,0,0,0
 quartus prime,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 azure infrastructure services,1,1,1,cloud,0,0,0,0,0,0,0,1,0,0,0
@@ -6240,15 +6240,15 @@ azure kubernetes service,1,1,1,containers,0,0,1,0,0,0,0,0,0,0,0
 quantitative thinking,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 azure landing zones,1,1,1,cloud,0,0,0,0,0,0,0,0,0,0,0
 azure logic apps,1,1,1,cloud,0,0,0,0,0,0,0,0,0,0,0
-quantitative problem solving,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+quantitative problem solving,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 quantitative modelling,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 azure machine learning studio,1,1,0,classical_ml,0,0,0,0,0,0,1,0,0,0,0
-quantitative model evaluation,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+quantitative model evaluation,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 quantitative methods,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 azure solutions architect certification,1,1,0,cloud,0,0,0,0,0,0,0,1,0,0,0
 qlik cloud,1,1,1,cloud,0,0,0,0,0,0,0,0,0,0,0
 azure sql pools,1,1,1,sql,0,0,0,0,0,0,0,0,0,0,0
-python or r,1,1,1,python,1,0,0,0,1,0,0,0,0,0,0
+python or r,1,1,1,python,0,0,0,0,1,0,0,0,0,0,0
 python library development,1,1,0,python,0,0,0,0,0,0,0,0,1,0,0
 python environment management,1,1,1,python,0,0,0,0,0,0,0,0,1,0,0
 pytest-bdd,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
@@ -6441,7 +6441,7 @@ black-box evaluation,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 problem diagnosis,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 problem design,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 blas,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
-problem decomposition,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
+problem decomposition,1,1,1,,1,0,0,0,0,0,0,0,0,0,1
 blazor,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 probing,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
 big data analytics,1,1,1,product_analytics,0,0,0,0,0,0,0,1,0,0,0
@@ -6453,7 +6453,7 @@ production-grade ai,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 production workflows,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 behavioral science,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 production training recipes,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
-behaviour classification,1,1,1,classical_ml,0,0,0,0,0,0,1,0,0,0,0
+behaviour classification,1,1,1,classical_ml,1,0,0,0,0,0,1,0,0,0,0
 production systems management,1,1,1,software_engineering,0,0,0,0,0,1,0,0,0,0,0
 behavioural modelling,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 production systems development,1,1,1,software_engineering,0,0,0,0,0,0,0,1,0,0,0
@@ -6467,7 +6467,7 @@ benchmarking and evaluation,1,1,1,model_evaluation,0,0,0,0,0,0,0,0,0,0,1
 benefit optimization,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 production software delivery,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 benefit-risk analysis,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
-production signal implementation,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+production signal implementation,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 production shipping,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 production server maintenance,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 benefits domain,1,1,0,,0,0,0,0,0,1,0,0,0,0,0
@@ -6546,7 +6546,7 @@ product structures,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 production code development,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
 production code shipping,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 production ownership,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
-production data analysis,1,1,1,product_analytics,1,0,0,0,0,0,0,0,0,1,0
+production data analysis,1,1,1,product_analytics,0,0,0,0,0,0,0,0,0,1,0
 production optimization,1,1,1,,0,0,0,0,0,0,0,0,1,0,0
 best practices,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 betting and gaming,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
@@ -6620,7 +6620,7 @@ trade-off evaluation,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 trade-off communication,1,1,1,stakeholder_comms,0,0,1,0,0,0,0,0,0,0,0
 trade flow knowledge,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
 agent tool design,1,1,1,agents,0,0,1,0,0,0,0,0,0,0,0
-tracking implementation,1,1,1,,1,0,0,0,1,0,0,0,0,0,0
+tracking implementation,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 tracking debugging,1,1,1,cicd_testing,0,0,0,0,1,0,0,0,0,0,0
 track reconstruction,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 agent trajectory evaluation,1,1,1,model_evaluation,0,0,1,0,0,0,0,0,0,0,0
@@ -6652,7 +6652,7 @@ agentic analytics,1,1,0,agents,0,0,0,1,0,0,0,0,0,0,0
 time-to-event analysis,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 time-series transformers,1,1,1,nlp,0,0,0,0,0,0,1,0,0,0,0
 time-series prediction,1,1,1,time_series,0,0,0,0,0,0,0,0,0,1,0
-time-series models,1,1,1,time_series,0,0,0,0,0,0,1,0,0,0,0
+time-series models,1,1,1,time_series,1,0,0,0,0,0,1,0,0,0,0
 time-series modelling,1,1,0,time_series,0,0,0,0,0,0,0,0,1,0,0
 agentic architecture,1,1,1,agents,0,0,0,0,0,0,0,0,0,0,0
 time-series ml,1,1,0,time_series,0,0,1,0,0,0,0,0,0,0,0
@@ -6713,7 +6713,7 @@ timeseries data management,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 timeseries data,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 trader/pm knowledge,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 agent system evaluation,1,1,1,model_evaluation,0,0,1,0,0,0,0,0,0,0,0
-trading algorithm development,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+trading algorithm development,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 agent instruction design,1,1,1,agents,0,0,1,0,0,0,0,0,0,0,0
 agent guardrails,1,1,1,responsible_ai,0,0,1,0,0,0,0,0,0,0,0
 tree-based methods,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
@@ -6780,7 +6780,7 @@ trial emulation,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 trial account management,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 agent lifecycle,1,1,1,agents,0,0,1,0,0,0,0,0,0,0,0
 agent logic design,1,1,1,agents,0,0,1,0,0,0,0,0,0,0,0
-trading analytics,1,1,1,product_analytics,1,0,0,0,0,0,0,0,0,1,0
+trading analytics,1,1,1,product_analytics,0,0,0,0,0,0,0,0,0,1,0
 traditional ml,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 agent safety,1,1,1,agents,0,0,0,0,0,0,1,0,0,0,0
 training efficiency,1,1,0,,0,0,0,0,0,0,0,0,1,0,0
@@ -6800,7 +6800,7 @@ trading technology,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
 transformer fine-tuning,1,1,1,fine_tuning,0,0,0,0,0,0,0,0,1,0,0
 agent skills standards,1,1,1,agents,0,0,1,0,0,0,0,0,0,0,0
 trading strategy research,1,1,1,research,0,0,0,0,0,0,0,0,0,1,0
-trading strategy improvement,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+trading strategy improvement,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 trading strategy development,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 agent stack,1,1,1,agents,0,0,0,0,0,0,0,1,0,0,0
 trading simulation,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
@@ -6808,7 +6808,7 @@ agent substrate,1,1,0,agents,0,0,1,0,0,0,0,0,0,0,0
 trading platforms,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 trading operations,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 trading models,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
-trading knowledge,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+trading knowledge,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 trading environment experience,1,1,0,,0,0,0,0,0,0,0,0,0,1,0
 agent supervision,1,1,1,agents,0,0,0,0,0,0,0,0,0,0,0
 trading concepts,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
@@ -6830,8 +6830,8 @@ transaction processing,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 agent permissioning,1,1,0,agents,0,0,1,0,0,0,0,0,0,0,0
 transaction isolation,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
 transaction data,1,1,0,,1,0,0,0,0,0,1,0,0,0,0
-transaction costs,1,1,0,,1,0,0,0,0,0,0,0,0,1,0
-transaction cost knowledge,1,1,0,,1,0,0,0,0,0,0,0,0,1,0
+transaction costs,1,1,0,,0,0,0,0,0,0,0,0,0,1,0
+transaction cost knowledge,1,1,0,,0,0,0,0,0,0,0,0,0,1,0
 transaction cost analysis,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 trakkr ai,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
 trajectory prediction,1,1,0,,0,0,0,0,0,1,0,0,0,0,0
@@ -6881,7 +6881,7 @@ ai governance regulations,1,1,1,responsible_ai,0,0,0,0,0,0,1,0,0,0,0
 technical drawing,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 ai delivery leadership,1,1,1,mentoring_leadership,0,0,0,0,0,0,0,0,0,0,0
 technical project delivery,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
-thrive lms,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
+thrive lms,1,1,1,,0,1,0,0,0,0,0,0,0,0,0
 technical solution engineering,1,1,1,customer_facing,0,0,0,0,0,0,0,1,0,0,0
 technical whitepapers,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 technical vision,1,1,1,,0,0,0,0,0,0,0,0,1,0,0
@@ -7045,7 +7045,7 @@ thermal management,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 thermal infrared imagery,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
 agentic systems production,1,1,0,agents,0,0,0,0,0,0,0,1,0,0,0
 thermal analysis,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
-theoretical modeling,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+theoretical modeling,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 thai language,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 agricultural modelling,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 test writing,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
@@ -7062,7 +7062,7 @@ telemetry design,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 telemetry analysis,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 ai application design,1,1,1,,0,1,0,0,0,0,0,0,0,0,0
 telegram bot integration,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
-ai application patterns,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
+ai application patterns,1,1,1,,0,1,0,0,0,0,0,0,0,0,0
 telecom/electronics engineering,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 telecom industry knowledge,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 telecom analytics,1,1,1,product_analytics,0,0,0,0,0,0,1,0,0,0,0
@@ -7167,9 +7167,9 @@ website optimization,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 website management,1,1,1,,0,1,0,0,0,0,0,0,0,0,0
 abuse prevention,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 academic collaboration,1,1,1,stakeholder_comms,0,0,0,0,0,0,0,0,0,0,1
-web tracking,1,1,1,,1,0,0,0,1,0,0,0,0,0,0
+web tracking,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 webinar management,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
-academic literature,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+academic literature,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 webhook integrations,1,1,1,apis_services,0,0,1,0,0,0,0,0,0,0,0
 academic publications,1,1,1,research,0,0,0,0,0,0,0,0,0,0,1
 webhook configuration,1,1,0,apis_services,0,0,1,0,0,0,0,0,0,0,0
@@ -7265,7 +7265,7 @@ xdr,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 x-ray,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 wyse management server,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 wsl,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
-written english,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+written english,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 3d object detection,1,1,1,computer_vision,0,0,0,0,0,0,0,0,1,0,0
 3d point-cloud data,1,1,1,cloud,0,0,0,0,0,0,0,0,1,0,0
 3d scene reconstruction,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
@@ -7544,7 +7544,7 @@ video dit architectures,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 video dit,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 video diffusion models,1,1,1,deep_learning,0,0,0,0,0,0,0,0,0,0,0
 ad ranking,1,1,1,recsys_ranking,0,0,0,0,0,0,1,0,0,0,0
-video detection models,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
+video detection models,1,1,0,,1,0,0,0,0,0,1,0,0,0,0
 video detection and tracking,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
 video deep learning,1,1,1,deep_learning,0,0,0,0,0,0,0,0,0,0,0
 ad servers,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
@@ -7704,7 +7704,7 @@ simulation modeling,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 simulation knowledge,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 amazon rds,1,1,0,,0,0,0,0,0,1,0,0,0,0,0
 amazon sagemaker pipelines,1,1,1,mlops_tooling,0,0,1,0,0,0,0,0,0,0,0
-simulated treatment comparison,1,1,0,,1,0,0,0,0,0,0,0,0,0,1
+simulated treatment comparison,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
 signal classification,1,1,1,classical_ml,0,0,1,0,0,0,0,0,0,0,0
 similarity metrics,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 similarity,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
@@ -7718,7 +7718,7 @@ amazon textract,1,1,0,,0,0,0,0,0,1,0,0,0,0,0
 signal extraction,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 signal discovery,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 signal detection,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
-signal design,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+signal design,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 ambiguity,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 shadcn/ui,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 analytical data platforms,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
@@ -7767,7 +7767,7 @@ servicenow workflows,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 servicenow virtual agent,1,1,1,agents,0,0,1,0,0,0,0,0,0,0,0
 servicenow software asset management,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 servicenow service catalog,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
-analytical methodology,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
+analytical methodology,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 servicenow predictive intelligence,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 servicenow performance analytics,1,1,1,product_analytics,0,0,1,0,0,0,0,0,0,0,0
 servicenow itsm,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
@@ -7804,7 +7804,7 @@ algorithmic optimization,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 software agents,1,1,0,agents,0,0,0,0,0,0,0,0,0,0,1
 soda,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 socmint,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
-algorithmic order placement,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+algorithmic order placement,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 algorithmic personalization,1,1,1,recsys_ranking,0,0,0,0,0,0,0,0,1,0,0
 alignment stress-testing,1,1,1,cicd_testing,0,0,0,0,0,0,0,0,0,0,1
 algorithmic pricing,1,1,0,,0,0,0,0,0,0,0,0,0,1,0
@@ -7903,7 +7903,7 @@ alpha signal generation,1,1,1,quant_research,0,0,0,0,0,0,0,0,0,1,0
 smiles,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
 sme lending,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 smartsheet integration,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
-alpha signal research,1,1,1,quant_research,1,0,0,0,0,0,0,0,0,1,0
+alpha signal research,1,1,1,quant_research,0,0,0,0,0,0,0,0,0,1,0
 small-object detection,1,1,0,computer_vision,0,0,1,0,0,0,0,0,0,0,0
 small team collaboration,1,1,1,stakeholder_comms,0,0,0,1,0,0,0,0,0,0,0
 small molecule synthesis,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
@@ -8111,7 +8111,7 @@ analytics-driven decision making,1,1,0,product_analytics,0,0,0,0,0,0,1,0,0,0,0
 sensor configuration,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 sensor characterization,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 sensor characteristics,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
-sensitivity analysis,1,1,1,,1,0,0,0,0,0,0,0,0,0,1
+sensitivity analysis,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 sensitive data management,1,1,0,,0,0,0,0,0,1,0,0,0,0,0
 android architecture,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 sensitive data detection,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
@@ -8209,7 +8209,7 @@ subscription metrics,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 subscription economics,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
 subscription businesses,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
 ai solutions engineering,1,1,1,customer_facing,0,0,1,0,0,0,0,0,0,0,0
-ai skills,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
+ai skills,1,1,0,,0,1,0,0,0,0,0,0,0,0,0
 ai system development,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 submission strategy,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 subledger systems,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
@@ -8367,7 +8367,7 @@ ai platform components,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 tco evaluation,1,1,1,,0,0,0,0,0,0,0,0,1,0,0
 tcl,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 tcfd,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
-taxonomy development,1,1,0,,1,0,0,0,0,0,1,0,0,0,0
+taxonomy development,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
 taxonomies,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
 tax operations,1,1,1,,0,0,0,1,0,0,0,0,0,0,0
 tax expertise,1,1,1,,0,0,0,1,0,0,0,0,0,0,0
@@ -8441,7 +8441,7 @@ system testing,1,1,1,cicd_testing,0,0,0,0,1,0,0,0,0,0,0
 system software development,1,1,1,software_engineering,0,0,0,0,0,0,0,1,0,0,0
 ai prompting,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 system scaling,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
-ai prototyping,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
+ai prototyping,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 system safety,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 system resilience,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 ai prototyping and delivery,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
@@ -8518,7 +8518,7 @@ sports domain knowledge,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
 ai/ml automation,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
 ai/ml background,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 sports,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
-spoken english,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+spoken english,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 ai/ml concepts,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 splink,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
 splashbi,1,1,0,,0,0,0,0,0,1,0,0,0,0,0
@@ -8601,12 +8601,12 @@ ai-driven automation,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
 ai-driven diagnostics,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
 statistical programming,1,1,1,statistics,0,0,0,0,0,0,0,0,0,0,0
 ai-driven product development,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
-statistical power,1,1,1,statistics,1,0,0,0,1,0,0,0,0,0,0
+statistical power,1,1,1,statistics,0,0,0,0,1,0,0,0,0,0,0
 statistical physics,1,1,0,statistics,0,0,0,0,0,0,0,0,0,0,0
 statistical monitoring,1,1,0,statistics,0,0,0,0,1,0,0,0,0,0,0
 ai-driven testing,1,1,0,cicd_testing,0,1,0,0,0,0,0,0,0,0,0
 ai-driven workflow scaling,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
-statistical methods in health economics,1,1,1,statistics,1,0,0,0,0,0,0,0,0,0,1
+statistical methods in health economics,1,1,1,statistics,0,0,0,0,0,0,0,0,0,0,1
 ai-driven workflows,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 statistical methodologies,1,1,1,statistics,0,0,0,0,0,0,0,0,1,0,0
 statistical matching,1,1,1,statistics,0,0,0,0,0,0,0,0,0,0,0
@@ -8620,7 +8620,7 @@ statistical decision-making,1,1,1,statistics,0,0,0,0,0,0,0,0,1,0,0
 statistical data modeling,1,1,1,statistics,0,0,0,0,1,0,0,0,0,0,0
 statistical data analysis,1,1,1,statistics,0,0,0,0,0,1,0,0,0,0,0
 statistical best practices,1,1,0,statistics,0,0,0,0,0,0,1,0,0,0,0
-statistical arbitrage,1,1,1,statistics,1,0,0,0,0,0,0,0,0,1,0
+statistical arbitrage,1,1,1,statistics,0,0,0,0,0,0,0,0,0,1,0
 ai-enabled systems,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 ai-enabled workflows,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 statistical algorithms,1,1,1,statistics,0,0,1,0,0,0,0,0,0,0,0
@@ -8689,7 +8689,7 @@ sre processes,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 sre principles,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 ai/automation adoption,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
 ai/automation tools,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
-square,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
+square,1,1,0,,0,1,0,0,0,0,0,0,0,0,0
 sqs/sns,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 ai/llm architectures,1,1,0,llm_apps,0,0,0,0,0,0,0,1,0,0,0
 ai/llm development,1,1,1,llm_apps,0,0,1,0,0,0,0,0,0,0,0
@@ -8728,7 +8728,7 @@ stakeholder relationship management,1,1,1,stakeholder_comms,0,0,0,0,1,0,0,0,0,0,
 ai-native features,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 stakeholder leadership,1,1,1,stakeholder_comms,0,0,1,0,0,0,0,0,0,0,0
 organizational influence,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
-openai gpt,1,1,0,llm_apps,0,0,0,0,0,0,1,0,0,0,0
+openai gpt,1,1,0,llm_apps,1,0,0,0,0,0,1,0,0,0,0
 organizational design,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 hardware features,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 harness building,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
@@ -8913,7 +8913,7 @@ html/liquid templating,1,1,1,,0,1,0,0,0,0,0,0,0,0,0
 html/css,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 html parsing,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 data lake architectures,1,1,1,warehouse,0,0,0,0,0,1,0,0,0,0,0
-hta submissions,1,1,1,,1,0,0,0,0,0,0,0,0,0,1
+hta submissions,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 hris integration,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 hri/hci systems,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
 hr/finance platforms,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
@@ -8941,9 +8941,9 @@ hex.tech,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
 data pipeline tools,1,1,1,pipelines_etl,0,0,0,0,0,0,0,1,0,0,0
 data pipeline troubleshooting,1,1,1,cicd_testing,0,0,0,0,0,1,0,0,0,0,0
 heuristic models,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
-hesim,1,1,0,,1,0,0,0,0,0,0,0,0,0,1
+hesim,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
 heroku,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
-heor,1,1,1,,1,0,0,0,0,0,0,0,0,0,1
+heor,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 help content writing,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 help centers,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 helm charts,1,1,1,containers,0,0,0,0,0,0,0,1,0,0,0
@@ -9355,7 +9355,7 @@ inspect framework,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 inspect ai,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
 cybercrime investigation,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 insights generation,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
-insights communication,1,1,1,stakeholder_comms,1,0,0,0,1,0,0,0,0,0,0
+insights communication,1,1,1,stakeholder_comms,0,0,0,0,1,0,0,0,0,0,0
 insight derivation,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 input validation,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 inorganic materials,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
@@ -9372,7 +9372,7 @@ insurance risk domain,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 intelligent automation engineering,1,1,1,,0,1,0,0,0,0,0,0,0,0,0
 customer systems integration,1,1,1,customer_facing,0,0,0,0,0,0,0,1,0,0,0
 intelligent agents,1,1,1,agents,0,0,1,0,0,0,0,0,0,0,0
-intellectual curiosity,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+intellectual curiosity,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 integrations engineering,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 customer technical engagement,1,1,1,customer_facing,0,0,0,0,0,0,0,1,0,0,0
 customer technical work,1,1,1,customer_facing,0,0,0,0,0,0,0,1,0,0,0
@@ -9591,7 +9591,7 @@ data curation for pre-training,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 data delivery,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
 image data processing,1,1,1,computer_vision,0,0,0,0,0,0,0,0,0,0,0
 data dependencies,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
-image and video analysis,1,1,1,computer_vision,0,0,0,0,0,0,1,0,0,0,0
+image and video analysis,1,1,1,computer_vision,1,0,0,0,0,0,1,0,0,0,0
 image analysis,1,1,1,computer_vision,0,0,0,0,0,0,0,0,1,0,0
 iis 6,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 igmp,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
@@ -9650,12 +9650,12 @@ iac,1,1,1,cloud,0,0,1,0,0,0,0,0,0,0,0
 iaac,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 i/q signal processing,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 hypothesis-driven thinking,1,1,1,statistics,0,0,0,0,1,0,0,0,0,0,0
-hypothesis-driven experimentation,1,1,1,experimentation,1,0,0,0,0,0,1,0,0,0,0
+hypothesis-driven experimentation,1,1,1,experimentation,0,0,0,0,0,0,1,0,0,0,0
 hypothesis-driven development,1,1,1,statistics,0,0,0,0,0,0,0,1,0,0,0
 hypothesis-driven decision making,1,1,1,statistics,1,0,0,0,0,0,1,0,0,0,0
 hypothesis-driven analysis,1,1,1,statistics,0,0,0,0,1,0,0,0,0,0,0
 data flow analysis,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
-hypothesis generation,1,1,1,statistics,1,0,0,0,0,0,0,0,0,1,0
+hypothesis generation,1,1,1,statistics,0,0,0,0,0,0,0,0,0,1,0
 data flow diagramming,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 hypothesis formation,1,1,1,statistics,0,0,0,0,0,0,0,0,0,0,1
 data flows,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
@@ -9774,7 +9774,7 @@ incremental indexing,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 industrial connectivity,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 industrial communications,1,1,0,stakeholder_comms,0,0,0,0,1,0,0,0,0,0,0
 inductor,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
-indirect treatment comparison,1,1,0,,1,0,0,0,0,0,0,0,0,0,1
+indirect treatment comparison,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
 indexing systems,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 data assurance,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
 data auditing,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
@@ -9855,7 +9855,7 @@ erp troubleshooting,1,1,1,cicd_testing,0,0,0,0,0,0,0,1,0,0,0
 erp transformation,1,1,0,,0,0,0,0,0,1,0,0,0,0,0
 distributed collaboration,1,1,1,stakeholder_comms,1,0,0,0,0,0,1,0,0,0,0
 distributed data architecture,1,1,1,spark_distributed,0,0,0,0,0,1,0,0,0,0,0
-distributed data environments,1,1,1,spark_distributed,1,0,0,0,0,0,0,0,0,1,0
+distributed data environments,1,1,1,spark_distributed,0,0,0,0,0,0,0,0,0,1,0
 erp implementation,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
 erp deployment,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 erp,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
@@ -9950,7 +9950,7 @@ event instrumentation,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
 event ingestion pipelines,1,1,0,pipelines_etl,0,0,1,0,0,0,0,0,0,0,0
 event hubs,1,1,0,,0,0,0,0,0,1,0,0,0,0,0
 event driven architecture,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
-event design,1,1,1,,1,0,0,0,1,0,0,0,0,0,0
+event design,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 event data management,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
 digital marketing analytics,1,1,1,product_analytics,0,0,0,0,0,1,0,0,0,0,0
 digital reporting,1,1,1,bi_dashboards,0,0,0,0,1,0,0,0,0,0,0
@@ -10000,7 +10000,7 @@ digital customer journey analysis,1,1,1,customer_facing,0,0,0,0,1,0,0,0,0,0,0
 event-based tracking,1,1,1,,0,0,0,1,0,0,0,0,0,0,0
 event-based integration,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 digital customer journeys,1,1,1,customer_facing,0,0,0,0,1,0,0,0,0,0,0
-event tracking tools,1,1,1,,1,0,0,0,1,0,0,0,0,0,0
+event tracking tools,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 evaluation methods,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 digital signage,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 disparate impact mitigation,1,1,1,,0,0,0,0,0,0,0,0,1,0,0
@@ -10103,7 +10103,7 @@ einstein,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 ehr data,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
 ehr,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 electronic market mechanics,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
-electronic options trading,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+electronic options trading,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 electronic technologies,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 electronic warfare,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
 embedded ml,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
@@ -10170,7 +10170,7 @@ e-commerce domain,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 dynamic routing,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 dynamical systems,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 economic modeling,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
-economic modelling,1,1,1,,1,0,0,0,0,0,0,0,0,0,1
+economic modelling,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 dual-use biology,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
 ecosystem analysis,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 efficiency,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
@@ -10185,7 +10185,7 @@ dsc,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
 dsgvo,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 edi,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 edge ml deployment,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
-dsgvo compliance,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
+dsgvo compliance,1,1,0,,0,1,0,0,0,0,0,0,0,0,0
 edge functions,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 edge device deployment,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
 dsl development,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
@@ -10438,7 +10438,7 @@ fleet management,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 fleet electrification,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 flax,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 forecast models,1,1,0,forecasting,0,0,0,0,0,0,0,0,0,0,1
-forecasting analysis,1,1,1,forecasting,1,0,0,0,1,0,0,0,0,0,0
+forecasting analysis,1,1,1,forecasting,0,0,0,0,1,0,0,0,0,0,0
 forecasting architecture,1,1,1,forecasting,0,0,0,0,0,0,1,0,0,0,0
 forecasting methodology,1,1,1,forecasting,0,0,0,0,1,0,0,0,0,0,0
 fraud and abuse detection,1,1,0,,1,0,0,0,0,0,1,0,0,0,0
@@ -10595,7 +10595,7 @@ gcp ml infrastructure,1,1,0,cloud,0,0,0,0,0,0,1,0,0,0,0
 gcp iam,1,1,1,cloud,0,0,0,0,0,0,0,0,0,0,0
 ddos mitigation,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 gcp cloud monitoring,1,1,1,cloud,0,0,0,0,0,0,0,0,1,0,0
-gcp cloud functions,1,1,1,cloud,0,0,1,0,0,0,0,0,0,0,0
+gcp cloud functions,1,1,1,cloud,0,1,0,0,0,0,0,0,0,0,0
 gcp cloud,1,1,0,cloud,0,0,0,0,0,0,1,0,0,0,0
 gcp certifications,1,1,0,cloud,0,0,0,0,0,1,0,0,0,0,0
 ddos protection,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
@@ -10853,7 +10853,7 @@ financial domain knowledge,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
 financial domain,1,1,0,,0,0,0,0,0,1,0,0,0,0,0
 financial documents parsing,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 financial document automation,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
-financial datasets,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+financial datasets,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 financial data engineering,1,1,1,pipelines_etl,0,0,1,0,0,0,0,0,0,0,0
 design,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 design automation,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
@@ -11036,7 +11036,7 @@ multi-provider routing,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 multi-provider ai systems,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 multi-party delivery,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 multi-omics integration,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
-multi-omics analysis,1,1,1,,1,0,0,0,0,0,0,0,0,0,1
+multi-omics analysis,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 multi-omics,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 cloud data tooling,1,1,1,cloud,0,0,0,0,0,0,1,0,0,0,0
 cloud deployments,1,1,1,cloud,0,0,0,0,0,0,0,1,0,0,0
@@ -11130,7 +11130,7 @@ multi-gpu systems,1,1,1,deep_learning,0,0,0,0,0,0,0,0,0,0,1
 multi-gpu jobs,1,1,0,deep_learning,0,0,1,0,0,0,0,0,0,0,0
 multi-gpu communication,1,1,0,deep_learning,0,0,1,0,0,0,0,0,0,0,0
 multi-factor authentication,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
-multi-currency systems,1,1,1,,1,0,0,0,1,0,0,0,0,0,0
+multi-currency systems,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 multi-cluster orchestration,1,1,1,orchestration,0,0,0,0,0,0,0,0,1,0,0
 multi-cluster federation,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
 multi-cloud platforms,1,1,0,cloud,0,0,0,0,0,0,0,0,0,0,0
@@ -11138,7 +11138,7 @@ multi-cloud infrastructure,1,1,0,cloud,0,0,0,0,0,0,0,0,1,0,0
 multi-cloud experience,1,1,0,cloud,0,0,0,0,0,0,0,0,0,0,0
 cloud gpu management,1,1,0,deep_learning,0,0,0,0,0,0,0,0,1,0,0
 multi-client analytics,1,1,0,customer_facing,0,0,0,0,1,0,0,0,0,0,0
-multi-asset portfolio analysis,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+multi-asset portfolio analysis,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 multi-asset derivatives,1,1,0,,0,0,0,0,0,0,0,0,0,1,0
 multi-armed bandit,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 model monitoring and observability,1,1,1,llm_observability,0,0,1,0,0,0,0,0,0,0,0
@@ -11293,7 +11293,7 @@ model deployment at scale,1,1,1,model_serving,0,0,1,0,0,0,0,0,0,0,0
 code quality tooling,1,1,1,software_engineering,0,0,0,0,0,0,0,0,0,0,0
 model degradation detection,1,1,1,,0,0,0,0,0,0,0,0,1,0,0
 model conversion,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
-model conceptualization,1,1,1,,1,0,0,0,0,0,0,0,0,0,1
+model conceptualization,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 model analysis,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 model compilation,1,1,1,,0,0,0,0,0,0,0,0,1,0,0
 model comparison,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
@@ -11451,7 +11451,7 @@ openai codex,1,1,1,llm_apps,0,0,1,0,0,0,0,0,0,0,0
 openai assistants,1,1,0,llm_apps,0,0,0,0,1,0,0,0,0,0,0
 change-point detection,1,1,1,,0,0,0,0,0,0,0,0,1,0,0
 channel allocation,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
-channel analysis,1,1,1,,1,0,0,0,1,0,0,0,0,0,0
+channel analysis,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 channel partnerships,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 characterization techniques,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
 chargeback analysis,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
@@ -11558,7 +11558,7 @@ or-tools,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 cdmp,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
 options pricing,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 cdmp certification,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
-option pricing,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+option pricing,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 optimizer development,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 optimizely,1,1,0,,1,0,0,0,1,0,0,0,0,0,0
 optimization theory,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
@@ -11693,7 +11693,7 @@ clinical data systems,1,1,0,,1,0,0,0,0,0,1,0,0,0,0
 network performance analytics,1,1,1,product_analytics,0,0,0,0,0,0,1,0,0,0,0
 network optimisation,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
 network monitoring,1,1,1,llm_observability,0,1,0,0,0,0,0,0,0,0,0
-network meta-analysis,1,1,1,,1,0,0,0,0,0,0,0,0,0,1
+network meta-analysis,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 network mapping,1,1,0,,0,0,0,0,0,0,1,0,0,0,0
 network kpi modelling,1,1,1,product_analytics,0,0,0,0,0,0,1,0,0,0,0
 clinical nlp,1,1,0,nlp,0,0,1,0,0,0,0,0,0,0,0
@@ -11761,7 +11761,7 @@ multitask learning,1,1,0,,0,0,0,0,0,0,0,0,1,0,0
 multispectral imagery,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 multiprocessing,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 clo management,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
-multiple languages,1,1,0,,1,0,0,0,0,0,0,0,0,1,0
+multiple languages,1,1,0,,0,0,0,0,0,0,0,0,0,1,0
 multiplayer game networking,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 nerf,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 clock-domain crossing,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
@@ -11796,7 +11796,7 @@ clinical safety,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 ndc coding,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 ndc,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 nccl debugging,1,1,1,cicd_testing,0,0,0,0,0,0,0,0,0,0,0
-clinical study interpretation,1,1,1,,1,0,0,0,0,0,0,0,0,0,1
+clinical study interpretation,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 navisworks,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 navigation and control,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 navigating ambiguity,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
@@ -11905,7 +11905,7 @@ nlp on financial contracts,1,1,0,nlp,0,0,0,0,0,0,0,0,0,0,0
 nlp classification,1,1,1,nlp,0,0,1,0,0,0,0,0,0,0,0
 nlp applications,1,1,1,nlp,0,0,1,0,0,0,0,0,0,0,0
 client onboarding,1,1,1,customer_facing,0,0,0,0,0,0,0,1,0,0,0
-client presentation,1,1,1,stakeholder_comms,1,0,0,0,0,0,0,0,0,1,0
+client presentation,1,1,1,stakeholder_comms,0,0,0,0,0,0,0,0,0,1,0
 nist csf,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
 client relationships,1,1,1,customer_facing,0,0,0,0,0,0,0,0,0,0,0
 nist compliance,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
@@ -11971,7 +11971,7 @@ live coding,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 live call debugging,1,1,1,cicd_testing,0,0,0,0,0,0,0,1,0,0,0
 litmuschaos,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
 creative problem solving,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
-literature reviews,1,1,1,,1,0,0,0,0,0,0,0,0,0,1
+literature reviews,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 literature review,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 literature research,1,1,1,research,0,0,0,0,0,0,0,0,0,0,0
 creative problem-solving,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
@@ -11992,7 +11992,7 @@ cost-aware inference,1,1,0,model_serving,0,0,0,0,0,0,0,0,1,0,0
 llm evaluation and testing,1,1,0,model_evaluation,0,0,1,0,0,0,0,0,0,0,0
 llm evaluation and benchmarking,1,1,1,model_evaluation,0,0,1,0,0,0,0,0,0,0,0
 cost-aware provisioning,1,1,1,,0,0,0,0,0,1,0,0,0,0,0
-cost-effectiveness modeling,1,1,1,,1,0,0,0,0,0,0,0,0,0,1
+cost-effectiveness modeling,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 llm ecosystem knowledge,1,1,1,llm_apps,0,0,1,0,0,0,0,0,0,0,0
 llm detection,1,1,0,llm_apps,0,0,0,0,0,0,0,0,0,0,1
 llm deployments,1,1,1,llm_apps,0,0,0,0,0,0,0,0,1,0,0
@@ -12006,7 +12006,7 @@ llm capabilities,1,1,1,llm_apps,0,0,0,0,0,0,0,0,0,0,0
 llm caching,1,1,1,llm_apps,0,0,1,0,0,0,0,0,0,0,0
 llm benchmarking,1,1,1,model_evaluation,0,0,1,0,0,0,0,0,0,0,0
 coupa,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
-llm automation,1,1,1,llm_apps,0,0,1,0,0,0,0,0,0,0,0
+llm automation,1,1,1,llm_apps,0,1,0,0,0,0,0,0,0,0,0
 coupa agent studio,1,1,1,agents,0,0,0,0,0,0,0,1,0,0,0
 llm architecture optimization,1,1,1,llm_apps,0,0,0,0,0,0,0,0,0,0,0
 llm architecture,1,1,1,llm_apps,0,0,1,0,0,0,0,0,0,0,0
@@ -12307,7 +12307,7 @@ cursor ide,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 knowledge design,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 knowledge base management,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 knowledge base design,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
-curve fitting,1,1,0,,1,0,0,0,1,0,0,0,0,0,0
+curve fitting,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
 kml,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 curve-fitting,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
 klaviyo mcp,1,1,1,agents,0,1,0,0,0,0,0,0,0,0,0
@@ -12380,10 +12380,10 @@ latent variable modeling,1,1,1,,0,0,0,0,0,0,0,0,1,0,0
 latent models,1,1,1,,0,0,0,0,0,0,0,0,1,0,0
 latency/throughput intuition,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 latency-sensitive systems,1,1,0,,0,0,0,0,0,0,0,0,0,1,0
-crms,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
+crms,1,1,0,,0,1,0,0,0,0,0,0,0,0,0
 crm data enrichment,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
 crm automation,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
-crm analysis,1,1,1,,1,0,0,0,1,0,0,0,0,0,0
+crm analysis,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 learning design frameworks,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 legal technology,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 cribl,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
@@ -12596,7 +12596,7 @@ measurement systems,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
 computational linguistics,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 computational materials science,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 measurement expertise,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
-computational method development,1,1,1,,1,0,0,0,0,0,0,0,0,0,1
+computational method development,1,1,1,,0,0,0,0,0,0,0,0,0,0,1
 measurement design,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
 measurement and profiling,1,1,1,,0,0,0,0,0,0,0,0,1,0,0
 measurement and metrics,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
@@ -12617,7 +12617,7 @@ mcp design,1,1,1,agents,0,0,1,0,0,0,0,0,0,0,0
 mcp clients,1,1,1,agents,0,0,1,0,0,0,0,0,0,0,0
 compliance and governance,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 complexity simplification,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
-matching-adjusted indirect comparison,1,1,0,,1,0,0,0,0,0,0,0,0,0,1
+matching-adjusted indirect comparison,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
 compiler optimization,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 microsoft exchange,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 competitive ml,1,1,0,,0,0,0,0,0,0,0,0,1,0,0
@@ -12652,7 +12652,7 @@ mica,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 microsoft fabric certification,1,1,0,warehouse,0,0,0,0,0,1,0,0,0,0,0
 competition experience,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 competency modeling,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
-compensation design,1,1,0,,1,0,0,0,1,0,0,0,0,0,0
+compensation design,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
 mint education,1,1,1,,0,0,1,0,0,0,0,0,0,0,0
 minitab,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 minimax models,1,1,0,,0,0,0,0,0,0,0,0,0,0,0
@@ -12770,7 +12770,7 @@ ltv/cac,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
 content metadata,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
 low-precision arithmetic,1,1,0,,0,0,0,0,0,0,0,0,1,0,0
 ltv estimation,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
-ltv and cac,1,1,1,,1,0,0,0,1,0,0,0,0,0,0
+ltv and cac,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 ltv analysis,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
 content moderation,1,1,0,,1,0,0,0,0,0,1,0,0,0,0
 lte/5g,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
@@ -12910,7 +12910,7 @@ market structure knowledge,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 market simulation,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 market segmentation,1,1,1,,0,0,0,0,1,0,0,0,0,0,0
 consultancy,1,1,1,customer_facing,0,0,0,0,0,0,0,1,0,0,0
-market opportunity identification,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+market opportunity identification,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 market monitoring,1,1,1,llm_observability,0,0,0,0,1,0,0,0,0,0,0
 market microstructure modeling,1,1,0,,0,0,0,0,0,0,0,0,0,1,0
 consultancy problem-solving,1,1,1,customer_facing,0,0,0,0,0,0,0,1,0,0,0
@@ -12973,7 +12973,7 @@ market data systems,1,1,0,,0,0,0,0,0,0,0,0,0,1,0
 contact center systems,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
 contact centre,1,1,0,,0,0,0,0,0,0,0,1,0,0,0
 maestro,1,1,1,,0,1,0,0,0,0,0,0,0,0,0
-macro asset modeling,1,1,1,,1,0,0,0,0,0,0,0,0,1,0
+macro asset modeling,1,1,1,,0,0,0,0,0,0,0,0,0,1,0
 contact centre integration,1,1,1,,0,0,0,0,0,0,0,1,0,0,0
 machine-readable documentation,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 machine vision,1,1,1,,0,0,0,0,0,0,0,0,1,0,0
@@ -12999,7 +12999,7 @@ maritime weapon systems,1,1,0,,0,0,0,0,1,0,0,0,0,0,0
 consulting ai,1,1,0,customer_facing,0,0,0,0,0,0,0,1,0,0,0
 consulting and change management,1,1,1,customer_facing,0,0,0,0,0,0,0,1,0,0,0
 maritime domain knowledge,1,1,0,,0,0,1,0,0,0,0,0,0,0,0
-maritime data management,1,1,1,,0,0,0,0,0,0,1,0,0,0,0
+maritime data management,1,1,1,,1,0,0,0,0,0,1,0,0,0,0
 marine invertebrate biology,1,1,0,,0,0,0,0,0,0,0,0,0,0,1
 marginal structural models,1,1,1,,0,0,0,0,0,0,0,0,0,0,0
 margin strategy,1,1,1,,0,0,0,0,0,0,0,0,0,1,0

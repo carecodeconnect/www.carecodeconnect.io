@@ -27,7 +27,8 @@ import pandas as pd
 
 HERE = Path(__file__).resolve().parent
 WWW = HERE.parent.parent
-df = pd.read_csv(HERE / "data" / "ai-data-job-skills.csv")
+CSV = HERE / "data" / "ai-data-job-skills.csv"
+df = pd.read_csv(CSV)
 VOCAB = json.load(open(HERE / "data" / "skills.json"))
 LABEL = {v["id"]: v["label"] for v in VOCAB}
 REQ = [c for c in df.columns if c.startswith("req_")]
@@ -281,11 +282,25 @@ out["data_governance_elsewhere"] = (
 # page, which keeps the rule: if a number appears in the text, it is defined in
 # this script. Regenerate them with sql/mentions-summary.sql and
 # sql/ml-crosscheck.sql.
-def carry(name: str, prefix: str) -> None:
+def carry(name: str, prefix: str, follows_csv: bool = False) -> None:
+    """Fold a sibling script's JSON into the variables.
+
+    `follows_csv` marks a file that is DERIVED from the published CSV by another
+    build script. If that script has not been re-run since the CSV changed, the
+    numbers carried here are the previous pool's, and nothing downstream notices:
+    on 2026-10-13 ten c26_* figures shipped one refresh stale because build_stats
+    ran before build_circles. Staleness is now an error, not a convention.
+    """
     f = HERE / "data" / f"{name}.json"
     if not f.exists():
         print(f"  WARNING: {f.name} missing — the page's {prefix}* vars will not resolve")
         return
+    if follows_csv and f.stat().st_mtime < CSV.stat().st_mtime:
+        raise SystemExit(
+            f"  STALE: {f.name} is older than {CSV.name}. It is derived from the CSV, so "
+            f"its {prefix}* figures are from the previous pool.\n"
+            f"  Re-run the script that writes it (build_{name.split('-')[0]}.py) before this one."
+        )
     for k, v in json.load(open(f)).items():
         if k.startswith("_"):
             continue
@@ -294,7 +309,7 @@ def carry(name: str, prefix: str) -> None:
         out[name] = f"{v:,}" if isinstance(v, int) and v >= 1_000 else v
 
 
-carry("circles-2026", "c26_")
+carry("circles-2026", "c26_", follows_csv=True)
 carry("mentions-summary", "mentions_")
 carry("judge", "judge_")
 
@@ -470,6 +485,94 @@ if "names_ml" in df.columns and str(df["names_ml"].iloc[0]) != "":
     out["mlx_silent_other_asks"] = ", ".join({"sql": "SQL", "python": "Python", "r": "R",
                                               "a/b testing": "A/B testing"}.get(x, x) for x in top_other)
 
+# ── seniority: the sample-wide split, and the families at the extremes ──────
+# Added 2026-10-13, when the judge's seniority answer was first carried into the
+# published CSV. Every figure the page quotes about seniority is defined here;
+# the chart (build_seniority.py) derives its own from the same column.
+if "seniority" in df.columns:
+    SEN_ORDER = ["entry", "mid", "senior", "staff_principal", "leadership"]
+    sen = df["seniority"].dropna()
+    share = sen.value_counts(normalize=True)
+    for lv in SEN_ORDER:
+        out[f"sen_pct_{lv}"] = f"{100 * share.get(lv, 0.0):.0f}"
+        out[f"sen_n_{lv}"] = f"{int((sen == lv).sum()):,}"
+    out["sen_n_judged"] = f"{len(sen):,}"
+    SENIOR_PLUS = ["senior", "staff_principal", "leadership"]
+    out["sen_pct_senior_plus"] = f"{100 * share.reindex(SENIOR_PLUS).fillna(0).sum():.0f}"
+    out["sen_pct_entry_mid"] = f"{100 * share.reindex(['entry', 'mid']).fillna(0).sum():.0f}"
+    # Per-family senior-and-above, so the page can name the extremes without
+    # typing either the family or its number.
+    byfam = (df.assign(sp=df["seniority"].isin(SENIOR_PLUS))
+               .groupby("family")["sp"].mean().mul(100).sort_values())
+    out["sen_most_senior_family"] = byfam.index[-1]
+    out["sen_most_senior_pct"] = f"{byfam.iloc[-1]:.0f}"
+    out["sen_least_senior_family"] = byfam.index[0]
+    out["sen_least_senior_pct"] = f"{byfam.iloc[0]:.0f}"
+    out["sen_family_spread"] = f"{byfam.iloc[-1] - byfam.iloc[0]:.0f}"
+    # Entry-level is the figure a reader is most likely to want on its own.
+    ent = (df.assign(e=df["seniority"].eq("entry")).groupby("family")["e"].mean().mul(100)
+             .sort_values())
+    out["sen_most_entry_family"] = ent.index[-1]
+    out["sen_most_entry_pct"] = f"{ent.iloc[-1]:.0f}"
+
+# ── seniority as a confound, and what actually tracks level ─────────────────
+# The question seniority could have been an RQ for: is the gap between the two
+# headline titles really a seniority gap? Computed within each level so the page
+# can answer it without typing a number. Added 2026-10-13.
+if "seniority" in df.columns and {"Data Scientist", "AI Engineer"} <= set(df["family"]):
+    SEN_MID = ["mid", "senior", "staff_principal"]
+    STATS = [c for c in REQ if c == "req_statistics"]
+    if STATS:
+        col = STATS[0]
+        gaps = {}
+        for lv in SEN_MID:
+            d = df[df["seniority"] == lv]
+            a = d[d["family"] == "Data Scientist"][col].mean() * 100
+            b = d[d["family"] == "AI Engineer"][col].mean() * 100
+            if pd.notna(a) and pd.notna(b):
+                gaps[lv] = (a, b, a - b)
+                out[f"sen_stats_ds_{lv}"] = f"{a:.0f}"
+                out[f"sen_stats_aie_{lv}"] = f"{b:.0f}"
+                out[f"sen_stats_gap_{lv}"] = f"{a - b:.0f}"
+        if gaps:
+            g = [v[2] for v in gaps.values()]
+            out["sen_stats_gap_min"] = f"{min(g):.0f}"
+            out["sen_stats_gap_max"] = f"{max(g):.0f}"
+            out["sen_stats_levels"] = str(len(gaps))
+
+    # What actually changes with level: the skill whose required-rate climbs most
+    # from entry to leadership, and the one that moves least. Both derived, so the
+    # page cannot claim "only mentoring tracks level" if that stops being true.
+    lo, hi = df[df["seniority"] == "entry"], df[df["seniority"] == "leadership"]
+    if len(lo) >= 30 and len(hi) >= 30:
+        climb = ((hi[REQ].mean() - lo[REQ].mean()) * 100).sort_values()
+        top = climb.index[-1]
+        out["sen_climb_skill"] = sentence(LABEL.get(top[4:], top[4:].replace("_", " ")))
+        out["sen_climb_entry"] = f"{lo[top].mean() * 100:.0f}"
+        out["sen_climb_leadership"] = f"{hi[top].mean() * 100:.0f}"
+        out["sen_climb_points"] = f"{climb.iloc[-1]:.0f}"
+        # The reference technical skill: Python, which should NOT track level.
+        if "req_python" in REQ:
+            out["sen_python_entry"] = f"{lo['req_python'].mean() * 100:.0f}"
+            out["sen_python_leadership"] = f"{hi['req_python'].mean() * 100:.0f}"
+
+# ── which title families are over-weighted to the end of the window ─────────
+# A family admitted to the crawler's title rules late is collected for less of
+# the window, so its share is a floor. First-appearance month CANNOT detect this:
+# a backfill from another source carries older posted dates, and on 2026-10-13
+# every family's first month read as the sample's first month. What does show it
+# is concentration in the final month against the sample's own rate.
+LAST = df["month"].max()
+_base = (df["month"] == LAST).mean()
+_conc = df.assign(f=df["month"] == LAST).groupby("family")["f"].mean() / _base
+late = sorted(_conc[_conc >= 1.4].index)
+out["n_late_families"] = len(late)
+out["late_families"] = (" and ".join(late) if len(late) < 3
+                        else ", ".join(late[:-1]) + " and " + late[-1]) or "none"
+out["late_final_month_pct"] = f"{100 * _conc.max() * _base:.0f}" if len(late) else "0"
+out["sample_final_month_pct"] = f"{100 * _base:.0f}"
+out["sample_first_month"] = df["month"].min()
+
 block = "jobskills:\n" + "".join(f"  {k}: \"{v}\"\n" for k, v in out.items())
 vp = WWW / "_variables.yml"
 keep = [l for l in vp.read_text().splitlines() if not l.startswith("jobskills:") and not l.startswith("  ")] if vp.exists() else []
@@ -492,6 +595,22 @@ else:
     src = re.sub(r"(?m)^(date:.*)$", rf"\1\ndate-modified: {today}", src, count=1)
 ip.write_text(src)
 print(f"  index.qmd date-modified: {today}")
+
+# ── the front-matter count, which the guard below cannot see ────────────────
+# `subtitle:` is in SKIP because YAML front matter cannot expand {{< var >}},
+# so its rounded "~3,600 job ads" is the one typed figure on the page. It went
+# stale the moment the pool grew from 2,894 to 3,638 (2026-10-13) and nothing
+# noticed. Rounding is deliberate — an exact n would go stale weekly — so this
+# checks the ROUNDED value still matches, and rewrites it when it does not.
+ROUND_TO = 100
+_want = f"~{round(len(df) / ROUND_TO) * ROUND_TO:,}"
+_sub = re.search(r"(?m)^subtitle: \"Across (~[\d,]+) job ads", src)
+if _sub and _sub.group(1) != _want:
+    src = src[: _sub.start(1)] + _want + src[_sub.end(1) :]
+    ip.write_text(src)
+    print(f"  index.qmd subtitle count: {_sub.group(1)} -> {_want}")
+elif not _sub:
+    print("  WARNING: could not find the subtitle's job-ad count to check")
 
 # ── the guard: no figure may be typed into the page ──────────────────────────
 # The rule in this file's docstring used to be enforced by remembering it, and

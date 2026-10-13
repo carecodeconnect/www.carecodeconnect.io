@@ -25,12 +25,27 @@ GREY = "#8a8a86"          # "neither" / connector lines
 INK, INK_MUTED, PANEL = "#0b0b0b", "#52514e", "#ebebeb"
 
 WINE = "#882255"          # Paul Tol muted — the 9th slot (Analytics Engineer, added 2026-10-07)
+TEAL = "#44AA99"          # Paul Tol muted — the 10th slot (AI Automation, added 2026-10-13)
+# NOTE: this list orders and colours the families; it must never DECIDE which exist.
+# Every consumer derives its families from the data and looks colours up here, because
+# a hardcoded list silently dropped AI Automation from the interactive map and from the
+# per-title charts on the day it was added.
 FAMILIES = ["Data Scientist", "AI Engineer", "ML Engineer", "Data Analyst", "Data Engineer",
-            "Research Scientist", "Forward Deployed", "Quantitative Researcher", "Analytics Engineer"]
-FAMILY_COLOUR = dict(zip(FAMILIES, [BLUE, VERMILLION, GREEN, ORANGE, PURPLE, SKY, BROWN, DARK, WINE]))
+            "Research Scientist", "Forward Deployed", "Quantitative Researcher", "Analytics Engineer",
+            "AI Automation"]
+FAMILY_COLOUR = dict(zip(FAMILIES, [BLUE, VERMILLION, GREEN, ORANGE, PURPLE, SKY, BROWN, DARK, WINE, TEAL]))
 # plotly symbol names; matplotlib/plotnine equivalents in FAMILY_SHAPE. Nine hues cannot
 # all be mutually distinct under CVD simulation, which is exactly why every family plot
 # also varies the marker shape — colour never carries identity on its own here.
 FAMILY_SYMBOL = dict(zip(FAMILIES, ["circle", "diamond", "square", "triangle-up", "cross", "x",
-                                    "triangle-down", "star", "pentagon"]))
-FAMILY_SHAPE = dict(zip(FAMILIES, ["o", "D", "s", "^", "P", "X", "v", "*", "p"]))
+                                    "triangle-down", "star", "pentagon", "hexagon"]))
+FAMILY_SHAPE = dict(zip(FAMILIES, ["o", "D", "s", "^", "P", "X", "v", "*", "p", "h"]))
+
+# Seniority is ORDINAL, so it gets a sequential single-hue ramp rather than
+# categorical hues (dataviz rule: sequential = one hue, light->dark). Steps are
+# evenly spaced in OKLab lightness (0.95 -> 0.31) on the BLUE hue, which is what
+# buys the separation: validate_palette.js reports every adjacent pair >= 15.3 ΔE
+# under protan/deutan/tritan and >= 15.7 with normal vision. The light steps sit
+# below 3:1 against the panel, so any chart using them must label its segments.
+SENIORITY_RAMP = ["#DFF1FF", "#92C0E8", "#4A8FC7", "#005F9E", "#00335A"]
+SENIORITY_ORDER = ["entry", "mid", "senior", "staff or principal", "leadership"]

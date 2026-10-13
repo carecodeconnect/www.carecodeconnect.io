@@ -61,7 +61,15 @@ for s in ("top", "right", "left"):
 ax.spines["bottom"].set_color("#d8d8d4")
 ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.14), ncol=4, frameon=False,
           fontsize=9.5, labelcolor=INK_MUTED)
-fig.suptitle("Is the job ad asking for a model, for running it, or both?", fontsize=14,
+# The take-home, not a description of the axes — and derived, because a typed one
+# would outlive the data. No figure belongs in a plot title (owner, 2026-10-13):
+# the number is in the segment, the message is up here.
+_model = aiml.mean()
+_both_given_model = (ship & aiml).sum() / max(aiml.sum(), 1)
+HEAD = ("Most job ads that want a model also want it running in production"
+        if _both_given_model >= 0.5 else
+        "Wanting a model and wanting it running are mostly separate asks")
+fig.suptitle(HEAD, fontsize=14,
              fontweight="bold", color=INK, x=0.015, ha="left", y=0.99)
 fig.text(0.015, 0.925, "Model = classical ML, deep learning, NLP, computer vision, LLM apps, agents, RAG or fine-tuning.\n"
                        "Deployment = serving, MLOps, containers, CI/CD, cloud or orchestration.",
