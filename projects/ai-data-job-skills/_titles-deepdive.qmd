@@ -56,6 +56,8 @@ The oldest title here, and the one that got there first. Investment banks and he
 
 ![](images/title-quantitative-researcher.png){fig-alt="Bar chart of the skills Quantitative Researcher ads require most often and the skills most over-represented in them, each against the share across all ads"}
 
+**Take-home.** 15% of these ads want both a model and its deployment and 13% a model without it; the most distinctive requirement is quantitative research, and the nearest title is Data Scientist.
+
 **Nearest neighbour.** Data Scientist (1.41 apart on the skills map), then Research Scientist (1.51). Furthest: Analytics Engineer (2.43).
 
 **Build or call.** 26% build or train a model, 9% call one over an API, and 2% want the API work with no model-building at all.
@@ -77,6 +79,8 @@ The oldest title here, and the one that got there first. Investment banks and he
 Grew out of business intelligence and reporting. The job was to turn a company’s own operational data into numbers a manager could act on, and the tooling was the warehouse and the dashboard rather than the notebook.
 
 ![](images/title-data-analyst.png){fig-alt="Bar chart of the skills Data Analyst ads require most often and the skills most over-represented in them, each against the share across all ads"}
+
+**Take-home.** 6% of these ads want both a model and its deployment and 15% a model without it; the most distinctive requirement is BI dashboards, and the nearest title is Data Scientist.
 
 **Nearest neighbour.** Data Scientist (1.28 apart on the skills map), then Analytics Engineer (1.45). Furthest: AI Engineer (2.11).
 
@@ -100,6 +104,8 @@ The title is far older than data science — industrial research labs have used 
 
 ![](images/title-research-scientist.png){fig-alt="Bar chart of the skills Research Scientist ads require most often and the skills most over-represented in them, each against the share across all ads"}
 
+**Take-home.** 38% of these ads want both a model and its deployment and 26% a model without it; the most distinctive requirement is research, and the nearest title is ML Engineer.
+
 **Nearest neighbour.** ML Engineer (0.99 apart on the skills map), then Data Scientist (1.19). Furthest: Analytics Engineer (2.08).
 
 **Build or call.** 60% build or train a model, 29% call one over an API, and 8% want the API work with no model-building at all.
@@ -118,9 +124,13 @@ The title is far older than data science — industrial research labs have used 
 
 *506 ads, 18% of the sample*
 
-Coined in 2008 by D.J. Patil and Jeff Hammerbacher, then leading data at LinkedIn and Facebook, and made famous by the 2012 *Harvard Business Review* piece that opens this page. The pitch was a hybrid: enough statistics to be rigorous, enough code to be self-sufficient, enough business sense to be listened to.
+Coined in 2008 by D.J. Patil and Jeff Hammerbacher, then leading data at LinkedIn and Facebook, and made famous by the 2012 *[Harvard Business Review](https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century)* piece. The pitch was a hybrid: enough statistics to be rigorous, enough code to be self-sufficient, enough business sense to be listened to.
 
 ![](images/title-data-scientist.png){fig-alt="Bar chart of the skills Data Scientist ads require most often and the skills most over-represented in them, each against the share across all ads"}
+
+![](images/model-and-ship.png){fig-alt="Stacked bars per job title showing the share of ads requiring both a model and its deployment, a model only, deployment only, or neither"}
+
+**Take-home.** 48% of these ads want both a model and its deployment and 16% a model without it; the most distinctive requirement is classical ML, and the nearest title is ML Engineer.
 
 **Nearest neighbour.** ML Engineer (1.12 apart on the skills map), then Research Scientist (1.19). Furthest: Analytics Engineer (1.82).
 
@@ -144,6 +154,8 @@ Split off from the data scientist once companies discovered that most of the wor
 
 ![](images/title-data-engineer.png){fig-alt="Bar chart of the skills Data Engineer ads require most often and the skills most over-represented in them, each against the share across all ads"}
 
+**Take-home.** 21% of these ads want both a model and its deployment and 4% a model without it; the most distinctive requirement is orchestration, and the nearest title is Analytics Engineer.
+
 **Nearest neighbour.** Analytics Engineer (0.98 apart on the skills map), then Data Analyst (1.67). Furthest: Quantitative Researcher (2.24).
 
 **Build or call.** 4% build or train a model, 23% call one over an API, and 22% want the API work with no model-building at all.
@@ -161,6 +173,8 @@ Split off from the data scientist once companies discovered that most of the wor
 Split off from the other side of the data scientist: the half concerned with getting a trained model to run reliably for real users. The title tracks the arrival of model serving, feature stores and the tooling that became MLOps.
 
 ![](images/title-ml-engineer.png){fig-alt="Bar chart of the skills ML Engineer ads require most often and the skills most over-represented in them, each against the share across all ads"}
+
+**Take-home.** 62% of these ads want both a model and its deployment and 6% a model without it; the most distinctive requirement is deep learning, and the nearest title is Research Scientist.
 
 **Nearest neighbour.** Research Scientist (0.99 apart on the skills map), then AI Engineer (1.10). Furthest: Analytics Engineer (2.02).
 
@@ -184,6 +198,8 @@ The newest of the analytics titles, and essentially a dbt-era invention: apply s
 
 ![](images/title-analytics-engineer.png){fig-alt="Bar chart of the skills Analytics Engineer ads require most often and the skills most over-represented in them, each against the share across all ads"}
 
+**Take-home.** 23% of these ads want both a model and its deployment and 12% a model without it; the most distinctive requirement is dbt modelling, and the nearest title is Data Engineer.
+
 **Nearest neighbour.** Data Engineer (0.98 apart on the skills map), then Data Analyst (1.45). Furthest: Quantitative Researcher (2.43).
 
 **Build or call.** 0% build or train a model, 35% call one over an API, and 35% want the API work with no model-building at all.
@@ -202,6 +218,8 @@ A solutions-engineering lineage with a newer name. The engineer is embedded with
 
 ![](images/title-forward-deployed.png){fig-alt="Bar chart of the skills Forward Deployed ads require most often and the skills most over-represented in them, each against the share across all ads"}
 
+**Take-home.** 31% of these ads want both a model and its deployment and 7% a model without it; the most distinctive requirement is customer-facing work, and the nearest title is Research Scientist.
+
 **Nearest neighbour.** Research Scientist (1.36 apart on the skills map), then AI Engineer (1.38). Furthest: Analytics Engineer (1.94).
 
 **Build or call.** 6% build or train a model, 37% call one over an API, and 33% want the API work with no model-building at all.
@@ -219,6 +237,8 @@ A solutions-engineering lineage with a newer name. The engineer is embedded with
 The newest title in the sample and already the largest. It arrived with the production LLM stack — applications, retrieval, agents, evaluation — and it is the one title here defined by what it builds *with* rather than what it knows.
 
 ![](images/title-ai-engineer.png){fig-alt="Bar chart of the skills AI Engineer ads require most often and the skills most over-represented in them, each against the share across all ads"}
+
+**Take-home.** 76% of these ads want both a model and its deployment and 11% a model without it; the most distinctive requirement is RAG, and the nearest title is ML Engineer.
 
 **Nearest neighbour.** ML Engineer (1.10 apart on the skills map), then Forward Deployed (1.38). Furthest: Quantitative Researcher (2.16).
 

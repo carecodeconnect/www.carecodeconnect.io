@@ -60,7 +60,7 @@ ORDER = [
      "followed the 2012 ImageNet result: publish, train large models, push the state of the art."),
     ("Data Scientist", "coined 2008, mainstream from ~2012",
      "Coined in 2008 by D.J. Patil and Jeff Hammerbacher, then leading data at LinkedIn and Facebook, "
-     "and made famous by the 2012 *Harvard Business Review* piece that opens this page. The pitch was a "
+     "and made famous by the 2012 *[Harvard Business Review](https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century)* piece. The pitch was a "
      "hybrid: enough statistics to be rigorous, enough code to be self-sufficient, enough business "
      "sense to be listened to."),
     ("Data Engineer", "~2011–2014",
@@ -204,6 +204,12 @@ for i, (fam, era, blurb) in enumerate(ORDER, start=1):
     lift = ((g[REQ].mean() + 0.01) / (rest[REQ].mean() + 0.01)).sort_values(ascending=False)
     d = sorted(((o, float(np.linalg.norm(cent[fam] - cent[o]))) for o in cent if o != fam),
                key=lambda kv: kv[1])
+    SHIPC = ["model_serving", "mlops_tooling", "containers", "cicd_testing", "cloud",
+             "orchestration"]
+    MODELC = ["classical_ml", "deep_learning", "nlp", "computer_vision", "llm_apps", "agents",
+              "rag", "fine_tuning"]
+    sh = g[[f"req_{s}" for s in SHIPC if f"req_{s}" in g.columns]].sum(axis=1) > 0
+    md = g[[f"req_{s}" for s in MODELC if f"req_{s}" in g.columns]].sum(axis=1) > 0
     tr = g[[f"req_{s}" for s in TRAIN]].sum(axis=1) > 0
     ca = g[[f"req_{s}" for s in CALL]].sum(axis=1) > 0
 
@@ -216,6 +222,14 @@ for i, (fam, era, blurb) in enumerate(ORDER, start=1):
     slug = fam.lower().replace(" ", "-")
     add(f"![](images/title-{slug}.png){{fig-alt=\"Bar chart of the skills {fam} ads require most "
         f"often and the skills most over-represented in them, each against the share across all ads\"}}")
+    if fam == "Data Scientist":
+        add("")
+        add("![](images/model-and-ship.png){fig-alt=\"Stacked bars per job title showing the share of "
+            "ads requiring both a model and its deployment, a model only, deployment only, or neither\"}")
+    add("")
+    add(f"**Take-home.** {pct((sh & md).mean())}% of these ads want both a model and its deployment "
+        f"and {pct((~sh & md).mean())}% a model without it; the most distinctive requirement is "
+        f"{pretty(lift.index[0][4:])}, and the nearest title is {d[0][0]}.")
     add("")
     add(f"**Nearest neighbour.** {d[0][0]} ({d[0][1]:.2f} apart on the skills map), then {d[1][0]} "
         f"({d[1][1]:.2f}). Furthest: {d[-1][0]} ({d[-1][1]:.2f}).")

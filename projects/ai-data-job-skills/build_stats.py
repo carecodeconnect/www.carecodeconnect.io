@@ -304,6 +304,7 @@ def carry(name: str, prefix: str) -> None:
 
 
 carry("circles-2026", "c26_")
+carry("shipping", "ship2_")
 carry("judge", "judge_")
 carry("mentions-summary", "mentions_")
 carry("ml-crosscheck", "mlcheck_")
