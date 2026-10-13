@@ -12,7 +12,7 @@ toc: true
 
 | Research question | Answer |
 |---|---|
-| **RQ1** · Do Conway's 2010 circles still describe what is advertised? | **No.** {{< var jobskills.conway_danger_zone >}}% of ads sit in his "danger zone"; {{< var jobskills.conway_outside_pct >}}% need a skill none of his circles covers; {{< var jobskills.pct_ship_all >}}% need deployment, which none of them contains. |
+| **RQ1** · Does the classic 2010 definition of data science still describe what employers advertise? | **No.** {{< var jobskills.conway_danger_zone >}}% of ads sit in his "danger zone"; {{< var jobskills.conway_outside_pct >}}% need a skill none of his circles covers; {{< var jobskills.pct_ship_all >}}% need deployment, which none of them contains. |
 | **RQ2** · Which skills do employers ask for together? | **Three groups.** Engineering, deployment & AI ({{< var jobskills.c26_pct_eng >}}% of ads), data platform ({{< var jobskills.c26_pct_data >}}%), statistics & inference ({{< var jobskills.c26_pct_inference >}}%) — plus communication at {{< var jobskills.c26_pct_ground >}}%, required everywhere. |
 | **RQ3** · How do the {{< var jobskills.n_titles >}} titles divide that work between them? | **One title per region.** The centre is {{< var jobskills.c26_pct_centre >}}% of ads and {{< var jobskills.c26_centre_not_data_scientist >}}% of it is *not* Data Scientist. "AI Engineer" is the most advertised title at {{< var jobskills.pct_ai_engineer >}}%. |
 
@@ -74,11 +74,11 @@ Conway's diagram is reproduced with attribution from [drewconway.com](http://dre
 
 :::
 
-## RQ1 · The 2010 circles no longer fit
+## RQ1 · The classic definition no longer fits
 
-*Do Conway's 2010 circles still describe what is advertised?*
+*Does the classic 2010 definition of data science still describe what employers advertise?*
 
-Conway's 2010 diagram put data science where hacking skills, maths and statistics, and substantive expertise meet, with a "danger zone" where code met domain knowledge without statistics.
+The classic definition of data science is a 2010 diagram by **Drew Conway**: three overlapping circles — coding ability, maths and statistics, and expertise in the subject being analysed — with data science in the middle, and a "danger zone" where coding met subject expertise without the statistics to know whether a result means anything.
 
 ![© Drew Conway, 2010. Reproduced with attribution — [original](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram)](images/external/conway-data-science-vd.png){fig-alt="Drew Conway's data science Venn diagram"}
 
@@ -88,8 +88,8 @@ Measured against these job ads, the shape does not hold.
 
 **What is missing from his picture is deployment.** His three circles are knowledge — code, maths, domain. {{< var jobskills.pct_ship_all >}}% of ads require a production skill, and model serving alone appears in {{< var jobskills.data_scientist_model_serving >}}% of Data Scientist ads, more than any single modelling skill.
 
-::: {.callout-note collapse="true" appearance="simple"}
-## What the field has said a data scientist does {.unnumbered}
+
+### Where that definition comes from
 
 In October 2012 *Harvard Business Review* called data scientist [the sexiest job of the 21st century](https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century), describing a hybrid of hacker, analyst, communicator and trusted adviser. The field has drawn that hybrid three ways.
 
@@ -104,8 +104,6 @@ In October 2012 *Harvard Business Review* called data scientist [the sexiest job
 ![© the authors, [CC BY-NC-ND 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/us/). Reproduced unchanged — [original](https://r4ds.hadley.nz/intro)](images/external/r4ds-data-science-cycle.png){fig-alt="The R for Data Science cycle: import, tidy, then a loop of transform, visualise and model, then communicate, with program surrounding all of it"}
 
 Only the first can be tested here: the other two describe steps, and no ad says "must be able to scrub". A job ad joins one of Conway's circles if it requires at least one skill mapped to it. Only the measured figures and the 2026 groups are this page's own.
-
-:::
 
 ## RQ2 · Three groups of skills, and one asked for everywhere
 

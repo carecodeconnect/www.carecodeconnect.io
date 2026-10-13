@@ -307,7 +307,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#executive-summary" id="toc-executive-summary" class="nav-link active" data-scroll-target="#executive-summary">Executive summary</a></li>
   <li><a href="#the-sample" id="toc-the-sample" class="nav-link" data-scroll-target="#the-sample">The sample</a></li>
-  <li><a href="#rq1-the-2010-circles-no-longer-fit" id="toc-rq1-the-2010-circles-no-longer-fit" class="nav-link" data-scroll-target="#rq1-the-2010-circles-no-longer-fit">RQ1 · The 2010 circles no longer fit</a></li>
+  <li><a href="#rq1-the-classic-definition-no-longer-fits" id="toc-rq1-the-classic-definition-no-longer-fits" class="nav-link" data-scroll-target="#rq1-the-classic-definition-no-longer-fits">RQ1 · The classic definition no longer fits</a>
+  <ul class="collapse">
+  <li><a href="#where-that-definition-comes-from" id="toc-where-that-definition-comes-from" class="nav-link" data-scroll-target="#where-that-definition-comes-from">Where that definition comes from</a></li>
+  </ul></li>
   <li><a href="#rq2-three-groups-of-skills-and-one-asked-for-everywhere" id="toc-rq2-three-groups-of-skills-and-one-asked-for-everywhere" class="nav-link" data-scroll-target="#rq2-three-groups-of-skills-and-one-asked-for-everywhere">RQ2 · Three groups of skills, and one asked for everywhere</a></li>
   <li><a href="#rq3-each-region-belongs-to-a-different-title" id="toc-rq3-each-region-belongs-to-a-different-title" class="nav-link" data-scroll-target="#rq3-each-region-belongs-to-a-different-title">RQ3 · Each region belongs to a different title</a></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
@@ -366,7 +369,7 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>RQ1</strong> · Do Conway’s 2010 circles still describe what is advertised?</td>
+<td><strong>RQ1</strong> · Does the classic 2010 definition of data science still describe what employers advertise?</td>
 <td><strong>No.</strong> 28% of ads sit in his “danger zone”; 51% need a skill none of his circles covers; 67% need deployment, which none of them contains.</td>
 </tr>
 <tr class="even">
@@ -462,10 +465,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="rq1-the-2010-circles-no-longer-fit" class="level2">
-<h2 class="anchored" data-anchor-id="rq1-the-2010-circles-no-longer-fit">RQ1 · The 2010 circles no longer fit</h2>
-<p><em>Do Conway’s 2010 circles still describe what is advertised?</em></p>
-<p>Conway’s 2010 diagram put data science where hacking skills, maths and statistics, and substantive expertise meet, with a “danger zone” where code met domain knowledge without statistics.</p>
+<section id="rq1-the-classic-definition-no-longer-fits" class="level2">
+<h2 class="anchored" data-anchor-id="rq1-the-classic-definition-no-longer-fits">RQ1 · The classic definition no longer fits</h2>
+<p><em>Does the classic 2010 definition of data science still describe what employers advertise?</em></p>
+<p>The classic definition of data science is a 2010 diagram by <strong>Drew Conway</strong>: three overlapping circles — coding ability, maths and statistics, and expertise in the subject being analysed — with data science in the middle, and a “danger zone” where coding met subject expertise without the statistics to know whether a result means anything.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/external/conway-data-science-vd.png" class="img-fluid figure-img" alt="Drew Conway's data science Venn diagram"></p>
@@ -475,18 +478,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Measured against these job ads, the shape does not hold.</p>
 <p>28% of ads want code and domain engagement but no statistics — the region he marked “danger zone” and thought nearly empty. 7 tracked skills fit none of his circles at all, and 51% of ads require at least one.</p>
 <p><strong>What is missing from his picture is deployment.</strong> His three circles are knowledge — code, maths, domain. 67% of ads require a production skill, and model serving alone appears in 60% of Data Scientist ads, more than any single modelling skill.</p>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>What the field has said a data scientist does
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<section id="where-that-definition-comes-from" class="level3">
+<h3 class="anchored" data-anchor-id="where-that-definition-comes-from">Where that definition comes from</h3>
 <p>In October 2012 <em>Harvard Business Review</em> called data scientist <a href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century">the sexiest job of the 21st century</a>, describing a hybrid of hacker, analyst, communicator and trusted adviser. The field has drawn that hybrid three ways.</p>
 <p><strong>1. Conway, 2010 — what you must <em>know</em>.</strong> Three circles of knowledge with data science in the middle, shown above. The only one of the three that can be tested against a job ad, because employers advertise for knowledge.</p>
 <p><strong>2. Mason &amp; Wiggins, 2010 — what you <em>do</em>, as five steps.</strong> Published the same month as Conway, and a description of a process rather than a person; they coined <strong>OSEMN</strong> in the same post. Their line on the least glamorous step has outlasted the rest — scrubbing data is “the least sexy part of the analysis process”.</p>
@@ -504,9 +497,7 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>Only the first can be tested here: the other two describe steps, and no ad says “must be able to scrub”. A job ad joins one of Conway’s circles if it requires at least one skill mapped to it. Only the measured figures and the 2026 groups are this page’s own.</p>
-</div>
-</div>
-</div>
+</section>
 </section>
 <section id="rq2-three-groups-of-skills-and-one-asked-for-everywhere" class="level2">
 <h2 class="anchored" data-anchor-id="rq2-three-groups-of-skills-and-one-asked-for-everywhere">RQ2 · Three groups of skills, and one asked for everywhere</h2>
@@ -519,7 +510,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Communication</strong> — 3 skills, 79%, in every region. The ground, not a circle.</li>
 </ul>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -528,7 +519,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Most required in each: engineering, deployment &amp; AI — Software engineering, Python, Model serving, Agents, LLM applications, NLP. Data platform — Pipelines / ETL, SQL, Data governance, Data warehouse, Spark / distributed, BI dashboards. Statistics &amp; inference — Statistics, Product analytics, A/B experimentation, Classical ML, Deep learning, Forecasting. Communication — Stakeholder communication, Mentoring / leadership, Customer-facing.</p>
 <p><img src="images/skills-by-demand.png" class="img-fluid" alt="Bar chart of every tracked skill by the share of ads requiring them"></p>
@@ -537,7 +528,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -546,7 +537,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The 44 skills are a <em>fixed vocabulary</em>, not everything an ad might mention. A free-for-all count of whatever words appear cannot compare titles, because no two employers use the same words.</p>
 <p>The list is curated but not frozen, and <strong>two passes read every ad</strong>. Pass one is Jev, above. Pass two is an open-vocabulary extraction: a small, cheap model (<a href="https://www.anthropic.com/claude/haiku">Claude Haiku 4.5</a>) reads each ad with one instruction — list every skill, tool or method it asks for, <strong>in the ad’s own words</strong>, say whether it is required or nice to have, and quote the sentence showing it. Nothing is matched against the vocabulary at this stage; the model does not know it exists.</p>
@@ -578,7 +569,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-body-container">
 <div class="callout callout-style-simple callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -587,7 +578,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Partly. Of the 431 ads the judge classes as data science, 192 never write machine learning, deep learning or neural network — but 22% of those (42 ads) name a technique or tool that unmistakably is one: predictive modelling (15 ads), regression (11), classification (9), feature engineering (7), clustering (7), regression analysis (7), PyTorch (6), MLflow (6), scikit-learn (5), TensorFlow (4). For those, the skill is implied rather than stated, and counting the literal phrase understates it. Counting those as machine learning raises the second pass’s figure from 55% to 65%, against the 44% that Jev scores as <em>required</em> — the gap between naming a thing and requiring it.</p>
 <p>The remaining 150 ads name neither the concept nor any of its tools. They ask instead for Python, SQL, data science, A/B testing, causal inference, communication, R — an experimentation and analytics profile rather than a modelling one.</p>
@@ -653,7 +644,7 @@ flowchart TB
 </div>
 </div>
 <div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -662,7 +653,7 @@ flowchart TB
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <!-- GENERATED by build_titles.py — do not edit; edit the script. -->
 <p>Nine titles, in the approximate order each entered data and AI hiring. The dates are background — this sample runs 2026-04 to 2026-10 and can say nothing about when a title appeared — but everything after them is measured from the ads.</p>
