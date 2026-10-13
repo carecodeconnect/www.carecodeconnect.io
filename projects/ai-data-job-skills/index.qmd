@@ -8,25 +8,21 @@ toc: true
 
 ## Executive summary
 
-What do AI and data roles in Europe actually require in 2026, read from the job descriptions rather than from the job titles? A model judge read each of {{< var jobskills.n_ads >}} ads in full and answered the same {{< var jobskills.n_skills >}} questions of every one — does this ad require this skill — so {{< var jobskills.n_titles >}} titles can be compared on what they ask for.
+What do AI and data roles in Europe actually require in 2026, read from the job descriptions rather than the job titles? A model judge read each of {{< var jobskills.n_ads >}} ads in full and answered the same {{< var jobskills.n_skills >}} questions of every one — does this ad require this skill — so {{< var jobskills.n_titles >}} titles can be compared on what they ask for. Three questions, and what the ads answer:
 
-- **A Data Scientist ad asks for the model and for running it.** {{< var jobskills.both_data_scientist >}}% require both modelling and production skills, and of the Data Scientist ads that require modelling, {{< var jobskills.ship_given_model_data_scientist >}}% also require production. Conway's 2010 definition has three circles and none of them is deployment.
-- **AI and data work has spread beyond the Data Scientist title.** Clustering the skills by what employers ask for together splits the market into three groups, and each region of that split is dominated by a different title. The centre — ads wanting all three — is {{< var jobskills.c26_pct_centre >}}% of ads, and {{< var jobskills.c26_centre_not_data_scientist >}}% of it carries a title other than Data Scientist.
-- "AI Engineer" is the most frequent title at {{< var jobskills.pct_ai_engineer >}}%, ahead of "Data Scientist" ({{< var jobskills.pct_data_scientist >}}%) and "Data Engineer" ({{< var jobskills.pct_data_engineer >}}%).
-- Stakeholder communication is the most-required skill at {{< var jobskills.all_stakeholder_comms >}}%, ahead of Python at {{< var jobskills.all_python >}}%. {{< var jobskills.ai_no_python >}}% of AI Engineer ads do not require Python.
-- Statistics is required in {{< var jobskills.data_scientist_statistics >}}% of Data Scientist ads and {{< var jobskills.ai_engineer_statistics >}}% of AI Engineer ads.
-- The two titles are {{< var jobskills.d_ai_engineer__data_scientist >}} apart on their requirement profiles, further apart than Data Scientist and Data Analyst ({{< var jobskills.d_data_analyst__data_scientist >}}).
-- ML Engineer sits {{< var jobskills.d_data_scientist__ml_engineer >}} from Data Scientist and {{< var jobskills.d_ai_engineer__ml_engineer >}} from AI Engineer, the shortest link between the two.
-- Data Scientist, AI Engineer and ML Engineer share {{< var jobskills.n_core_shared >}} required skills: {{< var jobskills.core_shared >}}.
-- Data Engineer and Analytics Engineer are {{< var jobskills.closest_pair_d >}} apart, the shortest distance on the map. Data governance is required in {{< var jobskills.analytics_engineer_data_governance >}}% and {{< var jobskills.data_engineer_data_governance >}}% of their ads, against {{< var jobskills.data_governance_elsewhere >}}% elsewhere.
-- {{< var jobskills.conway_danger_zone >}}% of ads fall in Conway's "danger zone" — code and domain, no statistics.
-- LLM and agent engineering is new since "Data Scientist" was popularised: {{< var jobskills.conway_outside_n >}} of the tracked skills fit none of Conway's 2010 circles. {{< var jobskills.conway_outside_pct >}}% of ads require at least one — {{< var jobskills.area_genai_llm_engineering_ai_engineer >}}% of AI Engineer ads but {{< var jobskills.area_genai_llm_engineering_data_scientist >}}% of Data Scientist ads, so the new skillset has not been absorbed into the older title.
+**RQ1 · Do Drew Conway's 2010 circles still describe what is advertised?** No. {{< var jobskills.conway_danger_zone >}}% of ads fall in the "danger zone" he thought nearly empty, {{< var jobskills.conway_outside_pct >}}% require at least one of the {{< var jobskills.conway_outside_n >}} tracked skills that fit none of his three circles, and deployment — which none of them contains — is required in {{< var jobskills.pct_ship_all >}}% of ads, including {{< var jobskills.ship_data_scientist >}}% of Data Scientist ads.
+
+**RQ2 · Which skills do employers ask for together?** Clustering the {{< var jobskills.n_skills >}} skills on co-occurrence gives three groups and one constant: engineering, deployment and AI ({{< var jobskills.c26_pct_eng >}}% of ads), data platform ({{< var jobskills.c26_pct_data >}}%), statistics and inference ({{< var jobskills.c26_pct_inference >}}%), with communication required in {{< var jobskills.c26_pct_ground >}}% across every region. Software engineering and LLM work fall in one group; classical ML, deep learning and computer vision fall with statistics, not with LLM work.
+
+**RQ3 · How do the {{< var jobskills.n_titles >}} titles divide that work?** Each region belongs to a different title. The centre, requiring all three groups, is {{< var jobskills.c26_pct_centre >}}% of ads and {{< var jobskills.c26_centre_not_data_scientist >}}% of it is titled something other than Data Scientist. "AI Engineer" is the most advertised title at {{< var jobskills.pct_ai_engineer >}}%; it sits {{< var jobskills.d_ai_engineer__ml_engineer >}} from ML Engineer and {{< var jobskills.d_ai_engineer__data_scientist >}} from Data Scientist, which is further than Data Scientist is from Data Analyst ({{< var jobskills.d_data_analyst__data_scientist >}}). Statistics is the divide: {{< var jobskills.data_scientist_statistics >}}% of Data Scientist ads against {{< var jobskills.ai_engineer_statistics >}}% of AI Engineer ads.
+
+Three further results, each evidenced below: a Data Scientist ad asks for the model and for running it ({{< var jobskills.both_data_scientist >}}% require both, and {{< var jobskills.ship_given_model_data_scientist >}}% of those requiring modelling also require deployment); stakeholder communication is the single most-required skill at {{< var jobskills.all_stakeholder_comms >}}%, ahead of Python at {{< var jobskills.all_python >}}%; and Data Engineer and Analytics Engineer are the closest pair on the map at {{< var jobskills.closest_pair_d >}}.
 
 ## The question: what do these roles actually ask for?
 
 In September 2010 Drew Conway drew three overlapping circles — hacking skills, maths and statistics, substantive expertise — with data science in the middle and **"danger zone!"** where code met domain knowledge without statistics. He meant the warning: people who can pull data and run a regression without knowing what the coefficients mean.
 
-Sixteen years on, employers advertise for "AI Engineer" more often than for "Data Scientist", and for seven other data and AI titles besides. Conway's is the only one of the field's canonical pictures that can be tested against a job ad — it says what a data scientist must *know*, and knowledge is what ads ask for. So: do his circles still describe what is being hired, which skills do employers ask for together, and how do the {{< var jobskills.n_titles >}} titles divide the work between them?
+Sixteen years on, employers advertise for "AI Engineer" more often than for "Data Scientist", and for seven other data and AI titles besides. Conway's is the only one of the field's canonical pictures that can be tested against a job ad — it says what a data scientist must *know*, and knowledge is what ads ask for. That gives the three questions this page answers: **RQ1**, do his circles still describe what is being hired; **RQ2**, which skills employers ask for together; **RQ3**, how the {{< var jobskills.n_titles >}} titles divide that work between them.
 
 ## How this was measured: one fixed question per skill, every ad
 
@@ -85,7 +81,7 @@ Charts use [plotnine](https://plotnine.org) for the static figures and [Plotly](
 Conway's diagram is reproduced with attribution from [drewconway.com](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram) (Drew Conway, *The Data Science Venn Diagram*, 2010). Only the measured figures and the 2026 circles are this page's own.
 :::
 
-## What the field said data science was
+## RQ1 · The 2010 circles no longer fit what is advertised
 
 Three pictures the field has used to define itself. Only the first can be tested against a job ad: it says what a data scientist must *know*, and knowledge is what ads ask for. The other two describe a process, and no ad says "must be able to scrub".
 
@@ -105,7 +101,7 @@ Conway's hacking-skills circle meant manipulating data with code. Today's ads al
 
 It has not displaced the modelling — it is added to it. {{< var jobskills.both_data_scientist >}}% of Data Scientist ads require both, and of those requiring modelling, {{< var jobskills.ship_given_model_data_scientist >}}% require production as well; the ad that wants a model and not its deployment is {{< var jobskills.model_only_data_scientist >}}% of them. That pairing is the difference from the 2010 picture: Conway's three circles are knowledge — code, maths, domain — and none of them is shipping and running the result. And the sample is {{< var jobskills.months >}} — it can show that both are asked for now, not when either arrived.
 
-## What AI / data roles require in 2026
+## RQ2 · Three groups of skills, and one asked for everywhere
 
 The circles below are not drawn by hand. The {{< var jobskills.n_skills >}} tracked skills were clustered by how often employers ask for them *in the same ad*, and four groups fall out — three that divide the market, and one required almost everywhere.
 
@@ -155,7 +151,7 @@ Machine learning is not a circle on the redrawn diagram because it divides nothi
 {{< var jobskills.top1_skill >}} leads at {{< var jobskills.top1_pct >}}%, then {{< var jobskills.top2_skill >}} ({{< var jobskills.top2_pct >}}%), {{< var jobskills.top3_skill >}} ({{< var jobskills.top3_pct >}}%), {{< var jobskills.top4_skill >}} ({{< var jobskills.top4_pct >}}%), {{< var jobskills.top5_skill >}} ({{< var jobskills.top5_pct >}}%), {{< var jobskills.top6_skill >}} ({{< var jobskills.top6_pct >}}%) and {{< var jobskills.top7_skill >}} ({{< var jobskills.top7_pct >}}%). The tail is the specialist end: {{< var jobskills.tail_skills >}}.
 
 
-## How the titles differ
+## RQ3 · Each region of the map belongs to a different title
 
 ### They form a chain, and ML Engineer is the hinge
 
@@ -207,12 +203,16 @@ Evaluation is the part of AI engineering that an inference background transfers 
 
 ## What it adds up to: specialised roles, not one job
 
-Conway's framework no longer describes what is advertised. His danger zone is {{< var jobskills.conway_danger_zone >}}% of the market rather than a rare corner, and {{< var jobskills.conway_outside_pct >}}% of ads require a skill his circles cannot see. Data science has not been renamed; it has split into adjacent jobs along three branches.
+**RQ1.** Conway's circles do not fit: {{< var jobskills.conway_danger_zone >}}% of ads land in his danger zone, {{< var jobskills.conway_outside_pct >}}% require a skill none of his circles covers, and {{< var jobskills.pct_ship_all >}}% require deployment, which none of them contains.
+
+**RQ2.** The skills cluster into engineering-deployment-AI ({{< var jobskills.c26_pct_eng >}}% of ads), data platform ({{< var jobskills.c26_pct_data >}}%) and statistics-inference ({{< var jobskills.c26_pct_inference >}}%), with communication at {{< var jobskills.c26_pct_ground >}}% across every region.
+
+**RQ3.** Sorted by what they require, the {{< var jobskills.n_titles >}} titles fall into three branches, and each region of the skill map is dominated by a different one:
 
 - **Engineering** — AI Engineer, ML Engineer, Forward Deployed, Research Scientist. LLM applications, agents, NLP, model serving, evals, CI/CD. Statistics is required in {{< var jobskills.ai_engineer_statistics >}}% of AI Engineer ads.
 - **Inference** — Quantitative Researcher, Data Scientist, Data Analyst. Statistics, experimentation, forecasting, SQL, BI. Quant ads are the extreme: {{< var jobskills.quantitative_researcher_statistics >}}% statistics, {{< var jobskills.quantitative_researcher_forecasting >}}% forecasting.
 - **Data** — Data Engineer and Analytics Engineer. Pipelines ({{< var jobskills.data_engineer_pipelines_etl >}}% and {{< var jobskills.analytics_engineer_pipelines_etl >}}%), warehouse, dbt, cloud, almost no statistics ({{< var jobskills.data_engineer_statistics >}}% and {{< var jobskills.analytics_engineer_statistics >}}%). Analytics Engineer is not a flavour of Data Analyst ({{< var jobskills.d_analytics_engineer__data_analyst >}} away) but the analyst-facing end of data engineering — SQL in {{< var jobskills.analytics_engineer_sql >}}% of its ads, dbt in {{< var jobskills.analytics_engineer_dbt_modelling >}}%.
 
-So the two titles are two jobs, and the gap between them is statistics. A Data Scientist ad asks whether a number means anything; an AI Engineer ad asks whether a system ships. ML Engineer is the hinge, and the shortest route from either side to the other.
+Across the whole sample, the centre requiring all three skill groups is {{< var jobskills.c26_pct_centre >}}% of ads, and {{< var jobskills.c26_centre_not_data_scientist >}}% of that centre is titled something other than Data Scientist.
 
-One caution on all of it: these are ads, not jobs. They describe what employers ask for, which is not always what the work turns out to be.
+Three limits on all of it. These are ads, not jobs: they record what employers asked for, not what the work became. The window is {{< var jobskills.months >}}, so the page can show how the work is divided now, not when any of it moved. And the scores are model judgements — consistent across titles, never checked against human labels, with agreement on the required call at Cohen's κ ≈ {{< var jobskills.mlcheck_kappa >}}.
