@@ -77,6 +77,6 @@ for _k, _name in [("eng", "Engineering, deployment & AI"), ("data", "Data platfo
 
 (HERE / "data" / "circles-2026.json").write_text(json.dumps(out, indent=2) + "\n")
 
-# No figure is written here any more: RQ2 and RQ3 make their points in prose
+# No figure is written here any more: RQ1 and RQ3 make their points in prose
 # (owner, 2026-10-13). The numbers this script computes are still the source
 # for those sections, via data/circles-2026.json.

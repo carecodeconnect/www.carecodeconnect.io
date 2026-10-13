@@ -73,7 +73,7 @@ if "seniority" in df.columns:
     ent = df.assign(e=df["seniority"].eq("entry")).groupby("family")["e"].mean().mul(100).sort_values()
     chk("sen_most_entry_family", ent.index[-1])
     chk("sen_most_entry_pct", round(ent.iloc[-1]))
-    # The confound check the page leans on in RQ3.
+    # The confound check the page leans on in RQ2.
     for lv in ["mid", "senior", "staff_principal"]:
         d = df[df["seniority"] == lv]
         a = 100 * d.req_statistics[d.family == "Data Scientist"].mean()

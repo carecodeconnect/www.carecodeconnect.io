@@ -310,5 +310,5 @@ for ax_, label in ((axT, "2010 — Drew Conway's answer"),
 save(fig, "ds-venn-2010-vs-2026.png")
 
 
-# conway-measured.png is no longer published: RQ1 makes the point in two
+# conway-measured.png is no longer published: RQ2 makes the point in two
 # sentences and the chart repeated them (owner, 2026-10-13).

@@ -301,7 +301,7 @@ for i, (fam, era, blurb) in enumerate(ORDER, start=1):
         add(f"**Read these percentages with caution.** {n:,} job ads is a small base: a single ad "
             f"moves any figure here by about {100 / n:.0f} "
             + ("point." if round(100 / n) == 1 else "points.") + tail)
-    # model-and-ship.png deliberately NOT repeated here: it lives in RQ3, beside
+    # model-and-ship.png deliberately NOT repeated here: it lives in RQ2, beside
     # the Data Scientist claim it supports (owner, 2026-10-13 — "that plot is
     # repeated, remove repetitions"). It covers every title, not just this one,
     # so one copy on the page is right.
