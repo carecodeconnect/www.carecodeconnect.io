@@ -56,7 +56,7 @@ def circles(df: pd.DataFrame) -> dict[str, list[str]]:
     inference = next(g for g in grp if g not in (ground, data) and has(g, "statistics", "causal_inference"))
     eng = next(g for g in grp if g not in (ground, data, inference))
     return {
-        "Engineering & AI": grp[eng],
+        "Engineering, deployment & AI": grp[eng],
         "Data platform": grp[data],
         "Statistics & inference": grp[inference],
         "_ground": grp[ground],

@@ -34,7 +34,7 @@ chk("data_engineer_data_governance", round(100*df.req_data_governance[df.family=
 chk("ai_engineer_software_engineering", round(100*df.req_software_engineering[df.family=="AI Engineer"].mean()))
 chk("data_scientist_software_engineering", round(100*df.req_software_engineering[df.family=="Data Scientist"].mean()))
 # the new circles
-m = C.masks(df); E, D, I, G = m["Engineering & AI"], m["Data platform"], m["Statistics & inference"], m["_ground"]
+m = C.masks(df); E, D, I, G = m["Engineering, deployment & AI"], m["Data platform"], m["Statistics & inference"], m["_ground"]
 chk("c26_pct_eng", round(100*E.mean())); chk("c26_pct_data", round(100*D.mean()))
 chk("c26_pct_inference", round(100*I.mean())); chk("c26_pct_ground", round(100*G.mean()))
 centre = E & D & I

@@ -26,7 +26,7 @@ HERE = Path(__file__).resolve().parent
 df = pd.read_csv(HERE / "data" / "ai-data-job-skills.csv")
 N = len(df)
 m = C.masks(df)
-E, D, I = m["Engineering & AI"], m["Data platform"], m["Statistics & inference"]
+E, D, I = m["Engineering, deployment & AI"], m["Data platform"], m["Statistics & inference"]
 G = m["_ground"]
 
 REGIONS = {                      # venn3 subset keys: 1=E, 2=D, 4=I
@@ -44,7 +44,7 @@ out = {
                  "grouping. Regenerate with build_circles.py; build_stats.py reads this file so "
                  "the page's numbers and the figure are the same numbers."),
     "_generated": __import__("datetime").date.today().isoformat(),
-    "n_skills_eng": len(C.circles(df)["Engineering & AI"]),
+    "n_skills_eng": len(C.circles(df)["Engineering, deployment & AI"]),
     "n_skills_data": len(C.circles(df)["Data platform"]),
     "n_skills_inference": len(C.circles(df)["Statistics & inference"]),
     "n_skills_ground": len(C.circles(df)["_ground"]),
@@ -65,6 +65,16 @@ out = {
 ds = df.family == "Data Scientist"
 out["data_scientist_in_centre"] = pct(REGIONS["111"][ds])
 out["centre_not_data_scientist"] = 100 - out["centre_title_pct"]
+# The page describes what is in each circle. Emit the members so prose cannot
+# drift from the clustering: the six most-required labels, and the full list.
+LAB = {v["id"]: v["label"] for v in json.load(open(HERE / "data" / "skills.json"))}
+for _k, _name in [("eng", "Engineering, deployment & AI"), ("data", "Data platform"),
+                  ("inference", "Statistics & inference"), ("ground", "_ground")]:
+    _cols = C.circles(df)[_name]
+    _top = df[_cols].mean().sort_values(ascending=False).index.tolist()
+    out[f"members_{_k}"] = ", ".join(LAB.get(c[4:], c[4:]) for c in _top[:6])
+    out[f"members_{_k}_all"] = ", ".join(sorted(LAB.get(c[4:], c[4:]) for c in _cols))
+
 (HERE / "data" / "circles-2026.json").write_text(json.dumps(out, indent=2) + "\n")
 
 fig, ax = plt.subplots(figsize=(9.2, 6.4))
@@ -78,7 +88,7 @@ for key in REGIONS:
     if lab:
         lab.set_text(f"{pct(REGIONS[key])}%")
         lab.set_fontsize(11); lab.set_color(INK)
-ax.text(-0.62, 0.50, f"Engineering & AI\n{out['pct_eng']}%", color=BLUE, fontsize=12,
+ax.text(-0.62, 0.50, f"Engineering, deployment & AI\n{out['pct_eng']}%", color=BLUE, fontsize=12,
         fontweight="bold", ha="center")
 ax.text(0.62, 0.50, f"Data platform\n{out['pct_data']}%", color=GREEN, fontsize=12,
         fontweight="bold", ha="center")

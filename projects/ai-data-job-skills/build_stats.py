@@ -379,6 +379,16 @@ AIML = ["classical_ml", "deep_learning", "nlp", "computer_vision", "llm_apps", "
         "rag", "fine_tuning"]
 _ship = df[[f"req_{i}" for i in SHIP if f"req_{i}" in df.columns]].sum(axis=1) > 0
 _aiml = df[[f"req_{i}" for i in AIML if f"req_{i}" in df.columns]].sum(axis=1) > 0
+# Shipping is an ADDITION to modelling, not a replacement — so the measure that
+# matters is the conjunction, and the conditional: of the ads that ask for a
+# model, how many also ask for it to run in production.
+out["pct_model_and_ship"] = f"{100 * (_ship & _aiml).mean():.0f}"
+out["pct_model_not_ship"] = f"{100 * (~_ship & _aiml).mean():.0f}"
+for _f in ["Data Scientist", "AI Engineer", "ML Engineer"]:
+    _m = df.family == _f
+    out[f"both_{key(_f)}"] = f"{100 * (_ship & _aiml)[_m].mean():.0f}"
+    out[f"ship_given_model_{key(_f)}"] = f"{100 * _ship[_m & _aiml].mean():.0f}"
+    out[f"model_only_{key(_f)}"] = f"{100 * (~_ship & _aiml)[_m].mean():.0f}"
 out["pct_ship_all"] = f"{100 * _ship.mean():.0f}"
 out["pct_aiml_all"] = f"{100 * _aiml.mean():.0f}"
 for _f in ["Data Scientist", "AI Engineer", "ML Engineer", "Data Engineer", "Data Analyst"]:
