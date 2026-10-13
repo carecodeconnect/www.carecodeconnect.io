@@ -22,9 +22,11 @@ Three results behind those answers: a Data Scientist ad asks for the model **and
 
 ## RQ1 · The 2010 circles no longer fit
 
-Conway's 2010 diagram put data science where hacking skills, maths and statistics, and substantive expertise meet. Sized by how many of these ads land in each region:
+Conway's 2010 diagram put data science where hacking skills, maths and statistics, and substantive expertise meet, with a "danger zone" where code met domain knowledge without statistics.
 
-![](images/conway-measured.png){fig-alt="Conway's three circles redrawn with region areas proportional to the share of job ads in each"}
+![© Drew Conway, 2010. Reproduced with attribution — [original](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram)](images/external/conway-data-science-vd.png){fig-alt="Drew Conway's data science Venn diagram"}
+
+Measured against these job ads, the shape does not hold.
 
 {{< var jobskills.conway_danger_zone >}}% of ads want code and domain engagement but no statistics — the region he marked "danger zone" and thought nearly empty. {{< var jobskills.conway_outside_n >}} tracked skills fit none of his circles at all, and {{< var jobskills.conway_outside_pct >}}% of ads require at least one.
 
@@ -34,8 +36,6 @@ Conway's 2010 diagram put data science where hacking skills, maths and statistic
 ## The field's own definitions, and how they were tested {.unnumbered}
 
 Three pictures the field has used. Only Conway's can be tested against a job ad: it says what a data scientist must *know*, and knowledge is what ads ask for. The other two describe a process, and no ad says "must be able to scrub".
-
-![© Drew Conway, 2010. Reproduced with attribution — [original](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram)](images/external/conway-data-science-vd.png){fig-alt="Drew Conway's data science Venn diagram"}
 
 ![Redrawn for this page — [original](https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/) (archived)](images/osemn.png){fig-alt="The OSEMN pipeline: obtain, scrub, explore, model, interpret"}
 
@@ -117,7 +117,12 @@ The wider answer is that AI and data work has stopped being one job. Employers a
 
 What has changed since the field's own 2010 definition is not the modelling. It is that the ad now expects the model to run in production: {{< var jobskills.both_data_scientist >}}% of Data Scientist job ads ask for both, and among those that ask for a model at all, {{< var jobskills.ship_given_model_data_scientist >}}% also ask for its deployment. Conway's three circles are knowledge — code, maths, domain — and none of them is shipping and running the result.
 
-**What this can and cannot show.** These are job ads, so they record what employers advertised for, not what the job turned out to be. They cover {{< var jobskills.months >}}, which is enough to show how the work is divided today but not when it divided — nothing here tracks change over time. And the skill scores are a model's reading of each ad rather than a human's: a second model, asked the same question independently, agrees moderately (Cohen's κ ≈ {{< var jobskills.mlx_kappa >}}). Read any single percentage as approximate, and the differences between titles — which are large — as solid.
+**What this can and cannot show.**
+
+- **Ads, not jobs.** They record what employers advertised for, not what the job turned out to be.
+- **A snapshot, not a trend.** The window is {{< var jobskills.months >}} — enough to show how the work is divided today, but nothing here tracks when it divided.
+- **Read by a model, not a person.** A second model, asked the same question independently, agrees moderately (Cohen's κ ≈ {{< var jobskills.mlx_kappa >}}).
+- **So:** treat any single percentage as approximate, and the differences between titles — which are large — as solid.
 
 ## How this was measured
 
