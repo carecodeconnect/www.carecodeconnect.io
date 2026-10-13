@@ -1,9 +1,10 @@
 {
-  "_comment": "Which judge produced the scores, exported from jobcrawler's job_insights on the Pi. The page names the model and its version in the Method section; those are facts about the data, so they are carried here rather than typed into index.qmd. Regenerate with sql/judge.sql.",
-  "_generated": "2026-10-12",
+  "_comment": "Which judge produced the scores and how it was asked, from jobcrawler's job_insights on the Pi and its config/config.json. The page names the model, its version and the threshold in the method section; those are facts about the data, so they are carried here rather than typed into index.qmd. Regenerate the query part with sql/judge.sql; required_threshold mirrors typesafe.status_cut.",
+  "_generated": "2026-10-13",
   "model": "jev-1.13.0",
   "version": "jev-1.13",
   "questions_version": "291fa580de87beac",
-  "ads_judged": 3211,
-  "judged_through": "2026-10-12"
+  "ads_judged": 3404,
+  "judged_through": "2026-10-13",
+  "required_threshold": 0.6
 }

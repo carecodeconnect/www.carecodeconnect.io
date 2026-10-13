@@ -389,7 +389,7 @@ print(f"  index.qmd date-modified: {today}")
 # inside a `{{< var >}}`, outside the places a number is not a measurement:
 # YAML front matter, the iframe's CSS, years, and licence names.
 SKIP = re.compile(r"^(date:|date-modified:|<iframe|\s*(title|subtitle):)")
-BARE = re.compile(r"\d[\d,.]*\s*%|\b\d{2,}(?:,\d{3})*\b|κ ≈ [\d.]+|\b[01]\.\d\d\b")
+BARE = re.compile(r"\d[\d,.]*\s*%|\b\d{2,}(?:,\d{3})*\b|κ ≈ [\d.]+|\b\d+\.\d+\b")
 strays = []
 for n, line in enumerate((HERE / "index.qmd").read_text().splitlines(), 1):
     if SKIP.match(line):

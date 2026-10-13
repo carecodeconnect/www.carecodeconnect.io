@@ -10,14 +10,16 @@ toc: true
 
 ## Executive summary
 
-Is "AI Engineer" the new name for "Data Scientist", or a different job? Scored against a fixed vocabulary of {{< var jobskills.n_skills >}} skills, the ads say different job, and say how.
+Is "AI Engineer" the new name for "Data Scientist", or a different job? {{< var jobskills.n_ads >}} job ads, each scored against a fixed vocabulary of {{< var jobskills.n_skills >}} skills.
 
-- Under Drew Conway's 2010 circles, {{< var jobskills.conway_all_three >}}% of ads land in the centre, {{< var jobskills.conway_danger_zone >}}% in the "danger zone" he thought nearly empty, and {{< var jobskills.conway_outside_pct >}}% require a skill none of his circles covers.
-- Data Scientist and AI Engineer are {{< var jobskills.d_ai_engineer__data_scientist >}} apart on their requirement profiles — further than Data Scientist is from Data Analyst ({{< var jobskills.d_data_analyst__data_scientist >}}). Statistics divides them: {{< var jobskills.data_scientist_statistics >}}% against {{< var jobskills.ai_engineer_statistics >}}%.
-- The titles form three branches. ML Engineer is the only short step between engineering and inference ({{< var jobskills.d_data_scientist__ml_engineer >}} and {{< var jobskills.d_ai_engineer__ml_engineer >}}).
-- Data Engineer and Analytics Engineer are the closest pair on the map ({{< var jobskills.closest_pair_d >}}), marked out by data governance: {{< var jobskills.analytics_engineer_data_governance >}}% and {{< var jobskills.data_engineer_data_governance >}}% of their ads against {{< var jobskills.data_governance_elsewhere >}}% elsewhere.
-- Data Scientist, AI Engineer and ML Engineer share exactly {{< var jobskills.n_core_shared >}} skills: {{< var jobskills.core_shared >}}. Beyond those, Data Scientist and AI Engineer have nothing in common.
-- The most-required skill is not technical: stakeholder communication, {{< var jobskills.all_stakeholder_comms >}}%, ahead of Python at {{< var jobskills.all_python >}}%. {{< var jobskills.ai_no_python >}}% of AI Engineer ads do not require Python.
+- "AI Engineer" is the most frequent title at {{< var jobskills.pct_ai_engineer >}}%, ahead of "Data Scientist" ({{< var jobskills.pct_data_scientist >}}%) and "Data Engineer" ({{< var jobskills.pct_data_engineer >}}%).
+- Stakeholder communication is the most-required skill at {{< var jobskills.all_stakeholder_comms >}}%, ahead of Python at {{< var jobskills.all_python >}}%. {{< var jobskills.ai_no_python >}}% of AI Engineer ads do not require Python.
+- Statistics is required in {{< var jobskills.data_scientist_statistics >}}% of Data Scientist ads and {{< var jobskills.ai_engineer_statistics >}}% of AI Engineer ads.
+- The two titles are {{< var jobskills.d_ai_engineer__data_scientist >}} apart on their requirement profiles, further apart than Data Scientist and Data Analyst ({{< var jobskills.d_data_analyst__data_scientist >}}).
+- ML Engineer sits {{< var jobskills.d_data_scientist__ml_engineer >}} from Data Scientist and {{< var jobskills.d_ai_engineer__ml_engineer >}} from AI Engineer, the shortest link between the two.
+- Data Scientist, AI Engineer and ML Engineer share {{< var jobskills.n_core_shared >}} required skills: {{< var jobskills.core_shared >}}.
+- Data Engineer and Analytics Engineer are {{< var jobskills.closest_pair_d >}} apart, the shortest distance on the map. Data governance is required in {{< var jobskills.analytics_engineer_data_governance >}}% and {{< var jobskills.data_engineer_data_governance >}}% of their ads, against {{< var jobskills.data_governance_elsewhere >}}% elsewhere.
+- {{< var jobskills.conway_danger_zone >}}% of ads fall in Conway's "danger zone" — code and domain, no statistics — and {{< var jobskills.conway_outside_pct >}}% require a skill none of his circles covers.
 
 ## The question
 
@@ -43,7 +45,7 @@ Sixteen years on, employers advertise for "AI Engineer" more often than for "Dat
 Scores come from the production pipeline of **jobcrawler**, a personal job-board crawler that scrapes employer ATS boards, filters by title and location with deterministic rules, and stores each ad. After storage every ad is read once by **Jev** (TypeSafe's System One model, version {{< var jobskills.judge_version >}}), which answers typed questions and returns probabilities rather than text.
 
 - For each of **{{< var jobskills.n_skills >}} tracked skills** Jev answers one four-level question: does the ad *not involve* the skill, *mention it in passing*, list it as *nice to have*, or *require* it. One question per skill, so an answer cannot contradict itself, and the same question is answered for every ad — which is the only reason the percentages compare across titles.
-- An ad requires the skill when "required" reaches probability 0.6. Most judgements come back "not involved"; roughly one in six reaches "required".
+- An ad requires the skill when "required" reaches probability {{< var jobskills.judge_required_threshold >}}. Most judgements come back "not involved"; roughly one in six reaches "required".
 - Jev has no part in choosing the ads: the pool is gathered and filtered by rules.
 - Cost: about 6k input tokens per ad, under a cent.
 
