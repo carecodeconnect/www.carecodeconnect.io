@@ -69,7 +69,7 @@ The scores are model judgements, consistent across titles but never checked agai
 ::: {.callout-note collapse="true" appearance="simple"}
 ## The data, the charts, and permissions {.unnumbered}
 
-Two files are published with this page, and every figure on it is computed from them.
+The files published with this page, from which every figure on it is computed:
 
 - [**ai-data-job-skills.csv**](data/ai-data-job-skills.csv) — one row per job ad: the title, which title family it falls into, the judge's own role-family answer, the hiring region, the month, its position on the map, a yes/no flag for each of the {{< var jobskills.n_skills >}} tracked skills, and four columns from the open-vocabulary second pass (how many phrases it extracted, and whether the ad names machine learning, names an ML tool, or requires it).
 - [**skill-mentions.csv**](data/skill-mentions.csv) — one row per phrase the second pass extracted: how many mentions and job ads it appears in, how often it is required, which tracked skill it maps to, and how many of the data-science ads that never write "machine learning" use it.
@@ -77,9 +77,7 @@ Two files are published with this page, and every figure on it is computed from 
 
 Deliberately absent from all three: employer names, links, and any ad text. Both CSVs are rebuilt from the crawler's database by one script, so re-running it moves every number on this page.
 
-Static charts are drawn with [plotnine](https://plotnine.org) and [Matplotlib](https://matplotlib.org); the interactive map uses [Plotly](https://plotly.com/python/), styled to match. Colours come from the [Okabe-Ito colour-blind-safe palette](https://jfly.uni-koeln.de/color/), checked with a validator rather than by eye: every categorical palette here passes adjacent-pair separation for deuteranopia, protanopia and tritanopia, and the normal-vision floor. Where a chart would have needed more than about five categorical colours, it does not use them — the set plots are single-hue with a labelled membership matrix, and stacked bars carry their values in the segments.
-
-Set relationships are shown as [UpSet](https://upset.app) plots rather than Venn diagrams: a three-set Venn has seven regions that can only be told apart by position, so each ends up labelled with a bare percentage and the reader has to decode the geometry to learn what it counts.
+Static charts are drawn with [plotnine](https://plotnine.org) and [Matplotlib](https://matplotlib.org); the interactive map uses [Plotly](https://plotly.com/python/), styled to match. Colours come from the [Okabe-Ito colour-blind-safe palette](https://jfly.uni-koeln.de/color/), checked with a validator rather than by eye: every categorical palette here passes adjacent-pair separation for deuteranopia, protanopia and tritanopia, and the normal-vision floor. Where a chart would have needed more than about five categorical colours, it does not use them: the per-title charts are single-hue, stacked bars carry their values in the segments, and seniority — being ordered rather than categorical — uses one hue from light to dark. Where ten titles must be told apart at once, on the interactive map, each also has its own marker shape, so colour never carries identity alone.
 
 Conway's diagram is reproduced with attribution from [drewconway.com](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram) (Drew Conway, *The Data Science Venn Diagram*, 2010). Only the measured figures and the 2026 groups are this page's own.
 
