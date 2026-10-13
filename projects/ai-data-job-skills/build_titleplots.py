@@ -89,9 +89,15 @@ def title_figure(fam: str) -> None:
             rows.append({"panel": panel, "skill": pretty(k[4:]), "here": 100 * share[k],
                          "all": 100 * allshare[k], "lift": lift[k]})
     d = pd.DataFrame(rows)
-    # order bars within each panel; a plain category order would interleave them
+    # Order bars within each panel; a plain category order would interleave them.
+    # BOTH panels sort by BAR LENGTH (`here`), not by the quantity used to pick
+    # the rows. The lower panel used to sort by `lift` while the bar drew `here`,
+    # so its bars ran 70, 73, 31, 24, 93, 7 ... and looked unsorted — ordering by
+    # one variable while encoding another is unreadable however correct it is.
+    # Lift still SELECTS which skills appear; the diamond still shows the
+    # whole-sample share, so the over-representation is visible as the gap.
     d["key"] = d.panel + "||" + d.skill
-    d["rank"] = np.where(d.panel.eq("Required most often"), d.here, d.lift)
+    d["rank"] = d.here
     order = d.sort_values(["panel", "rank"]).key.tolist()
     d["key"] = pd.Categorical(d.key, categories=order, ordered=True)
     d["panel"] = pd.Categorical(d.panel, categories=["Required most often",
