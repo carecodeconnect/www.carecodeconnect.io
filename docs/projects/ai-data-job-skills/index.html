@@ -389,7 +389,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Stakeholder communication is the most-required skill at 72%, ahead of Python at 57%.</li>
 <li>A Data Scientist ad asks for the model <strong>and</strong> for running it — 50% need both.</li>
-<li>Statistics is what separates the two headline titles: 76% against 11%.</li>
+<li>Statistics is what separates the two headline titles: 76% of <strong>Data Scientist</strong> ads require it, against 11% of <strong>AI Engineer</strong> ads.</li>
 </ul>
 </section>
 <section id="the-sample" class="level2">
@@ -515,15 +515,15 @@ ul.task-list li input[type="checkbox"] {
 <section id="rq2-three-groups-of-skills-and-one-asked-for-everywhere" class="level2">
 <h2 class="anchored" data-anchor-id="rq2-three-groups-of-skills-and-one-asked-for-everywhere">RQ2 · Three groups of skills, and one asked for everywhere</h2>
 <p><em>Which skills do employers ask for together?</em></p>
-<p>The 44 skills were clustered by how often employers ask for them <em>in the same ad</em>. Four groups fall out — three that divide the market, one required almost everywhere.</p>
+<p><strong>Start with what is asked for most, across every title.</strong> stakeholder communication leads at 72%, then software engineering (70%) and Python (57%). The tail is the specialist end: streaming 4%, computer vision 4%, R 3%, time series 3%, quant finance research 2%.</p>
+<p><img src="images/skills-by-demand.png" class="img-fluid" alt="Bar chart of every tracked skill by the share of ads requiring them"></p>
+<p>That ranking is the whole market at once, and it hides the structure: a skill near the top may be near the top <em>everywhere</em>, or it may be near the top only because one large title demands it. So the 44 skills were also clustered by how often employers ask for them <em>in the same ad</em>. Four groups fall out — three that divide the market, one required almost everywhere.</p>
 <ul>
 <li><strong>Engineering, deployment &amp; AI</strong> — 19 skills, 89% of ads. Shipping software and building on LLMs fall in one group.</li>
 <li><strong>Data platform</strong> — 9 skills, 62%.</li>
 <li><strong>Statistics &amp; inference</strong> — 13 skills, 51%. Classical ML, deep learning and computer vision cluster here, not with LLM work.</li>
 <li><strong>Communication</strong> — 3 skills, 79%, in every region. The ground, not a circle.</li>
 </ul>
-<p><img src="images/skills-by-demand.png" class="img-fluid" alt="Bar chart of every tracked skill by the share of ads requiring them"></p>
-<p>stakeholder communication leads at 72%, then software engineering (70%) and Python (57%). The tail is the specialist end: streaming 4%, computer vision 4%, R 3%, time series 3%, quant finance research 2%.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -903,7 +903,7 @@ flowchart TB
 <li><strong>Read by a model, not a person.</strong> A second model, asked the same question independently, agrees moderately (Cohen’s κ ≈ 0.25).</li>
 <li><strong>Not a random sample, and the sampling frame moved.</strong> These are the ads one crawler targets, so they describe what these titles ask for, not how many of each exist. The crawler is an ingestion pipeline under active development: title rules, regions and sources were all widened during the window, so a title’s <em>share</em> reflects when the crawler started looking for it as much as how often employers post it. Shares are the least trustworthy numbers on this page; what each title asks for, measured within that title, is the most.</li>
 <li><strong>Not every title was collected for the whole window.</strong> AI Automation entered the crawler’s title rules after collection had begun: 52% of its job ads fall in the final month, against 32% for the sample. Its skill profile stands; its count is a floor.</li>
-<li><strong>So:</strong> read every percentage as approximate. A gap as wide as statistics — 76% against 11% — is unlikely to be an artefact of a few points of noise; a gap of a few points may well be.</li>
+<li><strong>So:</strong> read every percentage as approximate. A gap as wide as statistics — 76% of Data Scientist ads against 11% of AI Engineer ads — is unlikely to be an artefact of a few points of noise; a gap of a few points may well be.</li>
 </ul>
 
 
