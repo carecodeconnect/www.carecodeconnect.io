@@ -33,15 +33,22 @@ Measured against these job ads, the shape does not hold.
 **What is missing from his picture is deployment.** His three circles are knowledge — code, maths, domain. {{< var jobskills.pct_ship_all >}}% of ads require a production skill, and model serving alone appears in {{< var jobskills.data_scientist_model_serving >}}% of Data Scientist ads, more than any single modelling skill.
 
 ::: {.callout-note collapse="true" appearance="simple"}
-## The field's own definitions, and how they were tested {.unnumbered}
+## What the field has said a data scientist does {.unnumbered}
 
-Three pictures the field has used. Only Conway's can be tested against a job ad: it says what a data scientist must *know*, and knowledge is what ads ask for. The other two describe a process, and no ad says "must be able to scrub".
+In October 2012 *Harvard Business Review* called data scientist [the sexiest job of the 21st century](https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century), describing a hybrid of hacker, analyst, communicator and trusted adviser. The field has drawn that hybrid three ways.
 
-![Redrawn for this page — [original](https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/) (archived)](images/osemn.png){fig-alt="The OSEMN pipeline: obtain, scrub, explore, model, interpret"}
+**1. Conway, 2010 — what you must *know*.** Three circles of knowledge with data science in the middle, shown above. The only one of the three that can be tested against a job ad, because employers advertise for knowledge.
 
-![© the authors, CC BY-NC-ND — [original](https://r4ds.hadley.nz/intro)](images/external/r4ds-data-science-cycle.png){fig-alt="The R for Data Science cycle"}
+**2. Mason & Wiggins, 2010 — what you *do*, as five steps.** Published the same month as Conway, and a description of a process rather than a person; they coined **OSEMN** in the same post. Their line on the least glamorous step has outlasted the rest — scrubbing data is "the least sexy part of the analysis process".
 
-An ad joins a circle if it requires at least one skill mapped to it. Only the measured figures and the 2026 circles are this page's own.
+![Redrawn for this page; the post carried no figure of its own — [original](https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/) (archived) · [PDF](https://introdatasci.dlilab.com/pdf/A_Taxonomy_of_Data_Science.pdf)](images/osemn.png){fig-alt="The OSEMN pipeline: obtain, scrub, explore, model, interpret"}
+
+**3. Wickham, Çetinkaya-Rundel & Grolemund — what you *do*, as a loop.** The *R for Data Science* cycle: import and tidy once, then loop through transform, visualise and model, then communicate, with programming underneath. [Jeroen Janssens](https://datascienceatthecommandline.com/2e/chapter-1-introduction) adopts Mason and Wiggins's steps as the spine of *Data Science at the Command Line*.
+
+![© the authors, [CC BY-NC-ND 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/us/). Reproduced unchanged — [original](https://r4ds.hadley.nz/intro)](images/external/r4ds-data-science-cycle.png){fig-alt="The R for Data Science cycle: import, tidy, then a loop of transform, visualise and model, then communicate, with program surrounding all of it"}
+
+Only the first can be tested here: the other two describe steps, and no ad says "must be able to scrub". A job ad joins one of Conway's circles if it requires at least one skill mapped to it. Only the measured figures and the 2026 groups are this page's own.
+
 :::
 
 ## RQ2 · Three groups of skills, and one asked for everywhere
@@ -122,7 +129,8 @@ What has changed since the field's own 2010 definition is not the modelling. It 
 - **Ads, not jobs.** They record what employers advertised for, not what the job turned out to be.
 - **A snapshot, not a trend.** The window is {{< var jobskills.months >}} — enough to show how the work is divided today, but nothing here tracks when it divided.
 - **Read by a model, not a person.** A second model, asked the same question independently, agrees moderately (Cohen's κ ≈ {{< var jobskills.mlx_kappa >}}).
-- **So:** treat any single percentage as approximate, and the differences between titles — which are large — as solid.
+- **Not a random sample.** These are the ads one crawler targets, so they describe what these titles ask for, not how many of each exist.
+- **So:** read every percentage as approximate. A gap as wide as statistics — {{< var jobskills.data_scientist_statistics >}}% against {{< var jobskills.ai_engineer_statistics >}}% — is unlikely to be an artefact of a few points of noise; a gap of a few points may well be.
 
 ## How this was measured
 

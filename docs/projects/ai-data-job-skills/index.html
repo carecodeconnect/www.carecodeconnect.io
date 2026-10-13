@@ -400,26 +400,29 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>The field’s own definitions, and how they were tested
+<span class="screen-reader-only">Note</span>What the field has said a data scientist does
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Three pictures the field has used. Only Conway’s can be tested against a job ad: it says what a data scientist must <em>know</em>, and knowledge is what ads ask for. The other two describe a process, and no ad says “must be able to scrub”.</p>
+<p>In October 2012 <em>Harvard Business Review</em> called data scientist <a href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century">the sexiest job of the 21st century</a>, describing a hybrid of hacker, analyst, communicator and trusted adviser. The field has drawn that hybrid three ways.</p>
+<p><strong>1. Conway, 2010 — what you must <em>know</em>.</strong> Three circles of knowledge with data science in the middle, shown above. The only one of the three that can be tested against a job ad, because employers advertise for knowledge.</p>
+<p><strong>2. Mason &amp; Wiggins, 2010 — what you <em>do</em>, as five steps.</strong> Published the same month as Conway, and a description of a process rather than a person; they coined <strong>OSEMN</strong> in the same post. Their line on the least glamorous step has outlasted the rest — scrubbing data is “the least sexy part of the analysis process”.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/osemn.png" class="img-fluid figure-img" alt="The OSEMN pipeline: obtain, scrub, explore, model, interpret"></p>
-<figcaption>Redrawn for this page — <a href="https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/">original</a> (archived)</figcaption>
+<figcaption>Redrawn for this page; the post carried no figure of its own — <a href="https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/">original</a> (archived) · <a href="https://introdatasci.dlilab.com/pdf/A_Taxonomy_of_Data_Science.pdf">PDF</a></figcaption>
 </figure>
 </div>
+<p><strong>3. Wickham, Çetinkaya-Rundel &amp; Grolemund — what you <em>do</em>, as a loop.</strong> The <em>R for Data Science</em> cycle: import and tidy once, then loop through transform, visualise and model, then communicate, with programming underneath. <a href="https://datascienceatthecommandline.com/2e/chapter-1-introduction">Jeroen Janssens</a> adopts Mason and Wiggins’s steps as the spine of <em>Data Science at the Command Line</em>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/external/r4ds-data-science-cycle.png" class="img-fluid figure-img" alt="The R for Data Science cycle"></p>
-<figcaption>© the authors, CC BY-NC-ND — <a href="https://r4ds.hadley.nz/intro">original</a></figcaption>
+<p><img src="images/external/r4ds-data-science-cycle.png" class="img-fluid figure-img" alt="The R for Data Science cycle: import, tidy, then a loop of transform, visualise and model, then communicate, with program surrounding all of it"></p>
+<figcaption>© the authors, <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/">CC BY-NC-ND 3.0</a>. Reproduced unchanged — <a href="https://r4ds.hadley.nz/intro">original</a></figcaption>
 </figure>
 </div>
-<p>An ad joins a circle if it requires at least one skill mapped to it. Only the measured figures and the 2026 circles are this page’s own.</p>
+<p>Only the first can be tested here: the other two describe steps, and no ad says “must be able to scrub”. A job ad joins one of Conway’s circles if it requires at least one skill mapped to it. Only the measured figures and the 2026 groups are this page’s own.</p>
 </div>
 </div>
 </div>
@@ -758,7 +761,8 @@ flowchart TB
 <li><strong>Ads, not jobs.</strong> They record what employers advertised for, not what the job turned out to be.</li>
 <li><strong>A snapshot, not a trend.</strong> The window is 2026-04 to 2026-10 — enough to show how the work is divided today, but nothing here tracks when it divided.</li>
 <li><strong>Read by a model, not a person.</strong> A second model, asked the same question independently, agrees moderately (Cohen’s κ ≈ 0.41).</li>
-<li><strong>So:</strong> treat any single percentage as approximate, and the differences between titles — which are large — as solid.</li>
+<li><strong>Not a random sample.</strong> These are the ads one crawler targets, so they describe what these titles ask for, not how many of each exist.</li>
+<li><strong>So:</strong> read every percentage as approximate. A gap as wide as statistics — 73% against 11% — is unlikely to be an artefact of a few points of noise; a gap of a few points may well be.</li>
 </ul>
 </section>
 <section id="how-this-was-measured" class="level2">
