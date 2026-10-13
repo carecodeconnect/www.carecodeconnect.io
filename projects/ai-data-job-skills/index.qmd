@@ -149,9 +149,12 @@ Adding "software engineering" overturned one of this page's own findings: before
 ::: {.callout-warning collapse="true" appearance="simple"}
 ## One known limitation: is machine learning simply assumed? {.unnumbered}
 
-Partly. Of {{< var jobskills.mlx_ds_ads >}} Data Scientist ads, {{< var jobskills.mlx_silent_ads >}} never write machine learning, deep learning or neural network — but {{< var jobskills.mlx_silent_naming_tool_pct >}}% of those name a technique or tool that unmistakably is one. Correcting for that raises the figure from {{< var jobskills.mlx_haiku_named >}}% to about {{< var jobskills.mlx_implied_total_pct >}}%, meeting the independent estimate from the other direction ({{< var jobskills.mlx_jev_any_level >}}% detected at some level).
+Partly. Of the {{< var jobskills.mlx_ds_ads >}} ads the judge classes as data science, {{< var jobskills.mlx_silent_ads >}} never write machine learning, deep learning or neural network — but {{< var jobskills.mlx_silent_naming_tool_pct >}}% of those ({{< var jobskills.mlx_silent_naming_tool >}} ads) name a technique or tool that unmistakably is one: {{< var jobskills.mlx_silent_examples >}}. For those, the skill is implied rather than stated, and counting the literal phrase understates it. Correcting for that raises the figure from {{< var jobskills.mlx_haiku_named >}}% to about {{< var jobskills.mlx_implied_total_pct >}}%, meeting the independent estimate from the other direction ({{< var jobskills.mlx_jev_any_level >}}% detected at some level).
 
-The remaining {{< var jobskills.mlx_silent_nothing >}} ads ({{< var jobskills.mlx_silent_nothing_pct >}}% of Data Scientist ads) name neither the concept nor any of its tools, asking instead for Python, SQL, A/B testing, causal inference, R, dbt, Tableau and stakeholder communication.
+The remaining {{< var jobskills.mlx_silent_nothing >}} ads name neither the concept nor any of its tools. They ask instead for {{< var jobskills.mlx_silent_other_asks >}} — an experimentation and analytics profile rather than a modelling one.
+
+*Population note: this check selects on the judge's role-family answer rather than the title regex used elsewhere on the page, so its n differs from the Data Scientist title count by design.*
+
 :::
 
 ::: {.callout-note collapse="true" appearance="simple"}
