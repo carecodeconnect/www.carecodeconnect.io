@@ -1,8 +1,8 @@
 ---
 title: "AI / Data Job Skills"
-subtitle: "Across ~3,700 job ads European employers posted in 2026, AI and data work has spread beyond the Data Scientist title: a spread of titles divides the skills between them, and a data scientist ad now asks for deployment as well as a model."  # one sentence, the upshot of the executive summary. The count is rounded on purpose: YAML front matter cannot expand {{< var >}}, so an exact n would go stale at the next refresh.
+subtitle: "Across ~3,100 job ads European employers posted in 2026, AI and data work has spread beyond the Data Scientist title: a spread of titles divides the skills between them, and a data scientist ad now asks for deployment as well as a model."  # one sentence, the upshot of the executive summary. The count is rounded on purpose: YAML front matter cannot expand {{< var >}}, so an exact n would go stale at the next refresh.
 date: 2026-10-08
-date-modified: 2026-10-13
+date-modified: 2026-10-14
 toc: true
 ---
 
