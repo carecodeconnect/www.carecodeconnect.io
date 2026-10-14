@@ -4,6 +4,9 @@ subtitle: "Across ~3,100 job ads European employers posted in 2026, AI and data 
 date: 2026-10-08
 date-modified: 2026-10-14
 toc: true
+bibliography: references.bib
+nocite: |
+  @okabe2008, @plotnine, @matplotlib, @plotly, @anthropic2026haiku
 ---
 
 ## Executive summary
@@ -56,7 +59,7 @@ The rarest titles are Analytics Engineer ({{< var jobskills.pct_analytics_engine
 
 ## How the skills were scored {.unnumbered}
 
-Scores come from the production pipeline of **jobcrawler**, a personal job-board crawler that scrapes employer ATS boards, filters by title and location with deterministic rules, and stores each ad. After storage every ad is read once by **[Jev](https://typesafe.ai)** ([TypeSafe](https://typesafe.ai)'s [System One](https://typesafe.ai/blog/introducing-system-one-models-and-jev) model, version {{< var jobskills.judge_version >}}), which answers typed questions and returns probabilities rather than text.
+Scores come from the production pipeline of **jobcrawler**, a personal job-board crawler that scrapes employer ATS boards, filters by title and location with deterministic rules, and stores each ad. After storage every ad is read once by **[Jev](https://typesafe.ai)** ([TypeSafe](https://typesafe.ai)'s [System One](https://typesafe.ai/blog/introducing-system-one-models-and-jev) model [@typesafe2026], version {{< var jobskills.judge_version >}}), which answers typed questions and returns probabilities rather than text.
 
 - For each of **{{< var jobskills.n_skills >}} tracked skills** Jev answers one four-level question: does the ad *not involve* the skill, *mention it in passing*, list it as *nice to have*, or *require* it. One question per skill, so an answer cannot contradict itself, and the same question is answered for every ad — which is the only reason the percentages compare across titles.
 - An ad requires the skill when "required" reaches probability {{< var jobskills.judge_required_threshold >}}. Most judgements come back "not involved"; roughly one in six reaches "required".
@@ -119,21 +122,21 @@ Adding "software engineering" overturned one of this page's own findings: before
 
 *Does the classic data science definition still describe what employers advertise?*
 
-The classic data science definition is a 2010 diagram by **Drew Conway**: three overlapping circles — coding ability, maths and statistics, and expertise in the subject being analysed — with data science in the middle, and a "danger zone" where coding met subject expertise without the statistics to know whether a result means anything.
+The classic data science definition is a 2010 diagram by **Drew Conway** [@conway2010]: three overlapping circles — coding ability, maths and statistics, and expertise in the subject being analysed — with data science in the middle, and a "danger zone" where coding met subject expertise without the statistics to know whether a result means anything.
 
 ![© Drew Conway, 2010. Reproduced with attribution — [original](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram)](images/external/conway-data-science-vd.png){fig-alt="Drew Conway's data science Venn diagram"}
 
 ### Where the classic data science definition comes from
 
-In October 2012 *Harvard Business Review* called data scientist [the sexiest job of the 21st century](https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century), describing a hybrid of hacker, analyst, communicator and trusted adviser. The field has drawn that hybrid three ways.
+In October 2012 *Harvard Business Review* called data scientist [the sexiest job of the 21st century](https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century) [@davenport2012], describing a hybrid of hacker, analyst, communicator and trusted adviser. The field has drawn that hybrid three ways.
 
 **1. Conway, 2010 — what you must *know*.** Three circles of knowledge with data science in the middle, shown above. The only one of the three that can be tested against a job ad, because employers advertise for knowledge.
 
-**2. Mason & Wiggins, 2010 — what you *do*, as five steps.** Published the same month as Conway, and a description of a process rather than a person; they coined **OSEMN** in the same post. Their line on the least glamorous step has outlasted the rest — scrubbing data is "the least sexy part of the analysis process".
+**2. Mason & Wiggins, 2010 — what you *do*, as five steps** [@mason2010]**.** Published the same month as Conway, and a description of a process rather than a person; they coined **OSEMN** in the same post. Their line on the least glamorous step has outlasted the rest — scrubbing data is "the least sexy part of the analysis process".
 
 ![Redrawn for this page; the post carried no figure of its own — [original](https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/) (archived) · [PDF](https://introdatasci.dlilab.com/pdf/A_Taxonomy_of_Data_Science.pdf)](images/osemn.png){fig-alt="The OSEMN pipeline: obtain, scrub, explore, model, interpret"}
 
-**3. Wickham, Çetinkaya-Rundel & Grolemund — what you *do*, as a loop.** The [*R for Data Science*](https://r4ds.hadley.nz/intro) cycle (2nd edition, 2023): import and tidy once, then loop through transform, visualise and model, then communicate, with programming underneath. [Jeroen Janssens](https://datascienceatthecommandline.com/2e/chapter-1-introduction) adopts Mason and Wiggins's steps as the spine of *Data Science at the Command Line*.
+**3. Wickham, Çetinkaya-Rundel & Grolemund — what you *do*, as a loop.** The [*R for Data Science*](https://r4ds.hadley.nz/intro) cycle [@wickham2023]: import and tidy once, then loop through transform, visualise and model, then communicate, with programming underneath. [Jeroen Janssens](https://datascienceatthecommandline.com/2e/chapter-1-introduction) [@janssens2021] adopts Mason and Wiggins's steps as the spine of *Data Science at the Command Line*.
 
 ![© the authors, [CC BY-NC-ND 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/us/). Reproduced unchanged — [original](https://r4ds.hadley.nz/intro)](images/external/r4ds-data-science-cycle.png){fig-alt="The R for Data Science cycle: import, tidy, then a loop of transform, visualise and model, then communicate, with program surrounding all of it"}
 
@@ -175,7 +178,7 @@ By skill area:
 
 Where AI Engineer comes from: its nearest neighbour is ML Engineer ({{< var jobskills.d_ai_engineer__ml_engineer >}}), and Data Engineer is {{< var jobskills.d_ai_engineer__data_engineer >}} away — further than Data Scientist. One skill crosses the divide: model evaluation is required in {{< var jobskills.ai_engineer_model_evaluation >}}% of AI Engineer ads and {{< var jobskills.data_scientist_model_evaluation >}}% of Data Scientist ads, against {{< var jobskills.data_engineer_model_evaluation >}}% of Data Engineer ads. Within the {{< var jobskills.n_eng_ads >}} engineering ads, evals run at {{< var jobskills.pct_evals_base_eng >}}% overall but {{< var jobskills.pct_evals_from_ab >}}% where A/B experimentation is also required (odds ratio {{< var jobskills.or_evals_ab >}}, p {{< var jobskills.p_evals_ab >}}). LLM observability shows no such link (odds ratio {{< var jobskills.or_obs_stats >}}, p {{< var jobskills.p_obs_stats >}}).
 
-Each dot is one job ad, placed by the {{< var jobskills.n_skills >}} skills it requires ([t-SNE](https://www.jmlr.org/papers/v9/vandermaaten08a.html): nearby dots have similar requirements, and distances across the map carry no scale). Click a title in the legend to hide it.
+Each dot is one job ad, placed by the {{< var jobskills.n_skills >}} skills it requires ([t-SNE](https://www.jmlr.org/papers/v9/vandermaaten08a.html) [@maaten2008]: nearby dots have similar requirements, and distances across the map carry no scale). Click a title in the legend to hide it.
 
 <iframe src="cluster.html" title="Interactive skills map" width="100%" height="780" style="border:0;" loading="lazy"></iframe>
 
@@ -215,34 +218,5 @@ The remaining {{< var jobskills.mlx_silent_nothing >}} ads name neither the conc
 
 ## References
 
-Everything cited on this page, in the order it first appears.
-
-**The definitions this page measures against**
-
-- Conway, D. (2010). *The Data Science Venn Diagram.* <http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram>
-- Mason, H. & Wiggins, C. (2010, 25 September). *A Taxonomy of Data Science.* dataists. [Archived copy](https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/) · [PDF](https://introdatasci.dlilab.com/pdf/A_Taxonomy_of_Data_Science.pdf)
-- Davenport, T. H. & Patil, D. J. (2012, October). *Data Scientist: The Sexiest Job of the 21st Century.* Harvard Business Review. <https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century>
-- Wickham, H., Çetinkaya-Rundel, M. & Grolemund, G. (2023). *R for Data Science* (2nd ed.). O'Reilly. <https://r4ds.hadley.nz/intro>
-- Janssens, J. (2021). *Data Science at the Command Line* (2nd ed.). O'Reilly. <https://datascienceatthecommandline.com/2e/chapter-1-introduction>
-
-**Methods**
-
-- van der Maaten, L. & Hinton, G. (2008). *Visualizing Data using t-SNE.* Journal of Machine Learning Research, 9, 2579–2605. <https://www.jmlr.org/papers/v9/vandermaaten08a.html> — the skills map
-- Cohen's κ, used for the agreement between the two model readers. <https://en.wikipedia.org/wiki/Cohen%27s_kappa>
-- Euclidean distance, used for the distance between two titles' requirement profiles. <https://en.wikipedia.org/wiki/Euclidean_distance>
-
-**The judge, and the second reader**
-
-- TypeSafe. *Jev*, a System One model. <https://typesafe.ai> · [Introducing System One models and Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
-- Anthropic. *Claude Haiku*, the open-vocabulary second pass. <https://www.anthropic.com/claude/haiku>
-
-**Tools and design**
-
-- Okabe, M. & Ito, K. (2008). *Color Universal Design* — the colour-blind-safe palette every chart here uses. <https://jfly.uni-koeln.de/color/>
-- plotnine <https://plotnine.org> · Matplotlib <https://matplotlib.org> · Plotly <https://plotly.com/python/>
-
-**Figure permissions**
-
-- Conway's diagram is reproduced with attribution from the page above.
-- The *R for Data Science* cycle is reproduced unchanged under [CC BY-NC-ND 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/us/).
-- The OSEMN figure is redrawn for this page: the original post carried no figure of its own.
+::: {#refs}
+:::

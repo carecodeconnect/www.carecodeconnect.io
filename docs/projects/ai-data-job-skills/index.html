@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -444,7 +464,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Scores come from the production pipeline of <strong>jobcrawler</strong>, a personal job-board crawler that scrapes employer ATS boards, filters by title and location with deterministic rules, and stores each ad. After storage every ad is read once by <strong><a href="https://typesafe.ai">Jev</a></strong> (<a href="https://typesafe.ai">TypeSafe</a>’s <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">System One</a> model, version jev-1.13), which answers typed questions and returns probabilities rather than text.</p>
+<p>Scores come from the production pipeline of <strong>jobcrawler</strong>, a personal job-board crawler that scrapes employer ATS boards, filters by title and location with deterministic rules, and stores each ad. After storage every ad is read once by <strong><a href="https://typesafe.ai">Jev</a></strong> (<a href="https://typesafe.ai">TypeSafe</a>’s <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">System One</a> model <span class="citation" data-cites="typesafe2026">(<a href="#ref-typesafe2026" role="doc-biblioref">TypeSafe 2026</a>)</span>, version jev-1.13), which answers typed questions and returns probabilities rather than text.</p>
 <ul>
 <li>For each of <strong>44 tracked skills</strong> Jev answers one four-level question: does the ad <em>not involve</em> the skill, <em>mention it in passing</em>, list it as <em>nice to have</em>, or <em>require</em> it. One question per skill, so an answer cannot contradict itself, and the same question is answered for every ad — which is the only reason the percentages compare across titles.</li>
 <li>An ad requires the skill when “required” reaches probability 0.6. Most judgements come back “not involved”; roughly one in six reaches “required”.</li>
@@ -521,7 +541,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="rq2-the-classic-data-science-definition-no-longer-fits" class="level2">
 <h2 class="anchored" data-anchor-id="rq2-the-classic-data-science-definition-no-longer-fits">RQ2 · The classic data science definition no longer fits</h2>
 <p><em>Does the classic data science definition still describe what employers advertise?</em></p>
-<p>The classic data science definition is a 2010 diagram by <strong>Drew Conway</strong>: three overlapping circles — coding ability, maths and statistics, and expertise in the subject being analysed — with data science in the middle, and a “danger zone” where coding met subject expertise without the statistics to know whether a result means anything.</p>
+<p>The classic data science definition is a 2010 diagram by <strong>Drew Conway</strong> <span class="citation" data-cites="conway2010">(<a href="#ref-conway2010" role="doc-biblioref">Conway 2010</a>)</span>: three overlapping circles — coding ability, maths and statistics, and expertise in the subject being analysed — with data science in the middle, and a “danger zone” where coding met subject expertise without the statistics to know whether a result means anything.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/external/conway-data-science-vd.png" class="img-fluid figure-img" alt="Drew Conway's data science Venn diagram"></p>
@@ -530,16 +550,16 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="where-the-classic-data-science-definition-comes-from" class="level3">
 <h3 class="anchored" data-anchor-id="where-the-classic-data-science-definition-comes-from">Where the classic data science definition comes from</h3>
-<p>In October 2012 <em>Harvard Business Review</em> called data scientist <a href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century">the sexiest job of the 21st century</a>, describing a hybrid of hacker, analyst, communicator and trusted adviser. The field has drawn that hybrid three ways.</p>
+<p>In October 2012 <em>Harvard Business Review</em> called data scientist <a href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century">the sexiest job of the 21st century</a> <span class="citation" data-cites="davenport2012">(<a href="#ref-davenport2012" role="doc-biblioref">Davenport and Patil 2012</a>)</span>, describing a hybrid of hacker, analyst, communicator and trusted adviser. The field has drawn that hybrid three ways.</p>
 <p><strong>1. Conway, 2010 — what you must <em>know</em>.</strong> Three circles of knowledge with data science in the middle, shown above. The only one of the three that can be tested against a job ad, because employers advertise for knowledge.</p>
-<p><strong>2. Mason &amp; Wiggins, 2010 — what you <em>do</em>, as five steps.</strong> Published the same month as Conway, and a description of a process rather than a person; they coined <strong>OSEMN</strong> in the same post. Their line on the least glamorous step has outlasted the rest — scrubbing data is “the least sexy part of the analysis process”.</p>
+<p><strong>2. Mason &amp; Wiggins, 2010 — what you <em>do</em>, as five steps</strong> <span class="citation" data-cites="mason2010">(<a href="#ref-mason2010" role="doc-biblioref">Mason and Wiggins 2010</a>)</span><strong>.</strong> Published the same month as Conway, and a description of a process rather than a person; they coined <strong>OSEMN</strong> in the same post. Their line on the least glamorous step has outlasted the rest — scrubbing data is “the least sexy part of the analysis process”.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/osemn.png" class="img-fluid figure-img" alt="The OSEMN pipeline: obtain, scrub, explore, model, interpret"></p>
 <figcaption>Redrawn for this page; the post carried no figure of its own — <a href="https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/">original</a> (archived) · <a href="https://introdatasci.dlilab.com/pdf/A_Taxonomy_of_Data_Science.pdf">PDF</a></figcaption>
 </figure>
 </div>
-<p><strong>3. Wickham, Çetinkaya-Rundel &amp; Grolemund — what you <em>do</em>, as a loop.</strong> The <a href="https://r4ds.hadley.nz/intro"><em>R for Data Science</em></a> cycle (2nd edition, 2023): import and tidy once, then loop through transform, visualise and model, then communicate, with programming underneath. <a href="https://datascienceatthecommandline.com/2e/chapter-1-introduction">Jeroen Janssens</a> adopts Mason and Wiggins’s steps as the spine of <em>Data Science at the Command Line</em>.</p>
+<p><strong>3. Wickham, Çetinkaya-Rundel &amp; Grolemund — what you <em>do</em>, as a loop.</strong> The <a href="https://r4ds.hadley.nz/intro"><em>R for Data Science</em></a> cycle <span class="citation" data-cites="wickham2023">(<a href="#ref-wickham2023" role="doc-biblioref">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span>: import and tidy once, then loop through transform, visualise and model, then communicate, with programming underneath. <a href="https://datascienceatthecommandline.com/2e/chapter-1-introduction">Jeroen Janssens</a> <span class="citation" data-cites="janssens2021">(<a href="#ref-janssens2021" role="doc-biblioref">Janssens 2021</a>)</span> adopts Mason and Wiggins’s steps as the spine of <em>Data Science at the Command Line</em>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/external/r4ds-data-science-cycle.png" class="img-fluid figure-img" alt="The R for Data Science cycle: import, tidy, then a loop of transform, visualise and model, then communicate, with program surrounding all of it"></p>
@@ -612,7 +632,7 @@ flowchart TB
 <li><strong>Machine learning</strong> itself is nearly even — 70% against 73%.</li>
 </ul>
 <p>Where AI Engineer comes from: its nearest neighbour is ML Engineer (1.06), and Data Engineer is 1.91 away — further than Data Scientist. One skill crosses the divide: model evaluation is required in 45% of AI Engineer ads and 23% of Data Scientist ads, against 2% of Data Engineer ads. Within the 1,008 engineering ads, evals run at 43% overall but 78% where A/B experimentation is also required (odds ratio 5.5, p &lt;0.001). LLM observability shows no such link (odds ratio 0.7, p 0.22).</p>
-<p>Each dot is one job ad, placed by the 44 skills it requires (<a href="https://www.jmlr.org/papers/v9/vandermaaten08a.html">t-SNE</a>: nearby dots have similar requirements, and distances across the map carry no scale). Click a title in the legend to hide it.</p>
+<p>Each dot is one job ad, placed by the 44 skills it requires (<a href="https://www.jmlr.org/papers/v9/vandermaaten08a.html">t-SNE</a> <span class="citation" data-cites="maaten2008">(<a href="#ref-maaten2008" role="doc-biblioref">Maaten and Hinton 2008</a>)</span>: nearby dots have similar requirements, and distances across the map carry no scale). Click a title in the legend to hide it.</p>
 <iframe src="cluster.html" title="Interactive skills map" width="100%" height="780" style="border:0;" loading="lazy">
 </iframe>
 <div class="callout callout-style-simple callout-warning callout-titled">
@@ -957,37 +977,44 @@ flowchart TB
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
-<p>Everything cited on this page, in the order it first appears.</p>
-<p><strong>The definitions this page measures against</strong></p>
-<ul>
-<li>Conway, D. (2010). <em>The Data Science Venn Diagram.</em> <a href="http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram" class="uri">http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram</a></li>
-<li>Mason, H. &amp; Wiggins, C. (2010, 25 September). <em>A Taxonomy of Data Science.</em> dataists. <a href="https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/">Archived copy</a> · <a href="https://introdatasci.dlilab.com/pdf/A_Taxonomy_of_Data_Science.pdf">PDF</a></li>
-<li>Davenport, T. H. &amp; Patil, D. J. (2012, October). <em>Data Scientist: The Sexiest Job of the 21st Century.</em> Harvard Business Review. <a href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century" class="uri">https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century</a></li>
-<li>Wickham, H., Çetinkaya-Rundel, M. &amp; Grolemund, G. (2023). <em>R for Data Science</em> (2nd ed.). O’Reilly. <a href="https://r4ds.hadley.nz/intro" class="uri">https://r4ds.hadley.nz/intro</a></li>
-<li>Janssens, J. (2021). <em>Data Science at the Command Line</em> (2nd ed.). O’Reilly. <a href="https://datascienceatthecommandline.com/2e/chapter-1-introduction" class="uri">https://datascienceatthecommandline.com/2e/chapter-1-introduction</a></li>
-</ul>
-<p><strong>Methods</strong></p>
-<ul>
-<li>van der Maaten, L. &amp; Hinton, G. (2008). <em>Visualizing Data using t-SNE.</em> Journal of Machine Learning Research, 9, 2579–2605. <a href="https://www.jmlr.org/papers/v9/vandermaaten08a.html" class="uri">https://www.jmlr.org/papers/v9/vandermaaten08a.html</a> — the skills map</li>
-<li>Cohen’s κ, used for the agreement between the two model readers. <a href="https://en.wikipedia.org/wiki/Cohen%27s_kappa" class="uri">https://en.wikipedia.org/wiki/Cohen%27s_kappa</a></li>
-<li>Euclidean distance, used for the distance between two titles’ requirement profiles. <a href="https://en.wikipedia.org/wiki/Euclidean_distance" class="uri">https://en.wikipedia.org/wiki/Euclidean_distance</a></li>
-</ul>
-<p><strong>The judge, and the second reader</strong></p>
-<ul>
-<li>TypeSafe. <em>Jev</em>, a System One model. <a href="https://typesafe.ai" class="uri">https://typesafe.ai</a> · <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">Introducing System One models and Jev</a></li>
-<li>Anthropic. <em>Claude Haiku</em>, the open-vocabulary second pass. <a href="https://www.anthropic.com/claude/haiku" class="uri">https://www.anthropic.com/claude/haiku</a></li>
-</ul>
-<p><strong>Tools and design</strong></p>
-<ul>
-<li>Okabe, M. &amp; Ito, K. (2008). <em>Color Universal Design</em> — the colour-blind-safe palette every chart here uses. <a href="https://jfly.uni-koeln.de/color/" class="uri">https://jfly.uni-koeln.de/color/</a></li>
-<li>plotnine <a href="https://plotnine.org" class="uri">https://plotnine.org</a> · Matplotlib <a href="https://matplotlib.org" class="uri">https://matplotlib.org</a> · Plotly <a href="https://plotly.com/python/" class="uri">https://plotly.com/python/</a></li>
-</ul>
-<p><strong>Figure permissions</strong></p>
-<ul>
-<li>Conway’s diagram is reproduced with attribution from the page above.</li>
-<li>The <em>R for Data Science</em> cycle is reproduced unchanged under <a href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/">CC BY-NC-ND 3.0</a>.</li>
-<li>The OSEMN figure is redrawn for this page: the original post carried no figure of its own.</li>
-</ul>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-anthropic2026haiku" class="csl-entry" role="listitem">
+Anthropic. 2026. <span>“Claude Haiku.”</span> <a href="https://www.anthropic.com/claude/haiku">https://www.anthropic.com/claude/haiku</a>.
+</div>
+<div id="ref-conway2010" class="csl-entry" role="listitem">
+Conway, Drew. 2010. <span>“The Data Science Venn Diagram.”</span> <a href="http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram">http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram</a>.
+</div>
+<div id="ref-davenport2012" class="csl-entry" role="listitem">
+Davenport, Thomas H., and D. J. Patil. 2012. <span>“Data Scientist: The Sexiest Job of the 21st Century.”</span> <em>Harvard Business Review</em>, October. <a href="https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century">https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century</a>.
+</div>
+<div id="ref-janssens2021" class="csl-entry" role="listitem">
+Janssens, Jeroen. 2021. <em>Data Science at the Command Line</em>. 2nd ed. O’Reilly Media. <a href="https://datascienceatthecommandline.com/2e/chapter-1-introduction">https://datascienceatthecommandline.com/2e/chapter-1-introduction</a>.
+</div>
+<div id="ref-maaten2008" class="csl-entry" role="listitem">
+Maaten, Laurens van der, and Geoffrey Hinton. 2008. <span>“Visualizing Data Using t-SNE.”</span> <em>Journal of Machine Learning Research</em> 9: 2579–2605. <a href="https://www.jmlr.org/papers/v9/vandermaaten08a.html">https://www.jmlr.org/papers/v9/vandermaaten08a.html</a>.
+</div>
+<div id="ref-mason2010" class="csl-entry" role="listitem">
+Mason, Hilary, and Chris Wiggins. 2010. <span>“A Taxonomy of Data Science.”</span> dataists. <a href="https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/">https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/</a>.
+</div>
+<div id="ref-okabe2008" class="csl-entry" role="listitem">
+Okabe, Masataka, and Kei Ito. 2008. <span>“Color Universal Design: How to Make Figures and Presentations That Are Friendly to Colorblind People.”</span> <a href="https://jfly.uni-koeln.de/color/">https://jfly.uni-koeln.de/color/</a>.
+</div>
+<div id="ref-plotly" class="csl-entry" role="listitem">
+Plotly. n.d. <span>“Plotly Open Source Graphing Library for Python.”</span> Accessed October 14, 2026. <a href="https://plotly.com/python/">https://plotly.com/python/</a>.
+</div>
+<div id="ref-plotnine" class="csl-entry" role="listitem">
+plotnine contributors. n.d. <span>“Plotnine: A Grammar of Graphics for Python.”</span> Accessed October 14, 2026. <a href="https://plotnine.org">https://plotnine.org</a>.
+</div>
+<div id="ref-matplotlib" class="csl-entry" role="listitem">
+The Matplotlib Development Team. n.d. <span>“Matplotlib: Visualization with Python.”</span> Accessed October 14, 2026. <a href="https://matplotlib.org">https://matplotlib.org</a>.
+</div>
+<div id="ref-typesafe2026" class="csl-entry" role="listitem">
+TypeSafe. 2026. <span>“Introducing System One Models and Jev.”</span> <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">https://typesafe.ai/blog/introducing-system-one-models-and-jev</a>.
+</div>
+<div id="ref-wickham2023" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. <em>R for Data Science</em>. 2nd ed. O’Reilly Media. <a href="https://r4ds.hadley.nz/intro">https://r4ds.hadley.nz/intro</a>.
+</div>
+</div>
 
 
 </section>
