@@ -133,7 +133,7 @@ In October 2012 *Harvard Business Review* called data scientist [the sexiest job
 
 ![Redrawn for this page; the post carried no figure of its own — [original](https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/) (archived) · [PDF](https://introdatasci.dlilab.com/pdf/A_Taxonomy_of_Data_Science.pdf)](images/osemn.png){fig-alt="The OSEMN pipeline: obtain, scrub, explore, model, interpret"}
 
-**3. Wickham, Çetinkaya-Rundel & Grolemund — what you *do*, as a loop.** The *R for Data Science* cycle: import and tidy once, then loop through transform, visualise and model, then communicate, with programming underneath. [Jeroen Janssens](https://datascienceatthecommandline.com/2e/chapter-1-introduction) adopts Mason and Wiggins's steps as the spine of *Data Science at the Command Line*.
+**3. Wickham, Çetinkaya-Rundel & Grolemund — what you *do*, as a loop.** The [*R for Data Science*](https://r4ds.hadley.nz/intro) cycle (2nd edition, 2023): import and tidy once, then loop through transform, visualise and model, then communicate, with programming underneath. [Jeroen Janssens](https://datascienceatthecommandline.com/2e/chapter-1-introduction) adopts Mason and Wiggins's steps as the spine of *Data Science at the Command Line*.
 
 ![© the authors, [CC BY-NC-ND 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/us/). Reproduced unchanged — [original](https://r4ds.hadley.nz/intro)](images/external/r4ds-data-science-cycle.png){fig-alt="The R for Data Science cycle: import, tidy, then a loop of transform, visualise and model, then communicate, with program surrounding all of it"}
 
@@ -212,3 +212,37 @@ The remaining {{< var jobskills.mlx_silent_nothing >}} ads name neither the conc
 - **Not a random sample, and the sampling frame moved.** These are the ads one crawler targets, so they describe what these titles ask for, not how many of each exist. The crawler is an ingestion pipeline under active development: title rules, regions and sources were all widened during the window, so a title's *share* reflects when the crawler started looking for it as much as how often employers post it. Shares are the least trustworthy numbers on this page; what each title asks for, measured within that title, is the most.
 - **Not every title was collected for the whole window.** {{< var jobskills.late_families >}} entered the crawler's title rules after collection had begun: {{< var jobskills.late_final_month_pct >}}% of its job ads fall in the final month, against {{< var jobskills.sample_final_month_pct >}}% for the sample. Its skill profile stands; its count is a floor.
 - **So:** read every percentage as approximate. A gap as wide as statistics — {{< var jobskills.data_scientist_statistics >}}% of Data Scientist ads against {{< var jobskills.ai_engineer_statistics >}}% of AI Engineer ads — is unlikely to be an artefact of a few points of noise; a gap of a few points may well be.
+
+## References
+
+Everything cited on this page, in the order it first appears.
+
+**The definitions this page measures against**
+
+- Conway, D. (2010). *The Data Science Venn Diagram.* <http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram>
+- Mason, H. & Wiggins, C. (2010, 25 September). *A Taxonomy of Data Science.* dataists. [Archived copy](https://web.archive.org/web/20160220042455/dataists.com/2010/09/a-taxonomy-of-data-science/) · [PDF](https://introdatasci.dlilab.com/pdf/A_Taxonomy_of_Data_Science.pdf)
+- Davenport, T. H. & Patil, D. J. (2012, October). *Data Scientist: The Sexiest Job of the 21st Century.* Harvard Business Review. <https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century>
+- Wickham, H., Çetinkaya-Rundel, M. & Grolemund, G. (2023). *R for Data Science* (2nd ed.). O'Reilly. <https://r4ds.hadley.nz/intro>
+- Janssens, J. (2021). *Data Science at the Command Line* (2nd ed.). O'Reilly. <https://datascienceatthecommandline.com/2e/chapter-1-introduction>
+
+**Methods**
+
+- van der Maaten, L. & Hinton, G. (2008). *Visualizing Data using t-SNE.* Journal of Machine Learning Research, 9, 2579–2605. <https://www.jmlr.org/papers/v9/vandermaaten08a.html> — the skills map
+- Cohen's κ, used for the agreement between the two model readers. <https://en.wikipedia.org/wiki/Cohen%27s_kappa>
+- Euclidean distance, used for the distance between two titles' requirement profiles. <https://en.wikipedia.org/wiki/Euclidean_distance>
+
+**The judge, and the second reader**
+
+- TypeSafe. *Jev*, a System One model. <https://typesafe.ai> · [Introducing System One models and Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
+- Anthropic. *Claude Haiku*, the open-vocabulary second pass. <https://www.anthropic.com/claude/haiku>
+
+**Tools and design**
+
+- Okabe, M. & Ito, K. (2008). *Color Universal Design* — the colour-blind-safe palette every chart here uses. <https://jfly.uni-koeln.de/color/>
+- plotnine <https://plotnine.org> · Matplotlib <https://matplotlib.org> · Plotly <https://plotly.com/python/>
+
+**Figure permissions**
+
+- Conway's diagram is reproduced with attribution from the page above.
+- The *R for Data Science* cycle is reproduced unchanged under [CC BY-NC-ND 3.0](https://creativecommons.org/licenses/by-nc-nd/3.0/us/).
+- The OSEMN figure is redrawn for this page: the original post carried no figure of its own.

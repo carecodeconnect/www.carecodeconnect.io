@@ -619,9 +619,16 @@ elif not _sub:
 # YAML front matter, the iframe's CSS, years, and licence names.
 SKIP = re.compile(r"^(date:|date-modified:|<iframe|\s*(title|subtitle):)")
 BARE = re.compile(r"\d[\d,.]*\s*%|\b\d{2,}(?:,\d{3})*\b|κ ≈ [\d.]+|\b\d+\.\d+\b")
+# The References section is exempt: a citation legitimately carries volume and
+# page numbers, issue dates and edition years ("JMLR, 9, 2579-2605"), and none
+# of them is a measurement that could go stale. Everything ABOVE it is still
+# scanned, which is where the figures live.
 strays = []
+in_references = False
 for n, line in enumerate((HERE / "index.qmd").read_text().splitlines(), 1):
-    if SKIP.match(line):
+    if line.startswith("## "):
+        in_references = line.startswith("## References")
+    if in_references or SKIP.match(line):
         continue
     bare = re.sub(r"\{\{<\s*var[^>]*>\}\}", "§", line)
     bare = re.sub(r"https?://\S+", "", bare)          # URLs and DOIs
