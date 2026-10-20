@@ -302,9 +302,8 @@ digraph {
   subgraph cluster_services {
     label="🔒  Self-hosted · Caddy TLS"; fontsize=13; fontcolor="#555"; color="#cbc6ba"; style="rounded";
     UM [label="📊  Umami\ncookieless analytics"];
-    N8 [label="⚙️  n8n\nautomations"];
   }
-  MC [label="✉️  Mailcoach · hosted\nemail · EU"];
+  MC [label="✉️  Mailcoach · hosted\nemail · EU data,\nUS delivery (SCCs)"];
   subgraph cluster_ci {
     label="🔧  CI/CD"; fontsize=13; fontcolor="#555"; color="#cbc6ba"; style="rounded";
     GH  [label="🐙  GitHub Actions"];
@@ -335,7 +334,7 @@ The whole system is deliberately **few moving parts** — one artifact to deploy
 :::
 
 ::: {focus-on="cr-arch" scale-by="1.7" pan-to="-48%,-25%"}
-**Platform & services.** Everything runs on [Scaleway](https://www.scaleway.com/) (Paris) — managed Postgres, serverless containers, and a registry fed by [GitHub Actions](https://github.com/features/actions). Analytics is self-hosted [Umami](https://umami.is/), chosen over [Plausible](https://plausible.io/) and [Pirsch](https://pirsch.io/); automations run on self-hosted [n8n](https://n8n.io/), all behind [Caddy](https://caddyserver.com/).
+**Platform & services.** Everything runs on [Scaleway](https://www.scaleway.com/) (Paris) — managed Postgres, serverless containers, and a registry fed by [GitHub Actions](https://github.com/features/actions). Analytics is self-hosted [Umami](https://umami.is/), chosen over [Plausible](https://plausible.io/) and [Pirsch](https://pirsch.io/), behind [Caddy](https://caddyserver.com/). (An n8n automation server was part of an earlier iteration and was decommissioned once Mailcoach's built-in automations covered the need — fewer moving parts won.)
 :::
 
 ::: {focus-on="cr-arch" scale-by="1.9" pan-to="35%,-76%"}
@@ -432,7 +431,7 @@ For a German audience and sensitive wellbeing data, privacy isn't bolted on — 
 :::
 
 ::: {focus-on="cr-privacy"}
-**Minimal third parties.** Self-hosted [Umami](https://umami.is/) sets no cookies (no consent banner); fonts are self-hosted (no Google Fonts IP leak); no ad or tracking scripts. Email campaigns use [Mailcoach](https://mailcoach.app/), an EU-based processor named in the privacy policy — the sole external processor, kept in-region.
+**Minimal third parties.** Self-hosted [Umami](https://umami.is/) sets no cookies (no consent banner); fonts are self-hosted (no Google Fonts IP leak); no ad or tracking scripts. Email campaigns use [Mailcoach](https://mailcoach.app/), named in the privacy policy — subscriber data rests in the EU (UpCloud, Finland), while delivery runs via Postmark (US) under standard contractual clauses, disclosed to subscribers. The honest trade: deliverability is a deep problem worth outsourcing, and the US hop is the cost.
 :::
 
 ::: {focus-on="cr-privacy"}
