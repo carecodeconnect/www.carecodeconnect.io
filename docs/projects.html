@@ -444,16 +444,24 @@ ul.task-list li input[type="checkbox"] {
 <script>
 (function () {
   var AREAS = [
-    { label:"Nervensystem", color:"#F5C842" }, { label:"Körper", color:"#F5C842" }, { label:"Geist", color:"#F5C842" },
-    { label:"Familie", color:"#D63C2F" }, { label:"Intimität", color:"#D63C2F" }, { label:"Zuhause", color:"#D63C2F" },
-    { label:"Arbeit", color:"#2B4EA8" }, { label:"Kreativität", color:"#2B4EA8" }, { label:"Sinn", color:"#2B4EA8" },
-    { label:"Storytelling", color:"#1F1D1A" }
+    { label: "Nervensystem", color: "#F5C842" },
+    { label: "Körper",       color: "#F5C842" },
+    { label: "Geist",        color: "#F5C842" },
+    { label: "Beziehungen",  color: "#D63C2F" },
+    { label: "Gemeinschaft", color: "#D63C2F" },
+    { label: "Intimität",    color: "#D63C2F" },
+    { label: "Arbeit",       color: "#2B4EA8" },
+    { label: "Sinn",         color: "#2B4EA8" },
+    { label: "Natur",        color: "#2B4EA8" },
+    { label: "Storytelling", color: "#1F1D1A" },
+    { label: "Rhythmus",     color: "#1F1D1A" },
+    { label: "Zukunft",      color: "#1F1D1A" }
   ];
   var PROFILES = [
-    { name:"Vieles trägt – einiges wackelt", note:"Ein Alltag, der grundsätzlich funktioniert.", scores:[2,2,4,2,2,3,4,2,3,2] },
-    { name:"In der Krise", note:"Gerade hält wenig. Auch das darf sichtbar werden.", scores:[1,1,1,2,1,2,2,1,1,1] },
-    { name:"Wieder im Gleichgewicht", note:"Ein tragfähiges Fundament über fast alle Bereiche.", scores:[4,4,3,4,3,4,3,4,4,3] },
-    { name:"In voller Kraft", note:"Nahezu alle Lebensbereiche tragen zuverlässig.", scores:[5,5,5,5,4,5,4,5,5,4] }
+    { name:"Vieles trägt – einiges wackelt", note:"Ein Alltag, der grundsätzlich funktioniert.", scores:[2,2,4,2,3,2,4,3,3,2,3,2] },
+    { name:"In der Krise", note:"Gerade hält wenig. Auch das darf sichtbar werden.", scores:[1,1,1,2,2,1,2,1,2,1,1,1] },
+    { name:"Wieder im Gleichgewicht", note:"Ein tragfähiges Fundament über fast alle Bereiche.", scores:[4,4,3,4,4,3,3,4,4,3,4,3] },
+    { name:"In voller Kraft", note:"Nahezu alle Lebensbereiche tragen zuverlässig.", scores:[5,5,5,5,4,5,4,5,5,4,5,4] }
   ];
   var SIZE=520, CX=260, CY=260, RINGS=5, R=190, CENTER_R=36, LABEL_R=214, N=AREAS.length;
   function ang(i,o){ return (Math.PI*2*(i+o))/N - Math.PI/2; }

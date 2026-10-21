@@ -111,19 +111,21 @@ Scroll to read the journey of building **[Life Repair Kit](https://www.liferepai
     { label: "Nervensystem", color: "#F5C842" },
     { label: "Körper",       color: "#F5C842" },
     { label: "Geist",        color: "#F5C842" },
-    { label: "Familie",      color: "#D63C2F" },
+    { label: "Beziehungen",  color: "#D63C2F" },
+    { label: "Gemeinschaft", color: "#D63C2F" },
     { label: "Intimität",    color: "#D63C2F" },
-    { label: "Zuhause",      color: "#D63C2F" },
     { label: "Arbeit",       color: "#2B4EA8" },
-    { label: "Kreativität",  color: "#2B4EA8" },
     { label: "Sinn",         color: "#2B4EA8" },
-    { label: "Storytelling", color: "#1F1D1A" }
+    { label: "Natur",        color: "#2B4EA8" },
+    { label: "Storytelling", color: "#1F1D1A" },
+    { label: "Rhythmus",     color: "#1F1D1A" },
+    { label: "Zukunft",      color: "#1F1D1A" }
   ];
   var PROFILES = [
-    { name: "Vieles trägt – einiges wackelt", note: "Ein Alltag, der grundsätzlich funktioniert, mit ein paar dünnen Stellen.", scores: [2,2,4,2,2,3,4,2,3,2] },
-    { name: "In der Krise",                   note: "Gerade hält wenig. Auch das darf sichtbar werden.",                        scores: [1,1,1,2,1,2,2,1,1,1] },
-    { name: "Wieder im Gleichgewicht",        note: "Ein tragfähiges Fundament über fast alle Bereiche.",                       scores: [4,4,3,4,3,4,3,4,4,3] },
-    { name: "In voller Kraft",                note: "Nahezu alle Lebensbereiche tragen zuverlässig.",                           scores: [5,5,5,5,4,5,4,5,5,4] }
+    { name: "Vieles trägt – einiges wackelt", note: "Ein Alltag, der grundsätzlich funktioniert, mit ein paar dünnen Stellen.", scores: [2,2,4,2,3,2,4,3,3,2,3,2] },
+    { name: "In der Krise",                   note: "Gerade hält wenig. Auch das darf sichtbar werden.",                        scores: [1,1,1,2,2,1,2,1,2,1,1,1] },
+    { name: "Wieder im Gleichgewicht",        note: "Ein tragfähiges Fundament über fast alle Bereiche.",                       scores: [4,4,3,4,4,3,3,4,4,3,4,3] },
+    { name: "In voller Kraft",                note: "Nahezu alle Lebensbereiche tragen zuverlässig.",                           scores: [5,5,5,5,4,5,4,5,5,4,5,4] }
   ];
   var SIZE = 520, CX = 260, CY = 260, RINGS = 5, R = 190, CENTER_R = 36, LABEL_R = 214, N = AREAS.length;
   function ang(i, off) { return (Math.PI * 2 * (i + off)) / N - Math.PI / 2; }
@@ -211,7 +213,7 @@ Scroll to read the journey of building **[Life Repair Kit](https://www.liferepai
 ::: {focus-on="cr-radar" .radar-phase data-phase="0"}
 ### The ResilienzRadar
 
-The **ResilienzRadar** maps ten life dimensions in four clusters — **Self** (yellow), **With others** (red), **World** (blue), **Storytelling** (black). It asks not *what is broken?* but *where is life stable — and where is it shaky?* Here: a life that mostly holds, with a few thin spots. *(Scroll to watch it change.)*
+The **ResilienzRadar** maps twelve life dimensions in four clusters — **Ich / Self** (yellow), **Wir / With others** (red), **Welt / World** (blue), **Zeit / Time** (black). It asks not *what is broken?* but *where is life stable — and where is it shaky?* Here: a life that mostly holds, with a few thin spots. *(Scroll to watch it change.)*
 :::
 
 ::: {focus-on="cr-radar" .radar-phase data-phase="1"}
@@ -242,10 +244,10 @@ digraph {
   bgcolor="transparent"; rankdir=LR; nodesep=0.28; ranksep=0.55;
   node [shape=box, style="rounded,filled", fillcolor="white", color="#333333", fontcolor="#111111", fontname="Inter,Helvetica,Arial,sans-serif", fontsize=15, margin="0.24,0.16"];
   edge [color="#666666", penwidth=1.4, arrowsize=0.8];
-  Q    [label="📝  50 Likert items\n10 dimensions"];
+  Q    [label="📝  60 Likert items\n12 dimensions"];
   ADJ  [label="🔄  invert reverse items\n6 − raw"];
   DIM  [label="📊  dimension score\n= mean of items"];
-  MAP  [label="🎯  10-dimension\nscore map"];
+  MAP  [label="🎯  12-dimension\nscore map"];
   POST [label="🗄️  Postgres\nJSON · UUID"];
   SVG  [label="🕸️  interactive SVG"];
   OG   [label="🖼️  server radar.svg"];
@@ -257,7 +259,7 @@ digraph {
 :::
 
 ::: {focus-on="cr-pipeline" scale-by="1.9" pan-to="80%,3%"}
-**The quiz.** Fifty statements on a five-point scale (*"does not apply at all"* → *"fully applies"*). The items were carefully curated — distilled from the project's bespoke wellbeing resource hub and written on established **psychometric measurement principles**: balanced positive/negative keying, plain single-idea wording, and dimensions kept conceptually distinct.
+**The quiz.** Sixty statements on a five-point scale (*"does not apply at all"* → *"fully applies"*). The items were carefully curated — distilled from the project's bespoke wellbeing resource hub and written on established **psychometric measurement principles**: balanced positive/negative keying, plain single-idea wording, and dimensions kept conceptually distinct.
 :::
 
 ::: {focus-on="cr-pipeline" scale-by="1.9" pan-to="40%,3%"}

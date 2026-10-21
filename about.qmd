@@ -22,6 +22,8 @@ Explore our [blog](blog.qmd) and [projects](projects.qmd) to find out more!
 
 - **Lead Data Scientist, [Shoutt International](https://shoutt.ai), London (2026).** Production LLM and agentic systems for a two-sided freelance job marketplace: role classification for thousands of inconsistent job posts, a CV-review engine with a multi-model router, an agent pipeline that turns one API call into a branded interview-prep PDF, and the evaluation harnesses and metrics dashboards that showed whether any of it worked.
 
+- **Founding Developer, [Life Repair Kit](https://www.liferepairkit.de), Berlin / remote (2026–present).** Sole developer of a German-language wellbeing platform: a single Rust/Axum binary serving a TypeScript SPA and PostgreSQL, the twelve-dimension *ResilienzRadar* self-assessment with on-device PDF results, a founder-editable resource hub and magazine, and the EU-only Scaleway infrastructure, CI/CD and security hardening behind it. [System design and architecture write-up](projects/life-repair-kit/index.html).
+
 - **Data Scientist, [Lightfoot](https://www.lightfoot.co.uk/), Exeter (2024–2025).** Automated analytics, causal inference and predictive models for eco-driving behaviour change.
 
 - **Data Scientist, [Data Science Retreat](https://datascienceretreat.com/), Berlin (2023–2024).** Led a team of four to build [Jhāna.AI](projects.qmd#jh%C4%81na.ai-personal-meditation-guide), an interactive meditation assistant guided by real-time voice and brain signals; prompt engineering and fine-tuning of open-source LLMs.
