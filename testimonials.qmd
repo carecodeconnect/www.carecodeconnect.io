@@ -4,6 +4,10 @@ format: html
 toc: true
 ---
 
+# *Aeden Thomas*, Software Engineer
+
+I had the pleasure of working closely alongside Stephen at Shoutt, where he served as our Lead Data Scientist. He was the first data scientist I collaborated with, and he set an exceptionally high standard for what cross-functional partnership between engineering and data science should look like. Data science and applied AI often demand weeks or months of deep, painstaking iteration, and Stephen’s patience in this area is extraordinary. He is a true expert at diving into complex, ambiguous data, diagnosing edge cases, and methodically driving up accuracy through disciplined evaluation loops. Just as impressive was his approach to problem-solving and the sheer clarity of his documentation. Whether he was engineering prompt and evaluation frameworks or building out our dashboards to give the team visibility into user funnels, Stephen always documented his reasoning, test suites, and trade-offs meticulously. He took the mystery out of the AI layer and made complex systems easy for the engineering team to understand and build upon. Stephen is a fantastic data scientist, a patient and clear-headed thinker, and an outstanding teammate. Any team would be lucky to have him, and I recommend him without hesitation.
+
 # *Al Thomson*, Analytics Engineer
 
 As a new starter, Stephen ramped up exceptionally quickly, demonstrating strong ownership of complex systems, a clear understanding of the business, and confidence in the day-to-day analytical work. Stephen excels at designing repeatable, well-documented data products that directly address real business pain points. He doesn't just analyse problems but builds scalable solutions that others can easily understand, reuse, and extend. That combination of clarity, structure, and innovation genuinely sets him apart. On top of this, Stephen is a strong communicator, who can translate technical work into clear, actionable insight for non-technical stakeholders. Any organisation looking for someone who can both build robust data solutions and drive impact through them would be fortunate to have him.
